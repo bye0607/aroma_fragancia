@@ -381,3 +381,116 @@ transition: all 0.4s ease-in-out;
 .offer-content{
 	padding:0 20px 10px;
 }
+
+/*게시판 공통 이미지*/
+/*desktop버전 css*/
+.img-responsive {
+	height: 600px;
+	max-width:100% !important;
+	background-position: center;
+	background-size: cover;
+	position : relative !important;
+	align-items: center;
+	display:flex !important; 
+	justify-content:center !important; 
+	align-items:center!important;
+}
+.boardText1 {
+	position:absolute !important; 
+	top:50% !important; 
+	left:50%!important; 
+	transform:translate(-50%,74%) !important;
+	width: 390px !important; 
+	height: 173px !important; 
+	background-color: #fff !important;
+	color: #000 !important;
+	border-radius: 37px 37px 0 0 !important; 
+    padding-top: 20px;
+}
+.boardTitle1{
+	font-family:DM Serif Display;
+	text-align: center; 
+	font-size: 50px;
+}
+.boardSub1 {
+	font-family: Noto Sans KR;
+	text-align: center; 
+	font-size: 22px;
+}
+/*제목*/
+.Title1 {
+	font-family: Noto Sans KR;
+	text-align: left; 
+	font-size: 40px; 
+	margin: 110px 0 138px 0;
+}
+/*mobile버전 css*/	
+.mobileImg{
+	height: 600px;
+	max-width:100% !important;
+	display:flex !important; 
+	justify-content:center !important; 
+	align-items:center!important;
+}
+	
+.boardText2 {
+	position:absolute !important; 
+	top:50% !important; 
+	left:50%!important; 
+	transform:translate(-30%,150%) !important;
+	width: 262px !important; 
+	height: 120px !important; 
+	background-color: #fff !important;
+	color: #000 !important;
+	border-radius: 37px 37px 0 0 !important; 
+    right: 40% !important;
+    left: 40% !important;
+    padding-top: 10px;
+}
+.boardTitle2{
+	font-family:DM Serif Display;
+	text-align: center; 
+	font-size: 32px;
+}
+.boardSub2 {
+	font-family: Noto Sans KR;
+	 text-align: center; 
+	 font-size: 16px;
+}
+/*제목*/
+.Title2 {
+	font-family: Noto Sans KR;
+	text-align: left; 
+	font-size: 40px; 
+	margin: 110px 0 138px 0;
+	text-align: center;
+}
+/*media*/
+@media (min-width: 412px){
+  .desktop {
+    display: none !important; 
+  }
+  .mobile {
+    display: block !important; 
+  }
+  .Title1 {
+  	display: none !important;
+  }
+  .Title2 {
+  	display: block !important; 
+  }
+}
+@media (min-width: 768px){
+  .mobile {
+    display: none !important; 
+  }
+  .desktop {
+    display: block !important; 
+  }
+  .Title2 {
+  	display: none !important;
+  }
+  .Title1 {
+  	display: block !important; 
+  }
+}
