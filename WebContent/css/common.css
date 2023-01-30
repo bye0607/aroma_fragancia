@@ -385,86 +385,63 @@ transition: all 0.4s ease-in-out;
 /*게시판 공통 이미지*/
 /*desktop버전 css*/
 .img-responsive {
-	height: 600px;
-	max-width:100% !important;
+	height: 500px;
+	max-width:100%;
 	background-position: center;
 	background-size: cover;
-	position : relative !important;
-	align-items: center;
-	display:flex !important; 
-	justify-content:center !important; 
-	align-items:center!important;
+	display:flex; 
+	justify-content:center;
+	align-items:flex-end;
 }
 .boardText1 {
-	position:absolute !important; 
-	top:50% !important; 
-	left:50%!important; 
-	transform:translate(-50%,74%) !important;
-	width: 390px !important; 
-	height: 173px !important; 
-	background-color: #fff !important;
-	color: #000 !important;
-	border-radius: 37px 37px 0 0 !important; 
-    padding-top: 20px;
+	width: 390px; 
+	height: 173px; 
+	background-color: #fff;
+	color: #292F36;
+	border-radius: 37px 37px 0 0; 
+	text-align: center; 
+    padding-top: 10px;
 }
 .boardTitle1{
-	font-family:DM Serif Display;
-	text-align: center; 
+	font-family:'DM Serif Display';
 	font-size: 50px;
 }
 .boardSub1 {
-	font-family: Noto Sans KR;
-	text-align: center; 
+	color:#4D5053;
+	font-family: 'Noto Sans KR';
 	font-size: 22px;
-}
-/*제목*/
-.Title1 {
-	font-family: Noto Sans KR;
-	text-align: left; 
-	font-size: 40px; 
-	margin: 110px 0 138px 0;
 }
 /*mobile버전 css*/	
 .mobileImg{
-	height: 600px;
-	max-width:100% !important;
-	display:flex !important; 
-	justify-content:center !important; 
-	align-items:center!important;
+	height: 350px;
+	max-width:100%;
+	background-position: center;
+	background-size: cover;
+	display:flex; 
+	justify-content:center;
+	align-items:flex-end;
 }
 	
 .boardText2 {
-	position:absolute !important; 
-	top:50% !important; 
-	left:50%!important; 
-	transform:translate(-30%,150%) !important;
-	width: 262px !important; 
-	height: 120px !important; 
-	background-color: #fff !important;
-	color: #000 !important;
-	border-radius: 37px 37px 0 0 !important; 
-    right: 40% !important;
-    left: 40% !important;
-    padding-top: 10px;
+	width: 273px; 
+	height: 121px; 
+	background-color: #fff;
+	color: #292F36;
+	border-radius: 26px 26px 0 0; 
+    padding-top: 0;
 }
 .boardTitle2{
 	font-family:DM Serif Display;
 	text-align: center; 
-	font-size: 32px;
+	font-size: 35px;
 }
 .boardSub2 {
+	color:#4D5053;
 	font-family: Noto Sans KR;
 	 text-align: center; 
 	 font-size: 16px;
 }
-/*제목*/
-.Title2 {
-	font-family: Noto Sans KR;
-	text-align: left; 
-	font-size: 40px; 
-	margin: 110px 0 138px 0;
-	text-align: center;
-}
+
 /*media*/
 @media (min-width: 412px){
   .desktop {
@@ -472,12 +449,6 @@ transition: all 0.4s ease-in-out;
   }
   .mobile {
     display: block !important; 
-  }
-  .Title1 {
-  	display: none !important;
-  }
-  .Title2 {
-  	display: block !important; 
   }
 }
 @media (min-width: 768px){
@@ -487,10 +458,31 @@ transition: all 0.4s ease-in-out;
   .desktop {
     display: block !important; 
   }
-  .Title2 {
-  	display: none !important;
-  }
-  .Title1 {
-  	display: block !important; 
-  }
+}
+
+/* subpage title */
+.page-header {min-height:84px;border-bottom:0;}
+.page-header .title.eng {color:#292F36;font:34px/100% 'DM Serif Display';}
+.page-header .title {color:#292F36;font:39px/100% 'Noto Sans KR';}
+.page-header small {display:inline-block;color:#575656;font:bold 26px/100% 'Crimson Pro';}
+@media (min-width: 992px) {
+	.page-header {min-height:120px;}
+	.page-header .title.eng {font-size:48px;}
+	.page-header .title {font-size:55px;}
+	.page-header small {padding-left:70px;font-size:37px;}
+}
+
+/* 게시판 공통 */
+/* board buttons */
+.boardbtn {width:112px;height:42px;background:#D9D9D9;border-radius:14px;font-size:14px;margin-top:20px}
+.boardbtn:hover {background:#9CA09F;color:#fff}
+@media (min-width: 992px) {
+	.boardbtn {width:198px;height:60px;border-radius:20px;font-size:20px;}
+}
+/* board list */
+.table-responsive {border:0}
+.table.boardlist>tbody>tr>td {padding:25px 0;color:#575656;font-size:20px;border-top:0;border-bottom:1px solid #000;}
+.table.boardlist>tbody>tr>td a {color:#4D5053;}
+@media (min-width: 992px) {
+	.table.boardlist>tbody>tr>td  {min-height:130px;padding:42px 10px;font-size:30px;}
 }
