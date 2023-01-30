@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="main.jsp">
-<title>HS STATIONERY</title>
+<title>AROMA, FRAGANCIA</title>
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/vegas.min.css" rel="stylesheet">
@@ -69,8 +69,8 @@ $(document).ready(function() {
     		<!-- vegas -->
       </div>
 		
-		<div class="container" style="background-color:#ffffff; height:200px">
-			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. 그렇게 비움은 우리에게 여운을 남깁니다. 비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.
+		<div class="container storytext storytext1" style="height:200px">
+			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 그렇게 비움은 우리에게 여운을 남깁니다. 비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.
 				AROMA FRAGANCIA는 향의 본질은 장식적인 기교나 의미 부여가 아닌 비우는 것에 있다고 생각합니다. 비우고 버려 본질만 남았을 때 부재의 역할은 확장되고 향과 사용자 사이에 관계성을 부여합니다. 관계성은 사용자 개인이 가지고 있는 본연의 향을 더욱 돋보이게 만들고 				체향과 제품의 향을 아울러 하나의 시적 언어를 탄생시킵니다.</p>
 		</div>
 	 
@@ -95,35 +95,44 @@ $(document).ready(function() {
 		        </div>
 			</div>
 		
-		<div class="container" style="background-color:#ffffff; height:200px">
-			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. 그렇게 비움은 우리에게 여운을 남깁니다. 비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.
-				AROMA FRAGANCIA는 향의 본질은 장식적인 기교나 의미 부여가 아닌 비우는 것에 있다고 생각합니다. 비우고 버려 본질만 남았을 때 부재의 역할은 확장되고 향과 사용자 사이에 관계성을 부여합니다. 관계성은 사용자 개인이 가지고 있는 본연의 향을 더욱 돋보이게 만들고 				체향과 제품의 향을 아울러 하나의 시적 언어를 탄생시킵니다.</p>
+		<div class="container storytext" style="height:300px">
+			<p>
+			지금, 당신은 스스로에게 만족스러운 향수를 사용하고 있나요? <br>
+			  - <br>
+				전 세계 수만 개의 향수 중 당신의 향수를 찾는 것은 운명과도 같습니다. <br>
+				그렇기에 AROMA,FRAGANCIA는 오늘도 향기와 사람을 잇는 매개체가 되어
+				새로운 향수들을 끊임없이 탐구하는 일을 멈추지 않습니다. <br>
+				
+				당신의 일부가 되는 최적의 향수를 찾는 일, 그것이 AROMA,FRAGANCIA가 존재하는 이유입니다. <br>
+			</p>
+			
+			<p class="story_sub">AROMA,FRAGANCIA는 조화로운 향기들을 쌓아올려 향을 통해 가장 나다운 향을 찾기 위한 여정을 함께합니다. </p>
 		</div>
 			
 		<div class="maincolor" style="background-color: rgb(225, 225, 227); height:1200px">
-			<h4> Fill Your Color</h4>
+			<h4> Fill Your Color </h4>
 	        <div class="colorproduct">
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color1.jpg" class="hideimg mc-b" alt="color1">
+	                    <img src="/maincolor/color1.jpg" class="mc-b" alt="color1">
 	                    <img src="/maincolor/chover1.jpg" class="mc-c" alt="chover1">
 	                <li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                	<img src="/maincolor/color2.jpg" class="hideimg mc-b" alt="color2">
+	                	<img src="/maincolor/color2.jpg" class="mc-b" alt="color2">
 	                    <img src="/maincolor/chover2.jpg" class="mc-c" alt="chover2">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color3.jpg" class="hideimg mc-b" alt="color3">
+	                    <img src="/maincolor/color3.jpg" class="mc-b" alt="color3">
 	                    <img src="/maincolor/chover3.jpg" class="mc-c" alt="chover3">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color4.jpg" class="hideimg mc-b" alt="color4">
+	                    <img src="/maincolor/color4.jpg" class="mc-b" alt="color4">
 	                    <img src="/maincolor/chover4.jpg" class="mc-c" alt="chover4">
 	                </li>
 	            </div> 
@@ -131,25 +140,25 @@ $(document).ready(function() {
 	        <div class="colorproduct">
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color5.jpg" class="hideimg mc-b" alt="color5">
+	                    <img src="/maincolor/color5.jpg" class="mc-b" alt="color5">
 	                    <img src="/maincolor/chover5.jpg" class="mc-c" alt="chover5">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color6.jpg" class="hideimg mc-b" alt="color6">
+	                    <img src="/maincolor/color6.jpg" class="mc-b" alt="color6">
 	                    <img src="/maincolor/chover6.jpg" class="mc-c" alt="chover6">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color7.jpg" class="hideimg mc-b" alt="color7">
+	                    <img src="/maincolor/color7.jpg" class="mc-b" alt="color7">
 	                    <img src="/maincolor/chover7.jpg" class="mc-c" alt="chover7">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color8.jpg" class="hideimg mc-b" alt="color8">
+	                    <img src="/maincolor/color8.jpg" class="mc-b" alt="color8">
 	                    <img src="/maincolor/chover8.jpg" class="mc-c" alt="chover8">
 	                </li>
 	            </div> 
@@ -183,7 +192,8 @@ $(document).ready(function() {
 		
 		
 		
-		<div class="mapp">찾아오시는 길</div>
+		<div class="mapp"> AROMA FRAGANCIA <br>
+							오프라인 매장 찾아오시는 길</div>
 		
 		<div class="container">
 		<div class="mainmap">
@@ -209,7 +219,7 @@ $(document).ready(function() {
 				// 마커가 지도 위에 표시되도록 설정합니다
 				marker.setMap(map);
 				
-				var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 				    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
 				
 				// 인포윈도우를 생성합니다
