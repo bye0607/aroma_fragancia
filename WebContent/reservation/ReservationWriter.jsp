@@ -38,8 +38,7 @@
 
 <!-- ReservationWriter -->
 	<div class="container">
-	<h4 class="Title1">상담신청하기</h4>
-	<h4 class="Title2">상담신청하기</h4>
+	<h4 class="Title">상담 신청 게시판</h4>
 	<div class="textbox">
 		<p class="title">29일 방문 예약 문의</p>
 		<p class="people">USER</p>
@@ -67,7 +66,12 @@ background-color: #fff;
     margin-bottom: 8px;
     text-align: inherit !important;
 }
-
+.Title{
+font-family: Noto Sans KR;
+font-size: 40px;
+margin-top: 90px;
+margin-bottom: 100px;
+}
 /*Writer Text*/
 .textbox{
 	width:100%;

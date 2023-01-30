@@ -38,8 +38,7 @@
 
 <!-- Detail -->
 	<div class="container">
-	<h4 class="Title1">상담신청하기</h4>
-	<h4 class="Title2">상담신청하기</h4>
+	<h4 class="Title">상담신청하기</h4>
 		<form class="form-horizontal">
 		<div class="form-group">
 		    <label for="inputTitle3" class="col-sm-1 control-label">제목</label>
@@ -98,6 +97,11 @@ background-color: #fff;
     margin-bottom: 8px;
     text-align: inherit !important;
 }
-
+.Title{
+font-family: Noto Sans KR;
+font-size: 40px;
+margin-top: 90px;
+margin-bottom: 100px;
+}
 </style>
 </html>
