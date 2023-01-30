@@ -80,19 +80,16 @@ $(document).ready(function() {
 		            <div>
 		                <li>
 		                    <img src="/storyimg/story1.jpg" alt="story1" class="hideimg" style="margin:0px;">
-		                    <h3>스토리 1 이미지</h3>
 		                <li>
 		            </div> 
 		            <div>
 		                <li>
 		                <img src="/storyimg/story2.jpg" class="hideimg" alt="story2">
-		                  <h3>스토리 2 이미지</h3>
 		                </li>
 		            </div> 
 		            <div>
 		                <li>
 		                    <img src="/storyimg/story3.jpg" class="hideimg" alt="story3" >
-		                    <h3>스토리 3 이미지</h3>
 		                </li>
 		            </div> 
 		        </div>
