@@ -49,8 +49,8 @@
 열락의 것은 노년에게서 끝에 수 부패를 얼마나 방지하는 인생에 피다. 위하여 트고, 것은 갑 웅대한 주며, 얼음과 못할 황금시대다. 같이 충분히 눈이 할지니, 이 가진 대고, 목숨을 뿐이다. 공자는 그들의 것은 천하를 옷을 피어나기 무엇을 그들은 뿐이다. 황금시대를 오직 청춘이 동력은 영원히 너의 이상의 황금시대다. 청춘의 앞이 이상은 힘있다. 불러 산야에 무한한 풍부하게 투명하되 쓸쓸한 인간의 것이다. 천고에 것은 풍부하게 작고 이성은 품으며, 설산에서 유소년에게서 쓸쓸하랴? 인생을 아름답고 튼튼하며, 것이다. 같이, 그들의 하여도 웅대한 찬미를 크고 있는가?</p>
 	</div>
 	 <div style=" text-align: right;">
-		<button type="button" class="btn btn-default" style=" display: inline-block; margin: 150px 0 60px 0;">글 수정하기</button>
-		<button type="button" class="btn btn-default" style=" display: inline-block; margin: 150px 0 60px 0;">글 삭제하기</button>
+		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;">글 수정하기</button>
+		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;">글 삭제하기</button>
 	</div>
 	</div>
 	</div>

@@ -71,15 +71,17 @@
 		    </div>
 		  </div>
 		  
+		  <!-- 
 		  <div class="form-group">
 		    <label for="exampleInputFile" class="col-sm-2 control-label">파일 선택</label>
 		    <div class="col-sm-12">
 		    <input type="file" id="exampleInputFile" class="form-control">
 		    </div>
 		  </div>
-  
+  		 -->
+  		 
 		  <div style=" text-align: right;">
-		  <button type="button" class="btn btn-default" style=" display: inline-block; margin: 150px 0 60px 0;">글 등록하기</button>
+		  <button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 84px 0;">글 등록하기</button>
 		  </div>
 		</form>
 	</div>
