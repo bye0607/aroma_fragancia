@@ -464,5 +464,11 @@ background-color: #9CA09F;
 	text-align: center;
 	margin-top: 22px;
 }
+
+
+@media (max-width: 992px) {
+	.panel-body {top: 62% !important;}
+	.login{margin: -56px !important;}
+	.backgroundImg {height: 1100px;}}
 </style>
 </html>

@@ -92,6 +92,10 @@ margin-bottom: 80px;
 	padding: 0 40px 0 40px; 
 	clear: both;
 }
+@media (max-width: 992px) {
+	.Title {font-size: 28px;}
+	.title{font-size: 21px;}
+	.people{font-size: 21px;}}
 </style>
 
 </html>

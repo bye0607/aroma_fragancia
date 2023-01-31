@@ -250,5 +250,9 @@ background-color: #9CA09F;
 	margin-top: 22px;
 }
 
+@media (max-width: 992px) {
+	.panel-body {top: 57% !important;}
+	.login{margin: -56px !important;}}
+}
 </style>
 </html>

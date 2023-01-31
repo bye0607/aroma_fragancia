@@ -97,8 +97,8 @@ background-color: #fff;
 /*form 제목*/
 .form-control {
     padding-top: 7px;
-    margin-top:10px;
     margin-bottom: 40px;
+    margin-top:10px;
     height: 90px !important;
     background-color: #D9D9D9 !important;
 }
@@ -113,5 +113,9 @@ margin-top: 90px;
 margin-bottom: 100px;
 }
 
+@media (max-width: 992px) {
+	.Title {font-size: 28px;}
+	.control-label{font-size: 18px;}
+	}
 </style>
 </html>
