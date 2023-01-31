@@ -92,6 +92,32 @@ function zoomIn(event) {
         position: relative;
         animation: fadeInUp 6s;
     }
+    
+    /*media*/
+	@media (max-width: 768px){
+	
+		.probtn{
+			margin-left : 40%;
+		}
+		
+	}
+	@media (max-width: 412px){
+		.probtn{
+			margin-left : 20%;
+		}
+		#map{
+		     width: 500px;
+		     height: 500px;
+		    
+		     margin-right: 15px;
+		     margin-top: 160px;
+		     margin-bottom: 10px;
+		}
+	
+		.movebtn{
+			width: 200px;
+		}
+	}
 </style>
 
 <body>
@@ -102,7 +128,7 @@ function zoomIn(event) {
     		<!-- vegas -->
       </div>
 		
-		<div class="container storytext storytext1 test_obj" style="height:280px">
+		<div class="container storytext storytext1 test_obj  style="height:280px">
 			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
 			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
 			비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.<br>
@@ -147,7 +173,7 @@ function zoomIn(event) {
 			<p class="story_sub">AROMA,FRAGANCIA는 조화로운 향기들을 쌓아올려 향을 통해 가장 나다운 향을 찾기 위한 여정을 함께합니다. </p>
 		</div>
 			
-		<div class="maincolor" style="background-color: rgb(225, 225, 227); height:1200px">
+		<div class="maincolor">
 			<h4> Fill Your Color </h4>
 	        <div class="colorproduct">
 	            <div>
@@ -174,8 +200,6 @@ function zoomIn(event) {
 	                    <img src="/maincolor/chover4.jpg" class="mc-c" alt="chover4">
 	                </li>
 	            </div> 
-            </div> 
-	        <div class="colorproduct">
 	            <div>
 	                <li class="mc-a">
 	                    <img src="/maincolor/color5.jpg" class="mc-b" alt="color5">
