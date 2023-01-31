@@ -233,7 +233,7 @@
 							    </div>
 							  </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="boardbtn form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">CREATE ACCOUNT</button>
+                                <button class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">CREATE ACCOUNT</button>
                         </form>
                     </div>
                 </div>
@@ -451,6 +451,11 @@ a{
 }
 a:hover{
 	color: #818483;
+}
+.Loginbtn{
+font-size: 25px;
+color: #fff;
+background-color: #9CA09F;
 }
 .forgotText {
 	font-weight: semibold;

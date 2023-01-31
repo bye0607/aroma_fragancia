@@ -104,7 +104,7 @@
 							    </div>
 							  </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="button" class="boardbtn form-control" onclick="ajaxLoginCheck();">Login</button>
+                                <button type="button" class="Loginbtn form-control" onclick="ajaxLoginCheck();">LOGIN</button>
                                 <div class="form-group">
                                 	<p class="forgotText"><a href="${context}/user/pwFind.jsp">Forgot your password?</a></p>
                                 </div>
@@ -237,6 +237,11 @@ a{
 a:hover{
 	color: #818483;
 }
+.Loginbtn{
+font-size: 25px;
+color: #fff;
+background-color: #9CA09F;
+}
 .forgotText {
 	font-weight: semibold;
 	font-size: 20px;
@@ -244,5 +249,6 @@ a:hover{
 	text-align: center;
 	margin-top: 22px;
 }
+
 </style>
 </html>
