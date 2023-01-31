@@ -101,7 +101,6 @@
 margin-bottom: 10%;
 margin-top: 10%;
 }	
-/*배경색 적용 */
 .cart_wrap{
 background-color: #fff;}
 
