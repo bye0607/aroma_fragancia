@@ -9,12 +9,13 @@
 	<meta name="description" content="sellListR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>문구점</title>
+	<title>구매내역</title>
 
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+	<link href="${context}/css/common.css" rel="stylesheet">
 
     <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
 
@@ -92,11 +93,24 @@
 </head>
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
-	<div id="jumbotron" class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>주문정보</strong>&nbsp;<i class="fa fa-credit-card fa-1x"></i></font></h1>
-			<p>주문 정보를 확인해주세요</p>
+<!-- desktop버전  -->
+<div class="desktop">
+	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
+		<div class="boardText1" >
+			<h3 class="boardTitle1">Purchase<br>History</h3>
+			<h3 class="boardSub1"></h3>
 		</div>
+	</div>
+</div>
+<!-- mobile버전  -->
+<div class="mobile">
+	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
+		<div class="boardText2" >
+			<h3 class="boardTitle2">Purchase<br>History</h3>
+			<h3class="boardSub2">History</h3>
+		</div>
+	</div>
+</div>
 
 		<div class="row">
 			<div class="col-md-12">
@@ -104,16 +118,16 @@
 			        <!-- /.panel-heading -->
 			        <div class="panel-body">
 			            <div class="table-responsive">
-			                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+			                <table class="table  table-bordered" id="dataTables-example">
 			                    <thead>
 			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; width: 30px;">상품코드번호</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">상품이미지</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 80px;">상품이름</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">상품단가</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 50px;">상품수량</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">결제금액</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 20px;">결제</th>
+			                        	<th style="text-align: center; vertical-align: middle; width: 10px;  background: lightgray;">No</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: lightgray;">상품이미지</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 50px;  background: lightgray;">상품이름</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: lightgray;">상품단가</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 40px;  background: lightgray;">상품수량</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 30px;  background: lightgray;">결제금액</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 10px;  background: lightgray;">상품평</th>
 			                        </tr>
 			                    </thead>
 			                    <tbody>
@@ -121,35 +135,35 @@
 			                         <tr>
 			                         	<td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_CODE}</td>
 			                            <td style="text-align: center; vertical-align: middle;">
-										<img name="image" width="110px" height="110px" src="${context}/binderImg/${dsSellList.PRODUCT_IMAGE}" class="img-thumbnail">
-											<script type="text/javascript">
-											 	var productCategoryCd = '${dsSellList.PRODUCT_CATEGORY_CD}';
-
-											 	if(productCategoryCd == 'O'){
-													imageFolder = "officeImg";
-												}else if(productCategoryCd == 'P'){
-													imageFolder = "penImg";
-												}else if(productCategoryCd == 'S'){
-													imageFolder = "storageImg";
-												}else if(productCategoryCd == 'D'){
-													imageFolder = "designImg";
-												}else if(productCategoryCd == 'B'){
-													imageFolder = "binderImg";
-												}
-												path = $("img[name='image']").eq('${dsProductIdx.index}').attr("src");
-
-												existFolder = path.split("/")[2];
-												$("img[name='image']").eq('${sellIdx.index}').attr("src", path.replace(existFolder, imageFolder));
-											</script>
-			                            </td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_NAME}</td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_UNIT_PRICE}원</td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_COUNT}</td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_PRICE}원</td>
-			                            <td style="text-align: center; vertical-align: middle;">
-			                            	<button type="button" class="btn btn-primary" onclick="fn_finalBuy('${dsSellList.SELL_CODE}', '${dsSellList.SELL_COUNT}', '${dsSellList.PRODUCT_CODE}')">결제하기</button>
-			                            </td>
-			                         </tr>
+											<img name="image" width="110px" height="110px" src="${context}/binderImg/${dsSellList.PRODUCT_IMAGE}" class="img-thumbnail">
+												<script type="text/javascript">
+												 	var productCategoryCd = '${dsSellList.PRODUCT_CATEGORY_CD}';
+	
+												 	if(productCategoryCd == 'O'){
+														imageFolder = "officeImg";
+													}else if(productCategoryCd == 'P'){
+														imageFolder = "penImg";
+													}else if(productCategoryCd == 'S'){
+														imageFolder = "storageImg";
+													}else if(productCategoryCd == 'D'){
+														imageFolder = "designImg";
+													}else if(productCategoryCd == 'B'){
+														imageFolder = "binderImg";
+													}
+													path = $("img[name='image']").eq('${dsProductIdx.index}').attr("src");
+	
+													existFolder = path.split("/")[2];
+													$("img[name='image']").eq('${sellIdx.index}').attr("src", path.replace(existFolder, imageFolder));
+												</script>
+			                            	</td>
+				                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_NAME}</td>
+				                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_UNIT_PRICE}원</td>
+				                            <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_COUNT}</td>
+				                            <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_PRICE}원</td>
+				                            <td style="text-align: center; vertical-align: middle;">
+			                            		<button type="button" class="btn btn-primary" onclick="fn_finalBuy('${dsSellList.SELL_CODE}', '${dsSellList.SELL_COUNT}', '${dsSellList.PRODUCT_CODE}')">결제하기</button>
+			                            	</td>
+			                         	</tr>
 			                        </c:forEach>
 			                    </tbody>
 			                </table>
@@ -161,11 +175,27 @@
 			    <!-- /.panel -->
 			</div>
 			<!-- /.col-lg-12 -->
+			<!-- Figma 시안에 버튼이 없어 우선 주석처리.
 			<div class="col-md-1 col-md-offset-11">
 				<button type="button" class="btn btn-success btn-lg"  style="float:right;" onclick="fn_back()">뒤로가기</button>
 			</div>
+			 -->
 		</div>
 	</div>
 <jsp:include page="/common/foot.jsp"></jsp:include>
 </body>
 </html>
+<style type="text/css">
+
+/*board table css*/
+#dataTables-example{
+margin-bottom: 10%;
+margin-top: 10%;
+}	
+/*배경색 적용 */
+.History_wrap{
+background-color: #fff;}
+
+
+
+</style>

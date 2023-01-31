@@ -101,7 +101,25 @@
 </head>
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
-	<div id="jumbotron" class="container">
+<!-- desktop버전  -->
+<div class="desktop">
+	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
+		<div class="boardText1" >
+			<h3 class="boardTitle1">Purchase<br>History</h3>
+			<h3 class="boardSub1"></h3>
+		</div>
+	</div>
+</div>
+<!-- mobile버전  -->
+<div class="mobile">
+	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
+		<div class="boardText2" >
+			<h3 class="boardTitle2">Purchase<br>History</h3>
+			<h3class="boardSub2">History</h3>
+		</div>
+	</div>
+</div>
+
 		<div class="row" style="margin-bottom: 10%;">
 			<div class="col-md-12">
 				<div class="offer offer-success">
