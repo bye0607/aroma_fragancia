@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ESHOP 쇼핑몰 프로그램</title>
+<title>AROMA, FRAGANCIA</title>
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/common.css" rel="stylesheet">

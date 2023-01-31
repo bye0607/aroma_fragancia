@@ -1,42 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=DM+Serif+Display&family=Noto+Sans+KR:wght@400;700&display=swap');
 
-@font-face {
-  font-family: "Safira";
-  src: url("../fonts/SafiraMarch.otf") format('opentype');
-}
-
-@font-face {
-    font-family: 'Nanum';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
+body {font-family: 'DM Serif Display', 'Crimson Pro', 'Noto Sans KR', serif, sans-serif;}
+body.main{
 	background: url('../backgroundImage/blueSky.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size:cover;
 }
-
-*{
-    font-style: 'Nanum'!important;
+ul, ol, li {
     list-style: none;
 }
 
 
+a{
+	cursor: pointer;
+}
+
+/* 네비바 */
+.n1{
+	 font-family: "Crimson Pro";
+	 font-size: 35px;
+}
+nav{
+	 font-family: "Crimson Pro";
+}
 
 /* 메인 스토리 부분 */
 .story{
 	background-color: rgb(225, 225, 227); 
 	height:330px; 
 	margin-bottom: 220px;
+	margin-top: 100px;
 }
 .story > h4{
 	margin : 0px;
+	font-size: 30px;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	text-align: center;
-	font-family: "Safira";
+	font-family: "Crimson Pro";
 }
 .storyproduct{
 	display: flex;
@@ -50,16 +52,30 @@ body {
 	border-radius: 30px;
 	opacity:0;
 }
+.storytext{
+	font-family: 'Crimson Pro', 'Noto Sans KR';
+	font-size: 18px;
+	line-height: 2;
+	text-align: center;
+}
+.storytext1{
+	margin-top: 100px;
+}
+.story_sub{
+	font-size: 18px;
+}
 
 /* color 부분 */
 .maincolor{
-	margin: 0 auto;
+	margin-top: 200px;
+	
 }
 .maincolor > h4 {
-	padding-top: 100px;
-	padding-bottom: 50px;
+	font-size: 40px;
+	padding-top: 60px;
+	padding-bottom: 60px;
 	text-align: center;
-	font-family: "Safira";
+	font-family: "Crimson Pro";
 	font-weight: bold;
 }
 .colorproduct{
@@ -97,15 +113,19 @@ position: absolute;
 .probtn{
 	background-color: #292F36;
 	color : white;
-	width: auto;
 	font-size: 20px;
 	text-align: center;
 	padding : 26px 54px 26px 54px;
 	margin-top: 50px;
+	margin-left : 45%;
+	margin-right : 40%;
 	border-radius: 12px;
 	border: none;
-	
 }
+.probtn:hover {
+      background-color:#53606E;
+      transition: 0.7s;
+  }
 
 /* 분할 텍스트 영역 */
 .sixwrap{
@@ -128,9 +148,16 @@ position: absolute;
 	font-size: 18px;
 	text-align: center;
 	padding-top: 50px;
+	border-radius: 30px;
+}
+.sixcontext > div:hover{
+	background-color: #E3D0CC;
+	transition: 0.7s;
 }
 .sixcontext > div > strong{
-	font-family: "Safira";
+	font-family: "Crimson Pro";
+	font-size: 30px;
+	border-radius: 30px;
 }
 .b1{
 	background-color: rgb(225, 225, 227);
@@ -146,13 +173,13 @@ position: absolute;
 	margin: 0 auto;
 	border-radius: 70px; 
 }
-.movebtn > div > p {
-	font-size: 20px;
-	font-family: "Safira";
-}
 .movebtn > div{
 	padding-top: 50px;
 	font-size: 15px;
+}
+.movebtn > div > p {
+	font-size: 30px;
+	font-family: "Crimson Pro";
 }
 .move{
 	background-color: #CDA274;
@@ -162,6 +189,10 @@ position: absolute;
 	border-radius: 15px;
 	border: none;
 }
+.move:hover {
+      background-color:#CC947C;
+      transition: 0.7s;
+  }
 
 /* 지도 영역 */
 .mainmap{
@@ -169,8 +200,9 @@ position: absolute;
 	margin-bottom: 180px;
 }
 .mapp{
+	font-family: "Crimson Pro";
 	text-align: center;
-	font-size: 20px;
+	font-size: 30px;
 	margin-top: 220px;
 }
 #map{
@@ -193,13 +225,7 @@ h3{
   padding-top: 10px;
 }
 
-a{
-	cursor: pointer;
-}
-.n1{
-	 font-family: "Safira";
-	 font-size: 15px;
-}
+
 .container{
 	background-color: none !important; 
     margin-bottom: 0%;
@@ -208,7 +234,10 @@ a{
 	color: black;
 }
 
-
+/* 푸터 css */
+footer{
+	font-family: "Crimson Pro";
+}
 
 
 
@@ -394,4 +423,110 @@ transition: all 0.4s ease-in-out;
 }
 .offer-content{
 	padding:0 20px 10px;
+}
+
+/*게시판 공통 이미지*/
+/*desktop버전 css*/
+.img-responsive {
+	height: 500px;
+	max-width:100%;
+	background-position: center;
+	background-size: cover;
+	display:flex; 
+	justify-content:center;
+	align-items:flex-end;
+}
+.boardText1 {
+	width: 390px; 
+	height: 173px; 
+	background-color: #fff;
+	color: #292F36;
+	border-radius: 37px 37px 0 0; 
+	text-align: center; 
+    padding-top: 10px;
+}
+.boardTitle1{
+	font-family:'DM Serif Display';
+	font-size: 50px;
+}
+.boardSub1 {
+	color:#4D5053;
+	font-family: 'Noto Sans KR';
+	font-size: 22px;
+}
+/*mobile버전 css*/	
+.mobileImg{
+	height: 350px;
+	max-width:100%;
+	background-position: center;
+	background-size: cover;
+	display:flex; 
+	justify-content:center;
+	align-items:flex-end;
+}
+	
+.boardText2 {
+	width: 273px; 
+	height: 121px; 
+	background-color: #fff;
+	color: #292F36;
+	border-radius: 26px 26px 0 0; 
+    padding-top: 0;
+}
+.boardTitle2{
+	font-family:DM Serif Display;
+	text-align: center; 
+	font-size: 35px;
+}
+.boardSub2 {
+	color:#4D5053;
+	font-family: Noto Sans KR;
+	 text-align: center; 
+	 font-size: 16px;
+}
+
+/*media*/
+@media (min-width: 412px){
+  .desktop {
+    display: none !important; 
+  }
+  .mobile {
+    display: block !important; 
+  }
+}
+@media (min-width: 768px){
+  .mobile {
+    display: none !important; 
+  }
+  .desktop {
+    display: block !important; 
+  }
+}
+
+/* subpage title */
+.page-header {min-height:84px;border-bottom:0;}
+.page-header .title.eng {color:#292F36;font:34px/100% 'DM Serif Display';}
+.page-header .title {color:#292F36;font:39px/100% 'Noto Sans KR';}
+.page-header small {display:inline-block;color:#575656;font:bold 26px/100% 'Crimson Pro';}
+@media (min-width: 992px) {
+	.page-header {min-height:120px;}
+	.page-header .title.eng {font-size:48px;}
+	.page-header .title {font-size:55px;}
+	.page-header small {padding-left:70px;font-size:37px;}
+}
+
+/* 게시판 공통 */
+/* board buttons */
+.boardbtn {width:112px;height:42px;background:#D9D9D9;border-radius:14px;font-size:14px;margin-top:20px}
+.boardbtn:hover {background:#9CA09F;color:#fff}
+@media (min-width: 992px) {
+	.boardbtn {width:198px;height:60px;border-radius:20px;font-size:20px;}
+	.boardbtn.notice {margin-top:60px}
+}
+/* board list */
+.table-responsive {border:0}
+.table.boardlist>tbody>tr>td {padding:25px 0;color:#575656;font-size:20px;border-top:0;border-bottom:1px solid #000;}
+.table.boardlist>tbody>tr>td a {color:#4D5053;}
+@media (min-width: 992px) {
+	.table.boardlist>tbody>tr>td  {min-height:130px;padding:42px 10px;font-size:30px;}
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ESHOP 쇼핑몰 프로그램</title>
+<title>AROMA, FRAGANCIA</title>
 </head>
 <body>
 <div class="container">

@@ -10,10 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
 
-    <title>HS ELECTRIC LOGIN</title>
+    <title>LOGIN</title>
 
     <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="${context}/css/common.css" rel="stylesheet">
     <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
     <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -71,42 +72,153 @@
 
 <body>
 	<jsp:include page="../common/top.jsp"></jsp:include>
-	<div id="jumbotron" class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>LOGIN</strong>&nbsp;<span class="glyphicon glyphicon glyphicon-pencil"></span></font></h1>
-			<p>HS STATIONERY에 오신것을 진심으로 환영합니다.</p>
-		</div>
-	</div>
+	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.jpg');">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default"  style="margin-bottom: 57%;">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+           <div class="col-md-6 col-md-offset-3">
+                   <div class="login-panel panel-default"  style="margin-bottom: 112%;">
+                    <div class="panel-heading login">
+                        <div class="panel-title loginButton"><a href="${context}/user/login.jsp">Login</a></div>
+						<div class="panel-title registerButton"><a href="${context}/work/user/createUser.do">Register</a></div>
                     </div>
                     <div class="panel-body">
                         <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
                             <fieldset>
                                 <div class="form-group">
+                                <div class="col-sm-12" style="float: none; margin 0 auto;">
                                     <input class="form-control" placeholder="ID" id="id" name="id" type="text" autofocus>
+                                    </div>
                                 </div>
                                 <div class="form-group">
+                                <div class="col-sm-12" style="float: none; margin 0 auto;">
                                     <input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                	<span style="float: left;"><a href="${context}/user/idFind.jsp">ID찾기</a>|<a href="pwFind.jsp">PW찾기</a></span>
-                                	<span style="float: right;"><a href="${context}/work/user/createUser.do">회원가입</a></span><br>
-                                </div>
+							    <div class="col-sm-12" style="float: none; margin 0 auto;">
+							      <div class="checkbox">
+							        <label>
+							          <input type="checkbox"><p class="checkboxText">Remember me</p>
+							        </label>
+							      </div>
+							    </div>
+							  </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="button" class="btn btn-lg btn-success btn-block" onclick="ajaxLoginCheck();">Login</button>
+                                <button type="button" class="boardbtn form-control" onclick="ajaxLoginCheck();">Login</button>
+                                <div class="form-group">
+                                	<p class="forgotText"><a href="${context}/user/pwFind.jsp">Forgot your password?</a></p>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 
 </body>
+
+
+<style type="text/css">
+.backgroundImg {
+	width: 100%;
+	height: 968px;
+	box-sizing: border-box;
+	background-position: center;
+	background-size: cover;
+	display:flex !important; 
+	justify-content:center !important; 
+	align-items:center!important;
+}
+.login{
+	width: 566px;
+	height: 62px;
+	padding: 0px;
+	margin: -5px;
+	border-radius: 30px 30px 0 0!important; 
+	font-family:'DM Serif Display';
+}
+.panel-body{
+	clear:both;
+	width: 566px;
+	height: 420px;
+	background-color: #fff;
+	border-radius: 0 0 30px 30px !important; 
+	position:absolute !important; 
+	top:50% !important; 
+	left:50%!important; 
+	transform:translate(-50%,-50%) !important;
+}
+.fieldset {
+	background-position: center;
+}
+#id {
+	margin-top: 35px;
+}
+#pw {
+	margin-top: 30px;
+}
+.form-control {
+	width: 450px;
+	height: 66px;
+	font-size: 20px;
+	margin: 0 auto;
+}
+.loginButton{
+	background-color:#fff;
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 30px 0 0 0!important; 
+}
+.registerButton{
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 0 30px 0 0 !important; 
+	background-color: #9E9C9C;
+}
+input[type="checkbox"]{
+	width: 20px; /*Desired width*/
+	height: 20px; /*Desired height*/
+	color: #818483;
+}
+
+.checkbox label {
+	padding-left: 50px;
+}
+.checkbox{
+	width: 450px;
+	height: 20px;
+	margin-bottom: 20px;
+}
+.checkboxText {
+	font-size: 20px;
+	margin-left: 16px;
+	color: #818483;
+}
+a{
+	color: #9CA09F;
+}
+a:hover{
+	color: #818483;
+}
+.forgotText {
+	font-weight: semibold;
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+	margin-top: 22px;
+}
+</style>
 </html>
