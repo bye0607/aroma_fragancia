@@ -59,7 +59,40 @@ $(document).ready(function() {
         }); 
     });
 });
+
+function zoomIn(event) {
+    event.target.style.transform = "scale(1.1)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+  }
+
+  function zoomOut(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.zIndex = 0;
+    event.target.style.transition = "all 0.5s";
+  }
 </script>
+<style>
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+ 
+    .test_obj {
+        position: relative;
+        animation: fadeInUp 3s;
+    }
+    .test_obj2 {
+        position: relative;
+        animation: fadeInUp 6s;
+    }
+</style>
 
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
@@ -69,9 +102,14 @@ $(document).ready(function() {
     		<!-- vegas -->
       </div>
 		
-		<div class="container storytext storytext1" style="height:200px">
-			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 그렇게 비움은 우리에게 여운을 남깁니다. 비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.
-				AROMA FRAGANCIA는 향의 본질은 장식적인 기교나 의미 부여가 아닌 비우는 것에 있다고 생각합니다. 비우고 버려 본질만 남았을 때 부재의 역할은 확장되고 향과 사용자 사이에 관계성을 부여합니다. 관계성은 사용자 개인이 가지고 있는 본연의 향을 더욱 돋보이게 만들고 				체향과 제품의 향을 아울러 하나의 시적 언어를 탄생시킵니다.</p>
+		<div class="container storytext storytext1 test_obj" style="height:280px">
+			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
+			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
+			비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.<br>
+			<br>
+			AROMA FRAGANCIA는 향의 본질은 장식적인 기교나 의미 부여가 아닌 비우는 것에 있다고 생각합니다.<br> 
+			비우고 버려 본질만 남았을 때 부재의 역할은 확장되고 향과 사용자 사이에 관계성을 부여합니다.<br> 
+			관계성은 사용자 개인이 가지고 있는 본연의 향을 더욱 돋보이게 만들고 체향과 제품의 향을 아울러 하나의 시적 언어를 탄생시킵니다.</p>
 		</div>
 	 
 	 	<div class="story">
@@ -95,7 +133,7 @@ $(document).ready(function() {
 		        </div>
 			</div>
 		
-		<div class="container storytext" style="height:300px">
+		<div class="container storytext test_obj test_obj2" style="height:300px">
 			<p>
 			지금, 당신은 스스로에게 만족스러운 향수를 사용하고 있나요? <br>
 			  - <br>
@@ -167,18 +205,20 @@ $(document).ready(function() {
 		</div>
 		<div class="container sixwrap">
 		 	<div class="sixcontext">
-	            <div> <strong>Find Your Signature</strong> <br> <br> ‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div>
-	            <div> <strong>Eco friendly</strong> <br> <br> 내가 좋아하는 향기를 마음 편하게 사용하세요.</div>
-	            <div> <strong>Surfactants</strong> <br> <br> 순수 천연 탈취 성분만을 고집합니다.</div> 
+	            <div class="sixb"> <strong>Find Your Signature</strong> <br> <br> ‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div>
+	            <div class="sixb"> <strong>Eco friendly</strong> <br> <br> 내가 좋아하는 향기를 마음 편하게 사용하세요.</div>
+	            <div class="sixb"> <strong>Surfactants</strong> <br> <br> 순수 천연 탈취 성분만을 고집합니다.</div> 
 			</div>
 		 	<div class="sixcontext">
-	            <div> <strong>Belief</strong> <br> <br> 안전한 제품을 만들기 위해 노력합니다.</div>
+	            <div class="sixb"> <strong>Belief</strong> <br> <br> 안전한 제품을 만들기 위해 노력합니다.</div>
 	            <div class="b1"> <strong>Better but different</strong> <br> <br> 남들과는 다른, 더 나은 것들을 만듭니다.</div>
-	            <div> <strong>Discovery Me By Perfume </strong><br> <br> 향을 통해 나를 발견하세요.</div>
+	            <div class="sixb"> <strong>Discovery Me By Perfume </strong><br> <br> 향을 통해 나를 발견하세요.</div>
 			</div>
 			<br>
 		</div>
-		<div class="movebtn">
+		<div class="movebtn"       
+		onmouseenter="zoomIn(event)"
+     	onmouseleave="zoomOut(event)">
 			<div>
 				<P>AROMA FRAGANCIA JOIN US</P>
 				<br>

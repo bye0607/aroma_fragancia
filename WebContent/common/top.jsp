@@ -37,7 +37,7 @@ a{
 		<div class="container">
 			<br>
 			<ul class="nav navbar-nav" >
-				<li class="n1"><a href="${homeUrl}"><font color="black" ><strong>AROMA FRAGANCIA</strong></font></a></li>
+				<li class="n1"><a href="${homeUrl}"><font color="#555555" ><strong>AROMA FRAGANCIA</strong></font></a></li>
 			</ul>
 		<br>
 		<ul class="nav navbar-nav navbar-right">

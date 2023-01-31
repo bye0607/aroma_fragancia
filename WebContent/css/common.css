@@ -106,9 +106,7 @@ position: absolute;
 .mc-a:hover .mc-c{
 	opacity: 1;
 	z-index: 1;
-	
 }
-
 
 .probtn{
 	background-color: #292F36;
@@ -147,10 +145,10 @@ position: absolute;
 	-ms-flexbox: 0 1 400px;
 	font-size: 18px;
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 80px;
 	border-radius: 30px;
 }
-.sixcontext > div:hover{
+.sixb:hover{
 	background-color: #E3D0CC;
 	transition: 0.7s;
 }
