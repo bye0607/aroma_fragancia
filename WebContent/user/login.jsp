@@ -86,7 +86,7 @@
                             <fieldset>
                                 <div class="form-group">
                                 <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="E-mail" id="email" name="email" type="text" autofocus>
+                                    <input class="form-control" placeholder="E-mail" id="id" name="email" type="text" autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -154,14 +154,14 @@
 .fieldset {
 	background-position: center;
 }
-#email {
+#id {
 	margin-top: 35px;
 }
 #pw {
 	margin-top: 30px;
 }
 
-#email::-webkit-input-placeholder{
+#id::-webkit-input-placeholder{
   background-image: url('${context}/userImg/mail.svg') ;
   background-size: contain;
   background-position:  1px center;
