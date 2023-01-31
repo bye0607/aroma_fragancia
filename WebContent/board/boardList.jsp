@@ -46,50 +46,50 @@
 					<h2 class="title eng">notice</h2>
 				</div>
 				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn">새 글 쓰기</button>
+					<button type="button" class="btn btn-lg boardbtn" onclick="location.href='boardWrite.jsp'">새 글 쓰기</button>
 				</div>
 			</div>
 		</div>
 		<!-- board title, buttons end -->
 		<div class="row">
-				<!-- board list start -->
-	            <div class="table-responsive">
-	                <table class="table table-hover boardlist">
-	                    <tbody>
-	                         <tr>
-	                         	<td>
-	                         		<div class="col-md-10"><a href ="#">what is lorem ipsum?</a></div>
-									<div class="col-md-2" style="color: gray;">AROMA</div>
-	                         	</td>
-	                         </tr>
-	                         <tr>
-	                         	<td>
-	                         		<div class="col-md-10"><a href ="#">what is lorem ipsum?</a></div>
-									<div class="col-md-2" style="color: gray;">AROMA</div>
-	                         	</td>
-	                         </tr>
-	                         <tr>
-	                         	<td>
-	                         		<div class="col-md-10"><a href ="#">what is lorem ipsum?</a></div>
-									<div class="col-md-2" style="color: gray;">AROMA</div>
-	                         	</td>
-	                         </tr>
-	                         <tr>
-	                         	<td>
-	                         		<div class="col-md-10"><a href ="#">what is lorem ipsum?</a></div>
-									<div class="col-md-2" style="color: gray;">AROMA</div>
-	                         	</td>
-	                         </tr>
-	                         <tr>
-	                         	<td>
-	                         		<div class="col-md-10"><a href ="#">what is lorem ipsum?</a></div>
-									<div class="col-md-2" style="color: gray;">AROMA</div>
-	                         	</td>
-	                         </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-				<!-- board list end -->
+			<!-- board list start -->
+            <div class="table-responsive">
+                <table class="table table-hover boardlist">
+                    <tbody>
+                         <tr>
+                         	<td>
+                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
+								<div class="col-md-2">AROMA</div>
+                         	</td>
+                         </tr>
+                         <tr>
+                         	<td>
+                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
+								<div class="col-md-2">AROMA</div>
+                         	</td>
+                         </tr>
+                         <tr>
+                         	<td>
+                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
+								<div class="col-md-2">AROMA</div>
+                         	</td>
+                         </tr>
+                         <tr>
+                         	<td>
+                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
+								<div class="col-md-2">AROMA</div>
+                         	</td>
+                         </tr>
+                         <tr>
+                         	<td>
+                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
+								<div class="col-md-2">AROMA</div>
+                         	</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+			<!-- board list end -->
 		</div> <!-- row end -->
 	</div> <!-- container end -->
 
