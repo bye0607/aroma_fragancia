@@ -72,7 +72,7 @@
 
 <body>
 	<jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.jpg');">
+	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
     <div class="container">
         <div class="row">
            <div class="col-md-6 col-md-offset-3">
@@ -85,8 +85,8 @@
                         <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
                             <fieldset>
                                 <div class="form-group">
-                                <div class="col-sm-12" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="ID" id="id" name="id" type="text" autofocus>
+                                <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="E-mail" id="email" name="email" type="text" autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -154,17 +154,41 @@
 .fieldset {
 	background-position: center;
 }
-#id {
+#email {
 	margin-top: 35px;
 }
 #pw {
 	margin-top: 30px;
+}
+
+#email::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/mail.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#pw::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/key.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
 .form-control {
 	width: 450px;
 	height: 66px;
 	font-size: 20px;
 	margin: 0 auto;
+	border-radius: 15px!important; 
 }
 .loginButton{
 	background-color:#fff;

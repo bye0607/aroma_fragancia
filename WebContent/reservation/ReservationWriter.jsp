@@ -19,7 +19,7 @@
 <div class="wrap">
 <!-- desktop버전  -->
 <div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/RESERVATION.jpg");'>
+	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
 			<h3 class="boardTitle1">RESERVATION</h3>
 			<p class="boardSub1">상담 예약 문의</p>
@@ -28,7 +28,7 @@
 </div>
 <!-- mobile버전  -->
 <div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/RESERVATION.jpg");'>
+	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
 			<h3 class="boardTitle2">RESERVATION</h3>
 			<p class="boardSub2">상담 예약 문의</p>
@@ -45,8 +45,7 @@
 	</div>
 	<div class="subtext">
 	<p>보이는 오직 얼마나 피어나기 힘있다. 이는 그러므로 인생에 같지 인간이 말이다. 힘차게 위하여서 구할 그들에게 것이 별과 사랑의 말이다. 열락의 고행을 생명을 품고 것이 끓는 인생에 속잎나고, 것이다. 설레는 인간은 반짝이는 찬미를 목숨을 위하여서. 없는 같지 보내는 온갖 군영과 방지하는 같이 있음으로써 이 위하여서. 없으면, 인생에 속에서 새 때문이다. 목숨을 인간의 역사를 얼마나 때에, 얼음에 그리하였는가? 군영과 기관과 붙잡아 안고, 부패를 쓸쓸하랴? 우리의 역사를 천하를 더운지라 그것을 하는 아니다.싶이 찬미를 그들의 그들의 것이다. 역사를 창공에 이는 용기가 그들은 봄날의 그들의 구하지 봄바람이다. 끓는 같지 아름답고 우리의 용감하고 이상이 바로 소리다.이것은 것이다. 품고 그들은 찾아 품었기 있는가? 곧 생생하며, 산야에 꽃이 심장은 바이며, 거친 원질이 황금시대를 것이다. 노년에게서 대중을 동력은 유소년에게서 시들어 보배를 얼마나 현저하게 것이다. 위하여 보배를 물방아 이성은 가는 같이, 피가 피다. 몸이 주는 봄날의 따뜻한 사막이다. 인생을 대한 그들은 인류의 미묘한 굳세게 가지에 것이다. 때에, 남는 가는 앞이 착목한는 사랑의 인생에 행복스럽고 사막이다. 풀밭에 인생에 피가 황금시대다.
-<br><br>
-열락의 것은 노년에게서 끝에 수 부패를 얼마나 방지하는 인생에 피다. 위하여 트고, 것은 갑 웅대한 주며, 얼음과 못할 황금시대다. 같이 충분히 눈이 할지니, 이 가진 대고, 목숨을 뿐이다. 공자는 그들의 것은 천하를 옷을 피어나기 무엇을 그들은 뿐이다. 황금시대를 오직 청춘이 동력은 영원히 너의 이상의 황금시대다. 청춘의 앞이 이상은 힘있다. 불러 산야에 무한한 풍부하게 투명하되 쓸쓸한 인간의 것이다. 천고에 것은 풍부하게 작고 이성은 품으며, 설산에서 유소년에게서 쓸쓸하랴? 인생을 아름답고 튼튼하며, 것이다. 같이, 그들의 하여도 웅대한 찬미를 크고 있는가?</p>
+
 	</div>
 	 <div style=" text-align: right;">
 		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;">글 수정하기</button>
@@ -69,23 +68,21 @@ background-color: #fff;
 .Title{
 font-family: Noto Sans KR;
 font-size: 40px;
-margin-top: 90px;
-margin-bottom: 100px;
+margin-top: 87px;
+margin-bottom: 80px;
 }
 /*Writer Text*/
 .textbox{
-	width:100%;
-	height: 50px;
-	border-bottom: 1px solid #b9b9b9;
-	padding: 0 40px 0 40px; 
+	padding: 0 40px 49px 40px;
+	border-bottom: 1px solid #000;
 }
 .title{
 	float: left;
-	font-size: 12px;
+	font-size: 30px;
 }
 .people{
 	float: right;
-	font-size: 18px;
+	font-size: 30px;
 	font-weight: bold;
 }
 .subtext {
