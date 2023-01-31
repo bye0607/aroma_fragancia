@@ -97,6 +97,7 @@ background-color: #fff;
 /*form 제목*/
 .form-control {
     padding-top: 7px;
+    margin-top:10px;
     margin-bottom: 40px;
     height: 90px !important;
     background-color: #D9D9D9 !important;
