@@ -188,9 +188,7 @@ input[id="pw"]{
 #id {
 	margin-top: 35px;
 }
-#pw {
-	margin-top: 30px;
-}
+
 
 #id::-webkit-input-placeholder{
   background-image: url('${context}/userImg/user.svg') ;
