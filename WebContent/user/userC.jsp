@@ -480,6 +480,16 @@ a:hover{
 @media (max-width: 992px) {
 	.panel-body {top: 62% !important;}
 	.login{margin: -56px !important;}
-	.backgroundImg {height: 1100px;}}
+	.backgroundImg {height: 1100px;}
+}
+
+@media (max-width: 991px) and (min-width: 769px) {
+	.panel-body {top: 649% !important}
+	.login{margin: 77px !important;}
+}
+@media (max-width: 768px) {
+	.panel-body {top: 649% !important}
+	.login{margin: 77px !important;}
+}
 </style>
 </html>

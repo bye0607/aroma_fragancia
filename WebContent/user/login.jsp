@@ -79,7 +79,8 @@
                    <div class="login-panel panel-default"  style="margin-bottom: 112%;">
                     <div class="panel-heading login">
                         <div class="panel-title loginButton"><a href="${context}/user/login.jsp">Login</a></div>
-						<div class="panel-title registerButton"><a href="${context}/work/user/createUser.do">Register</a></div>
+						<!-- <div class="panel-title registerButton"><a href="${context}/work/user/createUser.do">Register</a></div>  -->
+						<div class="panel-title registerButton"><a href="${context}/user/userC.jsp">Register</a></div>
                     </div>
                     <div class="panel-body">
                         <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
@@ -288,7 +289,15 @@ background-color: #9CA09F;
 
 @media (max-width: 992px) {
 	.panel-body {top: 57% !important;}
-	.login{margin: -56px !important;}}
+	.login{margin: -56px !important;}
+}
+@media (max-width: 991px) and (min-width: 769px) {
+	.panel-body {top: 438% !important;}
+	.login{margin: 77px !important;}
+}
+@media (max-width: 768px) {
+	.panel-body {top: 438% !important;}
+	.login{margin: 77px !important;}
 }
 </style>
 </html>
