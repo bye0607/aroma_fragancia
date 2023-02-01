@@ -23,9 +23,13 @@ a{
 </style>
 </head>
 
+<!-- URL 추가 -->
+<c:set var="FAQUrl">${context}/FAQ/FAQ.jsp</c:set>
+<!--  -->
 
 <c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
 <c:set var="loginUrl">${context}/user/login.jsp</c:set>
+
 
 <c:set var="officeUrl">${context}/work/product/retrieveProductList.do?category=O</c:set>
 <c:set var="penUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
@@ -33,7 +37,7 @@ a{
 <c:set var="designUrl">${context}/work/product/retrieveProductList.do?category=D</c:set>
 <c:set var="storageUrl">${context}/work/product/retrieveProductList.do?category=S</c:set>
 <body>
-	<nav class="navbar-expand-lg" role="navigation" style="background-color: rgb(225, 225, 227);">
+	<nav class="navbar-expand-lg" role="navigation" style="background-color: #E1E1E3">
 		<div class="container">
 			<br>
 			<ul class="nav navbar-nav" >
@@ -62,8 +66,8 @@ a{
 				</li>
 				</ul>
 		<ul class="nav navbar-nav navbar-right">
-	        <li class="dropdown">
 	        <!-- 비회원 가능 -->
+	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 				<li><a onclick="javascript:fn_isLogin('${penUrl}')" style="color: black; font-size: 15px;">PERFUMS</a></li>
@@ -71,17 +75,18 @@ a{
 
 	          </ul>
 	        </li>
+	        
 	        <!-- 비회원 가능 -->
 	        <li><a class="ddt" href="#">RESERVATION</a></li>
 	        
-	        <li class="dropdown">
 	        <!-- 회원, 관리자만 가능 -->
+	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICE <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${penUrl}')" style="color: black; font-size: 15px;">NOTICE</a></li>
 			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${officeUrl}')" style="color: black; font-size: 15px;">COMMUNITY</a></li>
 			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${storageUrl}')" style="color: black; font-size: 15px;">BOARD</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${binderUrl}')" style="color: black; font-size: 15px;">FAQ</a></li>
+			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${FAQUrl}')" style="color: black; font-size: 15px;">FAQ</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown">

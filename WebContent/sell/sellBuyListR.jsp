@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var ="context"><%=request.getContextPath()%></c:set>
-<meta charset="UTF-8">
 
 <!DOCTYPE html>
 <html>
@@ -64,23 +63,24 @@
 		</div>
 	</div>
 </div>
-
+<div class="History_wrap">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			    <div class="panel panel-default">
+			    <div class="panel">
 			        <!-- /.panel-heading -->
 			        <div class="panel-body">
-			            <div class="table-responsive">
-			                <table class="table  table-bordered" id="dataTables-example">
+			            <div class="table">
+			                <table class="table" id="dataTables-example">
 			                    <thead>
 			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; width: 10px;  background: lightgray;">No</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: lightgray;">상품이미지</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 50px;  background: lightgray;">상품이름</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: lightgray;">상품단가</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 40px;  background: lightgray;">상품수량</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;  background: lightgray;">결제금액</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 10px;  background: lightgray;">상품평</th>
+			                        	<th style="text-align: center; vertical-align: middle; width: 10px;  background: #F5F5F5;">No</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: #F5F5F5;">상품이미지</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 50px;  background: #F5F5F5;">상품이름</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 20px;  background: #F5F5F5;">상품단가</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 40px;  background: #F5F5F5;">상품수량</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 30px;  background: #F5F5F5;">결제금액</th>
+			                            <th style="text-align: center; vertical-align: middle; width: 10px;  background: #F5F5F5;">상품평</th>
 			                        </tr>
 			                    </thead>
 			                    <tbody>
@@ -88,7 +88,7 @@
 			                         <tr>
 			                         	<td style="text-align: center; vertical-align: middle;">${buyIdx.count}</td>
 			                            <td style="text-align: center; vertical-align: middle;">
-										<img name="image" width="110px" height="110px" src="${context}/binderImg/${dsBuyList.PRODUCT_IMAGE}" class="img-thumbnail">
+										<img name="image" width="135px" height="120px" src="${context}/binderImg/${dsBuyList.PRODUCT_IMAGE}" class="img-thumbnail">
 											<script type="text/javascript">
 											 	var productCategoryCd = '${dsBuyList.PRODUCT_CATEGORY_CD}';
 
@@ -127,28 +127,11 @@
 			    </div>
 			    <!-- /.panel -->
 			</div>
-			<!-- /.col-lg-12 -->
-			<div class="col-md-1 col-md-offset-11">
-				<button type="button" class="btn btn-success btn-lg"  style="float:right;" onclick="fn_back()">뒤로가기</button>
-			</div>
 		</div>
 	</div>
+</div>
 </html>
 <jsp:include page="/common/foot.jsp"></jsp:include>
 	
 	<!-- CART_Table end -->
 </body>
-<style type="text/css">
-
-/*board table css*/
-#dataTables-example{
-margin-bottom: 10%;
-margin-top: 10%;
-}	
-/*배경색 적용 */
-.History_wrap{
-background-color: #fff;}
-
-
-
-</style>

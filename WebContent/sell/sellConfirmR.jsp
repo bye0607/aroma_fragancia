@@ -9,8 +9,8 @@
 	<meta name="description" content="sellConfirmR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>구매내역</title>
-
+	<title>구매완료</title>
+	<!-- 구매완료창입니다. -->
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -101,59 +101,76 @@
 </head>
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">Purchase<br>History</h3>
-			<h3 class="boardSub1"></h3>
-		</div>
-	</div>
-</div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">Purchase<br>History</h3>
-			<h3class="boardSub2">History</h3>
-		</div>
-	</div>
-</div>
+<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/sellconfirmImg.jpg');">
 
-		<div class="row" style="margin-bottom: 10%;">
-			<div class="col-md-12">
-				<div class="offer offer-success">
-					<div class="shape">
-						<div class="shape-text">
-							Thanks
-						</div>
-					</div>
+		<div class="sellfirm container" style="margin-bottom: 10%; padding-top: 10%">
+			
+				<div class="sellsuccess">
+					
 					<div class="offer-content">
 					<br><br><br>
-						<h1 align="center" style="font-family: inherit;">
-							결제가 완료되었습니다.
+						<h1 align="center" style="font-family: Noto Sans KR; font-size: 35px">
+							주문/결제가 <br>
+							정상적으로 완료되었습니다.
 						</h1>
 						<br><br><br>
-						<h2 align="center" style="font-family: cursive;">
-							구매내역에서 정보를 확인하실 수 있습니다.
+						<h2 align="center" style="font-family: Noto Sans KR; font-size: 25px">
+							기타 궁금하신 사항은 문의주시면 성심껏 답변드리겠습니다.
 							<br><br> 감사합니다.
 						</h2>
 					</div>
 					<br><br><br><br>
-					<div class="col-md-2 col-md-offset-4">
-						<button type="button" class="btn btn-info btn-lg"  style="float:right;" onclick="fn_buyList()"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;구매내역 보러가기</button>
+					<div class="col-md-2 col-md-offset-4 sellbttn">
+						<button type="button" class="btn btn-lg"  style="float:right;" onclick="fn_buyList()"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;구매내역 확인하기</button>
 					</div>
-					<div class="col-md-2">
-						<button type="button" class="btn btn-warning btn-lg"  style="float:right;" onclick="fn_review('${productCode}')"><span class="glyphicon glyphicon-pencil"></span>&nbsp;상품평   쓰러가기</button>
+					<div class="col-md-2 sellbttn">
+						<button type="button" class="btn btn-lg"  onclick="fn_review('${productCode}')"><span class="glyphicon glyphicon-pencil"></span>&nbsp;상품후기 작성하기</button>
 					</div>
 					<br><br><br><br><br>
 				</div>
 
-			</div>
-			<!-- /.col-lg-12 -->
+			
+		
 
 		</div>
 	</div>
 <jsp:include page="/common/foot.jsp"></jsp:include>
+<style type="text/css">
+.backgroundImg {
+	width: 100%;
+	height: 968px;
+	
+	}
+.sellfirm {
+	border: none;
+	width: 870px;
+	height: 560px;
+}
+.sellsuccess{
+	background-color: white;
+	border-radius: 30px;
+
+}
+button{
+	background-color: #D9D9D9;
+}
+
+button:hover{
+	background-color: #9CA09F;
+}
+@media (max-width: 992px){
+	.sellbttn{
+		width: 222px;
+		margin-bottom: 50px;
+		margin-left: 195px;
+	}
+	
+	.sellsuccess{
+		width: 600px;
+		height: 630px;
+		margin-left: 10%;
+}
+}
+</style>
 </body>
 </html>
