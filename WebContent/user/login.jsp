@@ -187,6 +187,7 @@ input[id="pw"]{
 }
 #id {
 	margin-top: 35px;
+	margin-bottom: 30px;
 }
 
 

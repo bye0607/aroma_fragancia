@@ -133,6 +133,7 @@
 }
 #id {
 	margin-top: 35px;
+	margin-bottom: 30px;
 }
 #pw {
 	margin-top: 30px;
