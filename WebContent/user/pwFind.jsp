@@ -54,36 +54,171 @@
 </head>
 <body>
 	<jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>PW찾기</strong>&nbsp;<span class="glyphicon glyphicon glyphicon-pencil"></span></font></h1>
-		</div>
-	</div>
-	<div class="container">
-		<div class="form-horizontal" style="margin-bottom: 20%;">
-			<hr/>
-
-			<div class="form-group" style="margin-top: 5%;">
-				<label for="email" class="control-label col-md-2">아이디</label>
-				<div class="col-md-4">
-					<input class="form-control" type="text" name="id" id="id" autofocus="autofocus"/>
+	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
+    <div class="container">
+        <div class="row">
+           <div class="col-md-6 col-md-offset-3">
+                   <div class="login-panel panel-default"  style="margin-bottom: 112%;">
+                    <div class="panel-heading login">
+                        <div class="pwFind">Password Find</div>
+                        <div class="pwFind2"></div>
+                    </div>
+                    <div class="panel-body">
+                        <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
+                            <fieldset>
+                                <div class="form-group">
+                                <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="E-mail" id="id" name="email" type="text" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="col-sm-12" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
+                                    </div>
+		                       <div class="form-group">        
+									<div class="col-sm-12">
+										<input class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserPw()"/>
+									</div>
+								</div>
+								<div class="form-group" id="message">
+							</div>
+							</div>
+							</fieldset>
+                        </form>
+						 </div>
+					</div>
 				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email" class="control-label col-md-2">이메일</label>
-				<div class="col-md-4">
-					<input class="form-control" type="email" name="email" id="email"/>
-				</div>
-				<div class="col-md-2">
-					<input class="btn btn-default" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserPw()"/>
-				</div>
-			</div>
-			<div class="form-group" id="message">
-
 			</div>
 		</div>
 	</div>
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 </body>
+<style type="text/css">
+.backgroundImg {
+	width: 100%;
+	height: 968px;
+	box-sizing: border-box;
+	background-position: center;
+	background-size: cover;
+	display:flex !important; 
+	justify-content:center !important; 
+	align-items:center!important;
+}
+.panel-default>.panel-heading {
+    background-color: #fff !important;
+    border-color: #fff !important;
+}
+.login{
+	width: 566px;
+	height: 62px;
+	padding: 0px;
+	margin: -5px;
+	background-color: #fff;
+	border-radius: 30px 30px 0 0!important; 
+	font-family:'DM Serif Display';
+}
+.panel-body{
+	clear:both;
+	width: 566px;
+	height: 370px;
+	background-color: #fff;
+	border-radius: 0 0 30px 30px !important; 
+	position:absolute !important; 
+	top:50% !important; 
+	left:50%!important; 
+	transform: translate(-50%,-76%) !important;;
+}
+.fieldset {
+	background-position: center;
+}
+#id {
+	margin-top: 35px;
+}
+#pw {
+	margin-top: 30px;
+}
+
+#id::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/mail.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#pw::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/key.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+.form-control {
+	width: 450px;
+	height: 66px;
+	font-size: 20px;
+	margin: 0 auto;
+	border-radius: 15px!important; 
+}
+.pwFind{
+	background-color:#fff;
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 30px 0 0 0!important;
+	background-color: #fff;
+}
+.pwFind2{
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 0 30px 0 0 !important; 
+	background-color: #fff;
+}
+
+a{
+	color: #9CA09F;
+}
+a:hover{
+	color: #818483;
+}
+.Loginbtn{
+font-size: 25px;
+font-weight: bold;
+font-family: Crimson Pro;
+color: #fff;
+margin-top: 30px;
+background-color: #9CA09F;
+}
+.forgotText {
+	font-weight: semibold;
+	font-size: 20px;
+	font-family: Crimson Pro;
+	text-decoration: underline;
+	text-align: center;
+	margin-top: 22px;
+}
+
+@media (max-width: 992px) {
+	.panel-body {top: 57% !important;}
+	.login{margin: -56px !important;}}
+}
+</style>
 </html>

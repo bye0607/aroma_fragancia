@@ -5,9 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<meta name="description" content="userU.jsp">
+		<meta name="description" content="userC.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
+	<title>Register</title>
+	
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -23,14 +24,20 @@
 
 	<script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    
+   
 
     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 	<script type="text/javascript">
 
 	var dong;
+	var imageFolder;
 
 	$(document).ready(function(){
+// 		$('#dataTables-example').dataTable();
 		fn_init();
+
+		imageFolder = "userImg";
 
 		$( "#birth" ).datepicker({
 	    	dateFormat: 'yy-mm-dd',
@@ -45,41 +52,7 @@
 			}
 
 		});
-
-		//U페이지 해당
-		fn_setDetailInfo();
 	});
-
-	function fn_setDetailInfo(){
-		$("#id").val('${dsUser.id}');
-		$("#pw").val('${dsUser.pw}');
-		$("#email").val('${dsUser.email}');
-
-		$("#name").val('${dsUser.name}');
-		$("#birth").val('${dsUser.birth}');
-
-		var phoneArr = '${dsUser.phoneNum}'.split("-");
-		var postNumArr = '${dsUser.postNum}'.split("-");
-		var addressArr = '${dsUser.address}'.split("/");
-
-		var userImage = '${dsUser.userImage}';
-		userImage = userImage.replace(/"/gi, "");
-
-		$("#phone1").val(phoneArr[0]);
-		$("#phone2").val(phoneArr[1]);
-
-		$("#phoneCd").val('${dsUser.phoneCd}');
-
-		$("#postNum1").val(postNumArr[0]);
-		$("#postNum2").val(postNumArr[1]);
-
-		$("#address1").val(addressArr[0]);
-		$("#address2").val(addressArr[1]);
-
-		$("#pic").attr("src", '${context}/userImg/' + userImage);
-		$("#userImage").val(userImage);
-
-	}
 
 	function fn_setData(self){
 		var postAllData = self.children().text();
@@ -145,14 +118,32 @@
 
 	function fn_save(){
 		if(!fn_validation()) return;
-
-		if(confirm("수정하시겠습니까?")){
-			$("#phoneNum").val($("#phone1").val() + "-" + $("#phone2").val());
-	 		$("#postNum").val($("#postNum1").val() + "-" + $("#postNum2").val());
-	 		$("#address").val($("#address1").val() + "/" + $("#address2").val());
-
-	 		$("#joinFrm").submit();
+		if($("#flag").val() == "false"){
+			alert("이미 사용중인 ID입니다");
+			$("id").focus();
+			return;
 		}
+
+
+		$("#phoneNum").val($("#phone1").val() + "-" + $("#phone2").val());
+ 		$("#postNum").val($("#postNum1").val() + "-" + $("#postNum2").val());
+ 		$("#address").val($("#address1").val() + "/" + $("#address2").val());
+
+ 		$("#joinFrm").submit();
+	}
+
+	function idCheck(){
+		var id = $("#id").val();
+		var access = $("#message");
+		$.ajax({
+			url:"${context}/work/user/idCheck.do?id=" + id,
+			success:function(result){
+				result2 = result.replace(/"/gi, "");
+				var splResult = result2.split("@");
+				access.html(splResult[0]);
+				$("#flag").val(splResult[1]);
+			}
+		});
 	}
 
 	function fn_upload(){
@@ -177,169 +168,336 @@
 </head>
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>정보수정</strong>&nbsp;<span class="glyphicon glyphicon glyphicon-pencil"></span></font></h1>
-		</div>
-	</div>
-	<div class="container">
-	<form id="joinFrm" method="post" action="${context}/work/user/updateUser.do" role="form">
-		<div class="form-horizontal">
-			<hr/>
-			<div class="form-group" style="margin-top: 5%;">
-				<label for="id" class="control-label col-md-2"><b>아이디</b></label>
-				<div class="col-md-4">
-					<input class="form-control" type="text" name="id" id="id" disabled="disabled" required="required" autofocus="autofocus" onkeyup="idCheck();"/>
-				</div>
-				<p id="message"></p>
-			</div>
-
-			<div class="form-group">
-				<label for="pw" class="control-label col-md-2"><b>비밀번호</b></label>
-				<div class="col-md-4">
-					<input class="form-control" type="password" name="pw" id="pw" disabled="disabled" required="required"/>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email" class="control-label col-md-2"><b>이메일</b></label>
-				<div class="col-md-4">
-					<input class="form-control" type="email" name="email" id="email" required="required"/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="name" class="control-label col-md-2"><b>성명</b></label>
-				<div class="col-md-6">
-					<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required"/>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="birth" class="control-label col-md-2"><b>생년월일</b></label>
-				<div class="col-md-6">
-					<input class="form-control" type="text" id="birth" name="birth" required="required" maxlength="10"/>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="phoneCd" class="control-label col-md-2"><b>연락처</b></label>
-				<div class="col-md-2">
-		        	<select class="form-control" id="phoneCd" name="phoneCd" required="required">
-						<c:forEach items="${dsCode1}" var="code1">
-							<option value="${code1.commCd}">${code1.commCdNm}</option>
-						</c:forEach>
-		     		</select>
-	     		</div>
-				<div class="col-md-2">
-					<input class="form-control" type="text" id="phone1" maxlength="4" required="required" onkeydown="return fn_showKeyCode(event)"/>
-				</div>
-				<div class="col-md-2">
-					<input class="form-control" type="text" id="phone2" maxlength="4" required="required" onkeydown="return fn_showKeyCode(event)"/>
-				</div>
-				<input type="hidden" id="phoneNum" name="phoneNum">
-			</div>
-
-			<div class="form-group">
-				<label for="postnum1" class="control-label col-md-2"><b>주소</b></label>
-				<div class="col-md-2">
-					<input class="form-control" type="text" id="postNum1" disabled="disabled" required="required"/>
-	     		</div>
-				<div class="col-md-2">
-					<input class="form-control" type="text" id="postNum2" disabled="disabled" required="required"/>
-				</div>
-				<span class="col-md-1">
-					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#searchPost"><b>주소검색</b></button>
-				</span>
-				<input type="hidden" id="postNum" name="postNum">
-			</div>
-
-			<div class="form-group">
-				<label for="address1" class="control-label col-md-2"><b>상세주소</b></label>
-				<div class="col-md-6">
-					<input class="form-control" type="text" id="address1" disabled="disabled" required="required"/>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="address2" class="control-label col-md-2"></label>
-				<div class="col-md-6">
-					<input class="form-control" type="text" id="address2"/>
-				</div>
-				<input type="hidden" id="address" name="address">
-			</div>
-			<div class="form-group">
-				<label class="control-label col-md-2"><b>사진</b></label>
-				<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png"><br/>
-				<div class="col-md-6">
-					<input type="hidden" id="userImage" name="userImage" required="required">
-				</div>
-			</div>
-			<input type="hidden" id="flag" name="flag" value="false">
-		</div>
-	</form>
-		<form id="ajaxform" action="${context}/work/product/saveFile.do" method="post" enctype="multipart/form-data" role="form">
-		<div class="form-group">
-		<label class="control-label col-md-2"></label>
-			<div class="col-md-6">
-				<input class="form-control" type="file" id="imageFile" name="imageFile" onchange="fn_upload()"/>
-				<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
-			</div>
-		</div>
-		<br><br><br>
-		<div class="form-group">
-			<div class="col-md-offset-6 col-md-1">
-				<button type="button" class="btn btn-success" onclick="fn_back()">뒤로가기</button>
-			</div>
-			<div class="col-md-1">
-				<button class="btn btn-primary" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">등록하기</button>
-			</div>
-		</div>
-	</form>
-	</div>
-		<div class="container">
-		<!-- Modal -->
-		<div class="modal fade" id="searchPost" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">주소검색</h4>
-					</div>
-						<div class="modal-body" style="height: 50px;">
-							<div class="col-md-6">
-								<input class="form-control" type="text" id="dong" name="dong" placeholder="동을 입력하세요.ex)역삼1동"/>
+	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
+    <div class="container">
+    
+        <div class="row">
+           <div class="col-md-6 col-md-offset-3">
+                   <div class="login-panel panel-default"  style="margin-bottom: 133%;">
+                    <div class="panel-heading login">
+                        <div class="Changing1">Information</div>
+                        <div class="Changing2"></div>
+                    </div>
+                    <div class="panel-body">
+                    
+                        <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm" class="form-horizontal">
+                            <div class="form-group">
+                            <div class="col-sm-12" style="float: none; margin 0 auto;">
+									<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="User"/>
+								</div>
+								<p id="message"></p>
 							</div>
-							<div class="col-md-1">
-								<button id="postCheck" type="button" class="btn btn-primary" onclick = "fn_postCheck()">확인</button>
+							
+                                <div class="form-group">
+								    <div class="col-sm-12" style="float: none; margin 0 auto;">
+								      <input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
+								    </div>
+								  </div>
+								  
+                                <div class="form-group">
+                                <div class="col-sm-12" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
+                                    <input type="button" name="name" value="Show">
+                                    </div>
+                                </div>
+                                
+								
+								<div class="form-group">
+                                <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="Address" id="address" name="address" type="text">
+                                    <input type="button" name="name" value="Search">
+                                    </div>
+                                </div>
+                                
+                              
+                                
+                                <div class="form-group">
+                                <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="Details 1" id="details" name="details 1" type="text">
+                                    </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+                                    <input class="form-control" placeholder="Details 2" id="details" name="details 2" type="text" style="margin-bottom: 0 !important;">
+                                    </div>
+                                </div>
+								
+                                <div class="form-group">
+							    <div class="col-sm-12" style="float: none; margin 0 auto;">
+							      <div class="checkbox checkbox1">
+							        <label>
+							          <input type="checkbox"><p class="checkboxText">I agree the <span class="forgotText">Terms & Conditions</span></p>
+							        </label>
+							      </div>
+							    </div>
+							  </div>
+				               <div class="form-group">
+								<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
+								<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">등록하기</button>
 							</div>
-						</div>
-
-					<div class="modal-footer">
-						<div class="col-md-12">
-			            <div class="table-responsive">
-			                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-			                    <thead>
-			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; ">주소</th>
-			                        </tr>
-			                    </thead>
-			                    <tbody id="postBody">
-			                    </tbody>
-			                </table>
-			            </div>
-			            <!-- /.table-responsive -->
-			        </div>
-			        <!-- /.panel-body -->
-			        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-			    </div>
-			    <!-- /.panel -->
-			</div>
-		</div>
-			    <!-- /.panel -->
-			</div>
-
-					</div>
-
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 </body>
+
+<style type="text/css">
+input[id="pw"]{
+	  margin-left: 40px;
+      width:70%;
+      height: 66px;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[value="Show"]{
+      width: 18%;
+      height: 66px;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size: 20px;
+      font-family: Crimson Pro;
+      color:#9CA09F;
+      outline:none;
+      display:inline;
+      margin-left: -22px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0 15px 15px 0;
+    }
+    input[value="Show"]:hover{
+     background:#9CA09F;
+     color:#fff
+    }
+input[id="address"]{
+	color: #9CA09F !important;
+	  margin-left: 40px;
+      width:70%;
+      height: 66px;
+      display:inline;
+      outline:none;
+      font-family: Crimson Pro;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[value="Search"]{
+      width: 18%;
+      height: 66px;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size: 20px;
+      font-family: Crimson Pro;
+      color:#9CA09F;
+      outline:none;
+      display:inline;
+      margin-left: -22px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0 15px 15px 0;
+    }
+    input[value="Search"]:hover{
+     background:#9CA09F;
+     color:#fff
+    }
+.backgroundImg {
+	width: 100%;
+	height: 968px;
+	box-sizing: border-box;
+	background-position: center;
+	background-size: cover;
+	display:flex !important; 
+	justify-content:center !important; 
+	align-items:center!important;
+}
+.login{
+	width: 566px;
+	height: 62px;
+	padding: 0px;
+	margin: -5px;
+	background-color: #fff;
+	border-radius: 30px 30px 0 0!important; 
+	font-family:'DM Serif Display';
+}
+.panel-body{
+	clear:both;
+	width: 566px;
+	height: 758px;
+	background-color: #fff;
+	border-radius: 0 0 30px 30px !important; 
+	position:absolute !important; 
+	top:50% !important; 
+	left:50%!important; 
+	transform:translate(-50%,-45%) !important;
+}
+.fieldset {
+	background-position: center;
+}
+
+#id {
+	margin-top: 34px;
+}
+#id::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/user.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  color: #9CA09F !important;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#email::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/mail.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#pw::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/key.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#address::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/map-pin.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#details::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/map-pin.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+.form-control {
+	width: 450px;
+	height: 66px;
+	font-size: 20px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	border-radius: 15px!important; 
+}
+.Changing1{
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 30px 0 0 0!important; 
+	background-color: #fff;
+}
+.Changing2{
+	width: 283px;
+	height: 62px;
+	text-align: center;
+	float: left;
+	font-size: 28px;
+	font-family:'DM Serif Display';
+	line-height: 64px;
+	border-radius: 0 30px 0 0 !important; 
+	background-color:#fff;
+}
+input[type="checkbox"]{
+	width: 20px; /*Desired width*/
+	height: 20px; /*Desired height*/
+	color: #818483;
+}
+
+.checkbox label {
+	padding-left: 64px;
+}
+.checkbox1{
+	width: 450px;
+	height: 20px;
+	margin-bottom: 20px;
+	padding-top: 0px !important;
+}
+.checkboxText {
+	font-size: 20px;
+	font-family: Crimson Pro;
+	margin-left: 16px;
+	color: #818483;
+}
+a{
+	color: #9CA09F;
+}
+a:hover{
+	color: #818483;
+}
+.Loginbtn1{
+	font-size: 25px;
+	font-weight: bold;
+	font-family: Crimson Pro;
+	width: 220px;
+	color: #fff;
+	background-color: #9CA09F;
+	float: left;
+	margin: 0 0 0 58px;
+}
+
+.Loginbtn2{
+	font-size: 25px;
+	font-weight: bold;
+	font-family: Crimson Pro;
+	width: 220px;
+	color: #fff;
+	background-color: #9CA09F;
+	float: left;
+	margin: 0 50px 0 10px;
+}
+
+.forgotText {
+	font-weight: bold;
+	font-size: 20px;
+	font-family: Crimson Pro;
+	text-decoration: underline;
+	text-align: center;
+	margin-top: 22px;
+}
+
+
+@media (max-width: 992px) {
+	.panel-body {top: 62% !important;}
+	.login{margin: -56px !important;}
+	.backgroundImg {height: 1100px;}}
+</style>
 </html>
