@@ -11,10 +11,14 @@
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/vegas.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+ 
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/jquery-1.9.1.js"></script>
 <script src="${context}/js/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
 
 
 </head>
@@ -71,6 +75,31 @@ function zoomIn(event) {
     event.target.style.zIndex = 0;
     event.target.style.transition = "all 0.5s";
   }
+  
+  $(function () {
+      if ($.cookie("popup") == "none") {
+        $("#notice_wrap").hide();
+      }
+      var $expiresChk = $("#expiresChk");
+      $(".closeBtn").on("click", closePop);
+      function closePop() {
+        if ($expiresChk.is(":checked")) {
+          $.cookie("popup", "none", { expires: 3, path: "/" });
+        }
+        $("#notice_wrap").fadeOut("fast");
+      }
+    });
+  
+  $(document).ready(function(){
+		$('.bxslider').bxSlider({
+			auto: true,
+			speed: 500,
+			pause: 4000,
+			mode:'fade',
+			autoControls: true,
+			pager:true,
+		});
+	});
 </script>
 <style>
     @keyframes fadeInUp {
@@ -123,12 +152,65 @@ function zoomIn(event) {
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
 	<c:if test="${sessionScope.grade != 'A'}">
-			
-      <div class="mainveg" style="height: 700px;">
-    		<!-- vegas -->
-      </div>
 		
-		<div class="container storytext storytext1 test_obj  style="height:280px">
+		
+		
+		<!-- 쿠키 수정  -->
+		<ul class="bx_slider notice_wrap">
+          	<li> <img src="/mainimgg/cookie1.jpg" alt=" " width="306px" height="500px" /> </li>
+          	<li> <img src="/mainimgg/cookie2.jpg" alt=" " width="306px" height="500px" /> </li>
+          	 <li> <img src="/mainimgg/cookie3.jpg" alt=" " width="306px" height="500px" /></li>
+			<div style="text-align:center">
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			</div>
+           <div class="closewrap">
+            <br>
+            <input type="checkbox" name="expiresChk" id="expiresChk" />
+            <label for="expiresChk">3일 동안 이 창 열지 않기</label>
+            <button class="closeBtn">닫기</button>
+          </div>
+
+        </ul>	
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	
+		<div class="mainveg" style="height: 700px;">
+    		<!-- vegas -->
+		</div>
+		
+		<div class="container storytext storytext1 test_obj"  style="height:280px">
 			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
 			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
 			비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.<br>
@@ -143,17 +225,17 @@ function zoomIn(event) {
 		        <div class="storyproduct">
 		            <div>
 		                <li>
-		                    <img src="/storyimg/story1.jpg" alt="story1" class="hideimg" style="margin:0px;">
+		                    <img src="/mainimgg/story1.jpg" alt="story1" class="hideimg" style="margin:0px;">
 		                <li>
 		            </div> 
 		            <div>
 		                <li>
-		                <img src="/storyimg/story2.jpg" class="hideimg" alt="story2">
+		                <img src="/mainimgg/story2.jpg" class="hideimg" alt="story2">
 		                </li>
 		            </div> 
 		            <div>
 		                <li>
-		                    <img src="/storyimg/story3.jpg" class="hideimg" alt="story3" >
+		                    <img src="/mainimgg/story3.jpg" class="hideimg" alt="story3" >
 		                </li>
 		            </div> 
 		        </div>
@@ -178,55 +260,62 @@ function zoomIn(event) {
 	        <div class="colorproduct">
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color1.jpg" class="mc-b" alt="color1">
-	                    <img src="/maincolor/chover1.jpg" class="mc-c" alt="chover1">
+	                    <img src="/mainimgg/color1.jpg" class="mc-b" alt="color1">
+	                    <img src="/mainimgg/chover1.jpg" class="mc-c" alt="chover1">
 	                <li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                	<img src="/maincolor/color2.jpg" class="mc-b" alt="color2">
-	                    <img src="/maincolor/chover2.jpg" class="mc-c" alt="chover2">
+	                	<img src="/mainimgg/color2.jpg" class="mc-b" alt="color2">
+	                    <img src="/mainimgg/chover2.jpg" class="mc-c" alt="chover2">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color3.jpg" class="mc-b" alt="color3">
-	                    <img src="/maincolor/chover3.jpg" class="mc-c" alt="chover3">
+	                    <img src="/mainimgg/color3.jpg" class="mc-b" alt="color3">
+	                    <img src="/mainimgg/chover3.jpg" class="mc-c" alt="chover3">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color4.jpg" class="mc-b" alt="color4">
-	                    <img src="/maincolor/chover4.jpg" class="mc-c" alt="chover4">
+	                    <img src="/mainimgg/color4.jpg" class="mc-b" alt="color4">
+	                    <img src="/mainimgg/chover4.jpg" class="mc-c" alt="chover4">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color5.jpg" class="mc-b" alt="color5">
-	                    <img src="/maincolor/chover5.jpg" class="mc-c" alt="chover5">
+	                    <img src="/mainimgg/color5.jpg" class="mc-b" alt="color5">
+	                    <img src="/mainimgg/chover5.jpg" class="mc-c" alt="chover5">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color6.jpg" class="mc-b" alt="color6">
-	                    <img src="/maincolor/chover6.jpg" class="mc-c" alt="chover6">
+	                    <img src="/mainimgg/color6.jpg" class="mc-b" alt="color6">
+	                    <img src="/mainimgg/chover6.jpg" class="mc-c" alt="chover6">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color7.jpg" class="mc-b" alt="color7">
-	                    <img src="/maincolor/chover7.jpg" class="mc-c" alt="chover7">
+	                    <img src="/mainimgg/color7.jpg" class="mc-b" alt="color7">
+	                    <img src="/mainimgg/chover7.jpg" class="mc-c" alt="chover7">
 	                </li>
 	            </div> 
 	            <div>
 	                <li class="mc-a">
-	                    <img src="/maincolor/color8.jpg" class="mc-b" alt="color8">
-	                    <img src="/maincolor/chover8.jpg" class="mc-c" alt="chover8">
+	                    <img src="/mainimgg/color8.jpg" class="mc-b" alt="color8">
+	                    <img src="/mainimgg/chover8.jpg" class="mc-c" alt="chover8">
 	                </li>
 	            </div> 
 	        </div>
 	        <input type="button" value="제품 둘러보기 →" class="probtn">
 		</div>
+
+
+		<div class="container" style="height:1000px">
+		</div>
+
+
+
 		<div class="container sixwrap">
 		 	<div class="sixcontext">
 	            <div class="sixb"> <strong>Find Your Signature</strong> <br> <br> ‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div>
