@@ -8,8 +8,8 @@
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/common.css" rel="stylesheet">
-<script src="${context}/js/jquery-1.9.1.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
+<script src="${context}/js/jquery-1.9.1.js"></script>
 </head>
 
 
@@ -20,7 +20,7 @@
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
-			<h3 class="boardTitle1">Notic</h3>
+			<h3 class="boardTitle1">FAQ</h3>
 			<p class="boardSub1">자주 묻는 질문</p>
 		</div>
 	</div>
