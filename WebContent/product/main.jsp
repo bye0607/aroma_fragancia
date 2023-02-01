@@ -11,14 +11,12 @@
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/vegas.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
  
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/jquery-1.9.1.js"></script>
+<script src="${context}/js/jquery.cookie.js"></script>
 <script src="${context}/js/common.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
 
 
 </head>
@@ -49,6 +47,9 @@ $(function(){
 	})
 });
 
+
+
+
 $(document).ready(function() {
     /* 1 */
     $(window).scroll( function(){
@@ -76,30 +77,45 @@ function zoomIn(event) {
     event.target.style.transition = "all 0.5s";
   }
   
-  $(function () {
-      if ($.cookie("popup") == "none") {
-        $("#notice_wrap").hide();
-      }
-      var $expiresChk = $("#expiresChk");
-      $(".closeBtn").on("click", closePop);
-      function closePop() {
-        if ($expiresChk.is(":checked")) {
-          $.cookie("popup", "none", { expires: 3, path: "/" });
-        }
-        $("#notice_wrap").fadeOut("fast");
-      }
-    });
+  if(getCookie("notToday")!="Y"){
+		$("#popup_image").show('fade');
+}
+
+function closePopupNotToday(){	             
+		setCookie('notToday','Y', 1);
+		$("#popup_image").hide('fade');
+}
+function setCookie(name, value, expiredays) {
+	var today = new Date();
+	    today.setDate(today.getDate() + expiredays);
+
+	    document.cookie = name + '=' + escape(value) + '; path=/; expires=' + today.toGMTString() + "; domain=example.com";
+}
+
+function getCookie(name) 
+{ 
+  var cName = name + "="; 
+  var x = 0; 
+  while ( x <= document.cookie.length ) 
+  { 
+      var y = (x+cName.length); 
+      if ( document.cookie.substring( x, y ) == cName ) 
+      { 
+          if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) 
+              endOfCookie = document.cookie.length;
+          return unescape( document.cookie.substring( y, endOfCookie ) ); 
+      } 
+      x = document.cookie.indexOf( " ", x ) + 1; 
+      if ( x == 0 ) 
+          break; 
+  } 
+  return ""; 
+}
+function closeMainPopup(){
+	$("#popup_image").hide('fade');
+}
   
-  $(document).ready(function(){
-		$('.bxslider').bxSlider({
-			auto: true,
-			speed: 500,
-			pause: 4000,
-			mode:'fade',
-			autoControls: true,
-			pager:true,
-		});
-	});
+
 </script>
 <style>
     @keyframes fadeInUp {
@@ -121,6 +137,32 @@ function zoomIn(event) {
         position: relative;
         animation: fadeInUp 6s;
     }
+    
+    
+  /* 쿠키 */
+
+.popup_image{
+    margin-left: 30px;
+    margin-top: 30px;
+    background-color: #F7F9F6;
+}
+
+.popup_image > p{
+	
+	color: black;
+	text-align: center;
+	font-size: 25px;
+	
+	font-family: "Crimson Pro";
+	
+}
+.popup_bar{
+    background-color: #F7F9F6;
+    color: black;
+    height: 25px;
+    padding: 10px 20px 36px 10px;
+    width: 310px;
+}
     
     /*media*/
 	@media (max-width: 768px){
@@ -146,70 +188,35 @@ function zoomIn(event) {
 		.movebtn{
 			width: 200px;
 		}
+		
+
 	}
 </style>
 
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
 	<c:if test="${sessionScope.grade != 'A'}">
-		
-		
-		
-		<!-- 쿠키 수정  -->
-		<ul class="bx_slider notice_wrap">
-          	<li> <img src="/mainimgg/cookie1.jpg" alt=" " width="306px" height="500px" /> </li>
-          	<li> <img src="/mainimgg/cookie2.jpg" alt=" " width="306px" height="500px" /> </li>
-          	 <li> <img src="/mainimgg/cookie3.jpg" alt=" " width="306px" height="500px" /></li>
-			<div style="text-align:center">
-			  <span class="dot"></span> 
-			  <span class="dot"></span> 
-			  <span class="dot"></span> 
-			</div>
-           <div class="closewrap">
-            <br>
-            <input type="checkbox" name="expiresChk" id="expiresChk" />
-            <label for="expiresChk">3일 동안 이 창 열지 않기</label>
-            <button class="closeBtn">닫기</button>
-          </div>
+	<!-- 쿠키 -->	
+	<div id="popup_image" class="popup_image" style="position: absolute; z-index:1; ">
+		<p>  <br>
+		AROMA,FRAGANCIA<br>
+		Better but different</p>
+		<img src="/mainimgg/cookie1.jpg" />
+		<div class="popup_bar">
+			<a href="javascript:closePopupNotToday()" class="white">오늘그만보기</a>
+			<a class="pull-right white" href="javascript:closeMainPopup();">닫기</a>
+		</div>
+	</div>
+        
 
-        </ul>	
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-	
 		<div class="mainveg" style="height: 700px;">
     		<!-- vegas -->
 		</div>
 		
+		
+        
+        
 		<div class="container storytext storytext1 test_obj"  style="height:280px">
 			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
 			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
@@ -311,9 +318,7 @@ function zoomIn(event) {
 		</div>
 
 
-		<div class="container" style="height:1000px">
-		</div>
-
+	
 
 
 		<div class="container sixwrap">
