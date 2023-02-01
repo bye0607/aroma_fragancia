@@ -170,6 +170,7 @@
   text-indent: 0;
   text-align:left;
   padding-left:40px;
+  font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
 #pw::-webkit-input-placeholder{
@@ -181,6 +182,7 @@
   text-indent: 0;
   text-align:left;
   padding-left:40px;
+  font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
 .form-control {
@@ -228,6 +230,7 @@ input[type="checkbox"]{
 }
 .checkboxText {
 	font-size: 20px;
+	font-family: Crimson Pro;
 	margin-left: 16px;
 	color: #818483;
 }
@@ -239,12 +242,15 @@ a:hover{
 }
 .Loginbtn{
 font-size: 25px;
+font-weight: bold;
+font-family: Crimson Pro;
 color: #fff;
 background-color: #9CA09F;
 }
 .forgotText {
 	font-weight: semibold;
 	font-size: 20px;
+	font-family: Crimson Pro;
 	text-decoration: underline;
 	text-align: center;
 	margin-top: 22px;
