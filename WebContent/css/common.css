@@ -424,6 +424,35 @@ transition: all 0.4s ease-in-out;
 	padding:0 20px 10px;
 }
 
+/*boardListR table, sellListR table css*/
+#dataTables-example{
+max-width: 1094px;
+max-height: 569px;
+margin-top:10%;
+margin-bottom:10%;
+/*margin-left: 12.5%;*/
+margin-right:12.5%;
+}
+
+/* 구매내역 및 카트 배경색 지정*/
+.cart_wrap, .History_wrap{
+background-color: #fff;
+}
+
+/*boardListR fn_buy 및 fn_delete, sellListR fn_finalBuy button css*/
+#cartbtn1,#cartbtn2{
+	background-color: #D9D9D9; 
+	color: #000000; 
+	width: 90px; 
+	height: 30px; 
+	border-radius: 5px;
+}
+
+/* boardListR fn_buy 및 fn_delete margin 설정*/
+#cartbtn2{
+	margin-left: 32px;
+}
+
 /*게시판 공통 이미지*/
 /*desktop버전 css*/
 .img-responsive {

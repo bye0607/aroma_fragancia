@@ -79,13 +79,13 @@
 				            <table class="table" id="dataTables-example" >
 							  <thead>
 			                	<tr>
-				                  <th style="text-align: center; vertical-align: middle; width: 10px;background: lightgray;">No</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 20px;background: lightgray;">상품이미지</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 50px;background: lightgray;">상품이름</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 20px;background: lightgray;">상품단가</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 40px;background: lightgray;">상품수량</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 30px;background: lightgray;">결제금액</th>
-				                   <th style="text-align: center; vertical-align: middle; width: 30px;background: lightgray;">구매 / 삭제</th>
+				                  <th style="text-align: center; vertical-align: middle; width: 10px;background: #F5F5F5;">No</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 20px;background: #F5F5F5;">상품이미지</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 50px;background: #F5F5F5;">상품이름</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 20px;background: #F5F5F5;">상품단가</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 40px;background: #F5F5F5;">상품수량</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 30px;background: #F5F5F5;">결제금액</th>
+				                   <th style="text-align: center; vertical-align: middle; width: 30px;background: #F5F5F5;">구매 / 삭제</th>
 			                 	</tr>
 			                    	</thead>
 			                    	<tbody>
@@ -121,8 +121,8 @@
 			                            	<td style="text-align: center; vertical-align: middle;">${dsCartList.CART_COUNT}</td>
 			                            	<td style="text-align: center; vertical-align: middle;">${dsCartList.CART_PRICE}원</td>
 			                           		<td style="text-align: center; vertical-align: middle;">
-			                            		<button type="button" class="btn btn-primary" onclick="fn_buy('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_PRICE}', '${dsCartList.CART_COUNT}')">구매</button>
-			                            		<button type="button" class="btn btn-danger" onclick="fn_delete('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_COUNT}')">삭제</button>
+			                            		<button type="button" class="btn" onclick="fn_buy('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_PRICE}', '${dsCartList.CART_COUNT}')">구매</button>
+			                            		<button type="button" class="btn" onclick="fn_delete('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_COUNT}')">삭제</button>
 			                        	    </td>
 			                    	     </tr>
 			                        </c:forEach>
@@ -138,17 +138,6 @@
 	
 	<!-- CART_Table end -->
 </body>
-<style type="text/css">
-/*board table css*/
-#dataTables-example{
-margin-bottom: 10%;
-margin-top: 10%;
-}	
-.cart_wrap{
-background-color: #fff;}
-
-
-</style>
 
 
 <jsp:include page="/common/foot.jsp"></jsp:include>
