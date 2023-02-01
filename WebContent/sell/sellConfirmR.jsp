@@ -109,14 +109,17 @@
 					
 					<div class="offer-content">
 					<br><br><br>
-						<h1 align="center" style="font-family: Noto Sans KR; font-size: 35px">
+					<img alt="구매완료" class="checkicon" src="sellimg/check.svg" style="width: 50px; height: 50px;">
+						<h1 align="center" style="font-family: Crimson Pro; font-size: 25px">
+							<strong>AROMA, FRAGANCIA</strong>를 이용해 주셔서 감사합니다. <br>
+							<br>
 							주문/결제가 <br>
 							정상적으로 완료되었습니다.
 						</h1>
 						<br><br><br>
-						<h2 align="center" style="font-family: Noto Sans KR; font-size: 25px">
+						<h2 align="center" style="font-family: Crimson Pro; font-size: 25px">
 							기타 궁금하신 사항은 문의주시면 성심껏 답변드리겠습니다.
-							<br><br> 감사합니다.
+							<br><br>
 						</h2>
 					</div>
 					<br><br><br><br>
@@ -148,8 +151,7 @@
 }
 .sellsuccess{
 	background-color: white;
-	border-radius: 30px;
-
+	font-family: 'Crimson Pro', 'Noto Sans KR', serif, sans-serif;
 }
 button{
 	background-color: #D9D9D9;
@@ -158,6 +160,9 @@ button{
 button:hover{
 	background-color: #9CA09F;
 }
+.checkicon{
+ 	margin-left: 384px;
+ }
 @media (max-width: 992px){
 	.sellbttn{
 		width: 222px;
@@ -165,6 +170,9 @@ button:hover{
 		margin-left: 195px;
 	}
 	
+.checkicon{
+ 	margin-left: 256px;
+ }
 	.sellsuccess{
 		width: 600px;
 		height: 630px;
