@@ -89,9 +89,10 @@
                                     <input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" placeholder="User"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                 <div class="form-group">
                                 <div class="col-sm-12" style="float: none; margin 0 auto;">
                                     <input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
+                                    <input type="button" name="name" value="Show">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -122,6 +123,36 @@
 
 
 <style type="text/css">
+input[id="pw"]{
+	  margin-left: 26px;
+      width:75%;
+      height: 66px;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[value="Show"]{
+      width: 18%;
+      height: 66px;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size: 20px;
+      font-family: Crimson Pro;
+      color:#9CA09F;
+      outline:none;
+      display:inline;
+      margin-left: -22px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0 15px 15px 0;
+    }
+    input[value="Show"]:hover{
+     background:#9CA09F;
+     color:#fff
+    }
 .backgroundImg {
 	width: 100%;
 	height: 968px;
