@@ -31,6 +31,7 @@ a{
 <c:set var="loginUrl">${context}/user/login.jsp</c:set>
 
 
+<c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
 <c:set var="officeUrl">${context}/work/product/retrieveProductList.do?category=O</c:set>
 <c:set var="penUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
 <c:set var="binderUrl">${context}/work/product/retrieveProductList.do?category=B</c:set>
@@ -83,7 +84,7 @@ a{
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICE <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${penUrl}')" style="color: black; font-size: 15px;">NOTICE</a></li>
+				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${noitceUrl}')" style="color: black; font-size: 15px;">NOTICE</a></li>
 			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${officeUrl}')" style="color: black; font-size: 15px;">COMMUNITY</a></li>
 			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${storageUrl}')" style="color: black; font-size: 15px;">BOARD</a></li>
 			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${FAQUrl}')" style="color: black; font-size: 15px;">FAQ</a></li>
