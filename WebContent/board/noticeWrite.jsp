@@ -14,9 +14,29 @@
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script src="${context}/js/bootstrap.min.js"></script>
 	<script src="${context}/js/common.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			fn_init();
+		});
+	
+		function fn_save(){
+			if(!fn_validation()){
+				return;
+			}else{
+				var ntcContent = String($("#ntcContent").val());
+	
+				ntcContent = ntcContent.replace(/\n/gi, "<br/>");
+	
+				$("#ntcContent").val(ntcContent);
+	
+		 		$("#createNotice").submit();
+			}
+		}
+	
+	</script>
 </head>
 <body>
-<jsp:include page="../common/top.jsp"></jsp:include>
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
 <!-- desktop버전  -->
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
@@ -48,30 +68,27 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form role="form">
+		<form id="createNotice" method="post" action="${context}/work/board/createNotice.do" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
-					<label for="name" class="control-label">이름</label>
-					<input class="form-control" type="text" required="required">
+					<label for="ntcTitle" class="control-label">제목</label>
+					<input class="form-control" type="text" name="ntcTitle" id="ntcTitle" required="required" maxlength="50" autofocus="autofocus" placeholder="제목을 입력해주세요"/>
+					
 				</div>
 				<div class="form-group">
-					<label for="boardTitle" class="control-label">제목</label>
-					<input class="form-control" type="text" required="required">
-				</div>
-	
-				<div class="form-group">
-					<label for="boardContents" class="control-label">내용</label>
-					<textarea class="form-control" required="required"></textarea>
+					<label for="ntcContent" class="control-label">내용</label>
+					<textarea class="form-control" name="ntcContent" id="ntcContent" cols="10" rows="15" required="required" placeholder="내용을 입력해주세요"></textarea>
 				</div>
 				<!-- board button area start -->
 				<div class="row btnarea">
-					<button class="btn  btn-lg boardbtn" type="button">글 등록하기</button>
+					<button class="btn btn-lg boardbtn" type="button" onclick="fn_save()">글 등록하기</button>
+					<button type="button" class="btn btn-lg boardbtn" onclick="fn_back()">취소</button>
 				</div>
 				<!-- board button area end -->
 			</div>
 		</form>
 	</div>
 
-	<jsp:include page="../common/foot.jsp"></jsp:include>
+	<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>
