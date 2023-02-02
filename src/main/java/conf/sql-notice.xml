@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				  "dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<resultMap id="noticeResult" type="notice">
+		<result property="ntcNo" column="NTC_NO" />
+		<result property="ntcTitle" column="NTC_TITLE" />
+		<result property="ntcContent" column="NTC_CONTENT" />
+		<result property="ntcRegId" column="NTC_REG_ID" />
+		<result property="ntcRegDate" column="NTC_REG_DATE" />
+		<result property="ntcModDate" column="NTC_MOD_DATE" />
+		<result property="ntcHit" column="NTC_HIT" />
+	</resultMap>
+
+	<select id="retrieveNoticeList" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	retrieveNoticeList	*/
+			SELECT NOTICE.NTC_NO
+				 , NOTICE.NTC_TITLE
+				 , NOTICE.NTC_CONTENT
+				 , NOTICE.NTC_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = NOTICE.NTC_REG_ID) AS USER_NAME
+				 , NOTICE.NTC_REG_DATE
+				 , NOTICE.NTC_MOD_DATE
+				 , NOTICE.NTC_HIT
+			FROM   TB_NOTICE NOTICE
+			WHERE  1=1
+			ORDER BY NOTICE.NTC_REG_DATE DESC
+		]]>
+	</select>
+
+	<select id="retrieveNotice" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	retrieveNotice	*/
+			SELECT NOTICE.NTC_NO
+				 , NOTICE.NTC_TITLE
+				 , NOTICE.NTC_CONTENT
+				 , NOTICE.NTC_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = NOTICE.NTC_REG_ID) AS USER_NAME
+				 , NOTICE.NTC_REG_DATE
+				 , NOTICE.NTC_MOD_DATE
+				 , NOTICE.NTC_HIT
+			FROM   TB_NOTICE NOTICE
+			WHERE  1=1
+			AND    NTC_NO = #{ntcNo}
+		]]>
+	</select>
+
+	<select id="retrieveMaxNoticeNo" resultType="string">
+		<![CDATA[
+		/*	retrieveMaxNoticeNo	*/
+			SELECT MAX(NOTICE.NTC_NO)
+			FROM   TB_NOTICE NOTICE
+		]]>
+	</select>
+
+	<insert id="createNotice" parameterType="notice">
+		<![CDATA[
+		/*	createNotice	*/
+			INSERT INTO TB_NOTICE
+				(NTC_NO
+				, NTC_TITLE
+				, NTC_CONTENT
+				, NTC_REG_ID
+				, NTC_REG_DATE
+				, NTC_MOD_DATE
+			) VALUES 
+				('N' || LPAD(NOTICE_SEQ.NEXTVAL, 5, 0)
+				, #{ntcTitle}
+				, #{ntcContent}
+				, #{ntcRegId}
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+			)
+		]]>
+	</insert>
+
+	<update id="updateNotice" parameterType="notice">
+		<![CDATA[
+		/*	updateNotice	*/
+			UPDATE TB_NOTICE
+			SET NTC_TITLE         =  #{ntcTitle}
+			  , NTC_CONTENT       =  #{ntcContent}
+			  , NTC_MOD_DATE	  =  TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+			WHERE NTC_NO = #{ntcNo}
+		]]>
+	</update>
+
+	<update id="updateNoticeHit" parameterType="notice">
+		<![CDATA[
+		/*	updateNoticeHit	*/
+			UPDATE TB_NOTICE
+			SET NTC_HIT          =  NTC_HIT + 1
+			WHERE NTC_NO = #{ntcNo}
+		]]>
+	</update>
+
+	<delete id="deleteNotice" parameterType="map">
+		<![CDATA[
+		/*	deleteNotice	*/
+			DELETE
+			FROM  TB_NOTICE
+			WHERE 1=1
+			AND NTC_NO = #{ntcNo}
+		]]>
+	</delete>
+
+	<delete id="deleteNotice2" parameterType="map">
+		<![CDATA[
+		/*	deleteNotice2	*/
+			DELETE
+			FROM  TB_NOTICE
+			WHERE 1=1
+			AND NTC_REG_ID = #{ntcRegId};
+		]]>
+	</delete>
+</mapper>
