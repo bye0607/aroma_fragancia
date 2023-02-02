@@ -43,7 +43,7 @@
 	
 				$("#ntcContent").val(ntcContent);
 	
-		 		$("#updateNotice").submit();
+		 		$("#noticeModify").submit();
 			}
 		}
 	
@@ -83,7 +83,7 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="updateNotice" method="post" action="${context}/work/board/updateNotice.do?ntcNo=${dsNotice.NTC_NO}" role="form">
+		<form id="noticeModify" method="post" action="${context}/work/board/noticeModify.do?ntcNo=${dsNotice.NTC_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="ntcTitle" class="control-label">제목</label>

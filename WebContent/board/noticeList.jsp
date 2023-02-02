@@ -15,8 +15,8 @@
 	<script src="${context}/js/bootstrap.min.js"></script>
 	<script src="${context}/js/common.js"></script>
 	<script type="text/javascript">
-		function fn_createNotice(){
-			location.href = "${context}/work/board/createNotice.do";
+		function fn_noticeWrite(){
+			location.href = "${context}/work/board/noticeWrite.do";
 		}
 	</script>
 </head>
@@ -53,7 +53,7 @@
 				</div>
 				<c:if test="${sessionScope.grade == 'A'}">
 					<div class="col-xs-4 text-right">
-						<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_createNotice()">새 글 쓰기</button>
+						<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_noticeWrite()">새 글 쓰기</button>
 					</div>
 				</c:if>
 			</div>
@@ -67,7 +67,7 @@
                     <c:forEach items="${dsNoticeList}" var="dsNoticeList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/retrieveNotice.do?ntcNo=${dsNoticeList.NTC_NO}">${dsNoticeList.NTC_TITLE}</a></div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/noticeView.do?ntcNo=${dsNoticeList.NTC_NO}">${dsNoticeList.NTC_TITLE}</a></div>
 								<div class="col-md-2">${dsNoticeList.USER_NAME}</div>
                          	</td>
                          </tr>

@@ -25,8 +25,8 @@ public class NoticeController {
 	private UserService userService;
 
 
-	@RequestMapping(value="/work/board/createNotice.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView createNotice(@ModelAttribute NoticeBean notice, HttpServletRequest request){
+	@RequestMapping(value="/work/board/noticeWrite.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView noticeWrite(@ModelAttribute NoticeBean notice, HttpServletRequest request){
 		HttpSession session = request.getSession();
 
 		String userCode = (String)session.getAttribute("userCode");
@@ -40,11 +40,11 @@ public class NoticeController {
 		}else if(flag != null){
 			//게시글 생성
 			notice.setNtcRegId(userCode);
-			noticeService.createNotice(notice);
+			noticeService.noticeWrite(notice);
 
-			String maxNoticedNo = noticeService.retrieveMaxNoticeNo();
+			String maxNoticedNo = noticeService.maxNoticeNo();
 
-			mv.setViewName("redirect:/work/board/retrieveNotice.do?maxNoticeNo=" + maxNoticedNo + "&fromCreate=true");
+			mv.setViewName("redirect:/work/board/noticeView.do?maxNoticeNo=" + maxNoticedNo + "&fromCreate=true");
 		}
 
 		return mv;
@@ -56,11 +56,11 @@ public class NoticeController {
 //
 //		mv.setViewName("/intro/index");
 
-		return "redirect:/work/board/retrieveNoticeList.do";
+		return "redirect:/work/board/noticeList.do";
 	}
 
-	@RequestMapping(value="/work/board/retrieveNotice.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView retrieveNotice(HttpServletRequest request){
+	@RequestMapping(value="/work/board/noticeView.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView noticeView(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
 		String noticeNo = request.getParameter("maxNoticeNo");
@@ -81,7 +81,7 @@ public class NoticeController {
 			noticeService.updateNoticeHit(noticeParam);
 		}
 
-		Map<String, String> dsNotice = noticeService.retrieveNotice(noticeParam);
+		Map<String, String> dsNotice = noticeService.noticeView(noticeParam);
 
 
 		mv.addObject("dsNotice", dsNotice);
@@ -91,13 +91,13 @@ public class NoticeController {
 		return mv;
 	}
 
-	@RequestMapping(value="/work/board/retrieveNoticeList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView retrieveNoticeList(HttpServletRequest request){
+	@RequestMapping(value="/work/board/noticeList.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView noticeList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, String> noticeParam = new HashMap<String, String>();
 
-		List<Map<String, String>> dsNoticeList = noticeService.retrieveNoticeList(noticeParam);
+		List<Map<String, String>> dsNoticeList = noticeService.noticeList(noticeParam);
 
 		mv.addObject("dsNoticeList", dsNoticeList);
 		mv.setViewName("/board/noticeList");
@@ -128,7 +128,7 @@ public class NoticeController {
 		//글 삭제
 		noticeService.deleteNotice(noticeParam);
 
-		mv.setViewName("redirect:/work/board/retrieveNoticeList.do");
+		mv.setViewName("redirect:/work/board/noticeList.do");
 
 		return mv;
 	}
@@ -150,13 +150,13 @@ public class NoticeController {
 		markParam.put("userCode", userCode);
 		markParam.put("ntcNo", noticeNo);
 
-		mv.setViewName("redirect:/work/board/retrieveNotice.do?ntcNo=" + noticeNo + "&fromRating=true");
+		mv.setViewName("redirect:/work/board/noticeView.do?ntcNo=" + noticeNo + "&fromRating=true");
 
 		return mv;
 	}
 
-	@RequestMapping(value="/work/board/updateNotice.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView updateNotice(HttpServletRequest request, @ModelAttribute NoticeBean bean){
+	@RequestMapping(value="/work/board/noticeModify.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView noticeModify(HttpServletRequest request, @ModelAttribute NoticeBean bean){
 		Map<String, String> noticeParam = new HashMap<String, String>();
 		ModelAndView mv = new ModelAndView();
         String noticeNo = request.getParameter("ntcNo"); //없으면 GET(create안함), 있으면 POST(create)
@@ -164,14 +164,14 @@ public class NoticeController {
         String flag = bean.getNtcTitle();
         noticeParam.put("ntcNo", noticeNo);
 
-        Map<String, String> dsNotice = noticeService.retrieveNotice(noticeParam);
+        Map<String, String> dsNotice = noticeService.noticeView(noticeParam);
 
 		if(flag == null){
 			mv.addObject("dsNotice", dsNotice);
 			mv.setViewName("/board/noticeModify");
 		}else{
-			noticeService.updateNotice(bean);
-			mv.setViewName("/work/board/retrieveNotice.do?ntcNo=" + noticeNo + "&fromUpdate=true");
+			noticeService.noticeModify(bean);
+			mv.setViewName("/work/board/noticeView.do?ntcNo=" + noticeNo + "&fromUpdate=true");
 		}
 		return mv;
 	}

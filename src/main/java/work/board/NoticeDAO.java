@@ -13,24 +13,24 @@ public class NoticeDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Map<String, String>> retrieveNoticeList(Map<String, String> noticeParam){
-		return sqlSession.selectList("notice.retrieveNoticeList", noticeParam);
+	public List<Map<String, String>> noticeList(Map<String, String> noticeParam){
+		return sqlSession.selectList("notice.noticeList", noticeParam);
 	}
 
-	public Map<String, String> retrieveNotice(Map<String, String> noticeParam){
-		return sqlSession.selectOne("notice.retrieveNotice", noticeParam);
+	public Map<String, String> noticeView(Map<String, String> noticeParam){
+		return sqlSession.selectOne("notice.noticeView", noticeParam);
 	}
 
-	public String retrieveMaxNoticeNo(){
-		return sqlSession.selectOne("notice.retrieveMaxNoticeNo");
+	public String maxNoticeNo(){
+		return sqlSession.selectOne("notice.maxNoticeNo");
 	}
 
-	public void createNotice(NoticeBean notice){
-		sqlSession.insert("notice.createNotice", notice);
+	public void noticeWrite(NoticeBean notice){
+		sqlSession.insert("notice.noticeWrite", notice);
 	}
 
-	public void updateNotice(NoticeBean notice){
-		sqlSession.update("notice.updateNotice", notice);
+	public void noticeModify(NoticeBean notice){
+		sqlSession.update("notice.noticeModify", notice);
 	}
 
 	public void updateNoticeHit(Map<String, String> noticeParam){

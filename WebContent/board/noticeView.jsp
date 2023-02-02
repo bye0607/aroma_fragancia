@@ -31,7 +31,7 @@
 		function fn_update(){
 			var noticeNo = '${dsNotice.NTC_NO}';
 	
-			location.href = "${context}/work/board/updateNotice.do?ntcNo=" + noticeNo;
+			location.href = "${context}/work/board/noticeModify.do?ntcNo=" + noticeNo;
 		}
 	</script>
 </head>

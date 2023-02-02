@@ -14,28 +14,28 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeDAO noticeDAO;
 	
 	@Override
-	public List<Map<String, String>> retrieveNoticeList(Map<String, String> noticeParam) {
-		return noticeDAO.retrieveNoticeList(noticeParam);
+	public List<Map<String, String>> noticeList(Map<String, String> noticeParam) {
+		return noticeDAO.noticeList(noticeParam);
 	}
 
 	@Override
-	public Map<String, String> retrieveNotice(Map<String, String> noticeParam) {
-		return noticeDAO.retrieveNotice(noticeParam);
+	public Map<String, String> noticeView(Map<String, String> noticeParam) {
+		return noticeDAO.noticeView(noticeParam);
 	}
 
 	@Override
-	public String retrieveMaxNoticeNo() {
-		return noticeDAO.retrieveMaxNoticeNo();
+	public String maxNoticeNo() {
+		return noticeDAO.maxNoticeNo();
 	}
 
 	@Override
-	public void createNotice(NoticeBean notice) {
-		noticeDAO.createNotice(notice);		
+	public void noticeWrite(NoticeBean notice) {
+		noticeDAO.noticeWrite(notice);		
 	}
 
 	@Override
-	public void updateNotice(NoticeBean notice) {
-		noticeDAO.updateNotice(notice);
+	public void noticeModify(NoticeBean notice) {
+		noticeDAO.noticeModify(notice);
 	}
 
 	@Override

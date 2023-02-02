@@ -12,9 +12,9 @@
 		<result property="ntcHit" column="NTC_HIT" />
 	</resultMap>
 
-	<select id="retrieveNoticeList" parameterType="map" resultType="map">
+	<select id="noticeList" parameterType="map" resultType="map">
 		<![CDATA[
-		/*	retrieveNoticeList	*/
+		/*	noticeList	*/
 			SELECT NOTICE.NTC_NO
 				 , NOTICE.NTC_TITLE
 				 , NOTICE.NTC_CONTENT
@@ -29,9 +29,9 @@
 		]]>
 	</select>
 
-	<select id="retrieveNotice" parameterType="map" resultType="map">
+	<select id="noticeView" parameterType="map" resultType="map">
 		<![CDATA[
-		/*	retrieveNotice	*/
+		/*	noticeView	*/
 			SELECT NOTICE.NTC_NO
 				 , NOTICE.NTC_TITLE
 				 , NOTICE.NTC_CONTENT
@@ -46,17 +46,17 @@
 		]]>
 	</select>
 
-	<select id="retrieveMaxNoticeNo" resultType="string">
+	<select id="maxNoticeNo" resultType="string">
 		<![CDATA[
-		/*	retrieveMaxNoticeNo	*/
+		/*	maxNoticeNo	*/
 			SELECT MAX(NOTICE.NTC_NO)
 			FROM   TB_NOTICE NOTICE
 		]]>
 	</select>
 
-	<insert id="createNotice" parameterType="notice">
+	<insert id="noticeWrite" parameterType="notice">
 		<![CDATA[
-		/*	createNotice	*/
+		/*	noticeWrite	*/
 			INSERT INTO TB_NOTICE
 				(NTC_NO
 				, NTC_TITLE
@@ -75,9 +75,9 @@
 		]]>
 	</insert>
 
-	<update id="updateNotice" parameterType="notice">
+	<update id="noticeModify" parameterType="notice">
 		<![CDATA[
-		/*	updateNotice	*/
+		/*	noticeModify	*/
 			UPDATE TB_NOTICE
 			SET NTC_TITLE         =  #{ntcTitle}
 			  , NTC_CONTENT       =  #{ntcContent}
