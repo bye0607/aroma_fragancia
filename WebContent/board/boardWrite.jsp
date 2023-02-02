@@ -16,7 +16,7 @@
 	<script src="${context}/js/common.js"></script>
 </head>
 <body>
-<jsp:include page="../common/top.jsp"></jsp:include>
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
 <!-- desktop버전  -->
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
@@ -72,6 +72,6 @@
 		</form>
 	</div>
 
-	<jsp:include page="../common/foot.jsp"></jsp:include>
+	<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>
