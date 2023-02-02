@@ -126,17 +126,17 @@
 				style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
 				<div class="boardText1">
 					<h3 class="boardTitle1">PRODUCT</h3>
-					<p class="boardSub1">perfume</p>
+					<p class="boardSub1">diffuser</p>
 				</div>
 			</div>
 		</div>
 		<!-- mobile버전  -->
 		<div class="mobile">
 			<div class="mobileImg img-responsive center-block"
-				style='background-image: url("${context}/backgroundImage/RESERVATION.jpg");'>
+				style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
 				<div class="boardText2">
 					<h3 class="boardTitle2">PRODUCT</h3>
-					<p class="boardSub2">perfume</p>
+					<p class="boardSub2">diffuser</p>
 				</div>
 			</div>
 		</div>
@@ -174,7 +174,7 @@
 		<div class="row">
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p1.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s1.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -189,7 +189,7 @@
 			
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p2.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s2.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -205,7 +205,7 @@
 						
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p3.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s3.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -226,7 +226,7 @@
 	<div class="row">
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p4.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s4.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -241,7 +241,7 @@
 			
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p5.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s5.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -257,7 +257,7 @@
 						
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p6.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s6.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -273,7 +273,7 @@
 	<div class="row">
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p7.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s7.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -288,7 +288,7 @@
 			
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p8.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s8.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -304,7 +304,7 @@
 						
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p9.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s9.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -320,7 +320,7 @@
 	<div class="row">
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p10.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s10.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -335,7 +335,7 @@
 			
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p11.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s11.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
@@ -351,7 +351,7 @@
 						
 			<div class="col-md-4" >
 				<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
-				<div id="image" class="img-responsive" style='background-image: url("${context}/penImg/p12.png");'></a> 
+				<div id="image" class="img-responsive" style='background-image: url("${context}/designImg/s12.png");'></a> 
 			</div>
 			<div class="col-md-4">
 				<h4 id="product-perfume" id="product-perfume-name">제품명 ${dsProductList.PRODUCT_NAME}</h4>
