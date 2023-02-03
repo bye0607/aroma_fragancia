@@ -287,7 +287,7 @@
 							      </div>
 							    </div>
 							  </div>
-                                <!-- Change this to a button or input when using this as a form -->
+                                 <!-- Change this to a button or input when using this as a form -->
                                 <button class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">CREATE ACCOUNT</button>
                         </form>
                     </div>
@@ -340,19 +340,19 @@ input[value="Search"]{
 	height: 62px;
 	padding: 0px;
 	margin: -5px;
+	background-color: #fff;
 	border-radius: 30px 30px 0 0!important; 
-	font-family: Crimson Pro;
+	font-family:'DM Serif Display';
 }
 .panel-body{
 	clear:both;
 	width: 566px;
-	height: 868px;
+	height: 850px;
 	background-color: #fff;
 	border-radius: 0 0 30px 30px !important; 
 	position:absolute !important; 
-	top:50% !important; 
+	top:55% !important; 
 	left:50%!important; 
-	margin-top : 50px;
 	transform:translate(-50%,-45%) !important;
 }
 .fieldset {
@@ -529,11 +529,11 @@ a:hover{
 }
 
 @media (max-width: 991px) and (min-width: 769px) {
-	.panel-body {top: 649% !important}
+	.panel-body {top: 716% !important}
 	.login{margin: 77px !important;}
 }
 @media (max-width: 768px) {
-	.panel-body {top: 649% !important}
+	.panel-body {top: 716% !important;}
 	.login{margin: 77px !important;}
 }
 </style>
