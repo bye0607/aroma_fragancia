@@ -7,7 +7,7 @@
 <head>
 	<meta name="description" content="noticeList.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 목록</title>
+	<title>공지사항 - 글 목록</title>
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/common.css" rel="stylesheet">

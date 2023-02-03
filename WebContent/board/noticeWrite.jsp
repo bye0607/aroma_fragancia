@@ -7,7 +7,7 @@
 <head>
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 쓰기</title>
+	<title>공지사항 - 글 쓰기</title>
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/common.css" rel="stylesheet">
