@@ -92,54 +92,6 @@
 			]]>
 	</select>
 
-	<select id="retrieveProductListForBinder" resultType="map">
-		<![CDATA[
-			/*	retrieveProductListForBinder	*/
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'B'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM <= 3
-			]]>
-	</select>
-
-	<select id="retrieveProductListForDesign" resultType="map">
-		<![CDATA[
-			/*	retrieveProductListForDesign	*/
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'D'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM <= 4
-			]]>
-	</select>
-
-	<select id="retrieveProductListForOffice" resultType="map">
-		<![CDATA[
-			/*	retrieveProductListForOffice	*/
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'O'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM <= 6
-			]]>
-	</select>
-
 	<select id="retrieveProductListForPen" resultType="map">
 		<![CDATA[
 			/*	retrieveProductListForPen	*/

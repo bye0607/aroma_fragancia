@@ -21,18 +21,6 @@ public class ProductDAO {
 		return sqlSession.selectList("product.retrieveProductListForMain");
 	}
 
-	public List<Map<String, String>> retrieveProductListForBinder(){
-		return sqlSession.selectList("product.retrieveProductListForBinder");
-	}
-
-	public List<Map<String, String>> retrieveProductListForDesign(){
-		return sqlSession.selectList("product.retrieveProductListForDesign");
-	}
-
-	public List<Map<String, String>> retrieveProductListForOffice(){
-		return sqlSession.selectList("product.retrieveProductListForOffice");
-	}
-
 	public List<Map<String, String>> retrieveProductListForPen(){
 		return sqlSession.selectList("product.retrieveProductListForPen");
 	}

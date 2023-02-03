@@ -21,7 +21,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import work.product.ProductBean;
 import work.code.CodeBean;
 import work.code.CodeService;
 import work.reply.ReplyService;
@@ -112,17 +111,11 @@ public class ProductController {
 
 		List<Map<String, String>> dsProductList = productService.retrieveProductListForMain();
 
-		List<Map<String, String>> dsBinderList = productService.retrieveProductListForBinder();
-		List<Map<String, String>> dsDesignList = productService.retrieveProductListForDesign();
-		List<Map<String, String>> dsOfficeList = productService.retrieveProductListForOffice();
 		List<Map<String, String>> dsPenList = productService.retrieveProductListForPen();
 		List<Map<String, String>> dsStorageList = productService.retrieveProductListForStorage();
 
 		mv.addObject("dsProductList", dsProductList);
 
-		mv.addObject("dsDesignList", dsDesignList);
-		mv.addObject("dsBinderList", dsBinderList);
-		mv.addObject("dsOfficeList", dsOfficeList);
 		mv.addObject("dsPenList", dsPenList);
 		mv.addObject("dsStorageList", dsStorageList);
 

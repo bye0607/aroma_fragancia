@@ -20,18 +20,6 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.retrieveProductListForMain();
 	}
 
-	public List<Map<String, String>> retrieveProductListForDesign(){
-		return productDAO.retrieveProductListForDesign();
-	}
-
-	public List<Map<String, String>> retrieveProductListForBinder(){
-		return productDAO.retrieveProductListForBinder();
-	}
-
-	public List<Map<String, String>> retrieveProductListForOffice(){
-		return productDAO.retrieveProductListForOffice();
-	}
-
 	public List<Map<String, String>> retrieveProductListForPen(){
 		return productDAO.retrieveProductListForPen();
 	}
