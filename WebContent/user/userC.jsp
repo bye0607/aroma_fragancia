@@ -252,7 +252,7 @@
 								<div class="form-group">
                                 	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
 	                                    <input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
-	                                    <input class="form-control" placeholder="Address" id="sample6_postcode" name="address" type="text">
+	                                    <input class="form-control address1" placeholder="Address" id="sample6_postcode" name="address" type="text">
                                     </div>
                                 </div>
                                 
@@ -266,7 +266,7 @@
                                 
                                 <div class="form-group">
                                 	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="Details 2" id="sample6_detailAddress" name="details 2" type="text" style="margin-bottom: 0 !important;">
+                                    <input class="form-control" placeholder="Details 2" id="sample6_detailAddress" name="details 2" type="text">
                                     </div>
                                 </div>
                                 
@@ -300,16 +300,12 @@
 </body>
 
 <style type="text/css">
-input[id="pw"]{
-	  margin-left: 40px;
-      height: 66px;
-      display:inline;
-      outline:none;
-      box-sizing: border-box;
-      color:black;
-
-    }
-    input[value="Show"]{
+.address1 {
+float: left !important;
+width: 380px !important;
+margin-left: 42px !important;
+}
+input[value="Search"]{
       width: 18%;
       height: 66px;
       background-color: lightgray;
@@ -324,37 +320,6 @@ input[id="pw"]{
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 0 15px 15px 0;
-    }
-    input[value="Show"]:hover{
-     background:#9CA09F;
-     color:#fff
-    }
-input[id="address"]{
-	color: #9CA09F !important;
-	  margin-left: 40px;
-      width:70%;
-      height: 66px;
-      display:inline;
-      outline:none;
-      font-family: Crimson Pro;
-      box-sizing: border-box;
-      color:black;
-
-    }
-    input[value="Search"]{
-      width: 18%;
-      background-color: lightgray;
-      border:none;
-      background-color: white;
-      font-size: 20px;
-      font-family: Crimson Pro;
-      color:#9CA09F;
-      outline:none;
-      display:inline;
-      margin-left: 395px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 15px;
     }
     input[value="Search"]:hover{
      background:#9CA09F;
@@ -434,7 +399,7 @@ input[id="address"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#address::-webkit-input-placeholder{
+#sample6_postcode::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
@@ -446,7 +411,31 @@ input[id="address"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#details::-webkit-input-placeholder{
+#sample6_address::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/map-pin.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#sample6_detailAddress::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/map-pin.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#sample6_extraAddress::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
