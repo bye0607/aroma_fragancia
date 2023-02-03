@@ -8,12 +8,6 @@
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 내용보기</title>
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/common.css" rel="stylesheet">
-	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/bootstrap.min.js"></script>
-	<script src="${context}/js/common.js"></script>
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>

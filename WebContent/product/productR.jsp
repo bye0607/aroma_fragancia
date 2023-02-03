@@ -15,7 +15,6 @@
 	<link href="${context}/css/common.css" rel="stylesheet">
 	<link href="${context}/css/product.css" rel="stylesheet">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/bootstrap.min.js"></script>
 	<script src="${context}/js/common.js"></script>
 	<script type="text/javascript">
 	
