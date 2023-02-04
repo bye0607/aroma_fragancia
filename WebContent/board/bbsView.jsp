@@ -5,9 +5,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="boardWrite.jsp">
+	<meta name="description" content="boardView.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 내용보기</title>
+	<script type="text/javascript">
+		function fn_boardList(){
+			location.href = "${context}/work/board/Board.do";
+		}
+		//글 삭제
+		function fn_delete(){
+			var boardNo = '${dsBoard.BOARD_NO}';
+	
+			if(confirm("정말 글을 삭제하시겠습니까?")){
+				location.href = "${context}/work/board/deleteBoard.do?boardNo=" + boardNo;
+			}
+		}
+		
+		//글 수정
+		function fn_update(){
+			var boardNo = '${dsBoard.BOARD_NO}';
+	
+			location.href = "${context}/work/board/BoardModify.do?BoardNo=" + BoardNo;
+		}
+	</script>
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
@@ -15,8 +35,8 @@
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
-			<h3 class="boardTitle1">notice</h3>
-			<p class="boardSub1">공지사항</p>
+			<h3 class="boardTitle1">Board</h3>
+			<p class="boardSub1">자유 게시판</p>
 		</div>
 	</div>
 </div>
@@ -24,7 +44,7 @@
 <div class="mobile">
 	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
-			<h3 class="boardTitle2">notice</h3>
+			<h3 class="boardTitle2">Board</h3>
 			<p class="boardSub2">공지사항</p>
 		</div>
 	</div>
@@ -37,7 +57,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">notice</h2>
+					<h2 class="title eng">Board</h2>
 				</div>
 			</div>
 		</div>
@@ -46,26 +66,27 @@
 			<!-- board view start -->
 			<div class="row title">
 				<div class="col-sm-12 col-md-10">
-					제목 제목 제목
+					${dsboard.BOARD_TITLE}
 				</div>
 				<div class="col-sm-12 col-md-2 user">
-					작성자
+					${dsboard.USER_CODE}
 				</div>
 			</div>
 			<div class="row content">
-				게시글 내용<br>게시글 내용<br>게시글 내용<br>게시글 내용<br>게시글 내용<br>게시글 내용
+				${dsboard.BOARD_CONTENT}
 			</div>
 		</div>
-		<!-- board view end -->
+			<!-- board view end -->
 		<!-- board button area start -->
-		<div class="row btnarea">
-			<button class="btn btn-lg boardbtn" type="button" onclick="location.href='boardWrite.jsp'">글 수정하기</button>
-			<button class="btn btn-lg boardbtn" type="button">글 삭제하기</button>
-		</div>
+		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsboard.BOARD_CODE}">
+			<div class="row btnarea">
+				<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
+				<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
+			</div>
+		</c:if>
 		<!-- board button area end -->
 	
 	</div> <!-- container end -->
-
 	<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>

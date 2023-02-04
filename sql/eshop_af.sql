@@ -227,15 +227,15 @@ CREATE TABLE TB_NOTICE(
 -- 자유게시판 정보
 DROP TABLE TB_BOARD CASCADE CONSTRAINT;
 CREATE TABLE TB_BOARD(
-  BO_NO VARCHAR2(20),           	  -- 글번호
-  BO_TITLE VARCHAR2(50) NOT NULL,     -- 제목
-  BO_CONTENT VARCHAR2(4000),   		  -- 내용
-  BO_REG_ID VARCHAR2(20),     		  -- 등록자
-  BO_MOD_ID VARCHAR2(20),      		  -- 수정자
-  BO_REG_DATE VARCHAR2(20),    		  -- 등록일자
-  BO_MOD_DATE VARCHAR2(20),    		  -- 수정일자
-  BO_HIT NUMBER DEFAULT 0,     		  -- 조회수
-  CONSTRAINT TB_BOARD_PK PRIMARY KEY(BO_NO)
+  BOARD_NO VARCHAR2(20),           	  -- 글번호
+  BOARD_TITLE VARCHAR2(50) NOT NULL,  -- 제목
+  BOARD_CONTENTS VARCHAR2(4000),   	  -- 내용
+  USER_CODE VARCHAR2(20),     		  -- 등록자
+  USER_MOD_CODE VARCHAR2(20),      	  -- 수정자
+  BOARD_DATE VARCHAR2(20),        	  -- 등록일자
+  BOARD_MOD_DATE VARCHAR2(20),    	  -- 수정일자
+  BOARD_HITS NUMBER DEFAULT 0,     	  -- 조회수
+  CONSTRAINT TB_BOARD_PK PRIMARY KEY(BOARD_NO)
 );
 
 -- 커뮤니티게시판 정보

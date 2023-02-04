@@ -5,13 +5,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="boardWrite.jsp">
+	<meta name="description" content="boardModify.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 쓰기</title>
+	<title>글 수정하기</title>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();
+	
+			//글수정 기존 내용 셋팅
+			fn_setDetailInfo();
 		});
+	
+		function fn_setDetailInfo(){
+			$("#boardTitle").val('${dsBoard.BOARD_TITLE}');
+			$("#boardNo").val('${dsBoard.BOARD_NO}');
+	
+			var boardContent = '${boardNotice.BOARD_CONTENT}';
+	
+			boardContent = boardContent.replace(/<br ?\/?>/gi, "\n");
+	
+			$("#boardContent").val(boardContent);
+		}
 	
 		function fn_save(){
 			if(!fn_validation()){
@@ -23,7 +37,7 @@
 	
 				$("#boardContent").val(boardContent);
 	
-		 		$("#boardWrite").submit();
+		 		$("#boardModify").submit();
 			}
 		}
 	
@@ -57,24 +71,21 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">Board</h2>
+					<h2 class="title eng">자유 게시판</h2>
 				</div>
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="boardWrite" method="post" action="${context}/work/board/bbsWrite.do" role="form">
+		<form id="boardModify" method="post" action="${context}/work/board/boardModify.do?boardNo=${dsBoard.BOARD_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
-					<label for="name" class="control-label">이름</label>
-					<input class="form-control" type="text" name="boardTitle" id="boardTitle" required="required" maxlength="50" autofocus="autofocus" placeholder="이름을 입력해주세요"/>
-				</div>
-				<div class="form-group">
 					<label for="boardTitle" class="control-label">제목</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required" placeholder="제목을 입력해주세요"></textarea>
+					<input class="form-control" type="text" name="boardTitle" id="boardTitle" required="required" maxlength="50" autofocus="autofocus">
 				</div>
+	
 				<div class="form-group">
 					<label for="boardContent" class="control-label">내용</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required" placeholder="내용을 입력해주세요"></textarea>
+					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required"></textarea>
 				</div>
 				<!-- board button area start -->
 				<div class="row btnarea">
