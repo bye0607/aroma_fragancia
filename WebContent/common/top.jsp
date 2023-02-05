@@ -50,9 +50,7 @@ a{
 					<c:if test="${sessionScope.id == null}">
 						<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
 					</c:if>
-					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
-						<a href="${context}/work/user/updateUser.do"><font color="black"><strong>정보수정</strong></font></a>
-					</c:if>
+
 					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
 						<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
 					</c:if>
@@ -96,14 +94,16 @@ a{
 		          <ul class="dropdown-menu">
 				    <li><a href="${context}/work/sell/retrieveBuyList.do" style="color: black; font-size: 15px;">PURCHASE HISTORY</a></li>
 					
-				    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${storageUrl}')" style="color: black; font-size: 15px;">EDIT PROFILE</a></li>
+				    <li><a href="${context}/work/user/updateUser.do" style="color: black; font-size: 15px;">EDIT PROFILE</a></li>
 		          </ul>
-				</c:if>
+				</c:if>>
+
+
 
 	        </li>
       			<li>
 					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
-						<a href="${context}/work/cart/retrieveCartList.do"><font color="black"><strong>장바구니</strong></font></a>
+						<a href="${context}/work/cart/retrieveCartList.do"><font color="black"><strong>CART</strong></font></a>
 					</c:if>
 					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
 						<a href="${context}/work/product/retrieveProductListForManage.do"><font color="black"><strong>재고관리</strong></font></a>
