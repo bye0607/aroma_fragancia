@@ -94,10 +94,12 @@ a{
 				<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MY PAGE <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-				    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${officeUrl}')" style="color: black; font-size: 15px;">PURCHASE HISTORY</a></li>
+				    <li><a href="${context}/work/sell/retrieveBuyList.do" style="color: black; font-size: 15px;">PURCHASE HISTORY</a></li>
+					
 				    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${storageUrl}')" style="color: black; font-size: 15px;">EDIT PROFILE</a></li>
 		          </ul>
 				</c:if>
+
 	        </li>
       			<li>
 					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
@@ -108,9 +110,6 @@ a{
 					</c:if>
 				</li>
 				<li>
-					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
-						<a href="${context}/work/sell/retrieveBuyList.do"><font color="black"><strong>구매내역</strong></font></a>
-					</c:if>
 					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
 						<a href="${context}/work/sell/retrieveStatisticsForProduct.do"><font color="black"><strong>매출통계</strong></font></a>
 					</c:if>
@@ -124,7 +123,7 @@ a{
 
 		<div class= "container" style="background-color: white;">
 	  	<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-	  		<p style="font-size: 70px;"><a href="${context}/work/product/goMain.do" style="color: black;"><b>HS STATIONERY</b></a></p>
+	  		<p style="font-size: 70px;"><a href="${context}/work/product/goMain.do" style="color: black;"><b>AROMA FRAGANCIA</b></a></p>
 	  		<h1>관리자 모드입니다.</h1>
 	  	</c:if>
 	</div>
