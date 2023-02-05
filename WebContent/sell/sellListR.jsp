@@ -17,15 +17,11 @@
 	<!-- 아임포트 결제 CDN 연동 -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script>
-	var existFolder = '';
-	var imageFolder = '';
-	var path = '';
-
-    function fn_finalBuy(paramSellCode, paramSellCount, paramProductCode){
-		if(confirm("결제하시겠습니까?")){
-			location.href = "${context}/work/sell/updateFinalBuy.do?sellCode=" + paramSellCode + "&sellCount=" + paramSellCount + "&productCode=" + paramProductCode;
-		}
-    }
+	    function fn_finalBuy(paramSellCode, paramSellCount, paramProductCode){
+			if(confirm("결제하시겠습니까?")){
+				location.href = "${context}/work/sell/updateFinalBuy.do?sellCode=" + paramSellCode + "&sellCount=" + paramSellCount + "&productCode=" + paramProductCode;
+			}
+	    }
     </script>
 </head>
 <body>
