@@ -11,11 +11,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PRODUCT - ${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</title>
-	<script type="text/javascript">
-		var existFolder = '';
-		var imageFolder = '';
-		var path = '';
-	</script>
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>

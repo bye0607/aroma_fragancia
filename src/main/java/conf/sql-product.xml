@@ -41,7 +41,7 @@
 			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
 			  FROM TB_PRODUCT
 			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'O'
+			  AND PRODUCT_CATEGORY_CD = 'P'
 			  ORDER BY PRODUCT_REG_DATE DESC
 			) T
 			WHERE ROWNUM = 1
@@ -52,49 +52,16 @@
 			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
 			  FROM TB_PRODUCT
 			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'P'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM = 1
-						UNION ALL
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'B'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM = 1
-						UNION ALL
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
 			  AND PRODUCT_CATEGORY_CD = 'D'
-			  ORDER BY PRODUCT_REG_DATE DESC
-			) T
-			WHERE ROWNUM = 1
-						UNION ALL
-			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
-			FROM
-			(
-			  SELECT PRODUCT_IMAGE, PRODUCT_CATEGORY_CD
-			  FROM TB_PRODUCT
-			  WHERE 1=1
-			  AND PRODUCT_CATEGORY_CD = 'S'
 			  ORDER BY PRODUCT_REG_DATE DESC
 			) T
 			WHERE ROWNUM = 1
 			]]>
 	</select>
 
-	<select id="retrieveProductListForPen" resultType="map">
+	<select id="productListForPerfume" resultType="map">
 		<![CDATA[
-			/*	retrieveProductListForPen	*/
+			/*	productListForPerfume	*/
 			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
 			FROM
 			(
@@ -108,9 +75,9 @@
 			]]>
 	</select>
 
-	<select id="retrieveProductListForStorage" resultType="map">
+	<select id="productListForDiffuser" resultType="map">
 		<![CDATA[
-			/*	retrieveProductListForStorage	*/
+			/*	productListForDiffuser	*/
 			SELECT T.PRODUCT_IMAGE, T.PRODUCT_CATEGORY_CD
 			FROM
 			(
