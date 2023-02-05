@@ -426,12 +426,12 @@ transition: all 0.4s ease-in-out;
 
 /*boardListR table, sellListR table css*/
 #dataTables-example{
-max-width: 1094px;
-max-height: 569px;
+/* max-width: 1094px;
+max-height: 569px; */
 margin-top:10%;
 margin-bottom:10%;
-/*margin-left: 12.5%;*/
-margin-right:12.5%;
+/*margin-left: 12.5%;
+margin-right:12.5%;*/
 }
 
 /* 구매내역 및 카트 배경색 지정*/
@@ -531,7 +531,7 @@ background-color: #fff;
   }
 }
 
-/* subpage title */
+/* by 김은주, subpage title */
 .page-header {min-height:84px;border-bottom:0;}
 .page-header .title.eng {color:#292F36;font:34px/100% 'DM Serif Display';}
 .page-header .title {color:#292F36;font:39px/100% 'Noto Sans KR';}
@@ -543,7 +543,7 @@ background-color: #fff;
 	.page-header small {padding-left:70px;font-size:37px;}
 }
 
-/* 게시판 공통 */
+/* by 김은주, 게시판 공통디자인 */
 /* board buttons */
 .boardbtn {width:112px;height:42px;background:#D9D9D9;border-radius:21px;font-size:14px;margin-top:20px}
 .boardbtn:hover {background:#9CA09F;color:#fff}
