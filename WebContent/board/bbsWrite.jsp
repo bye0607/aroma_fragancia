@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">Board</h2>
+					<h2 class="title eng">자유 게시판</h2>
 				</div>
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 				</div>
 				<div class="form-group">
 					<label for="boardTitle" class="control-label">제목</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required" placeholder="제목을 입력해주세요"></textarea>
+					<textarea class="form-control" name="boardTitle" id="boardTitle" cols="10" rows="15" required="required" placeholder="제목을 입력해주세요"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="boardContent" class="control-label">내용</label>

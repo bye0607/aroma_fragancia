@@ -25,7 +25,7 @@
 		function fn_update(){
 			var boardNo = '${dsBoard.BOARD_NO}';
 	
-			location.href = "${context}/work/board/BoardModify.do?BoardNo=" + BoardNo;
+			location.href = "${context}/work/board/modifyBoard.do?boardNo=" + boardNo;
 		}
 	</script>
 </head>
@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">Board</h2>
+					<h2 class="title eng">자유 게시판</h2>
 				</div>
 			</div>
 		</div>
@@ -66,19 +66,19 @@
 			<!-- board view start -->
 			<div class="row title">
 				<div class="col-sm-12 col-md-10">
-					${dsboard.BOARD_TITLE}
+					${dsBoard.BOARD_TITLE}
 				</div>
 				<div class="col-sm-12 col-md-2 user">
-					${dsboard.USER_CODE}
+					${dsBoard.USER_CODE}
 				</div>
 			</div>
 			<div class="row content">
-				${dsboard.BOARD_CONTENT}
+				${dsBoard.BOARD_CONTENT}
 			</div>
 		</div>
-			<!-- board view end -->
+		<!-- board view end -->
 		<!-- board button area start -->
-		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsboard.BOARD_CODE}">
+		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsBoard.USER_CODE}">
 			<div class="row btnarea">
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>

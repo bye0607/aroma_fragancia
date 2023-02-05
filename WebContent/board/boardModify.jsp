@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="boardModify.jsp">
+	<meta name="description" content="modifyBoard.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 수정하기</title>
 	<script type="text/javascript">
@@ -20,7 +20,7 @@
 			$("#boardTitle").val('${dsBoard.BOARD_TITLE}');
 			$("#boardNo").val('${dsBoard.BOARD_NO}');
 	
-			var boardContent = '${boardNotice.BOARD_CONTENT}';
+			var boardContent = '${boardContent.BOARD_CONTENT}';
 	
 			boardContent = boardContent.replace(/<br ?\/?>/gi, "\n");
 	
@@ -37,7 +37,7 @@
 	
 				$("#boardContent").val(boardContent);
 	
-		 		$("#boardModify").submit();
+		 		$("#modifyBoard").submit();
 			}
 		}
 	
@@ -76,7 +76,7 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="boardModify" method="post" action="${context}/work/board/boardModify.do?boardNo=${dsBoard.BOARD_NO}" role="form">
+		<form id="modifyBoard" method="post" action="${context}/work/board/modifyBoard.do?boardNo=${dsBoard.BOARD_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="boardTitle" class="control-label">제목</label>

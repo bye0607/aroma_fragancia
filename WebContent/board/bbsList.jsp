@@ -42,7 +42,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">board</h2>
+					<h2 class="title eng">자유 게시판</h2>
 				</div>
 				<c:if test="${sessionScope.grade == 'A'}">
 				<div class="col-xs-4 text-right">
@@ -64,31 +64,7 @@
 								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
                          	</td>
                          </tr>
-                    </c:forEach>
-                         <tr>
-                         	<td>
-                         		<div class="col-md-10"><a href ="boardView.jsp">${dsBoardList.USER_CODE}</a></div>
-								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
-                         	</td>
-                         </tr>
-                         <tr>
-                         	<td>
-                         		<div class="col-md-10"><a href ="boardView.jsp">${dsBoardList.USER_CODE}</a></div>
-								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
-                         	</td>
-                         </tr>
-                         <tr>
-                         	<td>
-                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
-								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
-                         	</td>
-                         </tr>
-                         <tr>
-                         	<td>
-                         		<div class="col-md-10"><a href ="boardView.jsp">what is lorem ipsum?</a></div>
-								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
-                         	</td>
-                         </tr>
+                    	</c:forEach>
                     </tbody>
                 </table>
             </div>
