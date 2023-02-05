@@ -59,6 +59,9 @@
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
 					<h2 class="title eng">자유 게시판</h2>
 				</div>
+				<div class="col-xs-4 text-right">
+					<button type="button" class="btn btn-lg boardbtn board" onclick="fn_boardList()">목록</button>
+				</div>
 			</div>
 		</div>
 		<!-- board title, buttons end -->
