@@ -5,10 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="userC.jsp">
+		<meta name="description" content="userC.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Register</title>
-	
+	<title>Insert title here</title>
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -24,12 +23,12 @@
 
 	<script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-   
 
     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
 	<script type="text/javascript">
-	
+
 	var dong;
 	var imageFolder;
 
@@ -46,75 +45,9 @@
 	        yearRange: "1980:2015"
 	    });
 
-		$("#dong").keydown(function (key){
-			if(key.keyCode == 13){
-				fn_postCheck();
-			}
-
-		});
 	});
 
-	function fn_setData(self){
-		var postAllData = self.children().text();
-
-		var postSplit = postAllData.split(" ");
-
-		var zipcode = postSplit[0].split("-");
-		var postNum1 = zipcode[0];
-		var postNum2 = zipcode[1];
-		var sido = postSplit[1];
-		var gugun = postSplit[2];
-		var dong = postSplit[3];
-		var subDong = postSplit[4];
-
-		if(subDong == null) subDong = "";
-
-		var detailAddress = sido + " " + gugun + " " + dong + " " + subDong;
-
-		$("#postNum1").val(postNum1);
-		$("#postNum2").val(postNum2);
-
-		$("#address1").val(detailAddress);
-
-		$("#searchPost").modal('hide');
-	}
-
-	function fn_postCheck(){
-		dong = $("#dong").val();
-
-		if(dong == ""){
-			alert("동을 입력하세요.");
-			return;
-		}
-		$("#postBody").children().remove();
-
-		var aheadHtml = "<tr><td style='text-align: center;'><a onclick=javascript:fn_setData($(this))><b>";
-		var backHtml = "</b></a></td></tr>";
-		var appendHtml = "";
-		var param = {};
-
-
-		param["dong"] = dong;
-
-		$.ajax({
-   			url:"${context}/work/applicant/retrievePostByDong.do",
-			contentType:"application/json",
-			dataType:"json",
-			data:param,
-   			success:function(result){
-   				for(var i = 0; i < result.length; i++){
-   					appendHtml
-   					   += aheadHtml
-   					   + result[i].zipcode + " "
-					   + result[i].sido    + " "
-				       + result[i].gugun   + " "
-					   + result[i].dong    + " "
-					   + backHtml;
-   				}
-   					$("#postBody").append(appendHtml);
-   			}
-   		});
-	}
+	
 
 	function fn_save(){
 		if(!fn_validation()) return;
@@ -197,17 +130,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_detailAddress").value = extraAddr;
+                    document.getElementById("postNum2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    document.getElementById("postNum1").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('postNum1').value = data.zonecode;
+                document.getElementById("address1").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_extraAddress").focus();
+                document.getElementById("address2").focus();
             }
         }).open();
     }
@@ -216,94 +149,162 @@
 </head>
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
-    <div class="container">
-    
-        <div class="row">
+<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
+	<div class="container">
+		<div class="row">
            <div class="col-md-6 col-md-offset-3">
-                   <div class="login-panel panel-default"  style="margin-bottom: 133%;">
+                <div class="login-panel panel-default"  style="margin-bottom: 224%;" >
                     <div class="panel-heading login">
                         <div class="panel-title loginButton"><a href="${context}/user/login.jsp">Login</a></div>
 						<div class="panel-title registerButton"><a href="${context}/work/user/createUser.do">Register</a></div>
                     </div>
-                    <div class="panel-body">
-                    
-                        <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm" class="form-horizontal">
-                            <div class="form-group">
-                            <div class="col-sm-12" style="float: none; margin 0 auto;">
-									<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="User"/>
-								</div>
-								<p id="message"></p>
+		            <div class="panel-body">
+		                    
+					<form id="joinFrm" method="post" action="${context}/work/user/createUser.do" role="form">
+					
+						<!-- 이름 -->
+						<div class="form-group"  style="margin-top: 5%;">
+							<div class="col-sm-12" style="float: none; margin 0 auto;">
+								<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="Name"/>
 							</div>
-							
-                                <div class="form-group">
-								    <div class="col-sm-12" style="float: none; margin 0 auto;">
-								      <input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
-								    </div>
-								  </div>
-								  
-                                <div class="form-group">
-	                                <div class="col-sm-12" style="float: none; margin 0 auto;">
-	                                    <input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
-	                                </div>
-                                </div>
-                                
-								<!-- 주소 -->
-								<div class="form-group">
-                                	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-	                                    <input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
-	                                    <input class="form-control address1" placeholder="Address" id="sample6_postcode" name="address" type="text">
-                                    </div>
-                                </div>
-                                
-                              
-                                
-                                <div class="form-group">
-                                	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="Details 1" id="sample6_address" name="details 1" type="text">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="Details 2" id="sample6_detailAddress" name="details 2" type="text">
-                                    </div>
-                                </div>
-                                
-                                 <div class="form-group">
-                                	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
-                                    <input class="form-control" placeholder="Details 3" id="sample6_extraAddress" name="details 2" type="text" style="margin-bottom: 0 !important;">
-                                    </div>
-                                </div>
-								
-								
-								
-                                <div class="form-group">
-							    <div class="col-sm-12" style="float: none; margin 0 auto;">
-							      <div class="checkbox checkbox1">
-							        <label>
-							          <input type="checkbox"><p class="checkboxText">I agree the <span class="forgotText">Terms & Conditions</span></p>
-							        </label>
-							      </div>
+						</div>
+						
+						<!-- 아이디 -->
+						<div class="form-group">
+							<div class="col-sm-12" style="float: none; margin 0 auto;">
+								<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="Id"/>
+							</div>
+							<p id="message" style="margin-left: 10%"></p>
+						</div>
+			
+						<!-- 비밀번호 -->
+						<div class="form-group">
+							<div class="col-sm-12" style="float: none; margin 0 auto;">
+								<input class="form-control" type="password" name="pw" id="pw" required="required" placeholder="Password"/>
+							</div>
+						</div>
+			
+						<!-- 이메일 -->
+						<div class="form-group">
+							<div class="col-sm-12" style="float: none; margin 0 auto;">
+								<input class="form-control" type="email" name="email" id="email" required="required" placeholder="E-mail"/>
+							</div>
+						</div>
+						
+						<!-- 생년월일 -->
+				        <div class="form-group">
+						    <div class="col-sm-12" style="float: none; margin 0 auto;">
+						        <input class="form-control" id="birth" name="birth" required="required" maxlength="10" placeholder="Birth"/>
+						    </div>
+						</div> 
+						
+						<!-- 전화번호 -->
+						<div class="form-group">
+						    <div class="col-sm-12" style="float: none; margin 0 auto;">
+						        <select class="form-control" style="margin 0 auto;" id="phoneCd" name="phoneCd" required="required" style="margin 0 auto;">
+									<c:forEach items="${dsCode1}" var="code1">
+									    <option value="${code1.commCd}">${code1.commCdNm}</option>
+									</c:forEach>
+						       </select>
+					  	    </div>
+						    <div class="col-sm-12" style="float: none; margin 0 auto;">
+						       <input class="form-control" type="text" id="phone1" maxlength="4" required="required" placeholder="Phone" onkeydown="return fn_showKeyCode(event)"/>
+						    </div>
+						    <div class="col-sm-12" style="float: none; margin 0 auto;" >
+						       <input class="form-control" style="margin 0 auto;" type="text" id="phone2" maxlength="4" required="required" placeholder="Phone" onkeydown="return fn_showKeyCode(event)"/>
+					        </div>
+						    <input type="hidden" id="phoneNum" name="phoneNum">
+					     </div>
+				
+						<!-- 주소 -->
+						<div class="form-group">
+				            <div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+				  	            <input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
+				               	<input class="form-control address1" placeholder="Address" id="postNum1" name="address" disabled="disabled" type="text">
+				            </div>
+			              	<input type="hidden" id="postNum" name="postNum">
+			            </div>
+				                             
+			            <!-- 주소 1 -->
+			            <div class="form-group">
+			            	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+			                <input class="form-control" placeholder="Details 1" id="postNum2" name="details 1" disabled="disabled" type="text">
+			                </div>
+			            </div>
+			            
+			            <!-- 주소 2 -->
+			            <div class="form-group">
+			            	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+			                <input class="form-control" placeholder="Details 2" id="address1" name="details 2" disabled="disabled" type="text">
+			                </div>
+			            </div>
+			            
+			            
+			            
+			            <!-- 주소 3 -->
+			            <div class="form-group">
+			            	<div class="col-sm-12" id="formIcon" style="float: none; margin 0 auto;">
+			                	<input class="form-control" placeholder="Details 3" id="address2" name="details 3" type="text" style="margin-bottom: 0 !important;">
+			                </div>
+			                <input type="hidden" id="address" name="address">
+			            </div>
+			
+			
+						<!-- 사진 추가 기능 사용 안함 -->
+						<div class="form-group" style="display: none">
+							<label class="control-label col-md-2" style="display: none"><b>사진</b></label>
+							<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png" style="display: none"><br/>
+							<div class="col-md-6">
+								<input type="hidden" id="userImage" name="userImage" style="display: none">
+							</div>
+						</div>
+						<!-- 사진 추가 기능 끝 -->
+						
+						<input type="hidden" id="flag" name="flag" value="false">
+						<div class="form-group">
+						    <div class="col-sm-12" style="float: none; margin 0 auto;">
+							    <div class="checkbox checkbox1">
+								   <label>
+								      <input type="checkbox"><p class="checkboxText">I agree the <span class="forgotText">Terms & Conditions</span></p>
+								   </label>
 							    </div>
-							  </div>
-                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">CREATE ACCOUNT</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+						    </div>
+						 </div>
+						<div class="form-group">
+							<button class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">CREATE ACCOUNT</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+	
+				<!--  사진 파일 저장 ajax 사용 안함  -->
+				<form id="ajaxform" action="${context}/work/product/saveFile.do" method="post" enctype="multipart/form-data" role="form" >
+					<div class="form-group" style="display: none">
+					<label class="control-label col-md-2"></label>
+						<div class="col-md-6" style="display: none">
+							<input class="form-control" type="file" id="imageFile" name="imageFile" onchange="fn_upload()" style="display: hidden" />
+							<input type="hidden" id="imageFolder" name="imageFolder" value="userImg" style="display: none">
+						</div>
+					</div>
+					<br><br><br>
+				</form>
+			    <!-- /.panel -->
+	</div>
+</div>
+
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 </body>
-
 <style type="text/css">
+
 .address1 {
 float: left !important;
 width: 380px !important;
-margin-left: 42px !important;
+margin-left: 27px !important;
 }
 input[value="Search"]{
       width: 18%;
@@ -327,7 +328,7 @@ input[value="Search"]{
     }
 .backgroundImg {
 	width: 100%;
-	height: 1280px;
+	height: 2000px;
 	box-sizing: border-box;
 	background-position: center;
 	background-size: cover;
@@ -347,11 +348,11 @@ input[value="Search"]{
 .panel-body{
 	clear:both;
 	width: 566px;
-	height: 850px;
+	height: 1170px;
 	background-color: #fff;
 	border-radius: 0 0 30px 30px !important; 
 	position:absolute !important; 
-	top:55% !important; 
+	top:40% !important; 
 	left:50%!important; 
 	transform:translate(-50%,-45%) !important;
 }
@@ -359,8 +360,19 @@ input[value="Search"]{
 	background-position: center;
 }
 
-#id {
-	margin-top: 34px;
+
+#name::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/user.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  color: #9CA09F !important;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
 #id::-webkit-input-placeholder{
   background-image: url('${context}/userImg/user.svg') ;
@@ -399,7 +411,44 @@ input[value="Search"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#sample6_postcode::-webkit-input-placeholder{
+#birth::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/calendar.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#phone1::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/phone.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+#phone2::-webkit-input-placeholder{
+  background-image: url('${context}/userImg/phone.svg') ;
+  background-size: contain;
+  background-position:  1px center;
+  background-repeat: no-repeat;
+  padding: 0 15px 0 0;
+  text-indent: 0;
+  text-align:left;
+  padding-left:40px;
+  font-family: Crimson Pro;
+  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+}
+
+#postNum2::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
@@ -411,7 +460,7 @@ input[value="Search"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#sample6_address::-webkit-input-placeholder{
+#postNum1::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
@@ -423,7 +472,7 @@ input[value="Search"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#sample6_detailAddress::-webkit-input-placeholder{
+#address1::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
@@ -435,7 +484,7 @@ input[value="Search"]{
   font-family: Crimson Pro;
   filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-#sample6_extraAddress::-webkit-input-placeholder{
+#address2::-webkit-input-placeholder{
   background-image: url('${context}/userImg/map-pin.svg') ;
   background-size: contain;
   background-position:  1px center;
@@ -523,17 +572,16 @@ a:hover{
 
 
 @media (max-width: 992px) {
-	.panel-body {top: 62% !important;}
-	.login{margin: -56px !important;}
-	.backgroundImg {height: 1100px;}
+	.panel-body {top: 1036% !important;}
+	.login{margin: 77px !important;}
 }
 
-@media (max-width: 991px) and (min-width: 769px) {
-	.panel-body {top: 716% !important}
+@media (max-width: 992px) and (min-width: 769px) {
+	.panel-body {top: 1036% !important}
 	.login{margin: 77px !important;}
 }
 @media (max-width: 768px) {
-	.panel-body {top: 716% !important;}
+	.panel-body {top: 1036% !important;}
 	.login{margin: 77px !important;}
 }
 </style>
