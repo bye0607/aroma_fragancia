@@ -17,58 +17,11 @@
 	<!-- 아임포트 결제 CDN 연동 -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script>
-	var existFolder = '';
-	var imageFolder = '';
-	var path = '';
-
-    /* function fn_eval(self, resumePassYn, examNo){
-   		$.ajax({
-   			url:"${context}/work/applicant/updateEvalForResume.do?resumePassYn=" + resumePassYn + "&examNo=" + examNo,
-   			success:function(result){
-   				result = result.replace(/"/gi, "");
-   				self.parent().next().children().html(result);
-   			}
-   		});
-    }
-
-    function fn_selEval(resumePassYn){
-		var checked = $("input[name='chkBox']:checked");
-		var checkedCnt = $("input[name='chkBox']:checked").length;
-
-		var examNo = "";
-
-		for(var i = 0; i < checkedCnt; i++){
-			examNo = checked.eq(i).parent().parent().children("td").eq(3).html();
-			$.ajax({
-	   			url:"${context}/work/applicant/updateEvalForResume.do?resumePassYn=" + resumePassYn + "&examNo=" + examNo,
-	   			async: false,
-	   			success:function(result){
-	   				result = result.replace(/"/gi, "");
-	   				checked.eq(i).parent().parent().children("td").eq(10).html(result);
-	   			}
-	   		});
-		}
-    } 
-
-    function fn_resumeDetail(self){
-    	var examNo = self.parent().parent().children("td").eq(3).html();
-
-    	location.href = "${context}/work/applicant/retrieveResumeDetail.do?examNo=" + examNo;
-    }
-
-    function fn_save(){
-    	var examNo = '${dsSellList[0].examNo}';
-
-		if(confirm("서류심사를 완료하시겠습니까?")){
-			location.href = "${context}/work/incruit/updateIStatusForResume.do?examNo=" + examNo;
-		}
-    }*/
-
-    function fn_finalBuy(paramSellCode, paramSellCount, paramProductCode){
-		if(confirm("결제하시겠습니까?")){
-			location.href = "${context}/work/sell/updateFinalBuy.do?sellCode=" + paramSellCode + "&sellCount=" + paramSellCount + "&productCode=" + paramProductCode;
-		}
-    }
+	    function fn_finalBuy(paramSellCode, paramSellCount, paramProductCode){
+			if(confirm("결제하시겠습니까?")){
+				location.href = "${context}/work/sell/updateFinalBuy.do?sellCode=" + paramSellCode + "&sellCount=" + paramSellCount + "&productCode=" + paramProductCode;
+			}
+	    }
     </script>
 </head>
 <body>
