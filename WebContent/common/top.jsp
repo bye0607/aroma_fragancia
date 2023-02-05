@@ -33,9 +33,11 @@ a{
 
 <c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
 <c:set var="officeUrl">${context}/work/product/retrieveProductList.do?category=O</c:set>
-<c:set var="penUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
 <c:set var="binderUrl">${context}/work/product/retrieveProductList.do?category=B</c:set>
-<c:set var="designUrl">${context}/work/product/retrieveProductList.do?category=D</c:set>
+
+<c:set var="perfumeUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
+<c:set var="diffuserUrl">${context}/work/product/retrieveProductList.do?category=D</c:set>
+
 <c:set var="storageUrl">${context}/work/product/retrieveProductList.do?category=S</c:set>
 <body>
 	<nav class="navbar-expand-lg" role="navigation" style="background-color: #E1E1E3">
@@ -65,12 +67,12 @@ a{
 				</li>
 				</ul>
 		<ul class="nav navbar-nav navbar-right">
-	        <!-- 비회원 가능 -->
+	        <!-- 비회원 가능.. 하게 링크 수정해야합 -->
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-				<li><a onclick="javascript:fn_isLogin('${penUrl}')" style="color: black; font-size: 15px;">PERFUMS</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${officeUrl}')" style="color: black; font-size: 15px;">DIFFUSER</a></li>
+				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" style="color: black; font-size: 15px;">PERFUMS</a></li>
+			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${diffuserUrl}')" style="color: black; font-size: 15px;">DIFFUSER</a></li>
 
 	          </ul>
 	        </li>
