@@ -122,6 +122,10 @@ ChannelIO('boot', {
 });
 </script>
 <style>
+*{
+
+	font-family: "Crimson Pro";
+}
     @keyframes fadeInUp {
         0% {
             opacity: 0;
@@ -221,7 +225,7 @@ ChannelIO('boot', {
 		
         
         
-		<div class="container storytext storytext1 test_obj"  style="height:280px">
+		<div class="container storytext storytext1 test_obj" >
 			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
 			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
 			비움이란 보이지 않지만 존재하는 것, 만져지지 않지만 가치 있는 것. AROMA FRAGANCIA는 향을 통해 ‘부재의 미학’에 대해 이야기하고자 합니다.<br>
@@ -252,7 +256,7 @@ ChannelIO('boot', {
 		        </div>
 			</div>
 		
-		<div class="container storytext test_obj test_obj2" style="height:300px">
+		<div class="container storytext test_obj test_obj2">
 			<p>
 			지금, 당신은 스스로에게 만족스러운 향수를 사용하고 있나요? <br>
 			  - <br>
@@ -364,14 +368,14 @@ ChannelIO('boot', {
 				<script>
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 				    mapOption = { 
-				        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+				        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
 				        level: 3 // 지도의 확대 레벨
 				    };
 				
 				var map = new kakao.maps.Map(mapContainer, mapOption);
 				
 				// 마커가 표시될 위치입니다 
-				var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+				var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
 				
 				// 마커를 생성합니다
 				var marker = new kakao.maps.Marker({
@@ -381,7 +385,7 @@ ChannelIO('boot', {
 				// 마커가 지도 위에 표시되도록 설정합니다
 				marker.setMap(map);
 				
-				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 				    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
 				
 				// 인포윈도우를 생성합니다

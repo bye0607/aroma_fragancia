@@ -7,8 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AROMA, FRAGANCIA</title>
+<style type="text/css">
+	a>img{
+	margin-left: 20px;
+	opacity: 0.8;
+	}
+</style>
 </head>
 <body>
+
 <div class="container">
 	<footer style="text-align: center;">
 	<hr>
