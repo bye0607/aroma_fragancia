@@ -67,13 +67,14 @@ a{
 		</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-	        <!-- 비회원 가능 -->
+	        <!--  링크 수정  -->
 	        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT<span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-				    <li><a href="${context}/work/product/retrieveProductList.do?category=P" style="color: black; font-size: 15px;">PERFUMS</a></li>
-				    <li><a href="${context}/work/product/retrieveProductList.do?category=D" style="color: black; font-size: 15px;">DIFFUSER</a></li>
-		          </ul>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" style="color: black; font-size: 15px;">PERFUMS</a></li>
+			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${diffuserUrl}')" style="color: black; font-size: 15px;">DIFFUSER</a></li>
+
+	          </ul>
 	        </li>
 	        
 	        <!-- 비회원 가능 -->
