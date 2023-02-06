@@ -1,34 +1,38 @@
-
-.row{
-    text-align: center;
+a {
+    text-decoration: none !important;
+    color: none;
+    cursor: pointer;
 }
 
-.panel{
-    position: relative;
-    margin-top: 198px;
+
+.productInfo, 
+.productName {
+	margin-top: 50px;
 }
 
-#product-info{
-	font-size: 24px;
-	font-weight: 400;
-	margin-top: 173px;
-	margin-bottom: 78px
+.table-user-information > tbody > tr {
+	font-size: 20px;
+    height: 3em;
+    border: none !important;
 }
 
-#about-product{
-	font-size: 15px;
-	font-weight: 400;
-	margin-top: 78px;
-	margin-bottom: 117px
-} 
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+	vertical-align: bottom important;
+}
 
 #cartBtn, #buyBtn {
 	font-family: 'Noto Sans KR'; 
 	font-style: normal;
+	font-size: 20px;
 	background-color: #d9d9d9;
 	color: #000;
     border: none; 
-    margin-top: 150px;
+    margin-top: 50px;
     padding: 0px; 
     width: 223px; 
     height: 90px;
@@ -51,44 +55,72 @@
 	border: none; 
 }
 
-.page-perfume, .page-difuser{
-	margin-top:90px;
-	margin-bottop: 65px;
+.product-title {
+	font-size: 24px;
+	font-weight: 400;
+	margin-top: 173px;
+	margin-bottom: 78px
 }
 
-#product-perfume-best {
-	font-size: 20px; 
-	font-weight: 400; 
-	text-align: center;
+.productImg {
+	margin-top: 150px;
 }
 
-#product-perfume-name {
-	font-size: 24px; 
-	font-weight: 400; 
-	line-height: 27px;
-	text-align: center;
-	margin-bottom: 23px;
-}
-
-#product-perfume-price {
-	font-size: 15px; 
-	font-weight: 400; 
-	line-height: 17px;
-	text-align: center;
-	margin-bottom: 17px;
-}
-
-#product-perfume-leftover {
-	font-size: 15px; 
-	font-weight: 400; 
-	line-height: 17px;
-	text-align: center;
-	margin-bottom: 51px;
-}
+.product-details{
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 78px;
+	margin-bottom: 117px;
+	line-height: 2.5em;
+} 
 
 .review-box{
 	font-family: 'Noto Sans KR'; 
 	font-style: normal;
 	font-size: 18px; 
 	font-weight: 400; 
+}
+
+#post-review-box {
+	margin-top: 15px;
+	
+}
+
+.registBtn {
+	font-weight: 500 !important;
+    padding: 12px !important;
+    border-radius: 5px !important;
+    cursor: pointer;
+   	border: none !important;
+   	color: #000;
+}
+
+.cancelBtn {
+	margin-top: 10px;
+	font-weight: 500 !important;
+	font-size: 15px !important;  
+    padding: 10px !important;
+    border-radius: 5px !important;
+    border: none !important;
+   	color: #000;
+}
+
+.saveBtn {
+	margin-top: 30px;
+	font-weight: 500 !important;
+	font-size: 15px !important;    
+    padding: 12px !important;
+    border-radius: 5px !important;
+    border: none !important;
+   	color: #000;
+}
+
+.deleteBtn {
+	font-weight: 500 !important;
+	font-size: 18px !important;    
+    padding: 12px !important;
+    border-radius: 5px !important;
+    background-color: #d9d9d9;
+    border: none !important;
+   	color: #000; 
 }

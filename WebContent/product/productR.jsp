@@ -169,7 +169,7 @@
 	<!-- board title, buttons start -->
 	<div class="page-header">
 		<div class="row">
-			<div class="col-xs-8">
+			<div class="col-xs-8 productName">
 				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
 				<h2 class="title eng">${dsProduct.PRODUCT_NAME}</h2>
 			</div>
@@ -195,8 +195,8 @@
 			</script>
 		</div>
 		<!-- 상품정보 -->
-		<div class="col-md-6">
-			<table class="table table-user-information">
+		<div class="col-md-6 productInfo">
+			<table class="table table-user-information" >
 				<tbody>
 					<tr>
 						<td>제품명</td>
@@ -210,8 +210,8 @@
 						<td>남은 수량</td>
 						<td id="stock">${dsProduct.PRODUCT_COUNT}개</td>
 					</tr>
-					<tr>
-						<td style="vertical-align: middle;">수량</td>
+					<tr >
+						<td>수량</td>
 						<td>
 							<div class="input-group number-spinner" style="width: 150px;">
 								<span class="input-group-btn data-dwn">
@@ -231,30 +231,30 @@
 				</tbody>
 			</table>
 			<!-- 구매하기 버튼 -->
-			<button id="buyBtn" type="button" class="btn" onclick="fn_buy()" style="margin-right: 34px !important;">구매하기</button>
+			<button id="buyBtn" type="button" class="btn" onclick="fn_buy()" style="margin-right: 40px !important;">구매하기</button>
 			<!-- 장바구니 버튼 -->
 			<button id="cartBtn" type="button" class="btn" onclick="fn_cart()">장바구니</button>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="text-center" id="product-info" style="margin-top: 137px !important;">
+		<div class="text-center product-title"style="margin-top: 137px !important;">
 			What is Ipsum?
 		</div>
-		<div class="text-center" id="about-product">Lorem ipsum dolor
+		<div class="text-center product-details">Lorem ipsum dolor
 			sit amet consectetur adipisicing elit. Placeat numquam neque
 			temporibus veniam distinctio, necessitatibus alias porro tenetur,
 			facilis, iure itaque corporis quibusdam reiciendis aliquam rem
 			adipisci. Facilis, nihil repudiandae!
 		</div>
 	
-		<div id="image" class="img-responsive" style='background-image: url("${context}/backgroundImage/shopperbag.png");'></div>
+		<div id="image" class="img-responsive productImg" style='background-image: url("${context}/backgroundImage/shopperbag.png");'></div>
 	
-		<div class="text-center" id="product-info">
+		<div class="text-center product-title">
 			What is Ipsum?
 		</div>
 		
-		<div class="text-center" id="about-product" >Lorem ipsum dolor
+		<div class="text-center product-details">Lorem ipsum dolor
 			sit amet consectetur adipisicing elit. Placeat numquam neque
 			temporibus veniam distinctio, necessitatibus alias porro tenetur,
 			facilis, iure itaque corporis quibusdam reiciendis aliquam rem
@@ -263,16 +263,15 @@
 	</div>
 
 	<!--  상품평 입력 토글 start -->
-    
-    <div class="container" style="margin:40px 0;">
+    <div class="container review-box" style="margin:40px 0;">
 		<div class="row">
     		<h1 class="col-xs-6 review" style="font-size: 25px;text-align:left">
     			상품평 <span class="badge">${dsReplyList[0].REPLY_COUNT}</span>
     		</h1>
             <div class="col-xs-6 text-right">
 	    		<c:if test="${dsProduct.SELL_YN == 'Y'}">
-	            	<!-- 태그 하나에 id는 무조건 하나임.. 디자인은 클래스명으로 적용하도록 수정해주세요 -->
-	                <a class="btn btn-default btn-lg" href="#reviews-anchor" id="open-review-box" id="reviewBtn">상품평 등록하기</a>
+	            	<!-- 태그 하나에 id는 무조건 하나임.. 디자인은 클래스명으로 적용하도록 수정해주세요 호우예아 죄송함다 ;ㅂ; -->
+	                <a class="btn-default registBtn" href="#reviews-anchor" id="open-review-box" style="float: right;">상품평 등록하기</a>
 				</c:if>
             </div>
 		</div>
@@ -285,9 +284,8 @@
 	                    <c:if test="${dsProduct.MARK_YN == 'N'}">
 	                        <div class="stars starrr" data-rating="0"></div>
 	                    </c:if>
-	                    <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-	                    <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                    	<button class="btn btn-success btn-lg" onclick="return fn_save()">Save</button>
+	                    <a href="#" id="close-review-box" class="btn-default cancelBtn" style="display:none; margin-right: 10px;">Cancel</a>
+                    	<button class="btn-default saveBtn" onclick="return fn_save()">Save</button>
                     </div>
                     <input type="hidden" id="productCode" name="productCode" value="${dsProduct.PRODUCT_CODE}">
                     <input type="hidden" id="markYn" name="markYn" value="${dsProduct.MARK_YN}">
@@ -308,7 +306,8 @@
 				</div>
 				<div class="col-xs-4 col-md-2 text-right">
 					<c:if test="${sessionScope.userCode == dsReplyList.USER_CODE}">
-                		<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-default btn-lg" id="reviewBtn" onclick="javascript:fn_remove('${dsReplyList.USER_REPLY_NO}')">상품평 삭제하기</a>
+                		<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn-default deleteBtn" id="btn" 
+                		onclick="javascript:fn_remove('${dsReplyList.USER_REPLY_NO}')">삭 제</a>
 	            	</c:if>
 	            </div>
 				<div class="col-xs-12 text-left">${dsReplyList.USER_REPLY}</div>
