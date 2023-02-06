@@ -153,7 +153,7 @@
 	<div class="container">
 		<div class="row">
            <div class="col-md-6 col-md-offset-3">
-                <div class="login-panel panel-default"  style="margin-bottom: 224%;" >
+                <div class="login-panel panel-default"  style="margin-bottom: 253%;" >
                     <div class="panel-heading login">
                         <div class="panel-title loginButton"><a href="${context}/user/login.jsp">Login</a></div>
 						<div class="panel-title registerButton"><a href="${context}/work/user/createUser.do">Register</a></div>
@@ -201,17 +201,17 @@
 						<!-- 전화번호 -->
 						<div class="form-group">
 						    <div class="col-sm-12" style="float: none; margin 0 auto;">
-						        <select class="form-control" style="margin 0 auto;" id="phoneCd" name="phoneCd" required="required" style="margin 0 auto;">
+						        <select class="form-control" style="margin 0 auto; font-size: 15px;" id="phoneCd" name="phoneCd" required="required" style="margin 0 auto;">
 									<c:forEach items="${dsCode1}" var="code1">
 									    <option value="${code1.commCd}">${code1.commCdNm}</option>
 									</c:forEach>
 						       </select>
 					  	    </div>
 						    <div class="col-sm-12" style="float: none; margin 0 auto;">
-						       <input class="form-control" type="text" id="phone1" maxlength="4" required="required" placeholder="Phone" onkeydown="return fn_showKeyCode(event)"/>
+						       <input class="form-control" style="font-size: 15px;" type="text" id="phone1" maxlength="4" required="required" placeholder="전화번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
 						    </div>
 						    <div class="col-sm-12" style="float: none; margin 0 auto;" >
-						       <input class="form-control" style="margin 0 auto;" type="text" id="phone2" maxlength="4" required="required" placeholder="Phone" onkeydown="return fn_showKeyCode(event)"/>
+						       <input class="form-control" style="font-size: 15px;" type="text" id="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
 					        </div>
 						    <input type="hidden" id="phoneNum" name="phoneNum">
 					     </div>
@@ -571,18 +571,40 @@ a:hover{
 }
 
 
-@media (max-width: 992px) {
-	.panel-body {top: 1036% !important;}
+ @media (max-width: 1200px) {
+	.panel-body {top: 43% !important; height: 1290px; }
+	.login{margin: -56px; margin-bottom: 295% !important;"}
+	.panel-heading{margin: -4.5px !important;}
+	.col-md-6 { width: 0% !important;}
+}
+
+
+
+@media (max-width: 994px) {
+	.panel-body {top: 1035% !important; height: 1290px; }
+	.login{margin: 77px; margin-bottom: 210% !important;"}
+	.panel-heading{margin: 77px !important;}
+	.login-panel{margin-top: 500px !important;}
+	.col-md-6 { width: 0% !important;}
+}
+
+/* @media (min-width: 992px) {
+	.panel-body {top: 43.5% !important; height: 1290px; }
+	 .login-panel{margin-bottom: 253% !important;"}
 	.login{margin: 77px !important;}
+
+	.col-md-6 { width: 0% !important;}
 }
 
 @media (max-width: 992px) and (min-width: 769px) {
-	.panel-body {top: 1036% !important}
+	.panel-body {top: 1036% !important; height: 1290px; }
+	 .login-panel{margin-bottom: 224% !important;"}
 	.login{margin: 77px !important;}
 }
-@media (max-width: 768px) {
-	.panel-body {top: 1036% !important;}
+@media (max-width: 769px) {
+	.panel-body {top: 950% !important; height: 1290px;}
+	 .login-panel{margin-bottom: 224% !important;"}
 	.login{margin: 77px !important;}
-}
+} */
 </style>
 </html>

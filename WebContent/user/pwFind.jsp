@@ -14,8 +14,8 @@
 <link href="../css/plugins/social-buttons.css" rel="stylesheet">
 <link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<script src="../js/jquery-1.9.1.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-1.9.1.js"></script>
    <script src="../js/plugins/metisMenu/metisMenu.min.js"></script>
 
 <script src="../js/sb-admin-2.js"></script>
@@ -80,7 +80,8 @@
 										<input class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserPw()"/>
 									</div>
 								</div>
-								<div class="form-group" id="message">
+								<br> <br> <br>
+								<div class="form-group" style="margin-left: 10%; margin-top: 5%" id="message">
 							</div>
 							</div>
 							</fieldset>
@@ -168,6 +169,7 @@
 	height: 66px;
 	font-size: 20px;
 	margin: 0 auto;
+	font-family: Crimson Pro;
 	border-radius: 15px!important; 
 }
 .pwFind{

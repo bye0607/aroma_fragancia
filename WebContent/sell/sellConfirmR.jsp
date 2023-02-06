@@ -109,7 +109,7 @@
 					
 					<div class="offer-content">
 					<br><br><br>
-					<img alt="구매완료" class="checkicon" src="sellimg/check.svg" style="width: 50px; height: 50px;">
+					<img alt="구매완료" class="checkicon" src="../../sellimg/check.svg" style="width: 50px; height: 50px;">
 						<h1 align="center" style="font-family: Crimson Pro; font-size: 25px">
 							<strong>AROMA, FRAGANCIA</strong>를 이용해 주셔서 감사합니다. <br>
 							<br>

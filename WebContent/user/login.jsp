@@ -191,6 +191,7 @@
 	height: 66px;
 	font-size: 20px;
 	margin: 0 auto;
+  	font-family: Crimson Pro;
 	border-radius: 15px!important; 
 }
 .loginButton{
@@ -261,7 +262,7 @@ background-color: #9CA09F;
 	.panel-body {top: 57% !important;}
 	.login{margin: -56px !important;}
 }
-@media (max-width: 991px) and (min-width: 769px) {
+@media (max-width: 992px) and (min-width: 769px) {
 	.panel-body {top: 438% !important;}
 	.login{margin: 77px !important;}
 }
