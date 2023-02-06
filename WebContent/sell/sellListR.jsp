@@ -29,6 +29,7 @@
 			        //amount : '${dsSellList[0].SELL_PRICE}',
 			        amount : 10,
 			        //buyer_email : '${dsSellList[0].EMAIL}',
+			        //////////////////////////////////////////// 결제테스트시 메일주소 변경요망 //////////////////////////////////////////////////////
 			        buyer_email : 'bye0607@gmail.com',
 			        buyer_name : '${dsSellList[0].NAME}(${dsSellList[0].ID})',
 			        buyer_tel : '${dsSellList[0].PHONE_CD}' + '-' + '${dsSellList[0].PHONE_NUM}',
