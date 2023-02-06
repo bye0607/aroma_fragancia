@@ -581,3 +581,10 @@ background-color: #fff;
 	.boardwrite .form-control {height:90px;font-size:24px;;padding:20px}
 	.boardwrite textarea.form-control {height:272px;}
 }
+
+/* by 김은주 고푸름, 제품 */
+/* product list */
+.productitem {text-align:center;padding-bottom:65px;}
+.productitem a {display:inline-block;}
+.productitem .itemtitle {padding-bottom:25px;}
+.productitem .img-responsive {height:300px;}
