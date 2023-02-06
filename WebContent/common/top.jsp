@@ -49,32 +49,31 @@ a{
 		<br>
 		<ul class="nav navbar-nav navbar-right">
 		<li>
-					<c:if test="${sessionScope.id == null}">
-						<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
-					</c:if>
+			<c:if test="${sessionScope.id == null}">
+				<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
+			</c:if>
 
-					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-						<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
-					</c:if>
-				</li>
-				<li>
-					<c:if test="${sessionScope.id == null}">
-						<a href="${context}/user/login.jsp"><font color="black"><strong>LOGIN</strong></font></a>
-					</c:if>
-					<c:if test="${sessionScope.id != null}">
-						<a href="${context}/work/user/logout.do"><font color="black"><strong>LOGOUT</strong></font></a>
-					</c:if>
-				</li>
-				</ul>
+			<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
+				<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
+			</c:if>
+		</li>
+		<li>
+			<c:if test="${sessionScope.id == null}">
+				<a href="${context}/user/login.jsp"><font color="black"><strong>LOGIN</strong></font></a>
+			</c:if>
+			<c:if test="${sessionScope.id != null}">
+				<a href="${context}/work/user/logout.do"><font color="black"><strong>LOGOUT</strong></font></a>
+			</c:if>
+		</li>
+		</ul>
 		<ul class="nav navbar-nav navbar-right">
-	        <!-- 비회원 가능.. 하게 링크 수정해야합 -->
+	        <!-- 비회원 가능 -->
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" style="color: black; font-size: 15px;">PERFUMS</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${diffuserUrl}')" style="color: black; font-size: 15px;">DIFFUSER</a></li>
-
-	          </ul>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+				    <li><a href="${context}/work/product/retrieveProductList.do?category=P" style="color: black; font-size: 15px;">PERFUMS</a></li>
+				    <li><a href="${context}/work/product/retrieveProductList.do?category=D" style="color: black; font-size: 15px;">DIFFUSER</a></li>
+		          </ul>
 	        </li>
 	        
 	        <!-- 비회원 가능 -->
@@ -99,9 +98,6 @@ a{
 				    <li><a href="${context}/work/user/updateUser.do" style="color: black; font-size: 15px;">EDIT PROFILE</a></li>
 		          </ul>
 				</c:if>
-
-
-
 	        </li>
       			<li>
 					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
