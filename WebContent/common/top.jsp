@@ -98,7 +98,7 @@ a{
 					
 				    <li><a href="${context}/work/user/updateUser.do" style="color: black; font-size: 15px;">EDIT PROFILE</a></li>
 		          </ul>
-				</c:if>>
+				</c:if>
 
 
 
