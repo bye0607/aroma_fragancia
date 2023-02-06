@@ -59,8 +59,8 @@
 
 
 		$("#phoneNum").val($("#phone1").val() + "-" + $("#phone2").val());
- 		$("#postNum").val($("#postNum1").val() + "-" + $("#postNum2").val());
- 		$("#address").val($("#address1").val() + "/" + $("#address2").val());
+ 		$("#postNum").val($("#postNum1").val());
+ 		$("#address").val($("#address1").val() + $("#postNum2").val() + "/" + $("#address2").val());
 
  		$("#joinFrm").submit();
 	}
