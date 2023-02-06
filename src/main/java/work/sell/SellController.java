@@ -154,7 +154,7 @@ public class SellController {
 		sellParam.put("userCode", userCode);
 
 		List<Map<String, String>> dsBuyList = sellService.retrieveBuyList(sellParam);
-
+ 
 		mv.addObject("dsBuyList", dsBuyList);
 
 		mv.setViewName("/sell/sellBuyListR");

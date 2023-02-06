@@ -17,10 +17,40 @@
 	<!-- 아임포트 결제 CDN 연동 -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script>
-	    function fn_finalBuy(paramSellCode, paramSellCount, paramProductCode){
-			if(confirm("결제하시겠습니까?")){
-				location.href = "${context}/work/sell/updateFinalBuy.do?sellCode=" + paramSellCode + "&sellCount=" + paramSellCount + "&productCode=" + paramProductCode;
-			}
+	    function fn_buy(paramSellCode, paramSellCount, paramProductCode){
+	    	if(confirm("결제하시겠습니까?")){
+	    		var IMP = window.IMP;  
+			    IMP.init("imp02022011");  // IMP.init( ) 메서드 가맹점코드 수정 바랍니다.
+			    IMP.request_pay({
+			        pg : 'html5_inicis', // version 1.1.0부터 지원.
+			        pay_method : 'card',
+			        merchant_uid : 'order_' + new Date().getTime(),
+			        name : '${dsSellList[0].PRODUCT_NAME}',
+			        //amount : '${dsSellList[0].SELL_PRICE}',
+			        amount : 10,
+			        //buyer_email : '${dsSellList[0].EMAIL}',
+			        buyer_email : 'bye0607@gmail.com',
+			        buyer_name : '${dsSellList[0].NAME}(${dsSellList[0].ID})',
+			        buyer_tel : '${dsSellList[0].PHONE_CD}' + '-' + '${dsSellList[0].PHONE_NUM}',
+			        buyer_addr : '${dsSellList[0].ADDRESS}',
+			        buyer_postcode : '${dsSellList[0].POST_NUM}',
+			        m_redirect_url : "${context}/work/sell/updateFinalBuy.do?productCode=" + paramProductCode + "&sellCode=" + paramSellCode + "&sellCount=" + paramSellCount
+			    }, function(rsp) {
+			        if ( rsp.success ) {
+			            var msg = '결제가 완료되었습니다.';
+			            msg += '\n고유ID : ' + rsp.imp_uid;
+			            msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+			            msg += '\n결제 금액 : ' + rsp.paid_amount;
+			            msg += '\n카드 승인번호 : ' + rsp.apply_num;
+				        alert(msg);
+			    		location.href = "${context}/work/sell/updateFinalBuy.do?productCode=" + paramProductCode + "&sellCode=" + paramSellCode + "&sellCount=" + paramSellCount;
+			        } else {
+			            var msg = '결제에 실패하였습니다.';
+			            msg += '\n에러내용 : ' + rsp.error_msg;
+				        alert(msg);
+			        }
+			    });	
+	    	}
 	    }
     </script>
 </head>
@@ -83,7 +113,7 @@
                          <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_COUNT}</td>
                          <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_PRICE}원</td>
                          <td style="text-align: center; vertical-align: middle;">
-                       		<button type="button" class="btn" id="cartbtn1" onclick="fn_finalBuy('${dsSellList.SELL_CODE}', '${dsSellList.SELL_COUNT}', '${dsSellList.PRODUCT_CODE}')"">구매하기</button>
+                       		<button type="button" class="btn" id="cartbtn1" onclick="fn_buy('${dsSellList.SELL_CODE}', '${dsSellList.SELL_COUNT}', '${dsSellList.PRODUCT_CODE}')">구매하기</button>
                        	</td>
                    	</tr>
                     </c:forEach>
