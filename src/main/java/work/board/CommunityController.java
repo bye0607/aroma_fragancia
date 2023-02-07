@@ -23,7 +23,7 @@ import work.user.UserService;
 
 @Controller
 public class CommunityController {
-	@Resource(name = "communityService")
+	@Resource(name = "CommunityService")
 	private CommunityService communityService;
 
 	@Resource(name = "userService")

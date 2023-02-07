@@ -18,7 +18,7 @@ public class CommunityDAO {
 	}
 
 	public Map<String, String> communityView(Map<String, String> communityParam){
-		return sqlSession.selectOne("community.Community", communityParam);
+		return sqlSession.selectOne("community.CommunityView", communityParam);
 	}
 
 	public String MaxCommunityNo(){

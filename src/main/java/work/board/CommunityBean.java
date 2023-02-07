@@ -96,7 +96,7 @@ public class CommunityBean implements Serializable{
 	public void setComuHIT(String comuHIT) {
 		this.comuHIT = comuHIT;
 	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -121,3 +121,4 @@ public class CommunityBean implements Serializable{
 	}
 
 }
+

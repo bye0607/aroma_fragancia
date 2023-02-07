@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-@Service("communityService")
+@Service("CommunityService")
 public class CommunityServiceImpl implements CommunityService{
 	
 	@Resource(name = "CommunityDAO")
