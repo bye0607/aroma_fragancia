@@ -62,7 +62,7 @@
                          <tr>
                          	<td>
                          		<div class="col-md-10"><a href ="${context}/work/board/noticeView.do?ntcNo=${dsNoticeList.NTC_NO}">${dsNoticeList.NTC_TITLE}</a></div>
-								<div class="col-md-2">${dsNoticeList.USER_NAME}</div>
+								<div class="col-md-2 text-right">${dsNoticeList.USER_NAME}</div>
                          	</td>
                          </tr>
                     </c:forEach>

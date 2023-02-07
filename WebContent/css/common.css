@@ -561,6 +561,8 @@ background-color: #fff;
 .table-responsive {border:0}
 .table.boardlist>tbody>tr>td {padding:25px 0;color:#575656;font-size:20px;border-top:0;border-bottom:1px solid #000;}
 .table.boardlist>tbody>tr>td a {color:#4D5053;}
+/* .table.boardlist>tbody>tr:hover {cursor:pointer;} */
+.table.boardlist>tbody>tr>td a:hover {color:#CC947C;}
 @media (min-width: 992px) {
 	.table.boardlist>tbody>tr>td  {min-height:130px;padding:42px 10px;font-size:30px;}
 }
@@ -588,7 +590,7 @@ background-color: #fff;
 .productitem {text-align:center;padding-bottom:65px;}
 .productitem a {display:inline-block;}
 .productitem .itemtitle {padding-bottom:20px;}
-.productitem a:hover .itemtitle{color:#555;text-decoration:underline;}
+.productitem a:hover .itemtitle{color:#CC947C;text-decoration:underline;}
 .productitem .img-responsive {height:340px;}
 /* product detail view */
 /* product detail view 버튼 공통 */
