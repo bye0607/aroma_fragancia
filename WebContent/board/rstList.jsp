@@ -16,7 +16,7 @@
 	<script src="${context}/js/common.js"></script>
 	<script type="text/javascript">
 		function fn_rstWrite(){
-			location.href = "${context}/work/board/rstWrite.do";
+			location.href = "${context}/work/reservation/rstWrite.do";
 		}
 	</script>
 </head>
@@ -64,8 +64,8 @@
                         <c:forEach items="${dsVstList}" var="dsVstList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/VstView.do?VstNo=${dsVstList.VST_NO}">${dsVstList.VST_TITLE}</a></div>
-								<div class="col-md-2">${dsVstList.USER_NAME}</div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/BoardView.do?boardNo=${dsVstList.VST_NO}">${dsVstList.VST_TITLE}</a></div>
+								<div class="col-md-2">${dsVstList.USER_CODE}</div>
                          	</td>
                          </tr>
                     	</c:forEach>

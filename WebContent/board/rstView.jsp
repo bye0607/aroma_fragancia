@@ -60,18 +60,48 @@
 	<div class="container">
 	<h4 class="Title">상담 신청 게시판</h4>
 	<div class="textbox">
-		<p class="title">${dsVstList.VST_TITLE}</p>
-		<p class="people">${dsVstList.USER_NAME}</p>
+	<!-- 
+		<p class="title">29일 방문 예약 문의</p>
+		<p class="people">USER</p>  -->
 	</div>
-	<div class="subtext">
-	<p>${dsVstList.VST_CONTENT}</p>
-
-	</div>
+	<form class="form-horizontal" method="post" action="${context}/work/reservation/rstWrite.do" role="form">
+		
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+		    <div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputName3">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputTel3" class="col-sm-2 control-label">전화번호</label>
+		    <div class="col-sm-12">
+		      <input type="tel" class="form-control" id="inputTel3">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">이메일</label>
+		    <div class="col-sm-12">
+		      <input type="email" class="form-control" id="inputEmail3">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputTitle3" class="col-sm-1 control-label">제목</label>
+		    <div class="col-sm-12">
+		      <input type="text" class="form-control" id="inputTitle3">
+		    </div>
+		  </div>
+		   <div class="form-group">
+		    <label for="inputtextarea3" class="col-sm-2 control-label">내용</label>
+		    <div class="col-sm-12">
+		     <textarea class="form-control" rows="4" style="width: 100%; height: 272px !important;"></textarea>
+		    </div>
+		  </div>
 	 <div style=" text-align: right;">
 		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="location.href='rstList.jsp">목록</button>
 		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;">글 수정하기</button>
 		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;">글 삭제하기</button>
 	</div>
+	</form>
 	</div>
 	</div>
 	<jsp:include page="/common/foot.jsp"></jsp:include>
@@ -92,31 +122,29 @@ font-size: 40px;
 margin-top: 87px;
 margin-bottom: 80px;
 }
-/*Writer Text*/
-.textbox{
-	padding: 0 40px 49px 40px;
-	border-bottom: 1px solid #000;
+/*form 제목*/
+.form-control {
+    padding-top: 7px;
+    margin-bottom: 40px;
+    margin-top:10px;
+    height: 90px !important;
+    background-color: #D9D9D9 !important;
 }
-.title{
-	float: left;
-	font-size: 30px;
+.control-label {
+	font-size:24px;
+    text-align: inherit !important;
 }
-.people{
-	float: right;
-	font-size: 30px;
-	font-weight: bold;
+.Title{
+font-family: Noto Sans KR;
+font-size: 40px;
+margin-top: 90px;
+margin-bottom: 100px;
 }
-.subtext {
-	width:100%;
-	height: 350px;
-	margin: 30px 0 0 0;
-	padding: 0 40px 0 40px; 
-	clear: both;
-}
+
 @media (max-width: 992px) {
 	.Title {font-size: 28px;}
-	.title{font-size: 21px;}
-	.people{font-size: 21px;}}
+	.control-label{font-size: 18px;}
+	}
 </style>
 
 </html>

@@ -1,4 +1,4 @@
-package work.reservation;
+package work.board;
 
 import java.util.List;
 import java.util.Map;

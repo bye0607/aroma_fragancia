@@ -59,7 +59,7 @@
 <!-- Detail -->
 	<div class="container">
 	<h4 class="Title">상담신청하기</h4>
-		<form class="form-horizontal" method="post" action="${context}/work/board/rstWrite.do" role="form">
+		<form class="form-horizontal" method="post" action="${context}/work/reservation/rstWrite.do" role="form">
 		
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">이름</label>

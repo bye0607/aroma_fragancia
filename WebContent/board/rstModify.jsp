@@ -72,8 +72,8 @@
 
 <!-- ReservationWriter -->
 	<div class="container">
-	<h4 class="Title">글 수정하기</h4>
-		<form class="form-horizontal" method="post" action="${context}/work/board/updateVst.do" role="form">
+	<h4 class="Title">상담 신청 게시판</h4>
+	<form class="form-horizontal" method="post" action="${context}/work/reservation/rstWrite.do" role="form">
 		
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
@@ -103,8 +103,8 @@
 		    <label for="inputtextarea3" class="col-sm-2 control-label">내용</label>
 		    <div class="col-sm-12">
 		     <textarea class="form-control" rows="4" style="width: 100%; height: 272px !important;"></textarea>
-		   </div>
-	</div>
+		    </div>
+		  </div>
 	 <div style=" text-align: right;">
 		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="fn_save()">글 등록하기</button>
 		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;" onclick="fn_back()">취소</button>
@@ -117,18 +117,6 @@
 <style type="text/css">
 .wrap{
 background-color: #fff;
-}
-/*form 제목*/
-.form-horizontal .control-label {
-    padding-top: 7px;
-    margin-bottom: 8px;
-    text-align: inherit !important;
-}
-.Title{
-font-family: Noto Sans KR;
-font-size: 40px;
-margin-top: 87px;
-margin-bottom: 80px;
 }
 /*form 제목*/
 .form-control {
