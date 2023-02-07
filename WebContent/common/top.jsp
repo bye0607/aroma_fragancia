@@ -20,6 +20,13 @@ li{
 a{
 	text-decoration:none !important;
 }
+
+.navbar{
+	background-color: #E1E1E3 !important;
+}
+.navbar-default{
+	background-color: #E1E1E3 !important;
+}
 </style>
 </head>
 
@@ -40,33 +47,41 @@ a{
 
 <c:set var="storageUrl">${context}/work/product/retrieveProductList.do?category=S</c:set>
 <body>
-	<nav class="navbar-expand-lg" role="navigation" style="background-color: #E1E1E3">
-		<div class="container">
-			<br>
-			<ul class="nav navbar-nav" >
-				<li class="n1"><a href="${homeUrl}"><font color="#555555" ><strong>AROMA FRAGANCIA</strong></font></a></li>
-			</ul>
-		<br>
-		<ul class="nav navbar-nav navbar-right">
-		<li>
-			<c:if test="${sessionScope.id == null}">
-				<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
-			</c:if>
-
-			<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-				<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
-			</c:if>
-		</li>
-		<li>
-			<c:if test="${sessionScope.id == null}">
-				<a href="${context}/user/login.jsp"><font color="black"><strong>LOGIN</strong></font></a>
-			</c:if>
-			<c:if test="${sessionScope.id != null}">
-				<a href="${context}/work/user/logout.do"><font color="black"><strong>LOGOUT</strong></font></a>
-			</c:if>
-		</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
+    <nav class="navbar navbar-default navbar-fixed-top" >
+      <div class="container">
+        <div class="navbar-header">
+     	   <br>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="${homeUrl}" style="font-size: 30px; margin-bottom: 12px"><font color="#555555"><strong>AROMA FRAGANCIA</strong></font></a>
+        </div>
+      	  <br>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+			<li>
+				<c:if test="${sessionScope.id == null}">
+					<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
+				</c:if>
+	
+				<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
+					<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${sessionScope.id == null}">
+					<a href="${context}/user/login.jsp"><font color="black"><strong>LOGIN</strong></font></a>
+				</c:if>
+				<c:if test="${sessionScope.id != null}">
+					<a href="${context}/work/user/logout.do"><font color="black"><strong>LOGOUT</strong></font></a>
+				</c:if>
+			</li>
+          </ul>
+          
+          		<ul class="nav navbar-nav navbar-right">
 	        <!--  링크 수정  -->
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCT <span class="caret"></span></a>
@@ -115,10 +130,9 @@ a{
 				</li>
 				
 			</ul>
-		</div>
-			</nav>
-	
-	
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
 		<div class= "container" style="background-color: white;">
 	  	<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
