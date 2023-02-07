@@ -8,6 +8,7 @@
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>공지사항 - 내용보기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_noticeList(){
 			location.href = "${context}/work/board/notice.do";
