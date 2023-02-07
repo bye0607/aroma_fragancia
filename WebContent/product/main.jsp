@@ -173,26 +173,33 @@ ChannelIO('boot', {
 }
     
     /*media*/
-	@media (max-width: 768px){
+	@media (max-width: 988px){
 	
-		.probtn{
-			margin-left : 40%;
-		}
-		
+	.probtn{
+		margin-left : 40%;
 	}
-	@media (max-width: 412px){
+		
+	.movebtn{
+		height: 200px;
+		width: 500px !important;
+		text-align: center;
+		margin: 0 auto;
+		border-radius: 70px; 
+	}
+	}
+	@media screen and (min-width: 600px){
 		.probtn{
 			margin-left : 20%;
 		}
 		#map{
-		     width: 500px;
-		     height: 500px;
-		    
-		     margin-right: 15px;
-		     margin-top: 160px;
-		     margin-bottom: 10px;
-		}
-	
+	     width: 500px;
+	     height: 500px;
+	     
+	     margin-right: 40px;
+	     margin-top: 160px;
+	     margin-bottom: 30px;
+	}
+
 		.movebtn{
 			width: 200px;
 		}
@@ -322,7 +329,7 @@ ChannelIO('boot', {
 	                </li>
 	            </div> 
 	        </div>
-	        <input type="button" value="제품 둘러보기 →" class="probtn">
+	        <input onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" type="button" value="제품 둘러보기 →" class="probtn">
 		</div>
 
 
@@ -385,8 +392,8 @@ ChannelIO('boot', {
 				// 마커가 지도 위에 표시되도록 설정합니다
 				marker.setMap(map);
 				
-				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-				    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
 				
 				// 인포윈도우를 생성합니다
 				var infowindow = new kakao.maps.InfoWindow({

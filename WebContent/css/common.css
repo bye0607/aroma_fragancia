@@ -116,7 +116,7 @@ position: absolute;
 	text-align: center;
 	padding : 26px 54px 26px 54px;
 	margin-top: 30px;
-	margin-left : 40%;
+	margin-left : 36%;
 	margin-bottom : 30px;
 	border-radius: 12px;
 	border: none;
@@ -250,12 +250,13 @@ footer{
 
 #plusCert { cursor: pointer;}
 #minusCert { cursor: pointer;}
-.navbar-nav{
+
+/* .navbar-nav{
 	background-color:rgb(225, 225, 227);
 }
 .navbar-brand{
 	background-color: rgb(225, 225, 227);
-}
+} */
 .navbar-right{
 	margin-right : 5px;
 }
