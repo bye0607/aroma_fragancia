@@ -658,8 +658,6 @@ background-color: #fff;
 }
 .review-box h3 {margin-top:0}
 
-#post-review-box {
-	margin-top: 15px;
-	
-}
+#post-review-box {margin-top: 15px;}
+#post-review-box textara {margin-bottom: 15px;}
 #close-review-box {margin-right:10px;}
