@@ -40,7 +40,8 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">베스트 셀러</h2>
+					<c:set var="uppertitle" value="${dsProductList[0].PRODUCT_CATEGORY_CD_NM}"/>
+					<h2 class="title eng"><c:out value="${fn:toUpperCase(uppertitle)}"/></h2>
 				</div>
 			</div>
 		</div>
@@ -50,10 +51,15 @@
 				<div class="col-sm-12 col-md-6 col-lg-4 productitem">
 					<a href="${context}/work/product/retrieveProduct.do?productCode=${dsProductList.PRODUCT_CODE}">
 						<img name="image" src="${context}" class="img-responsive">
+						<h3 class="itemtitle">${dsProductList.PRODUCT_NAME}</h3>
 					</a>
-					<h3 class="itemtitle">${dsProductList.PRODUCT_NAME}</h3>
 					<h4>${dsProductList.PRODUCT_UNIT_PRICE} 원</h4>
-					<h4>남은 수량 : ${dsProductList.PRODUCT_COUNT} 개</h4>
+					<h4>
+						<c:choose>
+							<c:when test="${dsProductList.PRODUCT_COUNT != 0}">남은 수량 : ${dsProductList.PRODUCT_COUNT} 개</c:when>
+							<c:otherwise><mark class="text-danger">품절</mark></c:otherwise>
+						</c:choose>
+					</h4>
 				</div>
 				<c:if test="${dsProductIdx.index % 3 == 1}"></c:if>
 				<script type="text/javascript">
