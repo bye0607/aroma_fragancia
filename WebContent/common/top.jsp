@@ -50,26 +50,22 @@ a{
     <nav class="navbar navbar-default navbar-fixed-top" >
       <div class="container">
         <div class="navbar-header">
-     	   <br>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="${homeUrl}" style="font-size: 30px; margin-bottom: 12px"><font color="#555555"><strong>AROMA FRAGANCIA</strong></font></a>
+          <a class="navbar-brand" href="${homeUrl}" style="font-size: 30px; margin-bottom: 8px; margin-top: 8px"><font color="#555555"><strong>AROMA FRAGANCIA</strong></font></a>
         </div>
-      	  <br>
-        <div id="navbar" class="collapse navbar-collapse">
+      	 
+        <div id="navbar" class="collapse navbar-collapse" style= "margin-top: 8px";>
           <ul class="nav navbar-nav navbar-right">
 			<li>
 				<c:if test="${sessionScope.id == null}">
 					<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
 				</c:if>
-	
-				<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-					<a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a>
-				</c:if>
+
 			</li>
 			<li>
 				<c:if test="${sessionScope.id == null}">
@@ -115,26 +111,22 @@ a{
 		          </ul>
 				</c:if>
 	        </li>
-      			<li>
-					<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
-						<a href="${context}/work/cart/retrieveCartList.do"><font color="black"><strong>CART</strong></font></a>
-					</c:if>
+      			<li class="dropdown">
 					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-						<a href="${context}/work/product/retrieveProductListForManage.do"><font color="black"><strong>재고관리</strong></font></a>
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">관리자 메뉴<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+						<li><a href="${context}/work/product/retrieveProductListForManage.do"><font color="black"><strong>재고관리</strong></font></a></li>
+						<li><a href="${context}/work/sell/retrieveStatisticsForProduct.do"><font color="black"><strong>매출통계</strong></font></a></li>
+						<li><a href="${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P"><font color="black"><strong>재고현황</strong></font></a></li>
+			          </ul>
 					</c:if>
 				</li>
-				<li>
-					<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-						<a href="${context}/work/sell/retrieveStatisticsForProduct.do"><font color="black"><strong>매출통계</strong></font></a>
-					</c:if>
-				</li>
-				
 			</ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-		<div class= "container" style="background-color: white;">
+		<div class= "container" style="background-color: white; margin-top: 50px;">
 	  	<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
 	  		<p style="font-size: 70px;"><a href="${context}/work/product/goMain.do" style="color: black;"><b>AROMA FRAGANCIA</b></a></p>
 	  		<h1>관리자 모드입니다.</h1>
