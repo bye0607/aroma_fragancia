@@ -10,23 +10,13 @@
 	<meta name="description" content="productR.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>PRODUCT - ${dsProduct.PRODUCT_NAME}</title>
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/common.css" rel="stylesheet">
-	<link href="${context}/css/product.css" rel="stylesheet">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/common.js"></script>
 	<script type="text/javascript">
-	
-		var existFolder = '';
-		var imageFolder = '';
-		var path = '';
 		var stockTotal;
 		var priceTotal;
 	
 		$(document).ready(function() {
 		/* 수량 관련 스크립트 */
-	
 			var action;
 			var price = '${dsProduct.PRODUCT_UNIT_PRICE}';
 			var stock = '${dsProduct.PRODUCT_COUNT}';
@@ -85,6 +75,7 @@
 	        var reviewBox = $('#post-review-box');
 	        var openReviewBtn = $('#open-review-box');
 	        var closeReviewBtn = $('#close-review-box');
+	        var saveReviewBtn = $('#save-review');
 	
 	        openReviewBtn.click(function(e) {
 		    	reviewBox.slideDown(400, function() {
@@ -93,6 +84,7 @@
 	            });
 	          	openReviewBtn.fadeOut(100);
 	          	closeReviewBtn.show();
+	          	saveReviewBtn.show();
 		    });
 		
 	        closeReviewBtn.click(function(e) {
@@ -102,6 +94,7 @@
 	            	openReviewBtn.fadeIn(200);
 	            });
 	        	closeReviewBtn.hide();
+	        	saveReviewBtn.hide();
 			});
 	
 	        $('.starrr').on('starrr:change', function(e, value){
@@ -109,8 +102,8 @@
 	        });
 	
 	        if('${dsProduct.PRODUCT_COUNT}' == 0){
-	        	$("#buyBtn").attr("disabled", true);
-	        	$("#cartBtn").attr("disabled", true);
+	        	$('#buyBtn').attr('disabled', true);
+	        	$('#cartBtn').attr('disabled', true);
 	        }
 		}); //document ready function
 	
@@ -144,7 +137,7 @@
 		}
 	</script>
 </head>
-<body>
+<body class="productview">
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
 <!-- desktop버전  -->
 <div class="desktop">
@@ -169,7 +162,7 @@
 	<!-- board title, buttons start -->
 	<div class="page-header">
 		<div class="row">
-			<div class="col-xs-8 productName">
+			<div class="col-xs-8">
 				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
 				<h2 class="title eng">${dsProduct.PRODUCT_NAME}</h2>
 			</div>
@@ -177,10 +170,13 @@
 	</div>
 	<!-- board title, buttons end -->
 	<div class="row">
-		<!-- 상품이미지 -->
+		<!-- 상품이미지 start -->
 		<div class="col-md-6" align="center">
-			<img id="image" src="${context}" class="img-responsive">
+			<img id="image" src="${context}" class="img-responsive detailimg">
               	<script type="text/javascript">
+        		var existFolder = '';
+        		var imageFolder = '';
+        		var path = '';
 			 	var productCategoryCd = '${dsProduct.PRODUCT_CATEGORY_CD}';
 
 				if(productCategoryCd == 'P'){
@@ -194,7 +190,8 @@
 				$("#image").attr("src", path.replace(existFolder, imageFolder));
 			</script>
 		</div>
-		<!-- 상품정보 -->
+		<!-- 상품이미지 end -->
+		<!-- 상품정보 start -->
 		<div class="col-md-6 productInfo">
 			<table class="table table-user-information" >
 				<tbody>
@@ -206,35 +203,55 @@
 						<td>판매가</td>
 						<td id="price">${dsProduct.PRODUCT_UNIT_PRICE}원</td>
 					</tr>
-					<tr>
-						<td>남은 수량</td>
-						<td id="stock">${dsProduct.PRODUCT_COUNT}개</td>
-					</tr>
-					<tr >
-						<td>수량</td>
-						<td>
-							<div class="input-group number-spinner" style="width: 150px;">
-								<span class="input-group-btn data-dwn">
-									<button class="btn btn-default" data-dir="dwn" style="border: none;">
-										<span class="glyphicon glyphicon-minus"></span>
-									</button>
-								</span> 
-								<input type="text" class="form-control text-center" value="1" min="1" max="100" width="100%" disabled="disabled" style="border: none;">
-								<span class="input-group-btn data-up">
-									<button class="btn btn-default" data-dir="up" style="border: none;">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</span>
-							</div>
-						</td>
-					</tr>
+					<c:choose>
+						<c:when test="${dsProduct.PRODUCT_COUNT != 0}">
+						<tr>
+							<td>남은 수량</td>
+							<td id="stock">${dsProduct.PRODUCT_COUNT}개</td>
+						</tr>
+						<tr>
+							<td>수량</td>
+							<td>
+								<div class="input-group number-spinner" style="width: 150px;">
+									<span class="input-group-btn data-dwn">
+										<button class="btn" data-dir="dwn">
+											<span class="glyphicon glyphicon-minus"></span>
+										</button>
+									</span> 
+									<input type="text" class="form-control text-center" value="1" min="1" max="100" width="100%" disabled="disabled" style="height:32px;box-shadow:none;border:0">
+									<span class="input-group-btn data-up">
+										<button class="btn" data-dir="up">
+											<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</span>
+								</div>
+							</td>
+						</tr>
+						</c:when>
+						<c:otherwise>
+						<tr>
+							<td>남은 수량</td>
+							<td id="stock"><mark class="text-danger">품절</mark></td>
+						</tr>
+						<tr>
+							<td> </td>
+						</tr>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
-			<!-- 구매하기 버튼 -->
-			<button id="buyBtn" type="button" class="btn" onclick="fn_buy()" style="margin-right: 40px !important;">구매하기</button>
-			<!-- 장바구니 버튼 -->
-			<button id="cartBtn" type="button" class="btn" onclick="fn_cart()">장바구니</button>
+			<div class="row">
+				<div class="col-xs-6">
+					<!-- 구매하기 버튼 -->
+					<button id="buyBtn" type="button" class="btn btn-lg" onclick="fn_buy()">구매하기</button>
+				</div>
+				<div class="col-xs-6">
+					<!-- 장바구니 버튼 -->
+					<button id="cartBtn" type="button" class="btn btn-lg" onclick="fn_cart()">장바구니</button>
+				</div>
+			</div>
 		</div>
+		<!-- 상품정보 end -->
 	</div>
 
 	<div class="row">
@@ -248,7 +265,7 @@
 			adipisci. Facilis, nihil repudiandae!
 		</div>
 	
-		<div id="image" class="img-responsive productImg" style='background-image: url("${context}/backgroundImage/shopperbag.png");'></div>
+		<img class="img-responsive" src="${context}/backgroundImage/shopperbag.png">
 	
 		<div class="text-center product-title">
 			What is Ipsum?
@@ -261,60 +278,59 @@
 			adipisci. Facilis, nihil repudiandae!
 		</div>
 	</div>
-
-	<!--  상품평 입력 토글 start -->
-    <div class="container review-box" style="margin:40px 0;">
-		<div class="row">
-    		<h1 class="col-xs-6 review" style="font-size: 25px;text-align:left">
-    			상품평 <span class="badge">${dsReplyList[0].REPLY_COUNT}</span>
-    		</h1>
-            <div class="col-xs-6 text-right">
-	    		<c:if test="${dsProduct.SELL_YN == 'Y'}">
-	            	<!-- 태그 하나에 id는 무조건 하나임.. 디자인은 클래스명으로 적용하도록 수정해주세요 호우예아 죄송함다 ;ㅂ; -->
-	                <a class="btn-default registBtn" href="#reviews-anchor" id="open-review-box" style="float: right;">상품평 등록하기</a>
-				</c:if>
-            </div>
+</div>
+<!--  상품평 입력 토글 start -->
+<div class="container review-box" >
+	<div class="row">
+		<div  class="col-xs-6">
+	   		<h3>상품평 <span class="badge">${dsReplyList[0].REPLY_COUNT}</span></h3>
 		</div>
-		<div class="row">
-			<div class="col-md-12" id="post-review-box" style="display:none;">
-                <form id="createReply" accept-charset="UTF-8" action="${context}/work/reply/createReply.do" method="post">
-                    <input id="ratings-hidden" name="markRating" type="hidden">
-                    <textarea class="form-control animated" cols="50" id="userReply" name="userReply" placeholder="상품평을 입력하세요..." rows="5"></textarea>
-                    <div class="text-right">
-	                    <c:if test="${dsProduct.MARK_YN == 'N'}">
-	                        <div class="stars starrr" data-rating="0"></div>
-	                    </c:if>
-	                    <a href="#" id="close-review-box" class="btn-default cancelBtn" style="display:none; margin-right: 10px;">Cancel</a>
-                    	<button class="btn-default saveBtn" onclick="return fn_save()">Save</button>
-                    </div>
-                    <input type="hidden" id="productCode" name="productCode" value="${dsProduct.PRODUCT_CODE}">
-                    <input type="hidden" id="markYn" name="markYn" value="${dsProduct.MARK_YN}">
-                </form>
-			</div>
+        <div class="col-xs-6 text-right">
+   			<c:if test="${dsProduct.SELL_YN == 'Y'}">
+               <a class="btn btn-lg" href="#reviews-anchor" id="open-review-box">상품평 등록하기</a>
+			</c:if>
+        </div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" id="post-review-box" style="display:none;">
+            <form id="createReply" accept-charset="UTF-8" action="${context}/work/reply/createReply.do" method="post">
+                <input id="ratings-hidden" name="markRating" type="hidden">
+                <textarea class="form-control animated" cols="50" id="userReply" name="userReply" placeholder="상품평을 입력하세요..." rows="5"></textarea>
+                <div class="text-right">
+					<c:if test="${dsProduct.MARK_YN == 'N'}">
+						<div class="stars starrr" data-rating="0"></div>
+					</c:if>
+					<a href="#" id="close-review-box" class="btn">Cancel</a>
+					<button id="save-review" class="btn" onclick="return fn_save()">Save</button>
+                </div>
+                <input type="hidden" id="productCode" name="productCode" value="${dsProduct.PRODUCT_CODE}">
+                <input type="hidden" id="markYn" name="markYn" value="${dsProduct.MARK_YN}">
+            </form>
 		</div>
 	</div>
-	<!-- 상품평 입력 토글 end -->
-	<!-- 상품평 목록 start -->
-	<div class="container">
-		<c:forEach items="${dsReplyList}" var="dsReplyList">
-			<div class="row" style="border-top: 1px solid #D7D8DA; padding:34px 0;">
-				<div class="col-xs-8 col-md-10 text-left">
-					<h4>
-						${dsReplyList.USER_ID}&nbsp;&nbsp;<small>${dsReplyList.REPLY_DATE}</small>&nbsp;&nbsp;&nbsp;
-						<span class="stars starrr replyStar" data-rating="${dsReplyList.MARK_RATING}"></span>
-					</h4>
-				</div>
-				<div class="col-xs-4 col-md-2 text-right">
-					<c:if test="${sessionScope.userCode == dsReplyList.USER_CODE}">
-                		<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn-default deleteBtn" id="btn" 
-                		onclick="javascript:fn_remove('${dsReplyList.USER_REPLY_NO}')">삭 제</a>
-	            	</c:if>
-	            </div>
-				<div class="col-xs-12 text-left">${dsReplyList.USER_REPLY}</div>
+</div>
+<!-- 상품평 입력 토글 end -->
+<!-- 상품평 목록 start -->
+<div class="container">
+	<c:forEach items="${dsReplyList}" var="dsReplyList">
+		<div class="row" style="border-top: 1px solid #D7D8DA; padding:34px 0;">
+			<div class="col-xs-8 col-md-10 text-left">
+				<h4>
+					${dsReplyList.USER_ID}&nbsp;&nbsp;<span class="text-muted">${dsReplyList.REPLY_DATE}</span>&nbsp;&nbsp;&nbsp;
+					<span class="stars starrr replyStar" data-rating="${dsReplyList.MARK_RATING}"></span>
+				</h4>
 			</div>
-		</c:forEach>
-    </div>
-    <!-- 상품평 목록 end -->
+			<div class="col-xs-4 col-md-2 text-right">
+				<c:if test="${sessionScope.userCode == dsReplyList.USER_CODE}">
+               		<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn" 
+               		onclick="javascript:fn_remove('${dsReplyList.USER_REPLY_NO}')">삭제</a>
+            	</c:if>
+            </div>
+			<div class="col-xs-12 text-left">${dsReplyList.USER_REPLY}</div>
+		</div>
+	</c:forEach>
+</div>
+<!-- 상품평 목록 end -->
 <jsp:include page="/common/foot.jsp"></jsp:include>
 </body>
 </html>
