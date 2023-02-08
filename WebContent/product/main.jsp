@@ -339,26 +339,27 @@ to {opacity: 1;transform: translateZ(0);}}
 			            <strong>
 			              <span class="terms_tt1"></span>
 			              <p>대중교통 / 자가용 이용 시</p>
+			              <br>
 			            </strong>
 			            <td>
-			              <strong>지하철 이용</strong> 
+			              <strong class="tptext">지하철 이용</strong> 
 			              <br><br>
-					              경의중앙선, 공항철도 이용 가능 <br>
-					              지하철 2호선 홍대입구역 9번출구에서 약 80m 직진
+					              신분당선, 서울지하철 3호선 이용 가능 <br>
+					              지하철 3호선 신사역 8번출구에서 약 80m 직진
 			            </td>
 			          </tr>
 			          <tr>
 			            <td>
-			              <strong>버스 이용</strong><br>
+			              <strong class="tptext">버스 이용</strong><br>
 			              <br>
-					              버스정류장 홍대입구역(14-015) <br>
-					              동교동삼거리방면 하차 후 100m 직진<br>
+					              버스정류장 신사역(12-345) <br>
+					      NH농협은행 방면 하차 후 100m 직진<br>
 					              ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
 			            </td>
 			          </tr>
 			          <tr>
 			            <td>
-			              <strong>승용차 이용</strong><br>
+			              <strong class="tptext">승용차 이용</strong><br>
 			              <br>
 			            	  주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
 			              <br>

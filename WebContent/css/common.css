@@ -59,11 +59,12 @@ margin-top: 30px; margin-left : 36%; margin-bottom : 30px; border-radius: 12px; 
 .move:hover { background-color:#CC947C; transition: 0.7s; }
 
 /* 지도 영역 */
-.mainmap{ margin-bottom: 180px;	display: flex;}
+.mainmap{ margin-bottom: 80px;	display: flex;}
 .mapp{ font-family: "Crimson Pro"; text-align: center; font-size: 30px;	margin-top: 220px;}
-#map{ width: 60%; height: 500px; margin-right: 40px; margin-top: 160px; margin-bottom: 30px;}
-.transport{ margin-top: 160px; margin-bottom: 30px;}
-
+#map{ width: 60%; height: 500px; margin-right: 40px; margin-top: 120px; margin-bottom: 30px;}
+.transport{ margin-top: 120px; margin-top: 178px;}
+.transport > strong > p{ font-size: 22px; font-weight: 600;}
+.tptext{ font-size: 15px;}
 h3{ color: #000; padding-top: 10px;}
 
 
