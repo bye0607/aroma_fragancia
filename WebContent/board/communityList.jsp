@@ -8,6 +8,7 @@
 	<meta name="description" content="communityWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 목록</title>
+		<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_communityWrite(){
 			location.href = "${context}/work/board/communityWrite.do";
@@ -44,11 +45,9 @@
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
 					<h2 class="title">커뮤니티 게시판</h2>
 				</div>
-				<c:if test="${sessionScope.grade == 'A'}">
-				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn" onclick="fn_communityWrite()">새 글 쓰기</button>
-				</div>
-				</c:if>
+					<div class="col-xs-4 text-right">
+						<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_communityWrite()">새 글 쓰기</button>
+					</div>
 			</div>
 		</div>
 		<!-- board title, buttons end -->
@@ -60,7 +59,7 @@
                         <c:forEach items="${dsCommunityList}" var="dsCommunityList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/CommunityView.do?communityNo=${dsCommunityList.COMU_NO}">${dsCommunityList.comuTITLE}</a></div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/communityView.do?comuNo=${dsCommunityList.COMU_NO}">${dsCommunityList.COMU_TITLE}</a></div>
 								<div class="col-md-2">${dsCommunityList.USER_NAME}</div>
                          	</td>
                          </tr>

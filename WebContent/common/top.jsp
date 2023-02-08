@@ -39,7 +39,7 @@ a{
 
 
 <c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
-<c:set var="officeUrl">${context}/work/product/retrieveProductList.do?category=O</c:set>
+<c:set var="officeUrl">${context}/work/board/community.do</c:set>
 <c:set var="binderUrl">${context}/work/product/retrieveProductList.do?category=B</c:set>
 
 <c:set var="perfumeUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>

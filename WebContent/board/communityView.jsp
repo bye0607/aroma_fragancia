@@ -5,27 +5,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="communityWrite.jsp">
+	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 내용보기</title>
+		<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_communityList(){
 			location.href = "${context}/work/board/community.do";
 		}
 		//글 삭제
 		function fn_delete(){
-			var CommunityNo = '${dsCommunity.COMU_NO}';
+			var communityNo = '${dsCommunity.COMU_NO}';
 	
 			if(confirm("정말 글을 삭제하시겠습니까?")){
-				location.href = "${context}/work/board/deleteCommunity.do?comuNO=" + CommunityNo;
+				location.href = "${context}/work/board/deleteCommunity.do?comuNo=" + communityNo;
 			}
 		}
 		
 		//글 수정
 		function fn_update(){
-			var CommunityNo = '${dsCommunity.COMU_NO}';
+			var communityNo = '${dsCommunity.COMU_NO}';
 	
-			location.href = "${context}/work/board/communityModify.do?comuNO=" + CommunityNo;
+			location.href = "${context}/work/board/communityModify.do?comuNo=" + communityNo;
 		}
 	</script>
 </head>
@@ -60,7 +61,7 @@
 					<h2 class="title">커뮤니티 게시판</h2>
 				</div>
 				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn" onclick="fn_communityList()">목록</button>
+					<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_communityList()">목록</button>
 				</div>
 			</div>
 		</div>
@@ -81,12 +82,10 @@
 		</div>
 		<!-- board view end -->
 		<!-- board button area start -->
-		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsCommunity.comuREGID}">
 			<div class="row btnarea">
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
 			</div>
-		</c:if>
 		<!-- board button area end -->
 	
 	</div> <!-- container end -->

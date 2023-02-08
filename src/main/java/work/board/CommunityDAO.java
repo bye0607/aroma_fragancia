@@ -3,6 +3,7 @@ package work.board;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,15 +15,15 @@ public class CommunityDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public List<Map<String, String>> communityList(Map<String, String> communityParam){
-		return sqlSession.selectList("community.CommunityList", communityParam);
+		return sqlSession.selectList("community.communityList", communityParam);
 	}
 
 	public Map<String, String> communityView(Map<String, String> communityParam){
-		return sqlSession.selectOne("community.CommunityView", communityParam);
+		return sqlSession.selectOne("community.communityView", communityParam);
 	}
 
-	public String MaxCommunityNo(){
-		return sqlSession.selectOne("community.MaxCommunityNo");
+	public String maxCommunityNo(){
+		return sqlSession.selectOne("community.maxCommunityNo");
 	}
 
 	public void communityWrite(CommunityBean community){

@@ -12,6 +12,9 @@
 		<typeAlias type="work.reply.ReplyBean" alias="reply"/>
 		<typeAlias type="work.code.CodeBean" alias="code"/>
 		<typeAlias type="work.board.NoticeBean" alias="notice"/>
+		<typeAlias type="work.board.CommunityBean" alias="community"/>
+		
+	
 	</typeAliases>
 
 	<mappers>
@@ -23,5 +26,6 @@
 		<mapper resource="conf/sql-reply.xml" />
 		<mapper resource="conf/sql-code.xml" />
 		<mapper resource="conf/sql-notice.xml" />
+		<mapper resource="conf/sql-community.xml" />
 	</mappers>
 </configuration>

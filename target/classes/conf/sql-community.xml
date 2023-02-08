@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				  "dtd/mybatis-3-mapper.dtd">
+<mapper namespace="community">
+	<resultMap id="communityResult" type="community">
+		<result property="comuNo" column="COMU_NO" />
+		<result property="comuRegId" column="COMU_REG_ID" />
+		<result property="comuModId" column="COMU_MOD_ID" />
+		<result property="comuTitle" column="COMU_TITLE" />
+		<result property="comuContent" column="COMU_CONTENT" />
+		<result property="comuRegDate" column="COMU_REG_DATE" />
+		<result property="comuModDate" column="COMU_MOD_DATE" />
+		<result property="comuHit" column="COMU_HIT" />
+	</resultMap>
+
+	<select id="communityList" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	retrievecommunityList	*/
+			SELECT COMMUNITY.COMU_NO
+				 , COMMUNITY.COMU_TITLE
+				 , COMMUNITY.COMU_CONTENT
+				 , COMMUNITY.COMU_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = COMMUNITY.COMU_REG_ID) AS USER_NAME
+				 , COMMUNITY.COMU_REG_DATE
+				 , COMMUNITY.COMU_MOD_DATE
+				 , COMMUNITY.COMU_HIT
+			FROM   TB_COMMUNITY COMMUNITY
+			WHERE  1=1
+			ORDER BY COMMUNITY.COMU_REG_DATE DESC
+		]]>
+	</select>
+
+	<select id="communityView" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	retrievecommunity/	*/
+			SELECT COMMUNITY.COMU_NO
+				 , COMMUNITY.COMU_TITLE
+				 , COMMUNITY.COMU_CONTENT
+				 , COMMUNITY.COMU_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = COMMUNITY.COMU_REG_ID) AS USER_NAME
+				 , COMMUNITY.COMU_REG_DATE
+				 , COMMUNITY.COMU_MOD_DATE
+				 , COMMUNITY.COMU_HIT
+			FROM   TB_COMMUNITY COMMUNITY
+			WHERE  1=1
+			AND    COMU_NO = #{comuNo}
+		]]>
+	</select>
+
+	<select id="maxCommunityNo" resultType="string">
+		<![CDATA[
+		/*	retrieveMaxCOMUNo	*/
+			SELECT MAX(COMMUNITY.COMU_NO)
+			FROM   TB_COMMUNITY COMMUNITY
+		]]>
+	</select>
+
+	<insert id="communityWrite" parameterType="community">
+		<![CDATA[
+		/*	createCOMU	*/
+			INSERT INTO TB_COMMUNITY
+				(COMU_NO
+				, COMU_TITLE
+				, COMU_CONTENT
+				, COMU_REG_ID
+				, COMU_REG_DATE
+				, COMU_MOD_DATE
+			) VALUES 
+				('A' || LPAD(COMMUNITY_SEQ.NEXTVAL, 5, 0)
+				, #{comuTitle}
+				, #{comuContent}
+				, #{comuRegId}
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+			)
+		]]>
+	</insert>
+
+	<update id="communityModify" parameterType="community">
+		<![CDATA[
+		/*	updateCOMU	*/
+			UPDATE TB_COMMUNITY
+			SET COMU_TITLE         =  #{comuTitle}
+			  , COMU_CONTENT       =  #{comuContent}
+			  , COMU_MOD_DATE	  =  TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+			WHERE COMU_NO = #{comuNo}
+		]]>
+	</update>
+
+	<update id="updateCommunityHit" parameterType="community">
+		<![CDATA[
+		/*	updatecommunityHit	*/
+			UPDATE TB_COMMUNITY
+			SET COMU_HIT          =  COMU_HIT + 1
+			WHERE COMU_NO = #{comuNo}
+		]]>
+	</update>
+
+	<delete id="deleteCommunity" parameterType="map">
+		<![CDATA[
+		/*	deletecommunity	*/
+			DELETE
+			FROM  TB_COMMUNITY
+			WHERE 1=1
+			AND COMU_NO = #{comuNo}
+		]]>
+	</delete>
+
+	<delete id="deleteCommunity2" parameterType="map">
+		<![CDATA[
+		/*	deletecommunity2	*/
+			DELETE
+			FROM  TB_COMMUNITY
+			WHERE 1=1
+			AND COMU_REG_ID = #{comuRegId};
+		]]>
+	</delete>
+</mapper>

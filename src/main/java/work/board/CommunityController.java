@@ -1,7 +1,5 @@
 package work.board;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,16 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import work.user.UserService;
 
 @Controller
 public class CommunityController {
-	@Resource(name = "CommunityService")
+	@Resource(name = "communityService")
 	private CommunityService communityService;
 
 	@Resource(name = "userService")
@@ -38,18 +33,18 @@ public class CommunityController {
 
 		ModelAndView mv = new ModelAndView();
 
-		String flag = community.getComuTITLE(); //CommunitydBean 존재여부
+		String flag = community.getComuTitle(); //CommunityBean 존재여부
 
 		if(flag == null){
 			mv.setViewName("/board/communityWrite");
 		}else if(flag != null){
 			//게시글 생성
-			community.setComuREGID(userCode);
+			community.setComuRegId(userCode);
 			communityService.communityWrite(community);
 
-			String MaxCommunityNo = communityService.MaxCommunityNo();
+			String maxCommunitydNo = communityService.maxCommunityNo();
 
-			mv.setViewName("redirect:/work/board/communityView.do?MaxCommunityNo=" + MaxCommunityNo + "&fromCreate=true");
+			mv.setViewName("redirect:/work/board/communityView.do?maxCommunityNo=" + maxCommunitydNo + "&fromCreate=true");
 		}
 
 		return mv;
@@ -68,18 +63,18 @@ public class CommunityController {
 	public ModelAndView communityView(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
-		String communityNo = request.getParameter("MaxCommunityNo");
+		String communityNo = request.getParameter("maxCommunityNo");
 		String fromRating = request.getParameter("fromRating");
 		String fromCreate = request.getParameter("fromCreate");
 		String fromReply = request.getParameter("fromReply");
 
-		if(communityNo == null) communityNo = request.getParameter("comuNO");
+		if(communityNo == null) communityNo = request.getParameter("comuNo");
 
 		Map<String, String> communityParam = new HashMap<String, String>();
 		Map<String, String> replyParam = new HashMap<String, String>();
 
-		communityParam.put("comuNO", communityNo);
-		replyParam.put("comuNO", communityNo);
+		communityParam.put("comuNo", communityNo);
+		replyParam.put("comuNo", communityNo);
 
 		//조회수 증가
 		if(!"true".equals(fromRating) && !"true".equals(fromCreate) && !"true".equals(fromReply) ){
@@ -96,8 +91,8 @@ public class CommunityController {
 		return mv;
 	}
 
-	@RequestMapping(value="/work/board/CommunityList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView CommunityList(HttpServletRequest request){
+	@RequestMapping(value="/work/board/communityList.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView communityList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, String> communityParam = new HashMap<String, String>();
@@ -121,19 +116,19 @@ public class CommunityController {
 		HttpSession session = request.getSession();
 
 		String userCode = (String)session.getAttribute("userCode");
-		String communityNo = request.getParameter("comuNO");
+		String communityNo = request.getParameter("comuNo");
 
 		communityParam.put("userCode", userCode);
-		communityParam.put("comuNO", communityNo);
+		communityParam.put("comuNo", communityNo);
 
-		replyParam.put("comuNO", communityNo);
+		replyParam.put("comuNo", communityNo);
 
-		markParam.put("comuNO", communityNo);
+		markParam.put("comuNo", communityNo);
 
 		//글 삭제
 		communityService.deleteCommunity(communityParam);
 
-		mv.setViewName("redirect:/work/board/CommunityList.do");
+		mv.setViewName("redirect:/work/board/communityList.do");
 
 		return mv;
 	}
@@ -148,26 +143,26 @@ public class CommunityController {
 		Map<String, String> markParam = new HashMap<String, String>();
 
 		String userCode = (String)session.getAttribute("userCode");
-		String communityNo = request.getParameter("comuNO");
+		String communityNo = request.getParameter("comuNo");
 
-		communityParam.put("communityNo", communityNo);
+		communityParam.put("comuNo", communityNo);
 
 		markParam.put("userCode", userCode);
-		markParam.put("comuNO", communityNo);
+		markParam.put("comuNo", communityNo);
 
-		mv.setViewName("redirect:/work/board/communityView.do?comuNO=" + communityNo + "&fromRating=true");
+		mv.setViewName("redirect:/work/board/communityView.do?comuNo=" + communityNo + "&fromRating=true");
 
 		return mv;
 	}
 
 	@RequestMapping(value="/work/board/communityModify.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView updateCommunity(HttpServletRequest request, @ModelAttribute CommunityBean bean){
+	public ModelAndView communityModify(HttpServletRequest request, @ModelAttribute CommunityBean bean){
 		Map<String, String> communityParam = new HashMap<String, String>();
 		ModelAndView mv = new ModelAndView();
-        String communityNo = request.getParameter("communityNo"); //없으면 GET(create안함), 있으면 POST(create)
+        String communityNo = request.getParameter("comuNo"); //없으면 GET(create안함), 있으면 POST(create)
 
-        String flag = bean.getComuTITLE();
-        communityParam.put("comuNO", communityNo);
+        String flag = bean.getComuTitle();
+        communityParam.put("comuNo", communityNo);
 
         Map<String, String> dsCommunity = communityService.communityView(communityParam);
 
@@ -176,7 +171,7 @@ public class CommunityController {
 			mv.setViewName("/board/communityModify");
 		}else{
 			communityService.communityModify(bean);
-			mv.setViewName("/work/board/communityView.do?comuNO=" + communityNo + "&fromUpdate=true");
+			mv.setViewName("/work/board/communityView.do?comuNo=" + communityNo + "&fromUpdate=true");
 		}
 		return mv;
 	}

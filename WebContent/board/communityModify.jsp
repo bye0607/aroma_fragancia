@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="communityWrite.jsp">
+	<meta name="description" content="modifyCommunity.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 수정하기</title>
-	<script type="text/javascript">
+		<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();
 	
@@ -17,31 +17,32 @@
 		});
 	
 		function fn_setDetailInfo(){
-			$("#comuTITLE").val('${dsCommunity.COMU_TITLE}');
-			$("#comuNO").val('${dsCommunity.COMU_NO}');
+			$("#comuTitle").val('${dsCommunity.COMU_TITLE}');
+			$("#comuNo").val('${dsCommunity.COMU_NO}');
 	
-			var comuCONTENT = '${comuCONTENT.COMU_CONTENT}';
+			var comuContent = '${dsCommunity.COMU_CONTENT}';
 	
-			comuCONTENT = comuCONTENT.replace(/<br ?\/?>/gi, "\n");
+			comuContent = comuContent.replace(/<br ?\/?>/gi, "\n");
 	
-			$("#comuCONTENT").val(comuCONTENT);
+			$("#comuContent").val(comuContent);
 		}
 	
 		function fn_save(){
 			if(!fn_validation()){
 				return;
 			}else{
-				var comuCONTENT = String($("#comuCONTENT").val());
+				var comuContent = String($("#comuContent").val());
 	
-				comuCONTENT = comuCONTENT.replace(/\n/gi, "<br/>");
+				comuContent = comuContent.replace(/\n/gi, "<br/>");
 	
-				$("#comuCONTENT").val(comuCONTENT);
+				$("#comuContent").val(comuContent);
 	
 		 		$("#communityModify").submit();
 			}
 		}
 	
 	</script>
+	
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
@@ -76,7 +77,7 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="modifyBoard" method="post" action="${context}/work/board/modifyBoard.do?boardNo=${dsCommunity.ComuNO}" role="form">
+		<form id="communityModify" method="post" action="${context}/work/board/communityModify.do?comuNo=${dsCommunity.COMU_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="boardTitle" class="control-label">제목</label>
