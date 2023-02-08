@@ -127,10 +127,9 @@ a{
       </div>
     </nav>
 
-		<div class= "container" style="background-color: white; margin-top: 50px;">
+		<div class= "container" style="margin-top:120px;">
 	  	<c:if test="${sessionScope.id != null && sessionScope.grade == 'A'}">
-	  		<p style="font-size: 70px;"><a href="${context}/work/product/goMain.do" style="color: black;"><b>AROMA FRAGANCIA</b></a></p>
-	  		<h1>관리자 모드입니다.</h1>
+	  		<h1><mark>관리자 모드</mark></h1>
 	  	</c:if>
 	</div>
 </body>
