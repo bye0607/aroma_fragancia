@@ -11,9 +11,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ADMIN - 상품정보수정</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<!-- 필수입력 미입력시 빨간색배경 fadeout 효과 -->
     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-	<script src="${context}/js/jquery-1.9.1.js"></script>
     <script>
     var productCategoryCd;
     var imageFolder;

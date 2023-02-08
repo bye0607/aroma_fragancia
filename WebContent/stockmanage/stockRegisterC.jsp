@@ -19,8 +19,6 @@
     var imageFolder;
 
     $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-
         fn_init();
     });
 
