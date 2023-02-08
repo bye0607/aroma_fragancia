@@ -1,8 +1,10 @@
 /* Set the defaults for DataTables initialisation */
 $.extend(true, $.fn.dataTable.defaults, {
-    "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>" + "t" + "<'row'<'col-sm-6'i><'col-sm-6'p>>",
+	//by김은주 row에 디자인을 위한 Class추가
+    //"sDom": "<'row'<'col-sm-6 'l><'col-sm-6 'f>r>" + "t" + "<'row d'<'col-sm-6 'i><'col-sm-6 'p>>",
+    "sDom": "<'row datatablerow'<'col-sm-6 datatablecol'l><'col-sm-6 datatablecol text-right'f>r>" + "t" + "<'row datatablerow'<'col-sm-6 datatablecol'i><'col-sm-6 datatablecol text-right'p>>",
     "oLanguage": {
-        "sLengthMenu": "_MENU_ records per page"
+        "sLengthMenu": "_MENU_"
     }
 });
 
@@ -10,8 +12,8 @@ $.extend(true, $.fn.dataTable.defaults, {
 /* Default class modification */
 $.extend($.fn.dataTableExt.oStdClasses, {
     "sWrapper": "dataTables_wrapper form-inline",
-    "sFilterInput": "form-control input-sm",
-    "sLengthSelect": "form-control input-sm"
+    "sFilterInput": "form-control",
+    "sLengthSelect": "form-control"
 });
 
 // In 1.10 we use the pagination renderers to draw the Bootstrap paging,
@@ -104,7 +106,7 @@ if ($.fn.dataTable.Api) {
         };
 
         attach(
-            $(host).empty().html('<ul class="pagination"/>').children('ul'),
+            $(host).empty().html('<ul class="pagination" style="margin:0"/>').children('ul'),
             buttons
         );
     }

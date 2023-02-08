@@ -11,6 +11,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PRODUCT - ${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
@@ -75,7 +76,6 @@
 					}
 					path = $("img[name='image']").eq('${dsProductIdx.index}').attr("src");
 				
-					// "/"를 기준으로 index가 1인 위치, 즉 2번째 자리에
 					existFolder = path.split("/")[0];
 					$("img[name='image']").eq('${dsProductIdx.index}').attr("src", path.replace(existFolder, imageFolder));
 				</script>

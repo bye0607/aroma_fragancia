@@ -653,3 +653,8 @@ background-color: #fff;
 #post-review-box {margin-top: 15px;}
 #post-review-box textara {margin-bottom: 15px;}
 #close-review-box {margin-right:10px;}
+
+/* 관리자페이지 */
+/* 사이트 전체에서 dataTables-example 사용시 공통디자인 */
+.datatablerow {margin:10px 0;}
+.datatablecol {padding:0}

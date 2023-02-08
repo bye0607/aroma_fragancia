@@ -11,22 +11,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ADMIN - 상품정보수정</title>
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-
+	<!-- 필수입력 미입력시 빨간색배경 fadeout 효과 -->
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/jquery.form.js"></script>
-	<script src="${context}/js/common.js"></script>
-
-    <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script>
     var productCategoryCd;
     var imageFolder;
 
     $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-
         fn_init();
 
         fn_setProductCategoryCd();
