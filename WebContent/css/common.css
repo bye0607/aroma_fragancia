@@ -425,16 +425,6 @@ transition: all 0.4s ease-in-out;
 	padding:0 20px 10px;
 }
 
-/*boardListR table, sellListR table css*/
-#dataTables-example{
-/* max-width: 1094px;
-max-height: 569px; */
-margin-top:10%;
-margin-bottom:10%;
-/*margin-left: 12.5%;
-margin-right:12.5%;*/
-}
-
 /* 구매내역 및 카트 배경색 지정*/
 .cart_wrap, .History_wrap{
 background-color: #fff;
@@ -597,6 +587,7 @@ background-color: #fff;
 .productview .btn {background-color: #d9d9d9;color: #000;border: none;}
 .productview .btn:hover {background-color: #666;color: #fff;transition: 0.3s;}
 .productview .btn[disabled] {background-color: #d9d9d9;color: #000;opacity:0.65;cursor:not-allowed;}
+
 .detailimg {height:450px}
 .productInfo {margin-top: 50px;text-align:center}
 .productInfo .table-user-information {border-bottom:1px solid #D9D9D9;}
@@ -649,7 +640,7 @@ background-color: #fff;
 	line-height: 2.5em;
 	margin-bottom: 150px;
 } 
-
+/* product detail view 상품평 */
 .review-box{
 	font-family: 'Noto Sans KR'; 
 	font-style: normal;
@@ -659,7 +650,6 @@ background-color: #fff;
 	margin-bottom:40px; 
 }
 .review-box h3 {margin-top:0}
-
 #post-review-box {margin-top: 15px;}
 #post-review-box textara {margin-bottom: 15px;}
 #close-review-box {margin-right:10px;}

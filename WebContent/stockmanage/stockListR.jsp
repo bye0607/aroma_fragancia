@@ -9,127 +9,88 @@
 	<meta name="description" content="stockListR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>문구점</title>
-
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<title>ADMIN - 재고관리</title>
 	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/bootstrap.min.js"></script>
-
-    <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
-
     <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-    <script src="${context}/js/sb-admin-2.js"></script>
-
     <script>
-	var existFolder = '';
-	var imageFolder = '';
-	var path = '';
-
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
-
-    function fn_modifyProduct(paramProductCode){
-		location.href = "${context}/work/product/updateProduct.do?productCode=" + paramProductCode;
-    }
-
-    function fn_createProduct(){
-		location.href = "${context}/work/product/createProduct.do";
-    }
-
+	    $(document).ready(function() {
+	        $('#dataTables-example').dataTable();
+	    });
+	
+	    function fn_modifyProduct(paramProductCode){
+			location.href = "${context}/work/product/updateProduct.do?productCode=" + paramProductCode;
+	    }
+	
+	    function fn_createProduct(){
+			location.href = "${context}/work/product/createProduct.do";
+	    }
     </script>
 </head>
 <body>
-<jsp:include page="/common/top.jsp"></jsp:include>
-	<div id="jumbotron" class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>재고관리</strong>&nbsp;<span class="glyphicon glyphicon-list-alt"></span></font></h1>
-			<p>재고관리 페이지입니다.</p>
-		</div>
-
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<div class="container">
+	<!-- board title, buttons start -->
+	<div class="page-header">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="page-header" style="float: right;">
-					  <button type="button" class="btn btn-info btn-lg" onclick="fn_createProduct()">제품추가</button>
-				</div>
+			<div class="col-xs-8">
+				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
+				<h2 class="title">재고관리</h2>
 			</div>
-			<div class="col-md-12">
-			    <div class="panel panel-default">
-			        <!-- /.panel-heading -->
-			        <div class="panel-body">
-			            <div class="table-responsive">
-			                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-			                    <thead>
-			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; width: 30px;">제품번호</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">제품이미지</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 80px;">제품이름</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">제품분류</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 30px;">제품단가</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 50px;">제품재고</th>
-			                            <th style="text-align: center; vertical-align: middle; width: 20px;">정보변경</th>
-			                        </tr>
-			                    </thead>
-			                    <tbody>
-			                    	<c:forEach items="${dsProductList}" var="dsProductList" varStatus="productIdx">
-			                         <tr>
-			                         	<td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_CODE}</td>
-			                            <td style="text-align: center; vertical-align: middle;">
-										<img name="image" width="110px" height="110px" src="${context}/binderImg/${dsProductList.PRODUCT_IMAGE}" class="img-thumbnail">
-											<script type="text/javascript">
-											 	var productCategoryCd = '${dsProductList.PRODUCT_CATEGORY_CD}';
-
-											 	if(productCategoryCd == 'O'){
-													imageFolder = "officeImg";
-												}else if(productCategoryCd == 'P'){
-													imageFolder = "penImg";
-												}else if(productCategoryCd == 'S'){
-													imageFolder = "storageImg";
-												}else if(productCategoryCd == 'D'){
-													imageFolder = "designImg";
-												}else if(productCategoryCd == 'B'){
-													imageFolder = "binderImg";
-												}
-												path = $("img[name='image']").eq('${productIdx.index}').attr("src");
-
-												existFolder = path.split("/")[2];
-												$("img[name='image']").eq('${productIdx.index}').attr("src", path.replace(existFolder, imageFolder));
-											</script>
-			                            </td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_NAME}</td>
-			                            <td style="text-align: center; vertical-align: middle;">[${dsProductList.PRODUCT_CATEGORY_CD_NM}]</td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_UNIT_PRICE}원</td>
-			                            <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_COUNT}</td>
-			                            <td style="text-align: center; vertical-align: middle;">
-			                            	<button type="button" class="btn btn-warning" onclick="fn_modifyProduct('${dsProductList.PRODUCT_CODE}')">정보변경</button>
-			                            </td>
-			                         </tr>
-			                        </c:forEach>
-			                    </tbody>
-			                </table>
-			            </div>
-			            <!-- /.table-responsive -->
-			        </div>
-			        <!-- /.panel-body -->
-			    </div>
-			    <!-- /.panel -->
-			</div>
-			<!-- /.col-lg-12 -->
-			<div class="col-md-1 col-md-offset-11">
-				<button type="button" class="btn btn-success btn-lg"  style="float:right;" onclick="fn_back()">뒤로가기</button>
+			<div class="col-xs-4 text-right">
+				<button type="button" class="btn btn-lg boardbtn" onclick="fn_createProduct()">상품등록</button>
 			</div>
 		</div>
 	</div>
-<jsp:include page="/common/foot.jsp"></jsp:include>
+	<!-- board title, buttons end -->
+	    <div class="table-responsive">
+	        <table class="table" id="dataTables-example">
+	            <thead>
+	                <tr>
+	                	<th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">상품번호</th>
+	                    <th colspan="2" style="text-align: center; vertical-align: middle; background: #F5F5F5;">상품정보</th>
+	                    <th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">판매가</th>
+	                    <th style="width:100px;text-align: center; vertical-align: middle; background: #F5F5F5;">재고</th>
+	                    <th style="width:100px;text-align: center; vertical-align: middle; background: #F5F5F5;">수정</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	            	<c:forEach items="${dsProductList}" var="dsProductList" varStatus="productIdx">
+	                 <tr>
+	                 	<td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_CODE}</td>
+	                    <td style="width:150px;text-align: center;">
+							<img name="image" width="135px" height="120px" src="${context}" class="img-thumbnail">
+							<script type="text/javascript">
+								var existFolder = '';
+								var imageFolder = '';
+								var path = '';
+							 	var productCategoryCd = '${dsProductList.PRODUCT_CATEGORY_CD}';
+							
+							 	if(productCategoryCd == 'P'){
+									imageFolder = "/perfumeImg/${dsProductList.PRODUCT_IMAGE}";
+								} else if(productCategoryCd == 'D'){
+									imageFolder = "/diffuserImg/${dsProductList.PRODUCT_IMAGE}";
+								}
+							 	
+								path = $("img[name='image']").eq('${productIdx.index}').attr("src");
+							
+								existFolder = path.split("/")[0];
+								$("img[name='image']").eq('${productIdx.index}').attr("src", path.replace(existFolder, imageFolder));
+							</script>
+	                    </td>
+	                    <td style="vertical-align: middle;">[${dsProductList.PRODUCT_CATEGORY_CD_NM}]<br>${dsProductList.PRODUCT_NAME}</td>
+	                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_UNIT_PRICE}원</td>
+	                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_COUNT}</td>
+	                    <td style="text-align: center; vertical-align: middle;">
+	                    	<button type="button" class="btn" onclick="fn_modifyProduct('${dsProductList.PRODUCT_CODE}')">수정</button>
+	                    </td>
+	                 </tr>
+	                </c:forEach>
+	            </tbody>
+	        </table>
+		</div>
+</div>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>

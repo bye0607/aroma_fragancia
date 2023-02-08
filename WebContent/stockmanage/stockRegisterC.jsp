@@ -10,28 +10,16 @@
 	<meta name="description" content="stockRegisterC.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>문구점</title>
-
+	<title>ADMIN - 신규상품등록</title>
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-	<link href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" >
-    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script src="${context}/js/jquery.form.js"></script>
-	<script src="${context}/js/bootstrap.min.js"></script>
-    <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
+	<script src="${context}/js/common.js"></script>
 
     <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-    <script src="${context}/js/sb-admin-2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 
     <script>
 
@@ -48,7 +36,7 @@
 		if(confirm("등록하시겠습니까?")){
 			if(!fn_validation()) return;
 
-			alert("제품이 등록되었습니다.");
+			alert("상품이 등록되었습니다.");
 
 			$("#createProduct").submit();
 		}
@@ -57,16 +45,10 @@
 	function fn_setProductCategoryCd(){
 		productCategoryCd = $("#productCategoryCd").val();
 
-		if(productCategoryCd == 'O'){
-			imageFolder = "officeImg";
-		}else if(productCategoryCd == 'P'){
-			imageFolder = "penImg";
-		}else if(productCategoryCd == 'S'){
-			imageFolder = "storageImg";
-		}else if(productCategoryCd == 'D'){
-			imageFolder = "designImg";
-		}else if(productCategoryCd == 'B'){
-			imageFolder = "binderImg";
+		if(productCategoryCd == 'P'){
+			imageFolder = "perfumeImg";
+		} else if(productCategoryCd == 'D'){
+			imageFolder = "diffuserImg";
 		}
 
 		$("#imageFolder").val(imageFolder);
@@ -99,25 +81,29 @@
     </script>
 </head>
 <body>
-<jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>제품등록</strong>&nbsp;<span class="glyphicon glyphicon-list-alt"></span></font></h1>
-			<p>제품등록 페이지입니다.</p>
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<div class="container">
+	<!-- board title, buttons start -->
+	<div class="page-header">
+		<div class="row">
+			<div class="col-xs-8">
+				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
+				<h2 class="title">신규상품등록</h2>
+			</div>
 		</div>
 	</div>
-	<div class="container">
+	<!-- board title, buttons end -->
 	<form id="createProduct" method="post" action="${context}/work/product/createProduct.do" role="form">
 		<div class="form-horizontal">
 			<div class="form-group" style="margin-top: 5%;">
-				<label for="productName" class="control-label col-md-2"><b>제품명</b></label>
+				<label for="productName" class="control-label col-md-2"><b>상품명</b></label>
 				<div class="col-md-4">
 					<input class="form-control" type="text" name="productName" id="productName" required="required" autofocus="autofocus"/>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="productCategoryCd" class="control-label col-md-2"><b>분류</b></label>
+				<label for="productCategoryCd" class="control-label col-md-2"><b>카테고리</b></label>
 				<div class="col-md-2">
 		        	<select class="form-control" id="productCategoryCd" name="productCategoryCd" required="required" onchange="fn_setProductCategoryCd()">
 						<c:forEach items="${dsCode1}" var="code1">
@@ -141,7 +127,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-md-2"><b>제품이미지</b></label>
+				<label class="control-label col-md-2"><b>상품이미지</b></label>
 				<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png"><br/>
 				<div class="col-md-6">
 					<input type="hidden" id="productImage" name="productImage" required="required">
@@ -158,20 +144,17 @@
 				<input type="hidden" id="imageFolder" name="imageFolder">
 			</div>
 		</div>
-		<br><br><br>
-		<div class="form-group">
-		<label class="control-label col-md-12"></label>
-			<div class="col-md-1 col-md-offset-8">
-				<button type="button" class="btn btn-success" onclick="fn_save()">등록하기</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-success" onclick="fn_back()">뒤로가기</button>
-			</div>
-		</div>
 	</form>
-
+	<div class="form-group">
+		<!-- board button area start -->
+		<div class="row btnarea">
+			<button class="btn btn-lg boardbtn" type="button" onclick="fn_save()">등록하기</button>
+			<button type="button" class="btn btn-lg boardbtn" onclick="fn_back()">취소</button>
+		</div>
+		<!-- board button area end -->
 	</div>
+</div>
 
-	<jsp:include page="../common/foot.jsp"></jsp:include>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>
