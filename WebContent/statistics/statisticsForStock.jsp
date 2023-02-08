@@ -9,32 +9,15 @@
 	<meta name="description" content="statisticsForStock.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>문구점</title>
-
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
+	<title>ADMIN - 재고현황/판매현황</title>
+    <!-- morris.js 모리스차트 -->
     <link href="${context}/css/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/bootstrap.min.js"></script>
-
-    <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-    <script src="${context}/js/sb-admin-2.js"></script>
-    <script src="${context}/js/morris.min.js"></script>
+    <!-- 툴팁표시 -->
     <script src="${context}/js/raphael.js"></script>
-
+    <!-- morris.js 모리스차트 -->
+    <script src="${context}/js/morris.min.js"></script>
     <script>
-
 	var sort;
 	var url;
 
@@ -50,12 +33,6 @@
 
     		if(sort == 'stockP'){
 				url = "${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P";
-    		}else if(sort == 'stockO'){
-				url = "${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=O";
-    		}else if(sort == 'stockS'){
-				url = "${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=S";
-    		}else if(sort == 'stockB'){
-				url = "${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=B";
     		}else if(sort == 'stockD'){
 				url = "${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=D";
     		}else if(sort == 'sell'){
@@ -69,9 +46,11 @@
     		}
     	});
 
+    	var color_array = ['#FAB1B2', '#68D4CD', '#94DAFB', '#FD8080', '#26A0FC', '#26E7A6', '#FEBC3B', '#8B75D7', '#CFF67B', '#6D848E'];
         Morris.Donut({
             element: 'donutChart',
             data: objDonut,
+            colors: color_array,
             resize: true
         });
 
@@ -80,52 +59,55 @@
             data: objBar,
             xkey: 'y',
             ykeys: ['a'],
-            labels: ['수치'],
+            labels: ['매출 '],
+            barColors: ['#CC947C'],
             hideHover: 'auto',
             resize: true
         });
-
 
     });
 
     </script>
 </head>
 <body>
-<jsp:include page="/common/top.jsp"></jsp:include>
-	<div class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>재고현황</strong>&nbsp;<span class="glyphicon glyphicon-signal"></span></font></h1>
-			<p>재고현황 페이지입니다.</p>
-		</div>
-
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<div class="container">
+	<!-- board title, buttons start -->
+	<div class="page-header">
 		<div class="row">
-			<div class="col-md-3">
-				<select class="form-control" id="sort" name="sort">
-					<option value="stockP">재고현황[필기류]</option>
-					<option value="stockO">재고현황[사무용품]</option>
-					<option value="stockS">재고현황[정리/수납용품]</option>
-					<option value="stockB">재고현황[화일/바인더]</option>
-					<option value="stockD">재고현황[디자인문구]</option>
-					<option value="sell">판매현황</option>
-				</select>
+			<div class="col-xs-8">
+				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
+				<h2 class="title">재고현황/판매현황</h2>
 			</div>
-		</div>
-	    <div class="row">
-			<div id="donutChart"></div>
-	    </div>
-
-		<div class="row">
-			<div id="barChart"></div>
-	    </div>
-
-		<div class="row">
-			<div class="col-md-1 col-md-offset-11">
-				<button type="button" class="btn btn-success btn-lg"  style="float:right;" onclick="fn_back()">뒤로가기</button>
+			<div class="col-xs-4 text-right">
 			</div>
-		</div>
-		<div id="printArea" style="display: none;">
 		</div>
 	</div>
-<jsp:include page="/common/foot.jsp"></jsp:include>
+	<!-- board title, buttons end -->
+
+	<div class="row">
+		<div class="col-md-3">
+			<select class="form-control" id="sort" name="sort">
+				<option value="stockP">재고현황[PERFUME]</option>
+				<option value="stockD">재고현황[DIFFUSER]</option>
+				<option value="sell">판매현황</option>
+			</select>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-xs-12">
+			<div id="donutChart" style="width:100%;height:400px;margin-top:20px"></div>
+		</div>
+    </div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="barChart" style="width:100%;margin-top:30px"></div>
+		</div>
+    </div>
+	<div id="printArea" style="display: none;">
+	</div>
+</div>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>
