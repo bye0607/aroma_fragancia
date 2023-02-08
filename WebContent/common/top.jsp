@@ -10,7 +10,6 @@
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/common.css" rel="stylesheet">
-<script src="${context}/js/jquery-1.9.1.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/common.js"></script>
 <style type="text/css">
