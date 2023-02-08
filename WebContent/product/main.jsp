@@ -11,7 +11,9 @@
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/vegas.min.css" rel="stylesheet">
- 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/jquery-1.9.1.js"></script>
@@ -34,6 +36,7 @@
 <c:set var="statisticsForStockUrl">${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P</c:set>
 
 <script type="text/javascript" >
+// 메인 상단 베가스 적용
 $(function(){
 	$(".mainveg").vegas({
 		delay : 3000,
@@ -47,13 +50,20 @@ $(function(){
 	})
 });
 
-
-
-
 $(document).ready(function() {
-    /* 1 */
+	// 쿠키 박스슬라이더 적용	
+   $('.bxslider').bxSlider({
+        auto: true, 
+        speed: 500, 
+        pause: 3000,
+        mode: 'horizontal',
+        autoControls: false,
+        pager: false,
+        captions: false,
+    });
+	   
+	//storyimg
     $(window).scroll( function(){
-        /* 2 */
         $('.hideimg').each( function(i){
             var bottom_of_object = $(this).offset().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -65,56 +75,32 @@ $(document).ready(function() {
     });
 });
 
+// 하단 movebtn joinus 버튼   
 function zoomIn(event) {
     event.target.style.transform = "scale(1.1)";
     event.target.style.zIndex = 1;
     event.target.style.transition = "all 0.5s";
   }
-
   function zoomOut(event) {
     event.target.style.transform = "scale(1)";
     event.target.style.zIndex = 0;
     event.target.style.transition = "all 0.5s";
   }
-  
-  if(getCookie("notToday")!="Y"){
-		$("#popup_image").show('fade');
-}
-
-function closePopupNotToday(){	             
-		setCookie('notToday','Y', 1);
-		$("#popup_image").hide('fade');
-}
-function setCookie(name, value, expiredays) {
-	var today = new Date();
-	    today.setDate(today.getDate() + expiredays);
-
-	    document.cookie = name + '=' + escape(value) + '; path=/; expires=' + today.toGMTString() + "; domain=example.com";
-}
-
-function getCookie(name) 
-{ 
-  var cName = name + "="; 
-  var x = 0; 
-  while ( x <= document.cookie.length ) 
-  { 
-      var y = (x+cName.length); 
-      if ( document.cookie.substring( x, y ) == cName ) 
-      { 
-          if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) 
-              endOfCookie = document.cookie.length;
-          return unescape( document.cookie.substring( y, endOfCookie ) ); 
-      } 
-      x = document.cookie.indexOf( " ", x ) + 1; 
-      if ( x == 0 ) 
-          break; 
-  } 
-  return ""; 
-}
-function closeMainPopup(){
-	$("#popup_image").hide('fade');
-}
-  
+// 쿠키 팝업
+$(function () {
+    if ($.cookie("popup") == "none") {
+      $("#popup_image").hide();
+    }
+    var $expiresChk = $("#expiresChk");
+    $(".pull-right").on("click", closePop);
+    function closePop() {
+      if ($expiresChk.is(":checked")) {
+        $.cookie("AROMA", "none", { expires: 1, path: "/" });
+      }
+      $("#popup_image").fadeOut("fast");
+    }
+  });
+// 챗봇 api 연동
 (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
 
 ChannelIO('boot', {
@@ -122,116 +108,59 @@ ChannelIO('boot', {
 });
 </script>
 <style>
-*{
+*{font-family: "Crimson Pro";}
+/* 스크롤 페이드인 */
+@keyframes fadeInUp { 0% { opacity: 0; transform: translate3d(0, 100%, 0);}
+to {opacity: 1;transform: translateZ(0);}}
+.test_obj {position: relative;animation: fadeInUp 3s;}
+.test_obj2 {position: relative; animation: fadeInUp 6s;}
 
-	font-family: "Crimson Pro";
+/* 쿠키 */
+.popup_image{margin-left: 30px; margin-top: 170px; background-color: #F7F9F6; width: 310px;}
+.popup_image > p{color: black; text-align: center; font-size: 25px; font-family: "Crimson Pro"; border-radius: 10px;}
+.popup_bar{background-color: #F7F9F6; color: black; height: 25px; padding: 10px 20px 36px 10px; width: 310px;}
+.bx-wrapper{max-width: 18%; background: #F7F9F6; margin-bottom: 0px;}
+.pull-right{background: none; border: none; font-size: 18px; padding-bottom: 10px; font-weight: bold;}
+.white{font-size: 18px; padding-bottom: 10px; font-weight: bold;}
+.bx-prev{display: none;}
+.bx-next{display: none;}
+
+/*media*/
+@media (min-width: 992px){
+.probtn{margin-left : 40%;}	
+.storyproduct > div > li > img{width: 200px; height: 260px; }
 }
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translate3d(0, 100%, 0);
-        }
-        to {
-            opacity: 1;
-            transform: translateZ(0);
-        }
-    }
- 
-    .test_obj {
-        position: relative;
-        animation: fadeInUp 3s;
-    }
-    .test_obj2 {
-        position: relative;
-        animation: fadeInUp 6s;
-    }
-    
-    
-  /* 쿠키 */
-
-.popup_image{
-    margin-left: 30px;
-    margin-top: 30px;
-    background-color: #F7F9F6;
+	
+@media screen and (min-width: 760px) {
+.probtn{margin-left : 20%;}
+.mainmap{display: flex;}
+.mapp{font-size: 25px; text-align: left;}
 }
 
-.popup_image > p{
-	
-	color: black;
-	text-align: center;
-	font-size: 25px;
-	
-	font-family: "Crimson Pro";
-	
-}
-.popup_bar{
-    background-color: #F7F9F6;
-    color: black;
-    height: 25px;
-    padding: 10px 20px 36px 10px;
-    width: 310px;
-}
-    
-    /*media*/
-	@media (max-width: 988px){
-	
-	.probtn{
-		margin-left : 40%;
-	}
-		
-	.movebtn{
-		height: 200px;
-		width: 500px !important;
-		text-align: center;
-		margin: 0 auto;
-		border-radius: 70px; 
-	}
-	}
-	@media screen and (min-width: 600px){
-		.probtn{
-			margin-left : 20%;
-		}
-		#map{
-	     width: 500px;
-	     height: 500px;
-	     
-	     margin-right: 40px;
-	     margin-top: 160px;
-	     margin-bottom: 30px;
-	}
-
-		.movebtn{
-			width: 200px;
-		}
-		
-
-	}
 </style>
 
 <body>
 <jsp:include page="../common/top.jsp"></jsp:include>
 	<c:if test="${sessionScope.grade != 'A'}">
-	<!-- 쿠키 -->	
-	<div id="popup_image" class="popup_image" style="position: absolute; z-index:1; ">
-		<p>  <br>
-		AROMA,FRAGANCIA<br>
-		Better but different</p>
-		<img src="/mainimgg/cookie1.jpg" />
-		<div class="popup_bar">
-			<a href="javascript:closePopupNotToday()" class="white">오늘그만보기</a>
-			<a class="pull-right white" href="javascript:closeMainPopup();">닫기</a>
-		</div>
-	</div>
-        
+		<!-- 쿠키 -->	
+        <div id="popup_image" class="popup_image" style="position: absolute; z-index:1; ">
+        	<p><br>AROMA,FRAGANCIA<br> Better but different</p>
+	          <ul class="bxslider">
+			      <li><img src="/mainimgg/cookie1.jpg" alt=""></li>
+			      <li><img src="/mainimgg/cookie2.jpg" alt=""></li>
+			      <li><img src="/mainimgg/cookie3.jpg" alt=""></li>
+			  </ul>
+			<div class="popup_bar"><br>
+	            <input type="checkbox" name="expiresChk" id="expiresChk" />
+	            <label for="expiresChk"  class="white">오늘 그만보기</label>
+	            <button class="pull-right white">닫기</button>
+			</div>
+        </div>
 
-
-		<div class="mainveg" style="height: 700px;">
-    		<!-- vegas -->
-		</div>
-		
-		
+   		<!-- vegas -->
+		<div class="mainveg" style="height: 700px;"></div>
         
-        
+        <!-- 매인 -->
 		<div class="container storytext storytext1 test_obj" >
 			<p>공간의 공백은 우리에게 형언할 수 없는 감정과 긴장감을 줍니다. <br> 
 			그렇게 비움은 우리에게 여운을 남깁니다. <br> 
@@ -243,37 +172,36 @@ ChannelIO('boot', {
 		</div>
 	 
 	 	<div class="story">
-			<h4> Story of <strong>AROMA FRAGANCIA</strong></h4>
-		        <div class="storyproduct">
-		            <div>
-		                <li>
-		                    <img src="/mainimgg/story1.jpg" alt="story1" class="hideimg" style="margin:0px;">
-		                <li>
-		            </div> 
-		            <div>
-		                <li>
-		                <img src="/mainimgg/story2.jpg" class="hideimg" alt="story2">
-		                </li>
-		            </div> 
-		            <div>
-		                <li>
-		                    <img src="/mainimgg/story3.jpg" class="hideimg" alt="story3" >
-		                </li>
-		            </div> 
-		        </div>
-			</div>
+		<h4> Story of <strong>AROMA FRAGANCIA</strong></h4>
+	        <div class="storyproduct">
+	            <div>
+	                <li>
+	                    <img src="/mainimgg/story1.jpg" alt="story1" class="hideimg" style="margin:0px;">
+	                <li>
+	            </div> 
+	            <div>
+	                <li>
+	                <img src="/mainimgg/story2.jpg" class="hideimg" alt="story2">
+	                </li>
+	            </div> 
+	            <div>
+	                <li>
+	                    <img src="/mainimgg/story3.jpg" class="hideimg" alt="story3" >
+	                </li>
+	            </div> 
+	        </div>
+		</div>
 		
 		<div class="container storytext test_obj test_obj2">
 			<p>
-			지금, 당신은 스스로에게 만족스러운 향수를 사용하고 있나요? <br>
-			  - <br>
+				지금, 당신은 스스로에게 만족스러운 향수를 사용하고 있나요? <br>
+			 	 - <br>
 				전 세계 수만 개의 향수 중 당신의 향수를 찾는 것은 운명과도 같습니다. <br>
 				그렇기에 AROMA,FRAGANCIA는 오늘도 향기와 사람을 잇는 매개체가 되어
 				새로운 향수들을 끊임없이 탐구하는 일을 멈추지 않습니다. <br>
 				
 				당신의 일부가 되는 최적의 향수를 찾는 일, 그것이 AROMA,FRAGANCIA가 존재하는 이유입니다. <br>
 			</p>
-			
 			<p class="story_sub">AROMA,FRAGANCIA는 조화로운 향기들을 쌓아올려 향을 통해 가장 나다운 향을 찾기 위한 여정을 함께합니다. </p>
 		</div>
 			
@@ -332,10 +260,6 @@ ChannelIO('boot', {
 	        <input onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" type="button" value="제품 둘러보기 →" class="probtn">
 		</div>
 
-
-	
-
-
 		<div class="container sixwrap">
 		 	<div class="sixcontext">
 	            <div class="sixb"> <strong>Find Your Signature</strong> <br> <br> ‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div>
@@ -349,145 +273,136 @@ ChannelIO('boot', {
 			</div>
 			<br>
 		</div>
-		<div class="movebtn"       
-		onmouseenter="zoomIn(event)"
-     	onmouseleave="zoomOut(event)">
+		<div class="movebtn" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
 			<div>
 				<P>AROMA FRAGANCIA JOIN US</P>
 				<br>
-				회원이 되어 더 많은 향기 정보를 얻어보세요.
+				회원이 되어 더 많은 향기 정보를 얻어보세요. <br>
 				자극없이 은은하고 뿌리는 순간 감각적인 무드를 연출해주는 다양한 상품들과 <br>
 				온라인에서도 편리하게 만날 수 있는 향기 상담 신청 서비스를 이용해보세요.
 				<br>
 			</div>
-			<input type="button" value="JOIN US  →" class="move">
+			<input type="button" value="JOIN US  →" class="move" onClick="location.href='${context}/user/login.jsp'"></input>
 		</div>
 		
-		
-		
-		<div class="mapp"> AROMA FRAGANCIA <br>
-							오프라인 매장 찾아오시는 길</div>
-		
+		<div class="mapp"> AROMA FRAGANCIA <br> 오프라인 매장 찾아오시는 길</div>
 		<div class="container">
 		<div class="mainmap">
 			<div id="map"></div>
 				<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=c2c33a097ac052287fa856172f2eb50d"></script>
 				<script>
-				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-				    mapOption = { 
-				        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
-				        level: 3 // 지도의 확대 레벨
-				    };
-				
-				var map = new kakao.maps.Map(mapContainer, mapOption);
-				
-				// 마커가 표시될 위치입니다 
-				var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
-				
-				// 마커를 생성합니다
-				var marker = new kakao.maps.Marker({
-				    position: markerPosition
-				});
-				
-				// 마커가 지도 위에 표시되도록 설정합니다
-				marker.setMap(map);
-				
-				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/Hello World!,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-				    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
-				
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    position : iwPosition, 
-				    content : iwContent 
-				});
-				  
-				// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-				infowindow.open(map, marker); 
-				
-		        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
-		        window.onresize = function () {
-		              console.log("resize");
-		              if (map != null) { map.relayout();
-		                  if (marker != null) {
-		                    var markerPosition = marker.getPosition();
-		                    map.setCenter(markerPosition);
-		                  }
-		                }
-		              };
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					    mapOption = { 
+					        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
+					        level: 3 // 지도의 확대 레벨
+					    };
+					
+					var map = new kakao.maps.Map(mapContainer, mapOption);
+					
+					// 마커가 표시될 위치입니다 
+					var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
+					
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+					    position: markerPosition
+					});
+					
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);
+					
+					var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/AROMA,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+					    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
+					
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+					    position : iwPosition, 
+					    content : iwContent 
+					});
+					  
+					// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+					infowindow.open(map, marker); 
+					
+			        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
+			        window.onresize = function () {
+			              console.log("resize");
+			              if (map != null) { map.relayout();
+			                  if (marker != null) {
+			                    var markerPosition = marker.getPosition();
+			                    map.setCenter(markerPosition);
+			                  }
+			                }
+			              };
 				</script>
-		<div class="transport">
-	        <table class="table table-hover">
-	          <tr>
-	            <strong>
-	              <span class="terms_tt1"></span>
-	              <p>대중교통 / 자가용 이용 시</p>
-	            </strong>
-	            <td>
-	              <strong>지하철 이용</strong> <br />
-	              <br />
-	              경의중앙선, 공항철도 이용 가능 <br />
-	              지하철 2호선 홍대입구역 9번출구에서 약 80m 직진
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>
-	              <strong>버스 이용</strong><br />
-	              <br />
-	              버스정류장 홍대입구역(14-015) <br />
-	              동교동삼거리방면 하차 후 100m 직진<br />
-	              ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
-	            </td>
-	          </tr>
-	          <tr>
-	            <td>
-	              <strong>승용차 이용</strong><br />
-	              <br />
-	              주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
-	              <br />
-	              주차정보안내시스템
-	              <a href="http://parking.seoul.go.kr/"
-	                >(http://parking.seoul.go.kr/)</a
-	              >에서 오프라인 매장 주변 공영주차장을 확인하실 수 있습니다.
-	            </td>
-	          </tr>
-	        </table>
-	      </div>
-		</div>
-		<!-- mainmap end -->
-		</div>
-		<!-- container end -->				
-	</c:if>
-	
-		
-		
-		
+				<div class="transport">
+			        <table class="table table-hover">
+			          <tr>
+			            <strong>
+			              <span class="terms_tt1"></span>
+			              <p>대중교통 / 자가용 이용 시</p>
+			            </strong>
+			            <td>
+			              <strong>지하철 이용</strong> 
+			              <br><br>
+					              경의중앙선, 공항철도 이용 가능 <br>
+					              지하철 2호선 홍대입구역 9번출구에서 약 80m 직진
+			            </td>
+			          </tr>
+			          <tr>
+			            <td>
+			              <strong>버스 이용</strong><br>
+			              <br>
+					              버스정류장 홍대입구역(14-015) <br>
+					              동교동삼거리방면 하차 후 100m 직진<br>
+					              ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
+			            </td>
+			          </tr>
+			          <tr>
+			            <td>
+			              <strong>승용차 이용</strong><br>
+			              <br>
+			            	  주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
+			              <br>
+			           	  	주차정보안내시스템
+			              <a href="http://parking.seoul.go.kr/">(http://parking.seoul.go.kr/)</a>에서 오프라인 매장 주변 공영주차장을 확인하실 수 있습니다.
+			            </td>
+			          </tr>
+			        </table>
+			      </div>
+				</div>
+				<!-- mainmap end -->
+			</div>
+			<!-- container end -->				
+		</c:if>
+			
 		<!-- 관리자 페이지 -->
 		<c:if test="${sessionScope.grade == 'A'}">
-		<div class="container" style="margin-top: 10%; margin-bottom: 10%">
-			<div class="row">
-				<div class="col-md-4">
-				    <a href="${productManageUrl}" class="btn btn-primary" style="width: 100%; height: 250px;" role="button">
-						<h1><span class="glyphicon glyphicon-list-alt" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고관리</h1>
-					</a>
-				</div>
-				<div class="col-md-4">
-				    <a href="${statisticsForProductUrl}" class="btn btn-danger" style="width: 100%; height: 250px;" role="button">
-						<h1><span class="glyphicon glyphicon-signal" style="font-size: 80px; margin-top: 5%;"></span> <br/>매출통계</h1>
-				    </a>
-				</div>
-				<div class="col-md-4">
-				    <a href="${statisticsForStockUrl}" class="btn btn-info" style="width: 100%; height: 250px;" role="button">
-						<h1><span class="glyphicon glyphicon-eye-open" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고현황</h1>
-	    		    </a>
+			<div class="container" style="margin-top: 10%; margin-bottom: 10%">
+				<div class="row">
+					<div class="col-md-4">
+					    <a href="${productManageUrl}" class="btn btn-primary" style="width: 100%; height: 250px;" role="button">
+							<h1><span class="glyphicon glyphicon-list-alt" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고관리</h1>
+						</a>
+					</div>
+					<div class="col-md-4">
+					    <a href="${statisticsForProductUrl}" class="btn btn-danger" style="width: 100%; height: 250px;" role="button">
+							<h1><span class="glyphicon glyphicon-signal" style="font-size: 80px; margin-top: 5%;"></span> <br/>매출통계</h1>
+					    </a>
+					</div>
+					<div class="col-md-4">
+					    <a href="${statisticsForStockUrl}" class="btn btn-info" style="width: 100%; height: 250px;" role="button">
+							<h1><span class="glyphicon glyphicon-eye-open" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고현황</h1>
+		    		    </a>
+					</div>
 				</div>
 			</div>
-		</div>
 		</c:if>
 
 	<jsp:include page="../common/foot.jsp"></jsp:include>
 	
-		    <!-- 베가스 추가 -->
+<!-- 베가스 추가 -->
 <script type="text/javascript" src="${context}/js/vegas.min.js"></script>
+<!-- 박스슬라이더 추가 -->
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 </body>
 </html>
