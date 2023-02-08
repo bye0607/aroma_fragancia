@@ -62,9 +62,11 @@ a{
           <ul class="nav navbar-nav navbar-right">
 			<li>
 				<c:if test="${sessionScope.id == null}">
-					<a href="${context}/work/user/createUser.do"><font color="black"><strong>회원가입</strong></font></a>
+					<a href="${context}/work/user/createUser.do"><font color="black"><strong>SIGN UP</strong></font></a>
 				</c:if>
-
+				<c:if test="${sessionScope.id != null && sessionScope.grade != 'A'}">
+					<a href="${context}/work/cart/retrieveCartList.do"><font color="black"><strong>CART</strong></font></a>
+				</c:if>
 			</li>
 			<li>
 				<c:if test="${sessionScope.id == null}">
