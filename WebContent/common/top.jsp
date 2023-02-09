@@ -30,21 +30,16 @@ a{
 </head>
 
 <!-- URL 추가 -->
-<c:set var="FAQUrl">${context}/FAQ/FAQ.jsp</c:set>
-<!--  -->
-
 <c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
 <c:set var="loginUrl">${context}/user/login.jsp</c:set>
 
-
 <c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
-<c:set var="officeUrl">${context}/work/board/community.do</c:set>
-<c:set var="binderUrl">${context}/work/product/retrieveProductList.do?category=B</c:set>
+<c:set var="cmmuUrl">${context}/work/board/community.do</c:set>
+<c:set var="boardUrl">${context}/work/board/board.do</c:set>
 
 <c:set var="perfumeUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
 <c:set var="diffuserUrl">${context}/work/product/retrieveProductList.do?category=D</c:set>
 
-<c:set var="storageUrl">${context}/work/product/retrieveProductList.do?category=S</c:set>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" >
       <div class="container">
@@ -97,9 +92,9 @@ a{
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICE <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 				<li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${noitceUrl}')" style="color: black; font-size: 15px;">NOTICE</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${officeUrl}')" style="color: black; font-size: 15px;">COMMUNITY</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${storageUrl}')" style="color: black; font-size: 15px;">BOARD</a></li>
-			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${FAQUrl}')" style="color: black; font-size: 15px;">FAQ</a></li>
+			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${cmmuUrl}')" style="color: black; font-size: 15px;">COMMUNITY</a></li>
+			    <li><a onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${boardUrl}')" style="color: black; font-size: 15px;">BOARD</a></li>
+			    <li><a href="${FAQUrl}" style="color: black; font-size: 15px;">FAQ</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown">
