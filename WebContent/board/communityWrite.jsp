@@ -8,6 +8,7 @@
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 쓰기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		fn_init();
@@ -17,11 +18,11 @@
 		if(!fn_validation()){
 			return;
 		}else{
-			var boardContent = String($("#comuContent").val());
+			var comuContent = String($("#comuContent").val());
 
-			boardContent = boardContent.replace(/\n/gi, "<br/>");
+			comuContent = comuContent.replace(/\n/gi, "<br/>");
 
-			$("#comuContent").val(boardContent);
+			$("#comuContent").val(comuContent);
 
 	 		$("#communityWrite").submit();
 		}
@@ -62,11 +63,12 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
+		
 		<form id="communityWrite" method="post" action="${context}/work/board/communityWrite.do" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="comuRegId" class="control-label">이름</label>
-					<input class="form-control" type="text" name="comuRegId" id="comuRegId" required="required" maxlength="50" autofocus="autofocus" placeholder="이름을 입력해주세요"/>
+					<input class="form-control" type="text" name="communityWrite" id="communityWrite" required="required" maxlength="50" readonly="readonly" value="${sessionScope.id}"/>
 				</div>
 				<div class="form-group">
 					<label for="comuTitle" class="control-label">제목</label>

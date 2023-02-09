@@ -8,7 +8,7 @@
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 내용보기</title>
-		<script src="${context}/js/jquery-1.9.1.js"></script>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_communityList(){
 			location.href = "${context}/work/board/community.do";
@@ -61,7 +61,7 @@
 					<h2 class="title">커뮤니티 게시판</h2>
 				</div>
 				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_communityList()">목록</button>
+					<button type="button" class="btn btn-lg boardbtn" onclick="fn_communityList()">목록</button>
 				</div>
 			</div>
 		</div>
