@@ -368,7 +368,7 @@ boardListR fn_buy 및 fn_delete margin 설정
 /* by 김은주, 게시판 공통디자인 */
 /* board buttons */
 .boardbtn {width:112px;height:42px;background:#D9D9D9;border-radius:21px;font-size:14px;margin-top:20px}
-.boardbtn:hover {background:#9CA09F;color:#fff}
+.boardbtn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .boardbtn:not(:first-child) {margin-left:34px}
 .btnarea {margin:80px 0;text-align:right;}
 .btnarea .boardbtn {margin-top:0}
@@ -416,7 +416,7 @@ boardListR fn_buy 및 fn_delete margin 설정
 /* product detail view */
 /* product detail view 버튼 공통 */
 .productview .btn {background-color: #d9d9d9;color: #000;border: none;}
-.productview .btn:hover {background-color: #666;color: #fff;transition: 0.3s;}
+.productview .btn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .productview .btn[disabled] {background-color: #d9d9d9;color: #000;opacity:0.65;cursor:not-allowed;}
 
 .detailimg {height:450px}
@@ -489,7 +489,7 @@ boardListR fn_buy 및 fn_delete margin 설정
 /* 사이트 전체에서 dataTables-example 사용시 공통디자인 */
 #dataTables-example>tbody>tr>td {border-top:0;border-bottom: 1px solid #ddd;}
 #dataTables-example th {background:#F5F5F5;text-align:center;padding-top:20px;padding-bottom:20px}
-#dataTables-example .btn:hover {background-color: #666;color: #fff;transition: 0.3s;}
+#dataTables-example .btn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .datatablerow {margin:10px 0;}
 .datatablecol {padding:0}
 /* 관리자 메인 */
