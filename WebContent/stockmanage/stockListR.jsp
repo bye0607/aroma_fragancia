@@ -10,12 +10,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ADMIN - 재고관리</title>
-	<!-- 테이블 헤더에 sort 표시됨, fontawsome까지 사용 -->
 	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
-    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- 테이블에 dataTables-example 사용시 검색, 페이징처리 됨 -->
 	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
+	<!-- 테이블 헤더에 sort 표시됨, fontawsome까지 사용 -->
+    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 
@@ -28,7 +28,7 @@
     <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script>
 	    $(document).ready(function() {
-	        $('#dataTables-example').dataTable();
+	        $('#dataTables-example').DataTable();
 	    });
 	
 	    function fn_modifyProduct(paramProductCode){
