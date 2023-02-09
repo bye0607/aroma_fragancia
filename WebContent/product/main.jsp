@@ -12,6 +12,12 @@
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${context}/css/vegas.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+<!-- fontawesome6.3.0 관리자페이지에 사용 -->
+<link href="${context}/css/fontawesome6.3.0/solid.css" rel="stylesheet">
+<link href="${context}/css/fontawesome6.3.0/v4-shims.css" rel="stylesheet" />  
+<script defer src="${context}/js/fontawesome6.3.0/all.min.js"></script>
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
@@ -377,25 +383,34 @@ to {opacity: 1;transform: translateZ(0);}}
 			
 		<!-- 관리자 페이지 -->
 		<c:if test="${sessionScope.grade == 'A'}">
-			<div class="container" style="margin-top: 10%; margin-bottom: 10%">
-				<div class="row">
-					<div class="col-md-4">
-					    <a href="${productManageUrl}" class="btn btn-primary" style="width: 100%; height: 250px;" role="button">
-							<h1><span class="glyphicon glyphicon-list-alt" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고관리</h1>
-						</a>
+		<div class="container adminmode">
+		 	<div class="row">
+	            <div class="col-md-4 text-center adminlink" onclick="location.href='${productManageUrl}'">
+					<div class="img-circle">
+						<span>
+							<i class="fa-solid fa-store fa-8x" style="color:white;"></i>
+						</span>
 					</div>
-					<div class="col-md-4">
-					    <a href="${statisticsForProductUrl}" class="btn btn-danger" style="width: 100%; height: 250px;" role="button">
-							<h1><span class="glyphicon glyphicon-signal" style="font-size: 80px; margin-top: 5%;"></span> <br/>매출통계</h1>
-					    </a>
-					</div>
-					<div class="col-md-4">
-					    <a href="${statisticsForStockUrl}" class="btn btn-info" style="width: 100%; height: 250px;" role="button">
-							<h1><span class="glyphicon glyphicon-eye-open" style="font-size: 80px; margin-top: 5%;"></span> <br/>재고현황</h1>
-		    		    </a>
-					</div>
+					<h1>재고관리</h1>
 				</div>
+	            <div class="col-md-4 text-center adminlink" onclick="location.href='${statisticsForProductUrl}'">
+	            	<div class="img-circle">
+	            		<span>
+		            		<i class="fa-solid fa-chart-pie fa-8x" style="color:white;"></i>
+						</span>
+				    </div>
+					<h1>매출통계</h1>
+				</div>
+	            <div class="col-md-4 text-center adminlink" onclick="location.href='${statisticsForStockUrl}'">
+	            	<div class="img-circle">
+		            	<span>
+		            		<i class="fa-solid fa-boxes-stacked fa-8x" style="color:white;"></i>
+						</span>
+	    		    </div>
+					<h1>재고현황</h1>
+				</div> 
 			</div>
+		</div>
 		</c:if>
 
 	<jsp:include page="../common/foot.jsp"></jsp:include>

@@ -494,3 +494,12 @@ background-color: #fff;
 /* 사이트 전체에서 dataTables-example 사용시 공통디자인 */
 .datatablerow {margin:10px 0;}
 .datatablecol {padding:0}
+/* 관리자 메인 */
+.admintitle {margin-top:100px}
+.adminmode {min-height:450px;}
+.adminlink {margin-top:100px;cursor:pointer}
+.adminlink .img-circle {position:relative;width:250px;height:250px;background:#CC947C;margin:0 auto;}
+/* .adminlink:hover .img-circle {transition: 0.3s;} */
+.adminlink .img-circle span {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.adminlink h1 {margin-top:50px;}
+.adminlink:hover h1 {color:#CC947C}
