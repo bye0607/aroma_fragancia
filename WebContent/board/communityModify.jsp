@@ -8,6 +8,7 @@
 	<meta name="description" content="modifyCommunity.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 수정하기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();

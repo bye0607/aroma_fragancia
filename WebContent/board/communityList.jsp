@@ -8,7 +8,7 @@
 	<meta name="description" content="communityWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 목록</title>
-		<script src="${context}/js/jquery-1.9.1.js"></script>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_communityWrite(){
 			location.href = "${context}/work/board/communityWrite.do";
