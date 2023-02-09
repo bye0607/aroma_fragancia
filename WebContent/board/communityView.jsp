@@ -37,7 +37,7 @@
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
 			<h3 class="boardTitle1">Community</h3>
-			<p class="boardSub1">공지사항</p>
+			<p class="boardSub1">커뮤니티</p>
 		</div>
 	</div>
 </div>
@@ -46,7 +46,7 @@
 	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
 			<h3 class="boardTitle2">Community</h3>
-			<p class="boardSub2">공지사항</p>
+			<p class="boardSub2">커뮤니티</p>
 		</div>
 	</div>
 </div>
@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title">커뮤니티 게시판</h2>
+					<h2 class="title eng">Community</h2>
 				</div>
 				<div class="col-xs-4 text-right">
 					<button type="button" class="btn btn-lg boardbtn" onclick="fn_communityList()">목록</button>

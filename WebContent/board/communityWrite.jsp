@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title ">커뮤니티 게시판</h2>
+					<h2 class="title eng">Community</h2>
 				</div>
 			</div>
 		</div>
@@ -67,12 +67,8 @@
 		<form id="communityWrite" method="post" action="${context}/work/board/communityWrite.do" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
-					<label for="comuRegId" class="control-label">이름</label>
-					<input class="form-control" type="text" name="communityWrite" id="communityWrite" required="required" maxlength="50" readonly="readonly" value="${sessionScope.id}"/>
-				</div>
-				<div class="form-group">
 					<label for="comuTitle" class="control-label">제목</label>
-					<textarea class="form-control" name="comuTitle" id="comuTitle" cols="10" rows="15" required="required" placeholder="제목을 입력해주세요"></textarea>
+					<input class="form-control" name="comuTitle" id="comuTitle" required="required" maxlength="50" placeholder="제목을 입력해주세요" />
 				</div>
 				<div class="form-group">
 					<label for="comuContent" class="control-label">내용</label>

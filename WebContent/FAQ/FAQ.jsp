@@ -29,7 +29,7 @@
 <div class="mobile">
 	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
-			<h3 class="boardTitle2">Notic</h3>
+			<h3 class="boardTitle2">FAQ</h3>
 			<p class="boardSub2">자주 묻는 질문</p>
 		</div>
 	</div>

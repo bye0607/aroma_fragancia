@@ -43,10 +43,10 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title">커뮤니티 게시판</h2>
+					<h2 class="title eng">Community</h2>
 				</div>
 					<div class="col-xs-4 text-right">
-						<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_communityWrite()">새 글 쓰기</button>
+						<button type="button" class="btn btn-lg boardbtn " onclick="fn_communityWrite()">새 글 쓰기</button>
 					</div>
 			</div>
 		</div>
