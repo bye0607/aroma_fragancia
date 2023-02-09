@@ -11,29 +11,49 @@ ul, ol, li {
     list-style: none;
 }
 
-
 a{
 	cursor: pointer;
 }
-
+/* top */
 /* 네비바 */
 .n1{font-family: "Crimson Pro"; font-size: 35px;}
 nav{font-family: "Crimson Pro";}
 .dropdown-toggle, .ddt{color: black;}
 
+/* 쿠키 팝업 */
+.popup_image {position: absolute; z-index:100;left: 30px;top: 170px; background-color: #F7F9F6; width: 310px;}
+.popup_image > p {padding:10px; text-align: center; font-size: 25px;}
+.popup_image .popup_bn .bx-wrapper {margin-bottom: 0px;}
+.popup_image .popup_bar {position:relative;padding: 20px 10px}
+.popup_image .popup_bar #expiresChk {margin-left:10px;width:16px;height:16px;}
+.popup_image .popup_bar label {padding-left:5px;font-size: 18px; font-weight: bold;} 
+.popup_image .popup_bar .btnclose{position:absolute;right:15px;background: none; border: none; font-size: 18px; font-weight: bold;}
+.popup_image .bx-prev, .popup_image .bx-next{display: none;}
+
+/* main */
+/* main visual - vegas plugin */
+.mainveg {height:700px}
+.mainveg .vegas-timer {height:12px;}
+.mainveg .vegas-timer .vegas-timer-progress {background:#CDA274}
+
 /* 메인 스토리 부분 */
-.story{
-background-color: rgb(225, 225, 227); height:330px; margin-bottom: 220px; margin-top: 100px;}
-.story > h4{ margin : 0px; font-size: 30px; padding-top: 50px; padding-bottom: 50px; text-align: center; font-family: "Crimson Pro";}
-.storyproduct{ display: flex; display: -webkit-flex; justify-content: space-around; height: 300px; margin-left: 15%; margin-right: 15%; }
-.storyproduct > div > li > img{ border-radius: 30px; opacity:0; width: 100%; height: 120%;}
-.storytext{ font-family: 'Crimson Pro', 'Noto Sans KR'; font-size: 18px; line-height: 2; text-align: center; }
-.storytext1{ margin-top: 100px;}
-.story_sub{ font-size: 18px; }
+.storytext {padding-top:150px;padding-bottom:150px;font-size: 18px; line-height: 2; text-align: center;word-break:keep-all;overflow:hidden}
+.storytext p:nth-child(2) {margin-top:50px;}
+/* 스크롤 페이드인 */
+@keyframes fadeInUp {from {opacity: 0; transform: translateY(100%);}
+	to {opacity: 1;transform: translateY(0);}}
+.test_obj {position: relative;animation: fadeInUp 3s;}
+.test_obj2 {position: relative;animation: fadeInUp 6s;}
+.story {background-color: rgb(225, 225, 227); height:380px; margin-bottom:150px; }
+.story h4 {margin:0; font-size: 40px; padding-top: 60px; padding-bottom: 60px; text-align: center;}
+/* .storyproduct {height: 330px;} */
+.storyproduct img{display:inline-block;border-radius: 30px; opacity:0;}
+/* @media (min-width: 992px){
+	.storyproduct > div > li > img{width: 200px; height: 260px; }
+} */
 
 /* color 부분 */
-.maincolor{
-margin-top: 200px; width: auto; background-color: rgb(225, 225, 227); }
+.maincolor{width: auto; background-color: rgb(225, 225, 227); }
 .maincolor > h4 {font-size: 40px; padding-top: 60px; padding-bottom: 60px; text-align: center; font-family: "Crimson Pro"; font-weight: bold; }
 .colorproduct{ display: grid; grid-template-columns: repeat(auto-fill, minmax(412px, 0.5fr)); box-sizing: border-box; justify-content: space-around;}
 .colorproduct > div > li > img{ border-radius: 10px 10px 0 120px; padding-bottom: 60px;}
@@ -67,11 +87,16 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 .tptext{ font-size: 15px;}
 h3{ color: #000; padding-top: 10px;}
 
+	
+@media screen and (min-width: 760px) {
+.mainmap{display: flex;}
+.mapp{font-size: 25px; text-align: left;}
+}
 
-.container{
+/* .container{
 	background-color: none !important; 
     margin-bottom: 0%;
-}
+} */
 
 
 

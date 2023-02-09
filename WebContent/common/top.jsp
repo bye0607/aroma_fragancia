@@ -3,30 +3,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var ="context"><%=request.getContextPath()%></c:set>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AROMA, FRAGANCIA</title>
-<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-<link href="${context}/css/common.css" rel="stylesheet">
-<script src="${context}/js/bootstrap.min.js"></script>
-<script src="${context}/js/common.js"></script>
-<style type="text/css">
-li{
-	cursor: pointer;
-}
-a{
-	text-decoration:none !important;
-}
-
-.navbar{
-	background-color: #E1E1E3 !important;
-}
-.navbar-default{
-	background-color: #E1E1E3 !important;
-}
-</style>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>AROMA, FRAGANCIA</title>
+	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="${context}/css/common.css" rel="stylesheet">
+	<script src="${context}/js/bootstrap.min.js"></script>
+	<script src="${context}/js/common.js"></script>
+	<!-- <style type="text/css">
+		li{
+			cursor: pointer;
+		}
+		a{
+			text-decoration:none !important;
+		}
+		
+		.navbar{
+			background-color: #E1E1E3 !important;
+		}
+		.navbar-default{
+			background-color: #E1E1E3 !important;
+		}
+	</style> -->
 </head>
 
 <!-- URL 추가 -->
