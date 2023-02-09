@@ -10,13 +10,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>주문/결제</title>
-	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/common.css" rel="stylesheet">
+	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<!-- 테이블에 dataTables-example 사용시 검색, 페이징처리 됨 -->
+	<link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="${context}/css/sb-admin-2.css" rel="stylesheet">
+	<!-- 테이블 헤더에 sort 표시됨, fontawsome까지 사용 -->
+    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${context}/css/common.css" rel="stylesheet" type="text/css">
+	
 	<script src="${context}/js/jquery-1.9.1.js"></script>
-	<script src="${context}/js/common.js"></script>
+
+	<!-- 테이블 헤더에 sort 표시됨 -->
+    <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="${context}/js/sb-admin-2.js"></script>
+    
+	<!-- 테이블에 dataTables-example 사용시 검색, 페이징처리 됨 -->
+    <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 	<!-- 아임포트 결제 CDN 연동 -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <script>
+	    $(document).ready(function() {
+	        $('#dataTables-example').DataTable();
+	    });
 	    function fn_buy(paramSellCode, paramSellCount, paramProductCode){
 	    	if(confirm("결제하시겠습니까?")){
 	    		var IMP = window.IMP;  
@@ -76,21 +92,32 @@
 	</div>
 </div>
 	<div class="container">
+	<!-- board title, buttons start -->
+	<div class="page-header">
+		<div class="row">
+			<div class="col-xs-8">
+				<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
+				<h2 class="title">주문/결제</h2>
+			</div>
+		</div>
+	</div>
+	<!-- board title, buttons end -->
         <div class="table-responsive">
             <table class="table" id="dataTables-example">
                 <thead>
                     <tr>
-                        <th colspan="2" style="text-align: center; vertical-align: middle; background: #F5F5F5;">상품정보</th>
-                        <th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">판매가</th>
-                        <th style="width:100px;text-align: center; vertical-align: middle; background: #F5F5F5;">수량</th>
-                        <th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">결제금액</th>
-                        <th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">구매하기</th>
+                        <th style="width: 150px;">상품이미지</th>
+                    	<th style="">상품명</th>
+                        <th style="width:150px;">판매가</th>
+                        <th style="width:100px;">수량</th>
+                        <th style="width:150px;">결제금액</th>
+                        <th style="width:150px;">구매하기</th>
                     </tr>
                 </thead>
                 <tbody>
                 	<c:forEach items="${dsSellList}" var="dsSellList" varStatus="sellIdx">
                      <tr>
-                        <td style="width:150px;text-align: center;">
+                        <td style="text-align: center;">
 							<img name="image" width="135px" height="120px" src="${context}" class="img-thumbnail">
 							<script type="text/javascript">
 								var existFolder = '';
@@ -108,7 +135,7 @@
 								existFolder = path.split("/")[0];
 								$("img[name='image']").eq('${sellIdx.index}').attr("src", path.replace(existFolder, imageFolder));
 							</script>
-                       	</td>
+                       	 </td>
                          <td style="vertical-align: middle;">${dsSellList.PRODUCT_NAME}</td>
                          <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_UNIT_PRICE}원</td>
                          <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_COUNT}</td>

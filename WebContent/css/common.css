@@ -260,13 +260,8 @@ transition: all 0.4s ease-in-out;
 .offer-content{
 	padding:0 20px 10px;
 }
-
-/* 구매내역 및 카트 배경색 지정*/
-.cart_wrap, .History_wrap{
-background-color: #fff;
-}
-
-/*boardListR fn_buy 및 fn_delete, sellListR fn_finalBuy button css*/
+/* 
+boardListR fn_buy 및 fn_delete, sellListR fn_finalBuy button css
 #cartbtn1,#cartbtn2{
 	background-color: #D9D9D9; 
 	color: #000000; 
@@ -275,10 +270,10 @@ background-color: #fff;
 	border-radius: 5px;
 }
 
-/* boardListR fn_buy 및 fn_delete margin 설정*/
+boardListR fn_buy 및 fn_delete margin 설정
 #cartbtn2{
 	margin-left: 32px;
-}
+} */
 
 /*게시판 공통 이미지*/
 /*desktop버전 css*/
@@ -492,6 +487,9 @@ background-color: #fff;
 
 /* 관리자페이지 */
 /* 사이트 전체에서 dataTables-example 사용시 공통디자인 */
+#dataTables-example>tbody>tr>td {border-top:0;border-bottom: 1px solid #ddd;}
+#dataTables-example th {background:#F5F5F5;text-align:center;padding-top:20px;padding-bottom:20px}
+#dataTables-example .btn:hover {background-color: #666;color: #fff;transition: 0.3s;}
 .datatablerow {margin:10px 0;}
 .datatablecol {padding:0}
 /* 관리자 메인 */
