@@ -13,24 +13,24 @@ public class BoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Map<String, String>> retrieveBoardList(Map<String, String> boardParam){
-		return sqlSession.selectList("board.retrieveBoardList", boardParam);
+	public List<Map<String, String>> boardList(Map<String, String> boardParam){
+		return sqlSession.selectList("board.boardList", boardParam);
 	}
 
-	public Map<String, String> retrieveBoard(Map<String, String> boardParam){
-		return sqlSession.selectOne("board.retrieveBoard", boardParam);
+	public Map<String, String> boardView(Map<String, String> boardParam){
+		return sqlSession.selectOne("board.boardView", boardParam);
 	}
 
-	public String retrieveMaxBoardNo(){
-		return sqlSession.selectOne("board.retrieveMaxBoardNo");
+	public String maxBoardNo(){
+		return sqlSession.selectOne("board.maxBoardNo");
 	}
 
-	public void createBoard(BoardBean board){
-		sqlSession.insert("board.createBoard", board);
+	public void boardWrite(BoardBean board){
+		sqlSession.insert("board.boardWrite", board);
 	}
 
-	public void updateBoard(BoardBean board){
-		sqlSession.update("board.updateBoard", board);
+	public void boardModify(BoardBean board){
+		sqlSession.update("board.boardModify", board);
 	}
 
 	public void updateBoardHits(Map<String, String> boardParam){

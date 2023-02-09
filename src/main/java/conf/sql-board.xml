@@ -13,9 +13,9 @@
 		<result property="boHit" column="BO_HIT" />
 	</resultMap>
 
-	<select id="retrieveBoardList" parameterType="map" resultType="map">
+	<select id="boardList" parameterType="map" resultType="map">
 		<![CDATA[
-		/*	retrieveBoardList	*/
+		/*	boardList	*/
 			SELECT BOARD.BO_NO
 				 , BOARD.BO_TITLE
 				 , BOARD.BO_CONTENT
@@ -31,9 +31,9 @@
 		]]>
 	</select>
 
-	<select id="retrieveBoard" parameterType="map" resultType="map">
+	<select id="boardView" parameterType="map" resultType="map">
 		<![CDATA[
-		/*	retrieveBoard	*/
+		/*	boardView	*/
 			SELECT BOARD.BO_NO
 				 , BOARD.BO_TITLE
 				 , BOARD.BO_CONTENT
@@ -47,17 +47,17 @@
 		]]>
 	</select>
 
-	<select id="retrieveMaxBoardNo" resultType="string">
+	<select id="maxBoardNo" resultType="string">
 		<![CDATA[
-		/*	retrieveMaxboNo	*/
+		/*	maxBoardNo	*/
 			SELECT MAX(BOARD.BO_NO)
 			FROM   TB_BOARD BOARD
 		]]>
 	</select>
 
-	<insert id="createBoard" parameterType="board">
+	<insert id="boardWrite" parameterType="board">
 		<![CDATA[
-		/*	createBoard	*/
+		/*	boardWrite	*/
 			INSERT INTO TB_BOARD
 			(BO_NO
 			, BO_TITLE
@@ -76,9 +76,9 @@
 		]]>
 	</insert>
 
-	<update id="updateBoard" parameterType="board">
+	<update id="boardModify" parameterType="board">
 		<![CDATA[
-		/*	updateBoard	*/
+		/*	boardModify	*/
 			UPDATE TB_BOARD
 			SET BO_TITLE         =  #{boTitle}
 			  , BO_CONTENT       =  #{boContent}

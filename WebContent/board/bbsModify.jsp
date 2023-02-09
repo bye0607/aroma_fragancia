@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="modifyBoard" method="post" action="${context}/work/board/updateBoard.do?boNo=${dsBoard.BO_NO}" role="form">
+		<form id="modifyBoard" method="post" action="${context}/work/board/boardModify.do?boNo=${dsBoard.BO_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="boTitle" class="control-label">제목</label>

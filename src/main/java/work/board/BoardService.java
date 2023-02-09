@@ -5,15 +5,15 @@ import java.util.Map;
 
 
 public interface BoardService {
-	public List<Map<String, String>> retrieveBoardList(Map<String, String> boardParam);
+	public List<Map<String, String>> boardList(Map<String, String> boardParam);
 
-	public Map<String, String> retrieveBoard(Map<String, String> boardParam);
+	public Map<String, String> boardView(Map<String, String> boardParam);
 
-	public String retrieveMaxBoardNo();
+	public String maxBoardNo();
 
-	public void createBoard(BoardBean board);
+	public void boardWrite(BoardBean board);
 
-	public void updateBoard(BoardBean board);
+	public void boardModify(BoardBean board);
 
 	public void updateBoardHits(Map<String, String> boardParam);
 

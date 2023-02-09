@@ -11,7 +11,7 @@
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_boardWrite(){
-			location.href = "${context}/work/board/createBoard.do";
+			location.href = "${context}/work/board/boardWrite.do";
 		}
 	</script>
 </head>
@@ -61,7 +61,7 @@
                         <c:forEach items="${dsBoardList}" var="dsBoardList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/retrieveBoard.do?boNo=${dsBoardList.BO_NO}">${dsBoardList.BO_TITLE}</a></div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/boardView.do?boNo=${dsBoardList.BO_NO}">${dsBoardList.BO_TITLE}</a></div>
 								<div class="col-md-2">${dsBoardList.USER_NAME}</div>
                          	</td>
                          </tr>

@@ -25,8 +25,8 @@ public class BoardController {
 	private UserService userService;
 
 
-	@RequestMapping(value="/work/board/createBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView createBoard(@ModelAttribute BoardBean board, HttpServletRequest request){
+	@RequestMapping(value="/work/board/boardWrite.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView boardWrite(@ModelAttribute BoardBean board, HttpServletRequest request){
 		HttpSession session = request.getSession();
 
 		String userCode = (String)session.getAttribute("userCode");
@@ -40,11 +40,11 @@ public class BoardController {
 		}else if(flag != null){
 			//게시글 생성
 			board.setBoRegId(userCode);
-			boardService.createBoard(board);
+			boardService.boardWrite(board);
 
-			String maxBoardNo = boardService.retrieveMaxBoardNo();
+			String maxBoardNo = boardService.maxBoardNo();
 
-			mv.setViewName("redirect:/work/board/retrieveBoard.do?maxBoardNo=" + maxBoardNo + "&fromCreate=true");
+			mv.setViewName("redirect:/work/board/boardView.do?maxBoardNo=" + maxBoardNo + "&fromCreate=true");
 		}
 
 		return mv;
@@ -55,11 +55,11 @@ public class BoardController {
 //
 //		mv.setViewName("/intro/index");
 
-		return "redirect:/work/board/retrieveBoardList.do";
+		return "redirect:/work/board/boardList.do";
 	}
 
-	@RequestMapping(value="/work/board/retrieveBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView retrieveBoard(HttpServletRequest request){
+	@RequestMapping(value="/work/board/boardView.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView boardView(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
 		String boardNo = request.getParameter("maxBoardNo");
@@ -80,7 +80,7 @@ public class BoardController {
 			boardService.updateBoardHits(boardParam);
 		}
 
-		Map<String, String> dsBoard = boardService.retrieveBoard(boardParam);
+		Map<String, String> dsBoard = boardService.boardView(boardParam);
 
 
 		mv.addObject("dsBoard", dsBoard);
@@ -90,13 +90,13 @@ public class BoardController {
 		return mv;
 	}
 
-	@RequestMapping(value="/work/board/retrieveBoardList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView retrieveBoardList(HttpServletRequest request){
+	@RequestMapping(value="/work/board/boardList.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView boardList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, String> boardParam = new HashMap<String, String>();
 
-		List<Map<String, String>> dsBoardList = boardService.retrieveBoardList(boardParam);
+		List<Map<String, String>> dsBoardList = boardService.boardList(boardParam);
 
 		mv.addObject("dsBoardList", dsBoardList);
 		mv.setViewName("/board/bbsList");
@@ -127,7 +127,7 @@ public class BoardController {
 		//글 삭제
 		boardService.deleteBoard(boardParam);
 
-		mv.setViewName("redirect:/work/board/retrieveBoardList.do");
+		mv.setViewName("redirect:/work/board/boardList.do");
 
 		return mv;
 	}
@@ -149,13 +149,13 @@ public class BoardController {
 		markParam.put("userCode", userCode);
 		markParam.put("boNo", boardNo);
 
-		mv.setViewName("redirect:/work/board/retrieveBoard.do?boNo=" + boardNo + "&fromRating=true");
+		mv.setViewName("redirect:/work/board/boardView.do?boNo=" + boardNo + "&fromRating=true");
 
 		return mv;
 	}
 
-	@RequestMapping(value="/work/board/updateBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView updateBoard(HttpServletRequest request, @ModelAttribute BoardBean bean){
+	@RequestMapping(value="/work/board/boardModify.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView boardModify(HttpServletRequest request, @ModelAttribute BoardBean bean){
 		Map<String, String> boardParam = new HashMap<String, String>();
 		ModelAndView mv = new ModelAndView();
         String boardNo = request.getParameter("boNo"); //없으면 GET(create안함), 있으면 POST(create)
@@ -163,14 +163,14 @@ public class BoardController {
         String flag = bean.getBoTitle();
         boardParam.put("boNo", boardNo);
 
-        Map<String, String> dsBoard = boardService.retrieveBoard(boardParam);
+        Map<String, String> dsBoard = boardService.boardView(boardParam);
 
 		if(flag == null){
 			mv.addObject("dsBoard", dsBoard);
 			mv.setViewName("/board/bbsModify");
 		}else{
-			boardService.updateBoard(bean);
-			mv.setViewName("/work/board/retrieveBoard.do?boNo=" + boardNo + "&fromUpdate=true");
+			boardService.boardModify(bean);
+			mv.setViewName("/work/board/boardView.do?boNo=" + boardNo + "&fromUpdate=true");
 		}
 		return mv;
 	}

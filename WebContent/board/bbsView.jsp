@@ -26,7 +26,7 @@
 		function fn_update(){
 			var boNo = '${dsBoard.BO_NO}';
 	
-			location.href = "${context}/work/board/updateBoard.do?boNo=" + boNo;
+			location.href = "${context}/work/board/boardModify.do?boNo=" + boNo;
 		}
 	</script>
 </head>

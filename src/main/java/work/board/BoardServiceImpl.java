@@ -12,24 +12,24 @@ public class BoardServiceImpl implements BoardService{
 	@Resource(name = "boardDAO")
 	private BoardDAO boardDAO;
 
-	public List<Map<String, String>> retrieveBoardList(Map<String, String> boardParam){
-		return boardDAO.retrieveBoardList(boardParam);
+	public List<Map<String, String>> boardList(Map<String, String> boardParam){
+		return boardDAO.boardList(boardParam);
 	}
 
-	public Map<String, String> retrieveBoard(Map<String, String> boardParam){
-		return boardDAO.retrieveBoard(boardParam);
+	public Map<String, String> boardView(Map<String, String> boardParam){
+		return boardDAO.boardView(boardParam);
 	}
 
-	public String retrieveMaxBoardNo(){
-		return boardDAO.retrieveMaxBoardNo();
+	public String maxBoardNo(){
+		return boardDAO.maxBoardNo();
 	}
 
-	public void createBoard(BoardBean board){
-		boardDAO.createBoard(board);
+	public void boardWrite(BoardBean board){
+		boardDAO.boardWrite(board);
 	}
 
-	public void updateBoard(BoardBean board){
-		boardDAO.updateBoard(board);
+	public void boardModify(BoardBean board){
+		boardDAO.boardModify(board);
 	}
 
 	public void updateBoardHits(Map<String, String> boardParam){

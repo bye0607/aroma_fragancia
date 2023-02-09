@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="boardWrite" method="post" action="${context}/work/board/createBoard.do" role="form">
+		<form id="boardWrite" method="post" action="${context}/work/board/boardWrite.do" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="boTitle" class="control-label">제목</label>
