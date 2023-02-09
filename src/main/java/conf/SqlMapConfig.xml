@@ -13,6 +13,7 @@
 		<typeAlias type="work.code.CodeBean" alias="code"/>
 		<typeAlias type="work.board.NoticeBean" alias="notice"/>
 		<typeAlias type="work.board.CommunityBean" alias="community"/>
+		<typeAlias type="work.board.BoardBean" alias="board"/>
 		
 	
 	</typeAliases>
@@ -27,5 +28,6 @@
 		<mapper resource="conf/sql-code.xml" />
 		<mapper resource="conf/sql-notice.xml" />
 		<mapper resource="conf/sql-community.xml" />
+		<mapper resource="conf/sql-board.xml" />
 	</mappers>
 </configuration>

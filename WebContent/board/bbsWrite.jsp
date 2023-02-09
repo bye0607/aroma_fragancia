@@ -7,7 +7,8 @@
 <head>
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 쓰기</title>
+	<title>자유 게시판 - 글 쓰기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();
@@ -17,11 +18,11 @@
 			if(!fn_validation()){
 				return;
 			}else{
-				var boardContent = String($("#boardContent").val());
+				var boContent = String($("#boContent").val());
 	
-				boardContent = boardContent.replace(/\n/gi, "<br/>");
+				boContent = boContent.replace(/\n/gi, "<br/>");
 	
-				$("#boardContent").val(boardContent);
+				$("#boContent").val(boContent);
 	
 		 		$("#boardWrite").submit();
 			}
@@ -57,24 +58,20 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">자유 게시판</h2>
+					<h2 class="title">자유 게시판</h2>
 				</div>
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="boardWrite" method="post" action="${context}/work/board/bbsWrite.do" role="form">
+		<form id="boardWrite" method="post" action="${context}/work/board/createBoard.do" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
-					<label for="name" class="control-label">이름</label>
-					<input class="form-control" type="text" name="boardTitle" id="boardTitle" required="required" maxlength="50" autofocus="autofocus" placeholder="이름을 입력해주세요"/>
+					<label for="boTitle" class="control-label">제목</label>
+					<input class="form-control" type="text" name="boTitle" id="boTitle" required="required" maxlength="50" autofocus="autofocus" placeholder="제목을 입력해주세요"/>
 				</div>
 				<div class="form-group">
-					<label for="boardTitle" class="control-label">제목</label>
-					<textarea class="form-control" name="boardTitle" id="boardTitle" cols="10" rows="15" required="required" placeholder="제목을 입력해주세요"></textarea>
-				</div>
-				<div class="form-group">
-					<label for="boardContent" class="control-label">내용</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required" placeholder="내용을 입력해주세요"></textarea>
+					<label for="boContent" class="control-label">내용</label>
+					<textarea class="form-control" name="boContent" id="boContent" cols="10" rows="15" required="required" placeholder="내용을 입력해주세요"></textarea>
 				</div>
 				<!-- board button area start -->
 				<div class="row btnarea">

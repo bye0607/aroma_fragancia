@@ -7,10 +7,11 @@
 <head>
 	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 목록</title>
+	<title>자유 게시판 - 글 목록</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_boardWrite(){
-			location.href = "${context}/work/board/boardWrite.do";
+			location.href = "${context}/work/board/createBoard.do";
 		}
 	</script>
 </head>
@@ -42,12 +43,12 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">자유 게시판</h2>
+					<h2 class="title">자유 게시판</h2>
 				</div>
-				<c:if test="${sessionScope.grade == 'A'}">
-				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn" onclick="location.href='boardWrite.jsp'">새 글 쓰기</button>
-				</div>
+				<c:if test="${sessionScope.grade == 'A' || sessionScope.grade == 'M'}">
+					<div class="col-xs-4 text-right">
+						<button type="button" class="btn btn-lg boardbtn" onclick="fn_boardWrite()">새 글 쓰기</button>
+					</div>
 				</c:if>
 			</div>
 		</div>
@@ -60,8 +61,8 @@
                         <c:forEach items="${dsBoardList}" var="dsBoardList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/BoardView.do?boardNo=${dsBoardList.BOARD_NO}">${dsBoardList.BOARD_TITLE}</a></div>
-								<div class="col-md-2">${dsBoardList.USER_CODE}</div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/retrieveBoard.do?boNo=${dsBoardList.BO_NO}">${dsBoardList.BO_TITLE}</a></div>
+								<div class="col-md-2">${dsBoardList.USER_NAME}</div>
                          	</td>
                          </tr>
                     	</c:forEach>

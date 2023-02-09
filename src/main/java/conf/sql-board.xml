@@ -3,58 +3,54 @@
 				  "dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<resultMap id="boardResult" type="board">
-		<result property="boardNo" column="BOARD_NO" />
-		<result property="userCode" column="USER_CODE" />
-		<result property="userModCode" column="USER_MOD_CODE" />
-		<result property="boardTitle" column="BOARD_TITLE" />
-		<result property="boardContents" column="BOARD_CONTENTS" />
-		<result property="boardDate" column="BOARD_DATE" />
-		<result property="boardModDate" column="BOARD_MOD_DATE" />
-		<result property="boardHits" column="BOARD_HITS" />
+		<result property="boNo" column="BO_NO" />
+		<result property="boTitle" column="BO_TITLE" />
+		<result property="boContent" column="BO_CONTENT" />
+		<result property="boRegId" column="BO_REG_ID" />
+		<result property="boModId" column="BO_MOD_ID" />
+		<result property="boRegDate" column="BO_REG_DATE" />
+		<result property="boModDate" column="BO_MOD_DATE" />
+		<result property="boHit" column="BO_HIT" />
 	</resultMap>
 
 	<select id="retrieveBoardList" parameterType="map" resultType="map">
 		<![CDATA[
 		/*	retrieveBoardList	*/
-			SELECT BOARD.BOARD_NO
-				 , BOARD.USER_CODE
-				 , (SELECT LOGIN_ID FROM TB_COM_USER WHERE USER_CODE = BOARD.USER_CODE) AS USER_ID
-				 , USER_MOD_CODE
-				 , BOARD.BOARD_TITLE
-				 , BOARD.BOARD_CONTENTS
-				 , BOARD.BOARD_DATE
-				 , (SELECT COUNT(*) FROM TB_BOARD) AS BOARD_COUNT
-				 , BOARD_MOD_DATE
-				 , BOARD.BOARD_HITS
-	             , (CASE WHEN TRUNC(((TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI') - TO_DATE(BOARD_DATE, 'YYYY-MM-DD HH24:MI')) * 24)) < 24
-                    THEN TRUNC(((TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI') - TO_DATE(BOARD_DATE, 'YYYY-MM-DD HH24:MI')) * 24)) || '시간 전'
-                    ELSE TRUNC((TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'), 'YYYY-MM-DD HH24:MI') - TO_DATE(BOARD_DATE, 'YYYY-MM-DD HH24:MI'))) || '일 전' END) AS BOARD_TIMEAGO
+			SELECT BOARD.BO_NO
+				 , BOARD.BO_TITLE
+				 , BOARD.BO_CONTENT
+				 , BOARD.BO_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE =  BOARD.BO_REG_ID) AS USER_NAME
+				 , BOARD.BO_MOD_ID
+				 , BOARD.BO_REG_DATE
+				 , BOARD.BO_MOD_DATE
+				 , BOARD.BO_HIT
 			FROM   TB_BOARD BOARD
 			WHERE  1=1
-			ORDER BY BOARD.BOARD_DATE DESC
+			ORDER BY BOARD.BO_REG_DATE DESC
 		]]>
 	</select>
 
 	<select id="retrieveBoard" parameterType="map" resultType="map">
 		<![CDATA[
 		/*	retrieveBoard	*/
-			SELECT BOARD.BOARD_NO
-				 , BOARD.USER_CODE
-				 , (SELECT LOGIN_ID FROM TB_COM_USER WHERE USER_CODE = BOARD.USER_CODE) AS USER_ID
-				 , BOARD.BOARD_TITLE
-				 , BOARD.BOARD_CONTENTS
-				 , BOARD.BOARD_DATE
-				 , BOARD.BOARD_HITS
+			SELECT BOARD.BO_NO
+				 , BOARD.BO_TITLE
+				 , BOARD.BO_CONTENT
+				 , BOARD.BO_REG_ID
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE =  BOARD.BO_REG_ID) AS USER_NAME
+				 , BOARD.BO_REG_DATE
+				 , BOARD.BO_HIT
 			FROM   TB_BOARD BOARD
 			WHERE  1=1
-			AND    BOARD_NO = #{boardNo}
+			AND    BO_NO = #{boNo}
 		]]>
 	</select>
 
 	<select id="retrieveMaxBoardNo" resultType="string">
 		<![CDATA[
-		/*	retrieveMaxBoardNo	*/
-			SELECT MAX(BOARD.BOARD_NO)
+		/*	retrieveMaxboNo	*/
+			SELECT MAX(BOARD.BO_NO)
 			FROM   TB_BOARD BOARD
 		]]>
 	</select>
@@ -62,17 +58,19 @@
 	<insert id="createBoard" parameterType="board">
 		<![CDATA[
 		/*	createBoard	*/
-			INSERT INTO TB_BOARD(
-			  BOARD_NO
-			, USER_CODE
-			, BOARD_TITLE
-			, BOARD_CONTENTS
-			, BOARD_DATE
+			INSERT INTO TB_BOARD
+			(BO_NO
+			, BO_TITLE
+			, BO_CONTENT
+			, BO_REG_ID
+			, BO_REG_DATE
+			, BO_MOD_DATE
 			) VALUES (
 			  'B' || LPAD(BOARD_SEQ.NEXTVAL, 5, 0)
-			, #{userCode}
-			, #{boardTitle}
-			, #{boardContents}
+			, #{boTitle}
+			, #{boContent}
+			, #{boRegId}
+			, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
 			, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
 			)
 		]]>
@@ -82,9 +80,9 @@
 		<![CDATA[
 		/*	updateBoard	*/
 			UPDATE TB_BOARD
-			SET BOARD_TITLE          =  #{boardTitle}
-			  , BOARD_CONTENTS       =  #{boardContents}
-			WHERE BOARD_NO = #{boardNo}
+			SET BO_TITLE         =  #{boTitle}
+			  , BO_CONTENT       =  #{boContent}
+			WHERE BO_NO = #{boNo}
 		]]>
 	</update>
 
@@ -92,8 +90,8 @@
 		<![CDATA[
 		/*	updateBoardHits	*/
 			UPDATE TB_BOARD
-			SET BOARD_HITS          =  BOARD_HITS + 1
-			WHERE BOARD_NO = #{boardNo}
+			SET BO_HIT          =  BO_HIT + 1
+			WHERE BO_NO = #{boNo}
 		]]>
 	</update>
 
@@ -103,7 +101,7 @@
 			DELETE
 			FROM  TB_BOARD
 			WHERE 1=1
-			AND BOARD_NO = #{boardNo}
+			AND BO_NO = #{boNo}
 		]]>
 	</delete>
 
@@ -113,7 +111,7 @@
 			DELETE
 			FROM  TB_BOARD
 			WHERE 1=1
-			AND USER_CODE = (SELECT USER_CODE FROM TB_COM_USER WHERE LOGIN_ID = #{loginId})
+			AND BO_REG_ID = #{boRegId};
 		]]>
 	</delete>
 </mapper>

@@ -7,25 +7,26 @@
 <head>
 	<meta name="description" content="boardView.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>글 내용보기</title>
+	<title>자유 게시판 - 글 내용보기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		function fn_boardList(){
-			location.href = "${context}/work/board/Board.do";
+			location.href = "${context}/work/board/board.do";
 		}
 		//글 삭제
 		function fn_delete(){
-			var boardNo = '${dsBoard.BOARD_NO}';
+			var boNo = '${dsBoard.BO_NO}';
 	
 			if(confirm("정말 글을 삭제하시겠습니까?")){
-				location.href = "${context}/work/board/deleteBoard.do?boardNo=" + boardNo;
+				location.href = "${context}/work/board/deleteBoard.do?boNo=" + boNo;
 			}
 		}
 		
 		//글 수정
 		function fn_update(){
-			var boardNo = '${dsBoard.BOARD_NO}';
+			var boNo = '${dsBoard.BO_NO}';
 	
-			location.href = "${context}/work/board/modifyBoard.do?boardNo=" + boardNo;
+			location.href = "${context}/work/board/updateBoard.do?boNo=" + boNo;
 		}
 	</script>
 </head>
@@ -60,7 +61,7 @@
 					<h2 class="title eng">자유 게시판</h2>
 				</div>
 				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn board" onclick="fn_boardList()">목록</button>
+					<button type="button" class="btn btn-lg boardbtn" onclick="fn_boardList()">목록</button>
 				</div>
 			</div>
 		</div>
@@ -69,19 +70,19 @@
 			<!-- board view start -->
 			<div class="row title">
 				<div class="col-sm-12 col-md-10">
-					${dsBoard.BOARD_TITLE}
+					${dsBoard.BO_TITLE}
 				</div>
 				<div class="col-sm-12 col-md-2 user">
-					${dsBoard.USER_CODE}
+					${dsBoard.USER_NAME}
 				</div>
 			</div>
 			<div class="row content">
-				${dsBoard.BOARD_CONTENT}
+				${dsBoard.BO_CONTENT}
 			</div>
 		</div>
 		<!-- board view end -->
 		<!-- board button area start -->
-		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsBoard.USER_CODE}">
+		<c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsBoard.BO_REG_ID}">
 			<div class="row btnarea">
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
 				<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>

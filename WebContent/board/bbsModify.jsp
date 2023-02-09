@@ -8,6 +8,7 @@
 	<meta name="description" content="modifyBoard.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 수정하기</title>
+	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();
@@ -17,25 +18,25 @@
 		});
 	
 		function fn_setDetailInfo(){
-			$("#boardTitle").val('${dsBoard.BOARD_TITLE}');
-			$("#boardNo").val('${dsBoard.BOARD_NO}');
+			$("#boTitle").val('${dsBoard.BO_TITLE}');
+			$("#boNo").val('${dsBoard.BO_NO}');
 	
-			var boardContent = '${boardContent.BOARD_CONTENT}';
+			var boContent = '${dsBoard.BO_CONTENT}';
 	
-			boardContent = boardContent.replace(/<br ?\/?>/gi, "\n");
+			boContent = boContent.replace(/<br ?\/?>/gi, "\n");
 	
-			$("#boardContent").val(boardContent);
+			$("#boContent").val(boContent);
 		}
 	
 		function fn_save(){
 			if(!fn_validation()){
 				return;
 			}else{
-				var boardContent = String($("#boardContent").val());
+				var boContent = String($("#boContent").val());
 	
-				boardContent = boardContent.replace(/\n/gi, "<br/>");
+				boContent = boContent.replace(/\n/gi, "<br/>");
 	
-				$("#boardContent").val(boardContent);
+				$("#boContent").val(boContent);
 	
 		 		$("#modifyBoard").submit();
 			}
@@ -49,7 +50,7 @@
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
-			<h3 class="boardTitle1">Board</h3>
+			<h3 class="boTitle1">Board</h3>
 			<p class="boardSub1">자유 게시판</p>
 		</div>
 	</div>
@@ -58,7 +59,7 @@
 <div class="mobile">
 	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
-			<h3 class="boardTitle2">Board</h3>
+			<h3 class="boTitle2">Board</h3>
 			<p class="boardSub2">자유 게시판</p>
 		</div>
 	</div>
@@ -76,16 +77,16 @@
 			</div>
 		</div>
 		<!-- board title, buttons end -->
-		<form id="modifyBoard" method="post" action="${context}/work/board/modifyBoard.do?boardNo=${dsBoard.BOARD_NO}" role="form">
+		<form id="modifyBoard" method="post" action="${context}/work/board/updateBoard.do?boNo=${dsBoard.BO_NO}" role="form">
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
-					<label for="boardTitle" class="control-label">제목</label>
-					<input class="form-control" type="text" name="boardTitle" id="boardTitle" required="required" maxlength="50" autofocus="autofocus">
+					<label for="boTitle" class="control-label">제목</label>
+					<input class="form-control" type="text" name="boTitle" id="boTitle" required="required" maxlength="50" autofocus="autofocus">
 				</div>
 	
 				<div class="form-group">
-					<label for="boardContent" class="control-label">내용</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required"></textarea>
+					<label for="boContent" class="control-label">내용</label>
+					<textarea class="form-control" name="boContent" id="boContent" cols="10" rows="15" required="required"></textarea>
 				</div>
 				<!-- board button area start -->
 				<div class="row btnarea">
