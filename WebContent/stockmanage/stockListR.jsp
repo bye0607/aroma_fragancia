@@ -56,52 +56,53 @@
 		</div>
 	</div>
 	<!-- board title, buttons end -->
-	    <div class="table-responsive">
-	        <table class="table" id="dataTables-example">
-	            <thead>
-	                <tr>
-	                	<th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">상품번호</th>
-	                    <th colspan="2" style="text-align: center; vertical-align: middle; background: #F5F5F5;">상품정보</th>
-	                    <th style="width:150px;text-align: center; vertical-align: middle; background: #F5F5F5;">판매가</th>
-	                    <th style="width:100px;text-align: center; vertical-align: middle; background: #F5F5F5;">재고</th>
-	                    <th style="width:100px;text-align: center; vertical-align: middle; background: #F5F5F5;">수정</th>
-	                </tr>
-	            </thead>
-	            <tbody>
-	            	<c:forEach items="${dsProductList}" var="dsProductList" varStatus="productIdx">
-	                 <tr>
-	                 	<td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_CODE}</td>
-	                    <td style="width:150px;text-align: center;">
-							<img name="image" width="135px" height="120px" src="${context}" class="img-thumbnail">
-							<script type="text/javascript">
-								var existFolder = '';
-								var imageFolder = '';
-								var path = '';
-							 	var productCategoryCd = '${dsProductList.PRODUCT_CATEGORY_CD}';
-							
-							 	if(productCategoryCd == 'P'){
-									imageFolder = "/perfumeImg/${dsProductList.PRODUCT_IMAGE}";
-								} else if(productCategoryCd == 'D'){
-									imageFolder = "/diffuserImg/${dsProductList.PRODUCT_IMAGE}";
-								}
-							 	
-								path = $("img[name='image']").eq('${productIdx.index}').attr("src");
-							
-								existFolder = path.split("/")[0];
-								$("img[name='image']").eq('${productIdx.index}').attr("src", path.replace(existFolder, imageFolder));
-							</script>
-	                    </td>
-	                    <td style="vertical-align: middle;">[${dsProductList.PRODUCT_CATEGORY_CD_NM}]<br>${dsProductList.PRODUCT_NAME}</td>
-	                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_UNIT_PRICE}원</td>
-	                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_COUNT}</td>
-	                    <td style="text-align: center; vertical-align: middle;">
-	                    	<button type="button" class="btn" onclick="fn_modifyProduct('${dsProductList.PRODUCT_CODE}')">수정</button>
-	                    </td>
-	                 </tr>
-	                </c:forEach>
-	            </tbody>
-	        </table>
-		</div>
+    <div class="table-responsive">
+        <table class="table" id="dataTables-example">
+            <thead>
+                <tr>
+                	<th style="width:150px;">상품번호</th>
+                       <th style="width: 150px;">상품이미지</th>
+                   	<th style="">상품명</th>
+                    <th style="width:150px;">판매가</th>
+                    <th style="width:100px;">재고</th>
+                    <th style="width:100px;">수정</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<c:forEach items="${dsProductList}" var="dsProductList" varStatus="productIdx">
+                 <tr>
+                 	<td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_CODE}</td>
+                    <td style="width:150px;text-align: center;">
+						<img name="image" width="135px" height="120px" src="${context}" class="img-thumbnail">
+						<script type="text/javascript">
+							var existFolder = '';
+							var imageFolder = '';
+							var path = '';
+						 	var productCategoryCd = '${dsProductList.PRODUCT_CATEGORY_CD}';
+						
+						 	if(productCategoryCd == 'P'){
+								imageFolder = "/perfumeImg/${dsProductList.PRODUCT_IMAGE}";
+							} else if(productCategoryCd == 'D'){
+								imageFolder = "/diffuserImg/${dsProductList.PRODUCT_IMAGE}";
+							}
+						 	
+							path = $("img[name='image']").eq('${productIdx.index}').attr("src");
+						
+							existFolder = path.split("/")[0];
+							$("img[name='image']").eq('${productIdx.index}').attr("src", path.replace(existFolder, imageFolder));
+						</script>
+                    </td>
+                    <td style="vertical-align: middle;">[${dsProductList.PRODUCT_CATEGORY_CD_NM}]<br>${dsProductList.PRODUCT_NAME}</td>
+                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_UNIT_PRICE}원</td>
+                    <td style="text-align: center; vertical-align: middle;">${dsProductList.PRODUCT_COUNT}</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                    	<button type="button" class="btn" onclick="fn_modifyProduct('${dsProductList.PRODUCT_CODE}')">수정</button>
+                    </td>
+                 </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+	</div>
 </div>
 <jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
