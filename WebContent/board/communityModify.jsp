@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="modifyCommunity.jsp">
+	<meta name="description" content="communityWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>커뮤니티 글 수정하기</title>
 	<script src="${context}/js/jquery-1.9.1.js"></script>
@@ -82,12 +82,12 @@
 			<div class="form-horizontal boardwrite">
 				<div class="form-group">
 					<label for="boardTitle" class="control-label">제목</label>
-					<input class="form-control" type="text" name="boardTitle" id="boardTitle" required="required" maxlength="50" autofocus="autofocus">
+					<input class="form-control" type="text" name="comuTitle" id="comuTitle" required="required" maxlength="50" autofocus="autofocus">
 				</div>
 	
 				<div class="form-group">
 					<label for="boardContent" class="control-label">내용</label>
-					<textarea class="form-control" name="boardContent" id="boardContent" cols="10" rows="15" required="required"></textarea>
+					<textarea class="form-control" name="comuContent" id="comuContent" cols="10" rows="15" required="required"></textarea>
 				</div>
 				<!-- board button area start -->
 				<div class="row btnarea">

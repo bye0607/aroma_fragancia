@@ -3,6 +3,17 @@
 	"dtd/mybatis-3-config.dtd">
 
 <configuration>
+
+
+     <settings>
+       <setting name="cacheEnabled" value="true" />
+       <setting name="useGeneratedKeys" value="true" />
+       <setting name="defaultExecutorType" value="REUSE" />
+       <setting name="defaultStatementTimeout" value="3000" />
+       <setting name="jdbcTypeForNull" value="NULL" />
+     </settings>
+
+
 	<typeAliases>
 		<typeAlias type="work.user.UserBean" alias="user"/>
 		<typeAlias type="work.product.ProductBean" alias="product"/>
@@ -13,8 +24,6 @@
 		<typeAlias type="work.code.CodeBean" alias="code"/>
 		<typeAlias type="work.board.NoticeBean" alias="notice"/>
 		<typeAlias type="work.board.CommunityBean" alias="community"/>
-		
-	
 	</typeAliases>
 
 	<mappers>
@@ -28,4 +37,6 @@
 		<mapper resource="conf/sql-notice.xml" />
 		<mapper resource="conf/sql-community.xml" />
 	</mappers>
+	
+	
 </configuration>
