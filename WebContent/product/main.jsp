@@ -133,12 +133,10 @@ to {opacity: 1;transform: translateZ(0);}}
 
 /*media*/
 @media (min-width: 992px){
-.probtn{margin-left : 40%;}	
 .storyproduct > div > li > img{width: 200px; height: 260px; }
 }
 	
 @media screen and (min-width: 760px) {
-.probtn{margin-left : 20%;}
 .mainmap{display: flex;}
 .mapp{font-size: 25px; text-align: left;}
 }
@@ -263,7 +261,7 @@ to {opacity: 1;transform: translateZ(0);}}
 	                </li>
 	            </div> 
 	        </div>
-	        <input onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" type="button" value="제품 둘러보기 →" class="probtn">
+	        <h4><input onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" type="button" value="제품 둘러보기 →" class="probtn"></h4>
 		</div>
 
 		<div class="container sixwrap">
