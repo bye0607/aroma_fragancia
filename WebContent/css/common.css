@@ -4,7 +4,8 @@
 
 body {font-family: 'DM Serif Display', 'Crimson Pro', 'Noto Sans KR', serif, sans-serif;word-break:keep-all}
 ul, ol, li {list-style: none;}
-a, a:hover {text-decoration: none;cursor: pointer;}
+a {color:#333;text-decoration: none;}
+a:hover {color:#CC947C;text-decoration: none;}
 
 /* top */
 .navbar-header .navbar-brand {font-family: "Crimson Pro";font-size: 30px;font-weight:bold;color:#555; margin-bottom: 8px; margin-top: 8px;}
@@ -300,22 +301,8 @@ transition: all 0.4s ease-in-out;
 .offer-content{
 	padding:0 20px 10px;
 }
-/* 
-boardListR fn_buy 및 fn_delete, sellListR fn_finalBuy button css
-#cartbtn1,#cartbtn2{
-	background-color: #D9D9D9; 
-	color: #000000; 
-	width: 90px; 
-	height: 30px; 
-	border-radius: 5px;
-}
 
-boardListR fn_buy 및 fn_delete margin 설정
-#cartbtn2{
-	margin-left: 32px;
-} */
-
-/*게시판 공통 이미지*/
+/* 서브페이지 visual + title*/
 /*desktop버전 css*/
 .desktop .img-responsive {
 	height: 500px;
