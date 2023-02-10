@@ -25,12 +25,6 @@
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script src="${context}/js/jquery.cookie.js"></script>
 	<script src="${context}/js/common.js"></script>
-	</head>
-	
-	<c:set var="productManageUrl">${context}/work/product/retrieveProductListForManage.do</c:set>
-	<c:set var="statisticsForProductUrl">${context}/work/sell/retrieveStatisticsForProduct.do</c:set>
-	<c:set var="statisticsForStockUrl">${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P</c:set>
-	
 	<script type="text/javascript" >
 	// 메인 상단 베가스 적용
 	$(function(){
@@ -101,35 +95,11 @@
 	  "pluginKey": "84091ac2-0c80-450c-a7c1-2b8955b6f6af"
 	});
 	</script>
-<!-- <style>
-*{font-family: "Crimson Pro";}
-/* 스크롤 페이드인 */
-@keyframes fadeInUp { 0% { opacity: 0; transform: translate3d(0, 100%, 0);}
-to {opacity: 1;transform: translateZ(0);}}
-.test_obj {position: relative;animation: fadeInUp 3s;}
-.test_obj2 {position: relative; animation: fadeInUp 6s;}
+</head>
 
-/* 쿠키 */
-.popup_image{margin-left: 30px; margin-top: 170px; background-color: #F7F9F6; width: 310px;}
-.popup_image > p{color: black; text-align: center; font-size: 25px; font-family: "Crimson Pro"; border-radius: 10px;}
-.popup_bar{background-color: #F7F9F6; color: black; height: 25px; padding: 10px 20px 36px 10px; width: 310px;}
-.bx-wrapper{max-width: 18%; background: #F7F9F6; margin-bottom: 0px;}
-.pull-right{background: none; border: none; font-size: 18px; padding-bottom: 10px; font-weight: bold;}
-.white{font-size: 18px; padding-bottom: 10px; font-weight: bold;}
-.bx-prev{display: none;}
-.bx-next{display: none;}
-
-/*media*/
-@media (min-width: 992px){
-.storyproduct > div > li > img{width: 200px; height: 260px; }
-}
-	
-@media screen and (min-width: 760px) {
-.mainmap{display: flex;}
-.mapp{font-size: 25px; text-align: left;}
-}
-
-</style> -->
+<c:set var="productManageUrl">${context}/work/product/retrieveProductListForManage.do</c:set>
+<c:set var="statisticsForProductUrl">${context}/work/sell/retrieveStatisticsForProduct.do</c:set>
+<c:set var="statisticsForStockUrl">${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P</c:set>
 
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
@@ -257,121 +227,137 @@ to {opacity: 1;transform: translateZ(0);}}
         <h4><input onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${perfumeUrl}')" type="button" value="제품 둘러보기 →" class="probtn"></h4>
 	</div>
 	<!-- fill your color end -->
-
-		<div class="container sixwrap">
-		 	<div class="sixcontext">
-	            <div class="sixb"> <strong>Find Your Signature</strong> <br> <br> ‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div>
-	            <div class="sixb"> <strong>Eco friendly</strong> <br> <br> 내가 좋아하는 향기를 마음 편하게 사용하세요.</div>
-	            <div class="sixb"> <strong>Surfactants</strong> <br> <br> 순수 천연 탈취 성분만을 고집합니다.</div> 
-			</div>
-		 	<div class="sixcontext">
-	            <div class="sixb"> <strong>Belief</strong> <br> <br> 안전한 제품을 만들기 위해 노력합니다.</div>
-	            <div class="b1"> <strong>Better but different</strong> <br> <br> 남들과는 다른, 더 나은 것들을 만듭니다.</div>
-	            <div class="sixb"> <strong>Discovery Me By Perfume </strong><br> <br> 향을 통해 나를 발견하세요.</div>
-			</div>
-			<br>
+	<div class="container sixwrap">
+	 	<div class="row sixcontext">
+            <div class="col-sm-6 col-md-4 sixb">
+	           	 <p>Find Your Signature</p>
+	           	 <span>‘가장 나다운 향’을 찾기 위한<br>여정을 함께합니다.</span>
+            </div>
+            <div class="col-sm-6 col-md-4 sixb">
+            	<p>Eco friendly</p>
+            	<span>내가 좋아하는 향기를<br>마음 편하게 사용하세요.</span>
+            </div>
+            <div class="col-sm-6 col-md-4 sixb">
+            	<p>Surfactants</p>
+            	<span>순수 천연 탈취 성분만을<br>고집합니다.</span>
+            </div> 
+            <div class="col-sm-6 col-md-4 sixb">
+            	<p>Belief</p>
+            	<span>안전한 제품을 만들기 위해<br>노력합니다.</span>
+            </div>
+            <div class="col-sm-6 col-md-4 sixb b1">
+            	<p>Better but different</p>
+            	<span>남들과는 다른,<br>더 나은 것들을 만듭니다.</span>
+            </div>
+            <div class="col-sm-6 col-md-4 sixb">
+            	<p>Discovery Me By Perfume</p>
+            	<span>향을 통해<br>나를 발견하세요.</span>
+            </div>
 		</div>
-		<div class="movebtn" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
-			<div>
-				<P>AROMA FRAGANCIA JOIN US</P>
-				<br>
-				회원이 되어 더 많은 향기 정보를 얻어보세요. <br>
-				자극없이 은은하고 뿌리는 순간 감각적인 무드를 연출해주는 다양한 상품들과 <br>
-				온라인에서도 편리하게 만날 수 있는 향기 상담 신청 서비스를 이용해보세요.
-				<br>
-			</div>
-			<input type="button" value="JOIN US  →" class="move" onClick="location.href='${context}/user/login.jsp'"></input>
-		</div>
-		
-		<div class="container">
-		<div class="mapp"> AROMA FRAGANCIA <br> 오프라인 매장 찾아오시는 길</div>
-		<div class="mainmap">
-			<div id="map"></div>
-				<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=c2c33a097ac052287fa856172f2eb50d"></script>
-				<script>
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					    mapOption = { 
-					        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
-					        level: 3 // 지도의 확대 레벨
-					    };
-					
-					var map = new kakao.maps.Map(mapContainer, mapOption);
-					
-					// 마커가 표시될 위치입니다 
-					var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
-					
-					// 마커를 생성합니다
-					var marker = new kakao.maps.Marker({
-					    position: markerPosition
-					});
-					
-					// 마커가 지도 위에 표시되도록 설정합니다
-					marker.setMap(map);
-					
-					var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/AROMA,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-					    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
-					
-					// 인포윈도우를 생성합니다
-					var infowindow = new kakao.maps.InfoWindow({
-					    position : iwPosition, 
-					    content : iwContent 
-					});
-					  
-					// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-					infowindow.open(map, marker); 
-					
-			        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
-			        window.onresize = function () {
-			              console.log("resize");
-			              if (map != null) { map.relayout();
-			                  if (marker != null) {
-			                    var markerPosition = marker.getPosition();
-			                    map.setCenter(markerPosition);
-			                  }
-			                }
-			              };
-				</script>
-				<div class="transport">
-			        <table class="table table-hover">
-			          <tr>
-			            <strong>
-			              <span class="terms_tt1"></span>
-			              <p>대중교통 / 자가용 이용 시</p>
-			              <br>
-			            </strong>
-			            <td>
-			              <strong class="tptext">지하철 이용</strong> 
-			              <br><br>
-					              신분당선, 서울지하철 3호선 이용 가능 <br>
-					              지하철 3호선 신사역 8번출구에서 약 80m 직진
-			            </td>
-			          </tr>
-			          <tr>
-			            <td>
-			              <strong class="tptext">버스 이용</strong><br>
-			              <br>
-					              버스정류장 신사역(12-345) <br>
-					      NH농협은행 방면 하차 후 100m 직진<br>
-					              ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
-			            </td>
-			          </tr>
-			          <tr>
-			            <td>
-			              <strong class="tptext">승용차 이용</strong><br>
-			              <br>
-			            	  주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
-			              <br>
-			           	  	주차정보안내시스템
-			              <a href="http://parking.seoul.go.kr/">(http://parking.seoul.go.kr/)</a>에서 오프라인 매장 주변 공영주차장을 확인하실 수 있습니다.
-			            </td>
-			          </tr>
-			        </table>
-			      </div>
+		<br>
+	</div>
+	<!-- JOIN US start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="movebtn" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+					<P class="title">AROMA FRAGANCIA JOIN US</P>
+					<p>
+						회원이 되어 더 많은 향기 정보를 얻어보세요. <br>
+						자극없이 은은하고 뿌리는 순간 감각적인 무드를 연출해주는 다양한 상품들과 <br>
+						온라인에서도 편리하게 만날 수 있는 향기 상담 신청 서비스를 이용해보세요.
+					</p>
+					<input type="button" value="JOIN US  →" class="move" onClick="location.href='${context}/user/login.jsp'">
 				</div>
-				<!-- mainmap end -->
 			</div>
-			<!-- container end -->				
-		</c:if>
+		</div>
+	</div>
+	<!-- JOIN US end -->
+	<!-- 찾아오시는 길 start -->
+	<div class="container">
+		<div class="maptitle"> AROMA FRAGANCIA <br> 오프라인 매장 찾아오시는 길</div>
+		<div class="row mainmap">
+			<div class="col-sm-12 col-md-6">
+				<div id="map"></div>
+			</div>
+			<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=c2c33a097ac052287fa856172f2eb50d"></script>
+			<script>
+				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };
+				
+				var map = new kakao.maps.Map(mapContainer, mapOption);
+				
+				// 마커가 표시될 위치입니다 
+				var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
+				
+				// 마커를 생성합니다
+				var marker = new kakao.maps.Marker({
+				    position: markerPosition
+				});
+				
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);
+				
+				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/AROMA,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
+				
+				// 인포윈도우를 생성합니다
+				var infowindow = new kakao.maps.InfoWindow({
+				    position : iwPosition, 
+				    content : iwContent 
+				});
+				  
+				// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+				infowindow.open(map, marker); 
+				
+		        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
+		        window.onresize = function () {
+		              console.log("resize");
+		              if (map != null) { map.relayout();
+		                  if (marker != null) {
+		                    var markerPosition = marker.getPosition();
+		                    map.setCenter(markerPosition);
+		                  }
+		                }
+		              };
+			</script>
+			<div class="col-sm-12 col-md-6 transport">
+				<h3>대중교통 / 자가용 이용 시</h3>
+		        <table class="table table-hover">
+		          <tr>
+		            <td>
+		              <p class="tptext">지하철 이용</p> 
+				              신분당선, 서울지하철 3호선 이용 가능 <br>
+				              지하철 3호선 신사역 8번출구에서 약 80m 직진
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		            	<p class="tptext">버스 이용</p>
+				       	버스정류장 신사역(12-345) <br>
+				    	NH농협은행 방면 하차 후 100m 직진<br>
+				    	 ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		            	<p class="tptext">승용차 이용</p>
+		            	 주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
+		            	<br>
+		           		주차정보안내시스템
+		            	<a href="http://parking.seoul.go.kr/">(http://parking.seoul.go.kr/)</a>에서 오프라인 매장 주변 공영주차장을 확인하실 수 있습니다.
+		            </td>
+		          </tr>
+		        </table>
+			</div>
+		</div>
+		<!-- 찾아오시는 길 start -->
+	</div>
+	<!-- container end -->				
+</c:if>
 			
 		<!-- 관리자 페이지 -->
 		<c:if test="${sessionScope.grade == 'A'}">
