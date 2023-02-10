@@ -10,7 +10,7 @@
 <style type="text/css">
 
 
-body{font-family: "Crimson Pro"; margin: 0;	display: grid; font-size: 14px;}
+/* body{font-family: "Crimson Pro"; margin: 0;	display: grid; font-size: 14px;}
 footer{ display: -webkit-flex; display: -ms-flex; display: -o-flex;	display: flex; flex-flow: row wrap;	padding: 50px; color: fff;
 	cursor: default; font-family: "Crimson Pro";}
 .footer > *{ flex: 1 100%;}
@@ -35,57 +35,56 @@ footer{ display: -webkit-flex; display: -ms-flex; display: -o-flex;	display: fle
 }
 @media (max-width:992px){
 	.footer{ padding: 15px;	}
-}
+} */
 
 </style>
 </head>
 <c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
 <body>
-	<hr>
-	<footer class="footer">
-		<div class="footer-left">
-			<a href="${homeUrl}"><p style="font-size: 30px; margin-top: 20px; color: black; font-family: 'DM Serif Display';">AROMA, FRAGANCIA</p></a>
-			<p style="font-size: 20px; margin-bottom: 40px; color: black;">FOLLOW US ON</p>
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<a href="${homeUrl}" class="ftlogo">AROMA, FRAGANCIA</a>
 			<div class="sns">
-	      		<a href="#"><img src="../../footerimg/kakao.svg" width="20px" height="20px" alt="kakaolink"></a>
-	      		<a href="#"><img src="../../footerimg/insta.svg" width="20px" height="20px" alt="instalink"></a>
-	      		<a href="#"><img src="../../footerimg/youtube.svg" width="20px" height="20px" alt="youtubelink"></a>
-	      		<a href="#"><img src="../../footerimg/twitter.svg" width="20px" height="20px" alt="twitterlink"></a>
-	      		<a href="#"><img src="../../footerimg/facebook.svg" width="20px" height="20px" alt="fackbooklink"></a>
+				<p>FOLLOW US ON</p>
+	      		<a href="#"><img src="${context}/img/common/sns_kakao.svg"  alt="kakaolink"></a>
+	      		<a href="#"><img src="${context}/img/common/sns_insta.svg" alt="instalink"></a>
+	      		<a href="#"><img src="${context}/img/common/sns_youtube.svg" alt="youtubelink"></a>
+	      		<a href="#"><img src="${context}/img/common/sns_twitter.svg" alt="twitterlink"></a>
+	      		<a href="#"><img src="${context}/img/common/sns_facebook.svg" alt="fackbooklink"></a>
 			</div>
 		</div>
-		<ul class="footer-right">
-			<li>
-				<h2>SERVICE</h2>
-				<ul class="info">
-					<li><a href="#">고객센터</a>
-					<li><a href="#">1:1문의</a>
-					<li><a href="${context}/user/login.jsp">자주묻는질문</a>
-					<li><a href="#">상담예약문의</a>
-				</ul>
-			</li>
-			<li>
-				<h2>CONTACT</h2>
-				<ul class="info info2">
-					<li><a><b>Email</b></a>
-					<li><a>aromafragancia@aroma.co.kr</a>
-					<li><a></a>
-					<li><a><b>Address</b></a>
-					<li><a>06035 Gangnam-gu, Seoul, Korea <br> 15, Garosu-gil</a>
-				</ul>
-			</li>
-			<li>
-				<h2>INFO</h2>
-				<ul class="info info2">
-					<li><a>T.02-1234-5678</a>
-					<li><a></a>
-					<li><a>Mon-Fri:10am-5pm</a>
-					<li><a></a>
-					<li><a>Weekend Holiday OFF</a>
-				</ul>
-			</li>
-
-		</ul>
-	</footer>
+		<div class="col-sm-4 col-md-2 footer-right">
+			<h2>SERVICE</h2>
+			<ul class="info">
+				<li><a href="${context}/board/notice.do">공지사항</a>
+				<li><a href="${context}/board/community.do">커뮤니티</a>
+				<li><a href="${context}/work/FAQ/FAQ.jsp">자주묻는질문</a>
+				<li><a href="#">상담예약문의</a>
+			</ul>
+		</div>
+		<div class="col-sm-4 col-md-3 footer-right">
+			<h2>CONTACT</h2>
+			<ul class="info info2">
+				<li><b>Email</b></li>
+				<li>aromafragancia@aroma.co.kr</li>
+				<li><b>Address</b></li>
+				<li>06035 Gangnam-gu, Seoul, Korea<br>15, Garosu-gil</li>
+			</ul>
+		</div>
+		<div class="col-sm-4 col-md-3 footer-right">
+			<h2>INFO</h2>
+			<ul class="info info2">
+				<li><a>T.02-1234-5678</a>
+				<li><a></a>
+				<li><a>Mon-Fri:10am-5pm</a>
+				<li><a></a>
+				<li><a>Weekend Holiday OFF</a>
+			</ul>
+		</div>
+		</div>
+	</div>
+</footer>
 </body>
 </html>

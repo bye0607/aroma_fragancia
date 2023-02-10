@@ -329,26 +329,32 @@
 		        <table class="table table-hover">
 		          <tr>
 		            <td>
-		              <p class="tptext">지하철 이용</p> 
+		              <p class="tptitle">지하철 이용</p> 
+		              <p class="tptext">
 				              신분당선, 서울지하철 3호선 이용 가능 <br>
 				              지하철 3호선 신사역 8번출구에서 약 80m 직진
+		              </p>
 		            </td>
 		          </tr>
 		          <tr>
 		            <td>
-		            	<p class="tptext">버스 이용</p>
+		            	<p class="tptitle">버스 이용</p>
+		            	<p class="tptext">
 				       	버스정류장 신사역(12-345) <br>
 				    	NH농협은행 방면 하차 후 100m 직진<br>
 				    	 ※ 버스 : 733, 271A, 273, 603, 604, 761, N62,5712등
+				    	 </p>
 		            </td>
 		          </tr>
 		          <tr>
 		            <td>
-		            	<p class="tptext">승용차 이용</p>
+		            	<p class="tptitle">승용차 이용</p>
+		            	<p class="tptext">
 		            	 주차공간이 협소하오니 되도록 대중교통을 이용하여 주시기 바랍니다.
 		            	<br>
 		           		주차정보안내시스템
 		            	<a href="http://parking.seoul.go.kr/">(http://parking.seoul.go.kr/)</a>에서 오프라인 매장 주변 공영주차장을 확인하실 수 있습니다.
+		            	</p>
 		            </td>
 		          </tr>
 		        </table>

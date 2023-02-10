@@ -1,26 +1,51 @@
+/* by 김은주, 코드리펙토링 230210 */
+
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=DM+Serif+Display&family=Noto+Sans+KR:wght@400;700&display=swap');
 
 body {font-family: 'DM Serif Display', 'Crimson Pro', 'Noto Sans KR', serif, sans-serif;word-break:keep-all}
 ul, ol, li {list-style: none;}
-a{cursor: pointer;}
+a, a:hover {text-decoration: none;cursor: pointer;}
 
 /* top */
-/* 네비바 */
-.navbar-header .navbar-brand {font-size: 30px;font-weight:bold;color:#555; margin-bottom: 8px; margin-top: 8px;}
+.navbar-header .navbar-brand {font-family: "Crimson Pro";font-size: 30px;font-weight:bold;color:#555; margin-bottom: 8px; margin-top: 8px;}
 .navbar-header .navbar-toggle {padding:10px;margin-top:16px;}
-.nav>li>a {font-size:16px;font-weight:bold;}
+.nav>li>a {font-family: "Crimson Pro";font-size:16px;font-weight:bold;}
 .nav.member>li>a {color:#000}
 .navbar-right {margin-right:0;}
 .navbar-collapse {padding-right:0;}
-.dropdown-menu {font-size:15px;padding:0}
+.dropdown-menu {font-family: "Crimson Pro";font-size:15px;padding:0}
 @media (min-width: 768px) {
 	#navbar {padding-top:10px}
 	.navbar-right {margin-right:5px;}
 }
 
+/* foot */
+.footer{border-top:1px solid #D9D9D9;padding: 50px;}
+.footer ul {padding-left: 0;}
+.footer .ftlogo {font-size: 30px; margin-top: 20px; color: #000;font-family: 'Crimson Pro';}
+.footer .sns p {font-size: 20px; margin-bottom: 30px; color: #000;font-family: 'Crimson Pro';}
+.footer .sns a {width: 40px; height: 40px; display: inline-block; margin-right: 10px;margin-bottom:30px}
+.footer .sns img{width:20px;height:20px;}
+.footer .footer-right h2 {font-weight: 600; font-size: 17px;font-family: 'Crimson Pro';margin-top:10px}
+.footer .footer-right .info li {line-height: 2em;color: #999;font-family: 'Crimson Pro';}
+.footer .footer-right .info a {color: #999;}
+/* .footer-left{ margin-right: 1.25em; margin-bottom: 2em;}
+.footer-bottom{ text-align: center;	color: #999; padding-top: 50px;}
+.footer-left p{	padding-right: 20%;	color: #999; }
+.footer-left > a{ color: #999;}
+
+@media screen and (min-width: 760px) {
+	.footer-right > *{flex: 1;}
+	.footer-left{ flex: 1 0px;}
+	.footer-right{ flex: 2 0px;}
+} */
+@media (mim-width:768px){
+	.footer .footer-right:last-child h2, .footer .footer-right:last-child ul {padding-left:80px;}
+}
+
 /* 쿠키 팝업 */
 .popup_image {position: absolute; z-index:100;left: 30px;top: 170px; background-color: #F7F9F6; width: 310px;}
-.popup_image > p {padding:10px; text-align: center; font-size: 25px;}
+.popup_image > p {padding:10px; text-align: center;font-family: "Crimson Pro";font-size: 25px;}
 .popup_image .popup_bn .bx-wrapper {margin-bottom: 0px;}
 .popup_image .popup_bar {position:relative;padding: 20px 10px}
 .popup_image .popup_bar #expiresChk {margin-left:10px;width:16px;height:16px;}
@@ -35,7 +60,7 @@ a{cursor: pointer;}
 .mainveg .vegas-timer .vegas-timer-progress {background:#CDA274}
 
 /* 메인 스토리 부분 */
-.storytext {padding-top:150px;padding-bottom:150px;font-size: 18px; line-height: 2; text-align: center;overflow:hidden}
+.storytext {padding-top:150px;padding-bottom:150px;font-family: "Crimson Pro";font-size: 18px; line-height: 2; text-align: center;overflow:hidden}
 .storytext p:nth-child(2) {margin-top:50px;}
 /* 스크롤 페이드인 */
 @keyframes fadeInUp {from {opacity: 0; transform: translateY(100%);}
@@ -43,16 +68,12 @@ a{cursor: pointer;}
 .test_obj {position: relative;animation: fadeInUp 3s;}
 .test_obj2 {position: relative;animation: fadeInUp 6s;}
 .story {background-color: rgb(225, 225, 227); height:380px; margin-bottom:150px; }
-.story h4 {margin:0; font-size: 40px; padding-top: 60px; padding-bottom: 60px; text-align: center;}
-/* .storyproduct {height: 330px;} */
+.story h4 {margin:0;font-family: "Crimson Pro"; font-size: 40px; padding-top: 60px; padding-bottom: 60px; text-align: center;}
 .storyproduct img{display:inline-block;border-radius: 30px; opacity:0;}
-/* @media (min-width: 992px){
-	.storyproduct > div > li > img{width: 200px; height: 260px; }
-} */
 
 /* color 부분 */
 .maincolor{width: auto; background-color: rgb(225, 225, 227); }
-.maincolor > h4 {font-size: 40px; padding-top: 60px; padding-bottom: 60px; text-align: center; font-weight: bold; }
+.maincolor > h4 {font:bold 40px "Crimson Pro";padding-top: 60px; padding-bottom: 60px; text-align: center;}
 .colorproduct{ display: grid; grid-template-columns: repeat(auto-fill, minmax(412px, 0.5fr)); box-sizing: border-box; justify-content: space-around;}
 .colorproduct > div > li > img{ border-radius: 10px 10px 0 120px; padding-bottom: 60px;}
 .mc-a{ position: relative; margin: 0 auto; width: 270px;}
@@ -65,8 +86,8 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 /* 분할 텍스트 영역 */
 .sixwrap{ padding-top: 200px; padding-bottom: 200px;}
 .sixcontext{box-sizing:border-box}
-.sixcontext .sixb {background-color:#e1e1e3;font-size: 18px; text-align: center;border-radius: 30px;margin-top:10px}
-.sixcontext .sixb p {font-size: 30px;font-weight:bold; padding-top: 80px;padding-bottom:20px}
+.sixcontext .sixb {background-color:#e1e1e3;font-family: "Crimson Pro";font-size: 18px; text-align: center;border-radius: 30px;margin-top:10px}
+.sixcontext .sixb p {font:bold 30px "Crimson Pro"; padding-top: 80px;padding-bottom:20px}
 .sixcontext .sixb span {display:block;font-size: 22px;padding-bottom:80px}
 .sixcontext .sixb.b1{ background-color:#E3D0CC; border-radius: 30px;}
 @media (min-width: 768px) {
@@ -75,21 +96,21 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 	.sixcontext .sixb:hover{ background-color: #E3D0CC; transition: 0.7s;}
 	.sixcontext .sixb.b1{ background-color: #e1e1e3}
 }
+
 /* join us */
 .movebtn{background-color: #292F36; color: #fff; text-align: center; border-radius: 70px;padding:70px 0}
-.movebtn .title { font-size: 30px;padding:0 20px}
-.movebtn p {font-size: 15px;padding:10px 20px;}
-.movebtn .move{display:inline-block;width:240px;height:75px;background-color: #CDA274;font-size:18px;border-radius: 15px; border: none;margin-top:20px}
+.movebtn .title {font-family: "Crimson Pro";font-size: 30px;padding:0 20px}
+.movebtn p {font-size: 15px;font-family: "Crimson Pro";padding:10px 20px;}
+.movebtn .move{display:inline-block;width:240px;height:75px;background-color: #CDA274;font-family: "Crimson Pro";font-size:18px;border-radius: 15px; border: none;margin-top:20px}
 .movebtn .move:hover { background-color:#CC947C; transition: 0.7s; }
 
-
 /* 지도 영역 */
-.maptitle{text-align: center; font-size: 30px;	margin-top: 220px;}
+.maptitle{text-align: center;font-family: "Crimson Pro";font-size: 30px;	margin-top: 220px;}
 .mainmap {margin-top: 60px; margin-bottom: 80px;}
 .mainmap #map {height: 450px; margin-bottom: 30px;}
-.mainmap .transport {margin-top: 20px;}
-.mainmap .transport h3 { font-size: 22px; font-weight: bold;padding-bottom:20px}
-.mainmap .transport .tptext {font-size: 15px;padding-top:15px}
+.mainmap .transport h3 { font-size: 22px; padding-bottom:10px}
+.mainmap .transport .tptitle {font-weight: bold;padding-top:15px}
+.mainmap .transport .tptext {font-size: 15px;}
 @media screen and (min-width: 992px) {
 	.transport {padding-left:50px; }
 }
