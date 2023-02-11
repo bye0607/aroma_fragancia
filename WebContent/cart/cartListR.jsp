@@ -154,8 +154,8 @@
 	                	<td style="text-align: center; vertical-align: middle;">${dsCartList.CART_COUNT}</td>
 	                	<td style="text-align: center; vertical-align: middle;">${dsCartList.CART_PRICE}원</td>
 	               		<td style="text-align: center; vertical-align: middle;">
-	                		<button type="button" class="btn" onclick="fn_buy('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_PRICE}', '${dsCartList.CART_COUNT}')">구매하기</button>
-	                		<button type="button" class="btn" onclick="fn_delete('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_COUNT}')">삭제</button>
+	                		<button type="button" class="btn" onclick="fn_buy('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_PRICE}', '${dsCartList.CART_COUNT}')"style="margin-bottom: 1%">구매하기</button>
+	                		<button type="button" class="btn" onclick="fn_delete('${dsCartList.CART_CODE}', '${dsCartList.PRODUCT_CODE}', '${dsCartList.CART_COUNT}')" style="margin-bottom: 1%">삭제</button>
 	            	    </td>
 	        	     </tr>
 	            </c:forEach>
