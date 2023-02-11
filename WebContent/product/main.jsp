@@ -282,47 +282,52 @@
 			</div>
 			<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=c2c33a097ac052287fa856172f2eb50d"></script>
 			<script>
-				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-				    mapOption = { 
-				        center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
-				        level: 3 // 지도의 확대 레벨
-				    };
-				
-				var map = new kakao.maps.Map(mapContainer, mapOption);
-				
-				// 마커가 표시될 위치입니다 
-				var markerPosition  = new kakao.maps.LatLng(37.518818, 127.022936); 
-				
-				// 마커를 생성합니다
-				var marker = new kakao.maps.Marker({
-				    position: markerPosition
-				});
-				
-				// 마커가 지도 위에 표시되도록 설정합니다
-				marker.setMap(map);
-				
-				var iwContent = '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/AROMA,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-				    iwPosition = new kakao.maps.LatLng(37.518818, 127.022936); //인포윈도우 표시 위치입니다
-				
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-				    position : iwPosition, 
-				    content : iwContent 
-				});
-				  
-				// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-				infowindow.open(map, marker); 
-				
-		        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
-		        window.onresize = function () {
-		              console.log("resize");
-		              if (map != null) { map.relayout();
-		                  if (marker != null) {
-		                    var markerPosition = marker.getPosition();
-		                    map.setCenter(markerPosition);
-		                  }
-		                }
-		              };
+	        // 브라우저 크기가 변화할때마다 마커를 이동시키기위해 전역변수 지정
+	        var map = null;
+	        var marker = null;
+
+	        window.onload = function () {
+	        var mapContainer = document.getElementById("map"),
+	         mapOption = {
+	                 center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
+	                level: 3, 
+	              };
+
+	          var mapContainer = document.getElementById("map"),
+	              mapOption = {
+	                center: new kakao.maps.LatLng(37.518818, 127.022936), // 지도의 중심좌표
+	                level: 3, 
+	              };
+
+	          map = new kakao.maps.Map(mapContainer, mapOption);
+
+	          var markerPosition = new kakao.maps.LatLng(37.518818, 127.022936);
+
+	          marker = new kakao.maps.Marker({position: markerPosition});
+	          marker.setMap(map);
+	          map.setCenter(markerPosition);
+	          
+	          var iwContent =
+	          '<div style="padding:5px;">AROMA FRAGANCIA<br><a href="https://map.kakao.com/link/map/AROMA,37.518818, 127.022936" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/AROMA FRAGANCIA,37.518818, 127.022936" style="color:blue" target="_blank">길찾기</a></div>',
+	          iwPosition = new kakao.maps.LatLng(37.518818, 127.022936);;
+	            
+	          var infowindow = new kakao.maps.InfoWindow({
+	          position: iwPosition,
+	          content: iwContent,});
+	          infowindow.open(map, marker)
+	        };
+	        
+	        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
+	        window.onresize = function () {
+	              console.log("resize");
+	              if (map != null) { map.relayout();
+	                  if (marker != null) {
+	                    var markerPosition = marker.getPosition();
+	                    map.setCenter(markerPosition);
+	                  }
+	                }
+	              };
+
 			</script>
 			<div class="col-sm-12 col-md-6 transport">
 				<h3>대중교통 / 자가용 이용 시</h3>
