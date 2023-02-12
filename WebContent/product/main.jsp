@@ -76,7 +76,7 @@
 	  }
 	// 쿠키 팝업
 	$(function () {
-	    if ($.cookie("popup") == "none") {
+	    if ($.cookie("AROMA") == "none") {
 	      $("#popup_image").hide();
 	    }
 	    var $expiresChk = $("#expiresChk");
