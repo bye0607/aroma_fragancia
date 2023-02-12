@@ -16,18 +16,18 @@
    <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <link href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" >
    <link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="${context}/css/process.css" rel="stylesheet">
+   <link href="${context}/css/process.css" rel="stylesheet">
 
    <script src="${context}/js/jquery-1.9.1.js"></script>
    <script src="${context}/js/jquery.form.js"></script>
-    <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
+   <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
 
    <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
    
 
-    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+   <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
    <script type="text/javascript">
 
    var dong;
@@ -38,8 +38,8 @@
       $( "#birth" ).datepicker({
           dateFormat: 'yy-mm-dd',
           changeMonth: true,
-           changeYear: true,
-           yearRange: "1980:2015"
+          changeYear: true,
+          yearRange: "1980:2015"
        });
 
       $("#dong").keydown(function (key){
@@ -122,7 +122,6 @@
       var appendHtml = "";
       var param = {};
 
-
       param["dong"] = dong;
 
       $.ajax({
@@ -144,12 +143,10 @@
             }
          });
    }
-
    function fn_save(){
       if(!fn_validation()) return;
 
       if(confirm("수정하시겠습니까?")){
-// 이 부분이 문제인거같은 .. postnum2분을 분리하면 될거같은데 ..
          $("#phoneNum").val($("#phone1").val() + "-" + $("#phone2").val());
           $("#postNum").val($("#postNum1").val());
           $("#address").val($("#address1").val() + $("#postNum2").val() + "/" + $("#address2").val());
@@ -157,7 +154,6 @@
           $("#joinFrm").submit();
       }
    }
-
    function fn_upload(){
       $("#ajaxform").ajaxSubmit({
            type: "POST",
@@ -175,8 +171,6 @@
            }
        });
    }
-   
-
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -193,7 +187,6 @@
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
                 }
-
                 // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
                 if(data.userSelectedType === 'R'){
                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -224,7 +217,6 @@
             }
         }).open();
     }
-
 </script>
 </head>
 <body>
@@ -244,35 +236,30 @@
 									<p id="message"></p>
 								</div>
 							</div>
-						
 							<!-- 비밀번호 -->
 							<div class="form-group">
 								<div class="col-sm-12">
 									<input class="form-control" placeholder="비밀번호" id="pw" name="pw" type="password">
 								</div>
 							</div>
-						
 							<!-- 이메일 -->
 							<div class="form-group">
 								<div class="col-sm-12">
 									<input class="form-control" type="email" name="email" id="email" required="required" placeholder="이메일"/>
 								</div>
 							</div>
-							
 							<!-- 이름 -->
 							<div class="form-group" >
 								<div class="col-sm-12">
 									<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="성명"/>
 								</div>
 							</div>
-							
 							<!-- 생년월일 -->
 							<div class="form-group">
 								<div class="col-sm-12">
 									<input class="form-control" type="text" id="birth" name="birth" required="required" maxlength="10" placeholder="생년월일"/>
 								</div>
 							</div> 
-							           
 							<!-- 전화번호 -->
 							<div class="col-sm-12 col-md-6 col-lg-4 phoneGroup">
 								<div class="form-group">
@@ -282,27 +269,23 @@
 										</c:forEach>
 									</select>
 								</div>
-								
-							<div class="form-group">
-								<input class="form-control form-phone" type="text" id="phone1" maxlength="4" required="required" placeholder="전화번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
+								<div class="form-group">
+									<input class="form-control form-phone" type="text" id="phone1" maxlength="4" required="required" placeholder="전화번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
+								</div>
+								<div class="form-group">
+									<input class="form-control form-phone" type="text" id="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
+								</div>
+									<input type="hidden" id="phoneNum" name="phoneNum">
 							</div>
-							
-							<div class="form-group">
-								<input class="form-control form-phone" type="text" id="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
-							</div>
-								<input type="hidden" id="phoneNum" name="phoneNum">
-							</div>
-							 
 							<!-- 주소 -->
 							<div class="form-group">
 								<div class="col-sm-12" id="formIcon"">
 									<input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
 									<input class="form-control address1" placeholder="우편번호" type="text" id="postNum1" disabled="disabled" required="required"/>
 								</div>
-							
 								<!-- 주소 동,로,가 -->
 								<div class="col-sm-12" id="formIcon">
-									<input class="form-control" type="text" placeholder="동,로,가" id="postNum2" disabled="disabled" required="required"/>
+									<input class="form-control" type="hidden" placeholder="동,로,가" id="postNum2" disabled="disabled"/>
 								</div>
 									<input type="hidden" id="postNum" name="postNum">
 							</div>
@@ -313,61 +296,47 @@
 								</div>
 									<input type="hidden" id="extraAddr" name="extraAddr">
 							</div>
-							<!-- 추가 상세 주소 -->
+							<!-- 추가 상세 주소 2 -->
 							<div class="form-group">
 								<div class="col-sm-12" id="formIcon">
 									<input class="form-control" placeholder="상세주소" type="text" id="address2"/>
 								</div>
 									<input type="hidden" id="address" name="address">
 							</div>
-							
 							<!-- 사진 추가 기능 사용 안함 -->
-							<div class="form-group" style="display:none;">
-								<label class="control-label col-md-2"><b>사진</b></label>
-									<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png">
+							<div class="form-group">
 								<div class="col-md-6">
 									<input type="hidden" id="userImage" name="userImage">
 								</div>
 									<input type="hidden" id="flag" name="flag" value="false">
 							</div>
 							<!-- 사진 추가 기능 끝 -->
-							<div class="form-group" style="display:none;">
-								<label class="control-label col-md-2"><b>사진</b></label>
-									<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png">
-								<div class="col-md-6">
-									<input type="hidden" id="userImage" name="userImage">
-								</div>
-									<input type="hidden" id="flag" name="flag" value="false">
-							</div>
-							<!-- Ajax -->
+							<!-- Ajax saveFile.do 안씀 -->
 							<form id="ajaxform" action="${context}/work/product/saveFile.do" method="post" enctype="multipart/form-data" role="form" >
-							<div class="form-group" style="display:none;">
-								<label class="control-label col-md-2"></label>
 								<div class="col-md-6">
-									<input class="form-control" type="file" id="imageFile" name="imageFile" onchange="fn_upload()"/>
+									<input class="form-control" type="hidden" id="imageFile" name="imageFile" onchange="fn_upload()"/>
 									<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
 								</div>
-							</div>
 							</form>
-							
 							<!-- 체크박스 -->
 							<div class="form-group">
-								<div class="col-sm-12">
+								<div class="col-md-12">
 									<div class="checkbox checkbox1">
 										<label><input type="checkbox"><p class="checkboxText">I agree the <span class="forgotText">Terms & Conditions</span></p></label>
 									</div>
 								</div>
 							</div>      
-							
 							<!-- 버튼 -->
 							<div class="form-group">
-								<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
-								<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">등록하기</button>
+								<div class="col-md-12">
+									<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
+									<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">등록하기</button>
+								</div>
 							</div>
 						</div>
-						<!-- panel-body 끝 -->
-					</div>
-					<!-- col-md-6 col-md-offset-3 끝 -->
+					<!-- panel-body 끝 -->
+				</div>
+				<!-- col-md-6 col-md-offset-3 끝 -->
 			</div>
 			<!-- row 끝 -->
 		</form>
@@ -423,7 +392,7 @@ input[value="Search"]:hover{
     
 .backgroundImg {
    width: 100%;
-   height: 1700px;
+   height: 2000px;
    box-sizing: border-box;
    background-position: center;
    background-size: cover;
@@ -442,20 +411,18 @@ input[value="Search"]:hover{
 .panel-body{
    clear:both;
    width: 566px;
-   height: 1200px;
+   height: 1150px;
    background-color: #fff;
    border-radius: 30px !important; 
    position:absolute !important; 
-   top:40% !important; 
-   left:50%!important; 
-   transform:translate(-50%,-45%) !important;
+   transform:translate(-10%,-30%) !important;
 }
 .fieldset {
    background-position: center;
 }
 
 #id {
-   margin-top: 30px;
+   margin-top: 40px;
 }
 #id::-webkit-input-placeholder{
   background-image: url('${context}/userImg/user.svg') ;
@@ -596,7 +563,7 @@ a:hover{
    font-size: 25px;
    font-weight: bold;
    font-family: Crimson Pro;
-   width: 220px;
+   width: 200px;
    color: #fff;
    background-color: #9CA09F;
    float: left;
@@ -607,7 +574,7 @@ a:hover{
    font-size: 25px;
    font-weight: bold;
    font-family: Crimson Pro;
-   width: 220px;
+   width: 200px;
    color: #fff;
    background-color: #9CA09F;
    float: left;
