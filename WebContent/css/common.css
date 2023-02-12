@@ -21,7 +21,7 @@ a:hover {color:#CC947C;text-decoration: none;}
 }
 
 /* foot */
-.footer{border-top:1px solid #D9D9D9;padding: 50px;}
+.footer{border-top:1px solid #D9D9D9;padding: 50px;margin-top:100px}
 .footer ul {padding-left: 0;}
 .footer .ftlogo {font-size: 30px; margin-top: 20px; color: #000;font-family: 'Crimson Pro';}
 .footer .sns p {font-size: 20px; margin-bottom: 30px; color: #000;font-family: 'Crimson Pro';}
@@ -434,7 +434,7 @@ transition: all 0.4s ease-in-out;
    .boardwrite textarea.form-control {height:272px;}
 }
 
-/* by 김은주 고푸름, 상품목록, 상품상세정보 */
+/* by 김은주, 고푸름 - 상품목록, 상품상세정보 */
 /* product list */
 .productitem {text-align:center;padding-bottom:65px;}
 .productitem a {display:inline-block;}
@@ -447,7 +447,7 @@ transition: all 0.4s ease-in-out;
 .productview .btn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .productview .btn[disabled] {background-color: #d9d9d9;color: #000;opacity:0.65;cursor:not-allowed;}
 .scent-info-video {display: block; width: 1170px; height: auto;}
-.sent-info-img {display: block; width: 1170px; -webkit-user-select: none; cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;}
+.sent-info-img {display: block; width: 1170px; cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;}
 .detailimg {height:450px}
 .productInfo {margin-top: 50px; text-align:center}
 .productInfo .table-user-information {border-bottom:1px solid #D9D9D9;}
@@ -544,3 +544,6 @@ transition: all 0.4s ease-in-out;
 .adminlink .img-circle span {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
 .adminlink h1 {margin-top:50px;}
 .adminlink:hover h1 {color:#CC947C}
+
+/* by, 김은주, 정은진 - 로그인, 비밀번호찾기, 회원가입, 정보수정 */
+
