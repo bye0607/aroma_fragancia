@@ -445,9 +445,10 @@ transition: all 0.4s ease-in-out;
 .productview .btn {background-color: #d9d9d9;color: #000;border: none;}
 .productview .btn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .productview .btn[disabled] {background-color: #d9d9d9;color: #000;opacity:0.65;cursor:not-allowed;}
-
+.scent-info-video {display: block; width: 1170px; height: auto;}
+.sent-info-img {display: block; width: 1170px; -webkit-user-select: none; cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;}
 .detailimg {height:450px}
-.productInfo {margin-top: 50px;text-align:center}
+.productInfo {margin-top: 50px; text-align:center}
 .productInfo .table-user-information {border-bottom:1px solid #D9D9D9;}
 .productInfo .table-user-information > tbody > tr {
 	font-size: 20px;
@@ -484,20 +485,34 @@ transition: all 0.4s ease-in-out;
 }
 
 .product-title {
-	font-size: 24px;
-	font-weight: 400;
+	font-family: 'DM Serif Display';
+	font-size: 6em;
+	font-weight: 500;
 	margin-top: 173px;
 	margin-bottom: 78px
 }
 
+.scent-wrap .scent-info {
+    padding: 0.5em 0 0.3em;
+}
+
+.scent-wrap .scent-info-sub {
+	padding: 0.5em 0 0.3em;
+} 
+
+.fragancia {font-family: 'DM Serif Display'; font-size: 1.5em; font-weight: 100%; }
+
 .product-details{
-	font-size: 15px;
+	font-family: 'Noto Sans KR'; 
+	font-style: normal;
+	font-size: 2em; 
 	font-weight: 400;
 	margin-top: 78px;
 	margin-bottom: 117px;
-	line-height: 2.5em;
+	line-height: 1.5em;
 	margin-bottom: 150px;
 } 
+
 /* product detail view 상품평 */
 .review-box{
 	font-family: 'Noto Sans KR'; 

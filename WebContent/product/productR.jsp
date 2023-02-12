@@ -253,31 +253,43 @@
 		</div>
 		<!-- 상품정보 end -->
 	</div>
-
+	<!-- 상품디테일 start -->
 	<div class="row">
-		<div class="text-center product-title"style="margin-top: 137px !important;">
-			What is Ipsum?
+		<div class="text-center product-title scent-wrap">
+			<div class="scent-info">
+		      <span>Fragrance</span>
+		      <span>Number</span>
+			</div>
 		</div>
-		<div class="text-center product-details">Lorem ipsum dolor
-			sit amet consectetur adipisicing elit. Placeat numquam neque
-			temporibus veniam distinctio, necessitatibus alias porro tenetur,
-			facilis, iure itaque corporis quibusdam reiciendis aliquam rem
-			adipisci. Facilis, nihil repudiandae!
+		<div class="text-center product-details scent-wrap">
+			<div class="scent-info-sub">
+		      <span><em>저희 제품은 패키지에 </em> <em>주 원료를 표기하여</em></span>
+		      <span><em>직관적으로 향을 이해하고,</em> <em>나에게 맞는 향을 고를 수 있습니다.</em></span>
+			</div>
 		</div>
-	
-		<img class="img-responsive" src="${context}/backgroundImage/shopperbag.png">
-	
-		<div class="text-center product-title">
-			What is Ipsum?
+		<div class="scent-info-img">
+			<img class="img-responsive scent-info-img" src="${context}/backgroundImage/scent_img.png" alt="맞는향">
+			<img class="img-responsive scent-info-video" src="https://media.11corporation.com/cdn/addict/godo/detail/1000000045/20221025/detail_11.jpg?tr=w-1170,h-auto&amp;_=22010251810">
+		</div>	
+		<div class="scent-info-img">
+			<video class="img-responsive scent-info-video" playsinline="" autoplay="" muted="" loop="" type="video/mp4"  src="https://d2awjssdq42p8p.cloudfront.net/addict/video/media-convert/66d58d25/09010017.h264.mp4"></video>
+			<img class="img-responsive scent-info-img" src="https://media.11corporation.com/cdn/addict/godo/detail/1000000069/20221115/detail_11.jpg?tr=w-1170,h-auto&amp;_=2211151645" >
+			<video class="img-responsive scent-info-video" playsinline="" autoplay="" muted="" loop="" type="video/mp4" src="https://d2awjssdq42p8p.cloudfront.net/addict/video/media-convert/2c1e6af7/b87663e4.h264.mp4"></video>
+		</div>	
+		<div class="text-center product-title scent-wrap">
+			<div class="scent-info">
+	      		<span>Membership</span>
+	      		<span>Benefits</span>
+			</div>
 		</div>
-		
-		<div class="text-center product-details">Lorem ipsum dolor
-			sit amet consectetur adipisicing elit. Placeat numquam neque
-			temporibus veniam distinctio, necessitatibus alias porro tenetur,
-			facilis, iure itaque corporis quibusdam reiciendis aliquam rem
-			adipisci. Facilis, nihil repudiandae!
+		<div class="text-center product-details scent-wrap">
+			<div class="scent-info-sub">
+				<span class="fragancia"><em>Aroma, Fragancia</em></span> <span><em>회원이 되어</em></span>
+		      	<span><em>회원 전용 </em> <em>혜택을 받아보세요.</em></span>
+			</div>
 		</div>
 	</div>
+	<!-- 상품디테일 end -->
 </div>
 <!--  상품평 입력 토글 start -->
 <div class="container review-box" >
