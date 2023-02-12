@@ -21,7 +21,7 @@ a:hover {color:#CC947C;text-decoration: none;}
 }
 
 /* foot */
-.footer{border-top:1px solid #D9D9D9;padding: 50px;margin-top:100px;}
+.footer{border-top:1px solid #D9D9D9;padding: 50px;}
 .footer ul {padding-left: 0;}
 .footer .ftlogo {font-size: 30px; margin-top: 20px; color: #000;font-family: 'Crimson Pro';}
 .footer .sns p {font-size: 20px; margin-bottom: 30px; color: #000;font-family: 'Crimson Pro';}
@@ -30,6 +30,16 @@ a:hover {color:#CC947C;text-decoration: none;}
 .footer .footer-right h2 {font-weight: 600; font-size: 17px;font-family: 'Crimson Pro';margin-top:10px}
 .footer .footer-right .info li {line-height: 2em;color: #999;font-family: 'Crimson Pro';}
 .footer .footer-right .info a {color: #999;}
+/* .footer-left{ margin-right: 1.25em; margin-bottom: 2em;}
+.footer-bottom{ text-align: center;   color: #999; padding-top: 50px;}
+.footer-left p{   padding-right: 20%;   color: #999; }
+.footer-left > a{ color: #999;}
+
+@media screen and (min-width: 760px) {
+   .footer-right > *{flex: 1;}
+   .footer-left{ flex: 1 0px;}
+   .footer-right{ flex: 2 0px;}
+} */
 @media (mim-width:768px){
    .footer .footer-right:last-child h2, .footer .footer-right:last-child ul {padding-left:80px;}
 }
@@ -98,7 +108,7 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 
 /* 지도 영역 */
 .maptitle{text-align: center;font-family: "Crimson Pro";font-size: 30px;   margin-top: 220px;}
-.mainmap {margin-top: 60px;}
+.mainmap {margin-top: 60px; margin-bottom: 80px;}
 .mainmap #map {height: 450px; margin-bottom: 30px;}
 .mainmap .transport h3 { font-size: 22px; padding-bottom:10px}
 .mainmap .transport .tptitle {font-weight: bold;padding-top:15px}
@@ -118,10 +128,19 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 #plusCert { cursor: pointer;}
 #minusCert { cursor: pointer;}
 
+/*네비바 기본 색상 주석 처리*/
+/* .navbar-nav{
+   background-color:rgb(225, 225, 227);
+}
+.navbar-brand{
+   background-color: rgb(225, 225, 227);
+} */
 .navbar-right{
    margin-right : 5px;
 }
 .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { background-image:none !important; } .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { color:#808080; }
+
+
 
 .user-row {
     margin-bottom: 14px;
@@ -218,7 +237,9 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 }
 
 
+
 /* 寃곗젣 셿猷   럹 씠吏  CSS*/
+
 .shape{
    border-style: solid; border-width: 0 100px 60px 0; float:right; height: 0px; width: 0px;
    -ms-transform:rotate(360deg); /* IE 9 */
@@ -426,7 +447,7 @@ transition: all 0.4s ease-in-out;
 .productview .btn:hover {background:#9CA09F;color:#fff;transition:0.3s}
 .productview .btn[disabled] {background-color: #d9d9d9;color: #000;opacity:0.65;cursor:not-allowed;}
 .scent-info-video {display: block; width: 1170px; height: auto;}
-.sent-info-img {display: block; width: 1170px; cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;}
+.sent-info-img {display: block; width: 1170px; -webkit-user-select: none; cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;}
 .detailimg {height:450px}
 .productInfo {margin-top: 50px; text-align:center}
 .productInfo .table-user-information {border-bottom:1px solid #D9D9D9;}
@@ -519,6 +540,7 @@ transition: all 0.4s ease-in-out;
 .adminmode {min-height:450px;}
 .adminlink {margin-top:100px;cursor:pointer}
 .adminlink .img-circle {position:relative;width:250px;height:250px;background:#CC947C;margin:0 auto;}
+/* .adminlink:hover .img-circle {transition: 0.3s;} */
 .adminlink .img-circle span {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
 .adminlink h1 {margin-top:50px;}
 .adminlink:hover h1 {color:#CC947C}

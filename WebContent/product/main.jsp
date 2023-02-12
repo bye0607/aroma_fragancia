@@ -392,7 +392,7 @@
       </div>
       </c:if>
 
-   <jsp:include page="${context}/common/foot.jsp"></jsp:include>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
    
 <!-- 베가스 추가 -->
 <script type="text/javascript" src="${context}/js/vegas.min.js"></script>
