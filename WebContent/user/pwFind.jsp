@@ -51,6 +51,7 @@
 	        	<div class="logintab">
 			        <div class="col-xs-12 title">Password Find</div>
 				</div>
+	        	<!-- login tab button end -->
                 <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
                     <fieldset>
                         <div class="form-group">

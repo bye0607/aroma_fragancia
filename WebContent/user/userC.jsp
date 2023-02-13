@@ -7,29 +7,21 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>회원가입</title>
-	<%-- <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<link href="${context}/css/plugins/social-buttons.css" rel="stylesheet">
-	<link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="${context}/css/process.css" rel="stylesheet"> --%>
 	<link href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" >
 	<link href="${context}/css/common.css" rel="stylesheet">
 	<script src="${context}/js/jquery-1.9.1.js"></script>
 	<script src="${context}/js/jquery.form.js"></script>
-    <%-- <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>--%>
-
+	
     <!-- 필수입력 미입력시 빨간색배경 fadeout 효과 -->
     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 
 	var dong;
 	var imageFolder;
 
 	$(document).ready(function(){
-// 		$('#dataTables-example').dataTable();
 		fn_init();
 
 		imageFolder = "userImg";
@@ -42,8 +34,6 @@
 	    });
 	});
 
-	
-
 	function fn_save(){
 		
 		if(!fn_validation()) return;
@@ -52,7 +42,6 @@
 			$("id").focus();
 			return;
 		}
-
 
 		$("#phoneNum").val($("#phone1").val() + "-" + $("#phone2").val());
  		$("#postNum").val($("#postNum1").val());
@@ -154,20 +143,13 @@
 			        <div class="col-xs-6 tabbtn"><a href="${context}/user/login.jsp">Login</a></div>
 					<div class="col-xs-6 tabbtn on"><a href="${context}/work/user/createUser.do">Register</a></div>
 				</div>
+	        	<!-- login tab button end -->
 				<form id="joinFrm" method="post" action="${context}/work/user/createUser.do" role="form">
-					
-					<!-- 이름 -->
-					<div class="form-group">
-						<div class="col-sm-12">
-							<label for="name" class="control-label hidden"><b>Name</b></label>
-							<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="Name"/>
-						</div>
-					</div>
 					
 					<!-- 아이디 -->
 					<div class="form-group">
 						<div class="col-sm-12">
-							<label for="id" class="control-label hidden"><b>Id</b></label>
+							<label for="id" class="control-label hidden"><b>아이디</b></label>
 							<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="Id"/>
 						</div>
 						<div class="col-sm-12" id="message"></div>
@@ -176,15 +158,23 @@
 					<!-- 비밀번호 -->
 					<div class="form-group">
 						<div class="col-sm-12">
-							<label for="pw" class="control-label hidden"><b>Password</b></label>
+							<label for="pw" class="control-label hidden"><b>비밀번호</b></label>
 							<input class="form-control" type="password" name="pw" id="pw" required="required" placeholder="Password"/>
+						</div>
+					</div>
+					
+					<!-- 이름 -->
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="name" class="control-label hidden"><b>이름</b></label>
+							<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="Name"/>
 						</div>
 					</div>
 				
 					<!-- 이메일 -->
 					<div class="form-group">
 						<div class="col-sm-12">
-							<label for="email" class="control-label hidden"><b>E-mail</b></label>
+							<label for="email" class="control-label hidden"><b>이메일</b></label>
 							<input class="form-control" type="email" name="email" id="email" required="required" placeholder="E-mail"/>
 						</div>
 					</div>
@@ -192,7 +182,7 @@
 					<!-- 생년월일 -->
 			        <div class="form-group">
 					    <div class="col-sm-12">
-							<label for="birth" class="control-label hidden"><b>Birth</b></label>
+							<label for="birth" class="control-label hidden"><b>생년월일</b></label>
 					        <input class="form-control" id="birth" name="birth" required="required" maxlength="10" placeholder="Birth" autocomplete="off"/>
 					    </div>
 					</div> 
@@ -214,7 +204,7 @@
 					       <input class="form-control" type="text" id="phone2" name="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
 				        </div>
 					    <input type="hidden" id="phoneNum" name="phoneNum">
-			  	    </div>
+					</div>
 					
 					<!-- 주소 -->
 					<div class="form-group">
@@ -230,7 +220,7 @@
 					    </div>
 				    </div>
 		            <!-- 주소 1 -->
-		            <div class="form-group">
+		            <div class="form-group hidden">
 		            	<div class="col-sm-12">
 		                <input class="form-control" placeholder="Details 1" id="postNum2" name="details 1" disabled="disabled" type="text">
 		                </div>
@@ -238,13 +228,13 @@
 		            <!-- 주소 2 -->
 		            <div class="form-group">
 		            	<div class="col-sm-12">
-		                <input class="form-control" placeholder="Details 2" id="address1" name="details 2" disabled="disabled" type="text">
+		                <input class="form-control" placeholder="Details 1" id="address1" disabled="disabled" type="text">
 		                </div>
 		            </div>
 		            <!-- 주소 3 -->
 		            <div class="form-group">
 		            	<div class="col-sm-12">
-		                	<input class="form-control" placeholder="Details 3" id="address2" name="details 3" type="text">
+		                	<input class="form-control" placeholder="Details 2" id="address2" type="text">
 		                	<input type="hidden" id="address" name="address">
 		                </div>
 		            </div>

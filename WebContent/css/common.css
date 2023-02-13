@@ -623,6 +623,8 @@ transition: all 0.4s ease-in-out;
      border:0;
      color:#fff
 }
+	.loginbox .hyphen {position:relative;}
+	.loginbox .hyphen::after {content:"-";position:absolute;display:block;right:-4px;top:0;height:46px;line-height:46px;font-size:16px;font-family:"Noto Sans KR";}
 @media (min-width: 992px) {
 	.logintab .title {height:62px;font-size:28px;padding-top:30px;padding-left:70px}
 	.logintab .tabbtn a {height:62px;font-size:28px;padding-top:10px}
@@ -633,4 +635,5 @@ transition: all 0.4s ease-in-out;
 	.loginbox .checkboxText {margin-left: 16px;}
 	.loginbox .Loginbtn{font-size: 25px;}
 	.loginbox .postsearch {height: 66px;font-size: 20px;margin-bottom:15px;}
+	.loginbox .hyphen::after {right:-4px;top:0;height:66px;line-height:66px;font-size:20px;}
 }

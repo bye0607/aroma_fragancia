@@ -7,27 +7,15 @@
 <head>
    <meta name="description" content="userC.jsp">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>Information</title>
-   
-   <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-   <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-   <link href="${context}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-   <link href="${context}/css/plugins/social-buttons.css" rel="stylesheet">
-   <link href="${context}/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <title>정보수정</title>
    <link href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet" >
-   <link href="${context}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-   <link href="${context}/css/process.css" rel="stylesheet">
-
-   <script src="${context}/js/jquery-1.9.1.js"></script>
-   <script src="${context}/js/jquery.form.js"></script>
-   <script src="${context}/js/plugins/metisMenu/metisMenu.min.js"></script>
-
-   <script src="${context}/js/plugins/dataTables/jquery.dataTables.js"></script>
-   <script src="${context}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+	<link href="${context}/css/common.css" rel="stylesheet">
+	<script src="${context}/js/jquery-1.9.1.js"></script>
+	<script src="${context}/js/jquery.form.js"></script>
+	
+    <!-- 필수입력 미입력시 빨간색배경 fadeout 효과 -->
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-   
-
-   <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
    <script type="text/javascript">
 
    var dong;
@@ -62,7 +50,7 @@
       $("#birth").val('${dsUser.birth}');
 
       var phoneArr = '${dsUser.phoneNum}'.split("-");
-      var postNumArr = '${dsUser.postNum}'.split("-");
+      var postNumArr = '${dsUser.postNum}';
       var addressArr = '${dsUser.address}'.split("/");
 
       var userImage = '${dsUser.userImage}';
@@ -73,9 +61,9 @@
 
       $("#phoneCd").val('${dsUser.phoneCd}');
 
-      $("#postNum1").val(postNumArr[0]);
-      $("#postNum2").val(postNumArr[1]);
+      $("#postNum1").val(postNumArr);
 
+      //$("#postNum2").val(addressArr[0]);
       $("#address1").val(addressArr[0]);
       $("#address2").val(addressArr[1]);
 
@@ -84,65 +72,6 @@
 
    }
 
-   function fn_setData(self){
-      var postAllData = self.children().text();
-
-      var postSplit = postAllData.split(" ");
-
-      var zipcode = postSplit[0].split("-");
-      var postNum1 = zipcode[0];
-      var postNum2 = zipcode[1];
-      var sido = postSplit[1];
-      var gugun = postSplit[2];
-      var dong = postSplit[3];
-      var subDong = postSplit[4];
-
-      if(subDong == null) subDong = "";
-
-
-      $("#postNum1").val(postNum1);
-      $("#postNum2").val(postNum2);
-
-      $("#address1").val(detailAddress);
-
-      $("#searchPost").modal('hide');
-   }
-
-   function fn_postCheck(){
-      dong = $("#dong").val();
-
-      if(dong == ""){
-         alert("동을 입력하세요.");
-         return;
-      }
-      $("#postBody").children().remove();
-
-      var aheadHtml = "<tr><td style='text-align: center;'><a onclick=javascript:fn_setData($(this))><b>";
-      var backHtml = "</b></a></td></tr>";
-      var appendHtml = "";
-      var param = {};
-
-      param["dong"] = dong;
-
-      $.ajax({
-            url:"${context}/work/applicant/retrievePostByDong.do",
-         contentType:"application/json",
-         dataType:"json",
-         data:param,
-            success:function(result){
-               for(var i = 0; i < result.length; i++){
-                  appendHtml
-                     += aheadHtml
-                     + result[i].zipcode + " "
-                  + result[i].sido    + " "
-                   + result[i].gugun   + " "
-                  + result[i].dong    + " "
-                  + backHtml;
-               }
-                  $("#postBody").append(appendHtml);
-            }
-         });
-   }
    function fn_save(){
       if(!fn_validation()) return;
 
@@ -206,7 +135,7 @@
                     document.getElementById("postNum2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("address2").value = '';
+                    document.getElementById("postNum1").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -220,143 +149,157 @@
 </script>
 </head>
 <body>
-<jsp:include page="../common/top.jsp"></jsp:include>
-<!-- top 끝 -->
-<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/loginImg.png');">
-	<div class="container">
-		<form id="joinFrm" method="post" action="${context}/work/user/updateUser.do" role="form" class="form-horizontal">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="panel-body">
-						<div class="panel-title login">Edit user information</div>
-							<!-- 아이디 -->
-							<div class="form-group">
-							<label for="id" class="control-label col-md-2 idUser" hidden="hidden;"><b>아이디</b></label>
-								<div class="col-sm-12">
-									<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="아이디"/>
-									<p id="message"></p>
-								</div>
-							</div>
-							<!-- 비밀번호 -->
-							<div class="form-group">
-							<label for="pw" class="control-label col-md-2 pwUser" hidden="hidden;"><b>비밀번호</b></label>
-								<div class="col-sm-12">
-									<input class="form-control" placeholder="비밀번호" id="pw" name="pw" type="password">
-								</div>
-							</div>
-							<!-- 이메일 -->
-							<div class="form-group">
-							<label for="email" class="control-label col-md-2 emailUser" hidden="hidden;"><b>이메일</b></label>
-								<div class="col-sm-12">
-									<input class="form-control" type="email" name="email" id="email" required="required" placeholder="이메일"/>
-								</div>
-							</div>
-							<!-- 이름 -->
-							<div class="form-group" >
-							<label for="name" class="control-label col-md-2 nameUser" hidden="hidden;"><b>성명</b></label>
-								<div class="col-sm-12">
-									<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="성명"/>
-								</div>
-							</div>
-							<!-- 생년월일 -->
-							<div class="form-group">
-							<label for="birth" class="control-label col-md-2 birthUser" hidden="hidden;"><b>생년월일</b></label>
-								<div class="col-sm-12">
-									<input class="form-control" type="text" id="birth" name="birth" required="required" maxlength="10" placeholder="생년월일"/>
-								</div>
-							</div> 
-							<!-- 전화번호 -->
-							<div class="col-sm-12 col-md-6 col-lg-4 phoneGroup">
-								<div class="form-group">
-								<label for="phoneCd" class="control-label col-md-2 phoneUser" hidden="hidden;"><b>연락처</b></label>
-									<select class="form-control form-phone" id="phoneCd" name="phoneCd" required="required" style="font-size: 15px !important;">
-										<c:forEach items="${dsCode1}" var="code1">
-											<option value="${code1.commCd}">${code1.commCdNm}</option>
-										</c:forEach>
-									</select>
-								</div>
-								<div class="form-group">
-									<input class="form-control form-phone" type="text" id="phone1" maxlength="4" required="required" placeholder="전화번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
-								</div>
-								<div class="form-group">
-									<input class="form-control form-phone" type="text" id="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
-								</div>
-									<input type="hidden" id="phoneNum" name="phoneNum">
-							</div>
-							<!-- 주소 -->
-							<div class="form-group">
-							<label for="postnum1" class="control-label col-md-2 addressUser" hidden="hidden;"><b>주소</b></label>
-								<div class="col-sm-12" id="formIcon"">
-									<input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
-									<input class="form-control address1" placeholder="우편번호" type="text" id="postNum1" disabled="disabled" required="required"/>
-								</div>
-								<!-- 주소 동,로,가 -->
-								<div class="col-sm-12" id="formIcon">
-									<input class="form-control" type="hidden" placeholder="동,로,가" id="postNum2" disabled="disabled"/>
-								</div>
-									<input type="hidden" id="postNum" name="postNum">
-							</div>
-							<!-- 주소 1 -->
-							<div class="form-group">
-								<div class="col-sm-12" id="formIcon">
-									<input class="form-control" placeholder="주소" type="text" id="address1" disabled="disabled" required="required"/>
-								</div>
-									<input type="hidden" id="extraAddr" name="extraAddr">
-							</div>
-							<!-- 추가 상세 주소 2 -->
-							<div class="form-group">
-								<div class="col-sm-12" id="formIcon">
-									<input class="form-control" placeholder="상세주소" type="text" id="address2"/>
-								</div>
-									<input type="hidden" id="address" name="address">
-							</div>
-							<!-- 사진 추가 기능 사용 안함 -->
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="hidden" id="userImage" name="userImage">
-								</div>
-									<input type="hidden" id="flag" name="flag" value="false">
-							</div>
-							<!-- 사진 추가 기능 끝 -->
-							<!-- Ajax saveFile.do 안씀 -->
-							<form id="ajaxform" action="${context}/work/product/saveFile.do" method="post" enctype="multipart/form-data" role="form" >
-								<div class="col-md-6">
-									<input class="form-control" type="hidden" id="imageFile" name="imageFile" onchange="fn_upload()"/>
-									<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
-								</div>
-							</form>
-							<!-- 체크박스 -->
-							<div class="form-group">
-								<div class="col-md-12">
-									<div class="checkbox checkbox1">
-										<label><input type="checkbox"><p class="checkboxText">I agree the <span class="forgotText">Terms & Conditions</span></p></label>
-									</div>
-								</div>
-							</div>      
-							<!-- 버튼 -->
-							<div class="form-group">
-								<div class="col-md-12">
-									<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
-									<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">등록하기</button>
-								</div>
-							</div>
-						</div>
-					<!-- panel-body 끝 -->
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<div class="container-fluid backgroundImg">
+	<div class="row">
+       	<div class="col-md-6 col-md-offset-3">
+	        <div class="loginbox">
+	        	<!-- login tab button start -->
+	        	<div class="logintab">
+			        <div class="col-xs-12 title">Edit user information</div>
 				</div>
-				<!-- col-md-6 col-md-offset-3 끝 -->
+	        	<!-- login tab button end -->
+				<form id="joinFrm" method="post" action="${context}/work/user/updateUser.do" role="form" class="form-horizontal">
+					<!-- 아이디 -->
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="id" class="control-label hidden"><b>아이디</b></label>
+							<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="Id"/>
+							<p id="message"></p>
+						</div>
+					</div>
+					<!-- 비밀번호 -->
+					<div class="form-group">
+						<div class="col-sm-12">
+							<label for="pw" class="control-label hidden"><b>비밀번호</b></label>
+							<input class="form-control" placeholder="Password" id="pw" name="pw" type="password">
+						</div>
+					</div>
+					<!-- 이름 -->
+					<div class="form-group" >
+						<div class="col-sm-12">
+							<label for="name" class="control-label hidden"><b>이름</b></label>
+							<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="Name"/>
+						</div>
+					</div>
+					<!-- 이메일 -->
+					<div class="form-group">
+					<label for="email" class="control-label hidden"><b>이메일</b></label>
+						<div class="col-sm-12">
+							<input class="form-control" type="email" name="email" id="email" required="required" placeholder="E-mail"/>
+						</div>
+					</div>
+					<!-- 생년월일 -->
+					<div class="form-group">
+					<label for="birth" class="control-label hidden"><b>생년월일</b></label>
+						<div class="col-sm-12">
+							<input class="form-control" type="text" id="birth" name="birth" required="required" maxlength="10" placeholder="Birth" autocomplete="off"/>
+						</div>
+					</div> 
+					<!-- 전화번호 -->
+					<div class="form-group">
+					    <div class="col-xs-4 hyphen">
+							<label for="phoneCd" class="control-label hidden"><b>전화번호</b></label>
+					        <select class="form-control" id="phoneCd" name="phoneCd" required="required">
+								<c:forEach items="${dsCode1}" var="code1">
+								    <option value="${code1.commCd}">${code1.commCdNm}</option>
+								</c:forEach>
+					        </select>
+			  	    	</div>
+					    <div class="col-xs-4 hyphen">
+					       <input class="form-control" type="text" id="phone1" name="phone1" maxlength="4" required="required" placeholder="전화번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
+					    </div>
+					    <div class="col-xs-4">
+					       <input class="form-control" type="text" id="phone2" name="phone2" maxlength="4" required="required" placeholder="끝번호 네자리" onkeydown="return fn_showKeyCode(event)"/>
+				        </div>
+					    <input type="hidden" id="phoneNum" name="phoneNum">
+					</div>
+					<!-- 주소 -->
+					<div class="form-group">
+					    <div class="col-sm-12">
+							<div class="input-group">
+								<label for="address" class="control-label hidden"><b>주소</b></label>
+						    	<input type="text" class="form-control postcode" placeholder="Address" id="postNum1" name="address" disabled="disabled" required="required">
+					    		<span class="input-group-btn">
+					    			<button class="btn btn-default postsearch" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" type="button">Search</button>
+					    		</span>
+					    		<input type="hidden" id="postNum" name="postNum">
+						    </div>
+					    </div>
+				    </div>
+				    <!-- 주소 1 -->
+		            <div class="form-group hidden">
+		            	<div class="col-sm-12">
+		                <input class="form-control" placeholder="Details 1" id="postNum2" name="details 1" disabled="disabled" type="text">
+		                </div>
+		            </div>
+		            <!-- 주소 2 -->
+		            <div class="form-group">
+		            	<div class="col-sm-12">
+		                <input class="form-control" placeholder="Details 1" id="address1" disabled="disabled" type="text">
+		                </div>
+		            </div>
+		            <!-- 주소 3 -->
+		            <div class="form-group">
+		            	<div class="col-sm-12">
+		                	<input class="form-control" placeholder="Details 2" id="address2" type="text">
+		                	<input type="hidden" id="address" name="address">
+		                </div>
+		            </div>
+					<!-- 주소 -->
+					<!-- <div class="form-group">
+					<label for="postnum1" class="control-label col-md-2 addressUser" hidden="hidden;"><b>주소</b></label>
+						<div class="col-sm-12" id="formIcon"">
+							<input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
+							<input class="form-control address1" placeholder="우편번호" type="text" id="postNum1" disabled="disabled" required="required"/>
+						</div>
+						주소 동,로,가
+						<div class="col-sm-12" id="formIcon">
+							<input class="form-control" type="hidden" placeholder="동,로,가" id="postNum2" disabled="disabled"/>
+						</div>
+							<input type="hidden" id="postNum" name="postNum">
+					</div>
+					주소 1
+					<div class="form-group">
+						<div class="col-sm-12" id="formIcon">
+							<input class="form-control" placeholder="주소" type="text" id="address1" disabled="disabled" required="required"/>
+						</div>
+							<input type="hidden" id="extraAddr" name="extraAddr">
+					</div>
+					추가 상세 주소 2
+					<div class="form-group">
+						<div class="col-sm-12" id="formIcon">
+							<input class="form-control" placeholder="상세주소" type="text" id="address2"/>
+						</div>
+							<input type="hidden" id="address" name="address">
+					</div> -->
+					<!-- 버튼 -->
+					<div class="form-group">
+	                	<div class="col-sm-12">
+							<button class="form-control btn Loginbtn" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">수정하기</button>
+						</div>
+					</div>
+					&nbsp;
+					<!-- <div class="form-group">
+						<div class="col-md-12">
+							<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
+							<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">수정하기</button>
+						</div>
+					</div> -->
+				</form>
+				<!-- joinFrm 끝 -->
 			</div>
-			<!-- row 끝 -->
-		</form>
-		<!-- joinFrm 끝 -->
+		</div>
+		<!-- col-md-6 col-md-offset-3 끝 -->
 	</div>
-	<!-- container 끝 -->
+	<!-- row 끝 -->
 </div>
-<!-- backgroundImg 끝 -->
-<jsp:include page="../common/foot.jsp"></jsp:include>
+<!-- container 끝 -->
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 <!-- footer 끝 -->
 </body>
 <style type="text/css">
-
+/* 
 
 .form-group {
    float: none; 
@@ -536,8 +479,8 @@ input[value="Search"]:hover{
 }
 
 input[type="checkbox"]{
-   width: 20px; /*Desired width*/
-   height: 20px; /*Desired height*/
+   width: 20px; 
+   height: 20px;
    color: #818483;
 }
 
@@ -612,6 +555,6 @@ a:hover{
 @media (max-width: 768px) {
    .panel-body {top: 716% !important;}
    .login{margin: 77px !important;}
-}
+} */
 </style>
 </html>
