@@ -67,13 +67,13 @@ CREATE TABLE TB_COM_USER(
 );
 
 INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE, GRADE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'admin', 'admin', 'admin@aroma_fragansia.com', 'AROMA', '1980-02-12', '135-080',
-          '01', '1234-5678', '서울특별시 강남구 강남대로 382 (역삼동) 메리츠타워', '2022-10-13', 'A');
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'admin', 'admin', 'admin@aroma_fragansia.com', 'AROMA', '1980-02-12', '06232',
+          '01', '1234-5678', '서울특별시 강남구 강남대로 382', '2022-10-13', 'A');
 INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'ksy', 'ksy', 'ksy@naver.com', '기성용', '1989-01-12', '135-887',
-          '01', '1111-2222', '서울특별시 강남구 도산대로45길 10-6', '2023-01-18');
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'ksy', 'ksy', 'ksy@naver.com', '기성용', '1989-01-12', '06021',
+          '01', '1111-2222', '서울특별시 강남구 신사동 651-7', '2023-01-18');
 INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'shm', 'shm', 'shm@naver.com', '손흥민', '1992-05-07', '135-888',
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'shm', 'shm', 'shm@naver.com', '손흥민', '1992-05-07', '06021',
           '01', '3333-4444', '서울특별시 강남구 도산대로45길 7', '2023-01-18');
 
 commit;
