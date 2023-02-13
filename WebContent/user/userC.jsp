@@ -63,24 +63,6 @@
 			}
 		});
 	}
-
-	function fn_upload(){
-		$("#ajaxform").ajaxSubmit({
-	        type: "POST",
-	        dataType: 'text',
-	        url: $("#ajaxform").attr("action"),
-	        data: $("#ajaxform").serialize(),
-	        success: function (data) {
-	        	data2 = data.replace(/"/gi, "");
-	        	var imageUrl = "${context}/userImg/" + data2;
-	        	$("#pic").attr("src", imageUrl);
-	        	$("#userImage").val(data2);
-	        },
-	        error: function (xhr, status, error) {
-	            alert(error);
-	        }
-	    });
-	}
 	
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -222,7 +204,7 @@
 		            <!-- 주소 1 -->
 		            <div class="form-group hidden">
 		            	<div class="col-sm-12">
-		                <input class="form-control" placeholder="Details 1" id="postNum2" name="details 1" disabled="disabled" type="text">
+		                <input class="form-control" placeholder="Details 1" id="postNum2" name="details 1" disabled="disabled" type="hidden">
 		                </div>
 		            </div>
 		            <!-- 주소 2 -->

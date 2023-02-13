@@ -65,7 +65,6 @@
 				  , ID
 				  , PW
 				  , EMAIL
-				  , USER_IMAGE
 				  , NAME
 				  , BIRTH
 				  , POST_NUM
@@ -78,7 +77,6 @@
 				  , #{id}
 				  , #{pw}
 				  , #{email}
-				  , #{userImage}
 				  , #{name}
 				  , #{birth}
 				  , #{postNum}
@@ -94,7 +92,6 @@
 		<![CDATA[
 			UPDATE TB_COM_USER
 			SET	EMAIL       = #{email}
-			  , USER_IMAGE  = #{userImage}
 			  , NAME        = #{name}
 			  , BIRTH       = #{birth}
 			  , POST_NUM    = #{postNum}
@@ -111,21 +108,4 @@
 			DELETE FROM TB_COM_USER WHERE ID = #{id}
 		]]>
 	</delete>
-
-	<select id="retrievePostByDong" resultType="map" parameterType="map">
-		<![CDATA[
-			/* retrievePostByDong */
-			SELECT ZIPCODE
-				 , SIDO
-				 , GUGUN
-				 , DONG
-				 , BUNJI
-				 , SEQ
-			FROM   TB_POST
-			WHERE  1=1
-			AND	   DONG LIKE '%' || #{dong} || '%'
-			AND    ROWNUM <= 20
-
-		]]>
-	</select>
 </mapper>

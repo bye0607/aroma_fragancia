@@ -34,7 +34,6 @@
          if(key.keyCode == 13){
             fn_postCheck();
          }
-
       });
 
       //U페이지 해당
@@ -53,9 +52,6 @@
       var postNumArr = '${dsUser.postNum}';
       var addressArr = '${dsUser.address}'.split("/");
 
-      var userImage = '${dsUser.userImage}';
-      userImage = userImage.replace(/"/gi, "");
-
       $("#phone1").val(phoneArr[0]);
       $("#phone2").val(phoneArr[1]);
 
@@ -63,12 +59,8 @@
 
       $("#postNum1").val(postNumArr);
 
-      //$("#postNum2").val(addressArr[0]);
       $("#address1").val(addressArr[0]);
       $("#address2").val(addressArr[1]);
-
-      $("#pic").attr("src", '${context}/userImg/' + userImage);
-      $("#userImage").val(userImage);
 
    }
 
@@ -82,23 +74,6 @@
 
           $("#joinFrm").submit();
       }
-   }
-   function fn_upload(){
-      $("#ajaxform").ajaxSubmit({
-           type: "POST",
-           dataType: 'text',
-           url: $("#ajaxform").attr("action"),
-           data: $("#ajaxform").serialize(),
-           success: function (data) {
-              data2 = data.replace(/"/gi, "");
-              var imageUrl = "${context}/userImg/" + data2;
-              $("#pic").attr("src", imageUrl);
-              $("#userImage").val(data2);
-           },
-           error: function (xhr, status, error) {
-               alert(error);
-           }
-       });
    }
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -246,33 +221,6 @@
 		                	<input type="hidden" id="address" name="address">
 		                </div>
 		            </div>
-					<!-- 주소 -->
-					<!-- <div class="form-group">
-					<label for="postnum1" class="control-label col-md-2 addressUser" hidden="hidden;"><b>주소</b></label>
-						<div class="col-sm-12" id="formIcon"">
-							<input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
-							<input class="form-control address1" placeholder="우편번호" type="text" id="postNum1" disabled="disabled" required="required"/>
-						</div>
-						주소 동,로,가
-						<div class="col-sm-12" id="formIcon">
-							<input class="form-control" type="hidden" placeholder="동,로,가" id="postNum2" disabled="disabled"/>
-						</div>
-							<input type="hidden" id="postNum" name="postNum">
-					</div>
-					주소 1
-					<div class="form-group">
-						<div class="col-sm-12" id="formIcon">
-							<input class="form-control" placeholder="주소" type="text" id="address1" disabled="disabled" required="required"/>
-						</div>
-							<input type="hidden" id="extraAddr" name="extraAddr">
-					</div>
-					추가 상세 주소 2
-					<div class="form-group">
-						<div class="col-sm-12" id="formIcon">
-							<input class="form-control" placeholder="상세주소" type="text" id="address2"/>
-						</div>
-							<input type="hidden" id="address" name="address">
-					</div> -->
 					<!-- 버튼 -->
 					<div class="form-group">
 	                	<div class="col-sm-12">
@@ -280,12 +228,6 @@
 						</div>
 					</div>
 					&nbsp;
-					<!-- <div class="form-group">
-						<div class="col-md-12">
-							<button type="button" class="Loginbtn1 form-control" onclick="fn_back()">뒤로가기</button>
-							<button class="Loginbtn2 form-control" type="button" name="btnSubmit" id="btnSubmit" onclick="fn_save()">수정하기</button>
-						</div>
-					</div> -->
 				</form>
 				<!-- joinFrm 끝 -->
 			</div>
@@ -298,263 +240,4 @@
 <jsp:include page="${context}/common/foot.jsp"></jsp:include>
 <!-- footer 끝 -->
 </body>
-<style type="text/css">
-/* 
-
-.form-group {
-   float: none; 
-   margin 0 auto;
-}
-
-.phoneGroup {
-    display: flex;
-    margin-left: 40px;
-    justify-content: flex-start;
-}
-
-font[Attributes Style] {
-    color: #000 !important;
-    font-size: medium;
-}
-.address1 {
-   float: left !important;
-   width: 380px !important;
-   margin-left: 42px !important;
-}
-input[value="Search"]{
-      width: 18%;
-      height: 66px;
-      background-color: lightgray;
-      border:none;
-      background-color: white;
-      font-size: 20px;
-      font-family: Crimson Pro;
-      color:#9CA09F;
-      outline:none;
-      display:inline;
-      margin-left: -22px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 0 15px 15px 0;
-    }
-input[value="Search"]:hover{
-     background:#9CA09F;
-     color:#fff
-    }
-    
-.backgroundImg {
-   width: 100%;
-   height: 1500px;
-   box-sizing: border-box;
-   background-position: center;
-   background-size: cover;
-   justify-content:center !important; 
-   align-items:center!important;
-}
-.login{
-   font-family:'DM Serif Display';
-   font-size: 30px;
-}
-.panel-title{
-   padding-left: 15px;
-   padding-top: 1em;
-}
-.panel-body{
-   clear:both;
-   width: 550px;
-   height: 1150px;
-   background-color: #fff;
-   border-radius: 30px !important; 
-   position: absolute !important; 
-   top: 35px;
-}
-.fieldset {
-   background-position: center;
-}
-
-#id {
-   margin-top: 40px;
-}
-#id::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/user.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  color: #9CA09F !important;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#email::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/mail.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#pw::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/key.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#sample6_postcode::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/map-pin.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#sample6_address::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/map-pin.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#sample6_detailAddress::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/map-pin.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-#sample6_extraAddress::-webkit-input-placeholder{
-  background-image: url('${context}/userImg/map-pin.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  font-family: Crimson Pro;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
-}
-.form-control {
-   width: 450px;
-   height: 66px;
-   margin: 0 auto;
-   margin-bottom: 15px;
-   border-radius: 15px!important; 
-   font-size: 15px!important; 
-}
-
-.form-phone {
-   width: 140px!important;
-   height: 66px;
-   margin-bottom: 15px;
-   margin-right: 50px;
-   border-radius: 15px!important; 
-   font-size: 15px!important; 
-}
-
-input[type="checkbox"]{
-   width: 20px; 
-   height: 20px;
-   color: #818483;
-}
-
-input{
-   float: none; 
-   margin 0 auto;
-}
-
-.checkbox label {
-   padding-left: 64px;
-}
-.checkbox1{
-   width: 450px;
-   height: 20px;
-   margin-bottom: 20px;
-   padding-top: 0px !important;
-}
-.checkboxText {
-   font-size: 20px;
-   font-family: Crimson Pro;
-   margin-left: 16px;
-   color: #818483;
-}
-a{
-   color: #9CA09F;
-}
-a:hover{
-   color: #818483;
-}
-.Loginbtn1{
-   font-size: 25px;
-   font-weight: bold;
-   font-family: Crimson Pro;
-   width: 200px;
-   color: #fff;
-   background-color: #9CA09F;
-   float: left;
-   margin: 0 0 0 58px;
-}
-
-.Loginbtn2{
-   font-size: 25px;
-   font-weight: bold;
-   font-family: Crimson Pro;
-   width: 200px;
-   color: #fff;
-   background-color: #9CA09F;
-   float: left;
-   margin: 0 50px 0 10px;
-}
-
-.forgotText {
-   font-weight: bold;
-   font-size: 20px;
-   font-family: Crimson Pro;
-   text-decoration: underline;
-   text-align: center;
-   margin-top: 22px;
-}
-
-
-@media (max-width: 992px) {
-   .panel-body {top: 62% !important;}
-   .login{margin: -56px !important;}
-   .backgroundImg {height: 1100px;}
-}
-
-@media (max-width: 991px) and (min-width: 769px) {
-   .panel-body {top: 716% !important}
-   .login{margin: 77px !important;}
-}
-@media (max-width: 768px) {
-   .panel-body {top: 716% !important;}
-   .login{margin: 77px !important;}
-} */
-</style>
 </html>
