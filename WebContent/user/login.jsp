@@ -65,7 +65,7 @@
 				<form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
                     <fieldset>
                         <div class="form-group">
-	                        <div class="col-sm-12" id="formIcon">
+	                        <div class="col-sm-12">
 	                            <input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" placeholder="ID"/>
                             </div>
                         </div>
