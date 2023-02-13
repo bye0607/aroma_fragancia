@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				  "dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservation">
+	<resultMap id="reservationResult" type="reservation">
+		<result property="vstNo" column="VST_NO" />
+		<result property="vstTitle" column="VST_TITLE" />
+		<result property="vstContent" column="VST_CONTENT" />
+		<result property="vstPhone" column="VST_PHONE" />
+		<result property="vstEmail" column="VST_EMAIL" />
+		<result property="vstRegId" column="VST_REG_ID" />
+		<result property="vstModId" column="VST_MOD_ID" />
+		<result property="vstRegDate" column="VST_REG_DATE" />
+		<result property="vstModDate" column="VST_MOD_DATE" />
+	</resultMap>
+
+	<select id="reservationList" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	vstList	*/
+            SELECT VISIT.VST_NO
+				 , VISIT.VST_TITLE
+				 , VISIT.VST_CONTENT /* 내용 */
+				 , VISIT.VST_PHONE /* 전화번호 */
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = VISIT.VST_REG_ID) AS USER_NAME /* 등록자 */
+				 , VISIT.VST_EMAIL /* 이메일 */
+				 , VISIT.VST_REG_DATE /*  등록일자 */
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = VST_MOD_ID) AS USER_NAME_MODI  /* 수정자*/
+				 , VISIT.VST_MOD_DATE /*  수정일자*/
+			FROM   TB_VISIT VISIT
+			WHERE  1=1
+			ORDER BY VISIT.VST_REG_DATE DESC
+		
+		]]>
+	</select>
+
+	<select id="reservationView" parameterType="map" resultType="map">
+		<![CDATA[
+		/*	retrievereservation	*/
+            SELECT VISIT.VST_NO
+				 , VISIT.VST_TITLE
+				 , VISIT.VST_CONTENT /* 내용 */
+				 , VISIT.VST_PHONE /* 전화번호 */
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = VISIT.VST_REG_ID) AS USER_NAME /* 등록자 */
+				 , VISIT.VST_EMAIL /* 이메일 */
+				 , VISIT.VST_REG_DATE /*  등록일자 */
+				 , (SELECT NAME FROM TB_COM_USER WHERE USER_CODE = VST_MOD_ID) AS USER_NAME_MODI  /* 수정자*/
+				 , VISIT.VST_MOD_DATE /*  수정일자*/
+			FROM   TB_VISIT VISIT
+			WHERE  1=1
+			AND    VISIT.VST_NO = #{vstNo}
+		]]>
+	</select>
+
+	<select id="maxReservationNo" resultType="string">
+		<![CDATA[
+		/*	retrievemaxvstNo	*/
+			SELECT MAX(VST_NO) 
+			FROM TB_VISIT
+		]]>
+	</select>
+
+	<insert id="reservationWrite" parameterType="reservation">
+		<![CDATA[
+		/*	createVST	*/
+			INSERT INTO TB_VISIT
+				(VST_NO
+				, VST_TITLE
+				, VST_CONTENT
+				, VST_PHONE
+				, VST_EMAIL
+				, VST_REG_ID
+				, VST_REG_DATE				
+				, VST_MOD_DATE				
+			) VALUES 
+				('A' || LPAD(VST_SEQ.NEXTVAL, 5, 0) /* N*/
+				, #{vstTitle}
+				, #{vstContent}
+				, #{vstPhone}
+				, #{vstEmail}
+				, #{vstRegId}
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+				, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')
+			)			
+		
+		]]>
+	</insert>
+	
+
+	<update id="reservationModify" parameterType="reservation">
+		<![CDATA[
+		/*	updateModify */
+			
+			UPDATE TB_VISIT
+			SET VST_TITLE         =  #{vstTitle}
+			  , VST_CONTENT       =  #{vstContent}
+			  , VST_PHONE         =  #{vstPhone}
+			  , VST_EMAIL         =  #{vstEmail}
+			  , VST_MOD_DATE	  =  TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI')  
+			WHERE VST_NO = #{vstNo}
+			
+		]]>
+	</update>
+
+
+	<delete id="deleteReservation" parameterType="map">
+		<![CDATA[
+		/*	deletereservation	*/
+			DELETE
+			FROM  TB_VISIT
+			WHERE 1=1
+			  AND VST_NO = #{vstNo}
+		]]>
+	</delete>
+	
+	<delete id="deleteReservation2" parameterType="map">
+		<![CDATA[
+		/*	deletereservation2	*/
+			DELETE
+			FROM  TB_VISIT
+			WHERE 1=1
+			  AND VST_REG_ID = #{vstRegId}
+		]]>
+	</delete>
+
+</mapper>

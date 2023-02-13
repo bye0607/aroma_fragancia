@@ -3,23 +3,21 @@ package work.board;
 import java.util.List;
 import java.util.Map;
 
-
 public interface ReservationService {
-	
-	public List<Map<String, String>> retrieveVstList(Map<String, String> vstParam);
+		public List<Map<String, String>> reservationList(Map<String, String> reservationParam);
 
-	public Map<String, String> retrieveVst(Map<String, String> vstParam);
+		public Map<String, String> reservationView(Map<String, String> reservationParam);
 
-	public String retrieveMaxVstNo();
+		public String maxReservationNo();
 
-	public void createVst(ReservationBean vst);
+		public void reservationWrite(ReservationBean reservation);
 
-	public void updateVst(ReservationBean vst);
+		public void reservationModify(ReservationBean reservation);
 
-	public void updateVstHits(Map<String, String> vstParam);
+		public void updateReservationHit(Map<String, String> reservationParam);
 
-	public void deleteVst(Map<String, String> vstParam);
-	
-	public void deleteVst2(Map<String, String> vstParam);
-	
+		public void deleteReservation(Map<String, String> reservationParam);
+		
+		public void deleteReservation2(Map<String, String> reservationParam);
+
 }

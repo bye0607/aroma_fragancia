@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="boardWrite.jsp">
+	<meta name="description" content="reservationList.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 목록</title>
 	<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
@@ -15,8 +15,8 @@
 	<script src="${context}/js/bootstrap.min.js"></script>
 	<script src="${context}/js/common.js"></script>
 	<script type="text/javascript">
-		function fn_rstWrite(){
-			location.href = "${context}/work/reservation/rstWrite.do";
+		function fn_reservationWrite(){
+			location.href = "${context}/work/board/reservationWrite.do";
 		}
 	</script>
 </head>
@@ -26,8 +26,8 @@
 <div class="desktop">
 	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText1" >
-			<h3 class="boardTitle1">notice</h3>
-			<p class="boardSub1">공지사항</p>
+			<h3 class="boardTitle1">RESERVATION</h3>
+			<p class="boardSub1">상담 예약 문의</p>
 		</div>
 	</div>
 </div>
@@ -35,8 +35,8 @@
 <div class="mobile">
 	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
 		<div class="boardText2" >
-			<h3 class="boardTitle2">notice</h3>
-			<p class="boardSub2">공지사항</p>
+			<h3 class="boardTitle2">RESERVATION</h3>
+			<p class="boardSub2">상담 예약 문의</p>
 		</div>
 	</div>
 </div>
@@ -48,10 +48,10 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title eng">notice</h2>
+					<h2 class="title">상담 예약 게시판</h2>
 				</div>
 				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-lg boardbtn"  onclick="fn_rstWrite()">새 글 쓰기</button>
+					<button type="button" class="btn btn-lg boardbtn"  onclick="fn_reservationWrite()">새 글 쓰기</button>
 				</div>
 			</div>
 		</div>
@@ -61,11 +61,12 @@
             <div class="table-responsive">
                 <table class="table table-hover boardlist">
                     <tbody>
-                        <c:forEach items="${dsVstList}" var="dsVstList">
+                        <c:forEach items="${dsreservationList}" var="dsreservationList">
                          <tr>
                          	<td>
-                         		<div class="col-md-10"><a href ="${context}/work/board/BoardView.do?boardNo=${dsVstList.VST_NO}">${dsVstList.VST_TITLE}</a></div>
-								<div class="col-md-2">${dsVstList.USER_CODE}</div>
+                         		<div class="col-md-10"><a href ="${context}/work/board/reservationView.do?vstNo=${dsreservationList.VST_NO}">${dsreservationList.VST_TITLE}</a></div>
+								<div class="col-md-2">${dsreservationList.USER_NAME}</div>
+								                      
                          	</td>
                          </tr>
                     	</c:forEach>

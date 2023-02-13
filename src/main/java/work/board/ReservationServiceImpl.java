@@ -13,49 +13,46 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Resource(name = "reservationDAO")
 	private ReservationDAO reservationDAO;
-
-	public List<Map<String, String>> retrieveVstList(Map<String, String> vstParam){
-		return ReservationDAO.retrieveVstList(vstParam);
-	}
-
-	public Map<String, String> retrieveVst(Map<String, String> vstParam){
-		return ReservationDAO.retrieveVst(vstParam);
-	}
-
-	public String retrieveMaxVstNo() {
-		return ReservationDAO.retrieveMaxVstNo();
-	}
 	
-	public String retrieveVstNo(){
-		return ReservationDAO.retrieveMaxVstNo();
+	@Override
+	public List<Map<String, String>> reservationList(Map<String, String> reservationParam) {
+		return reservationDAO.reservationList(reservationParam);
 	}
-
-	public void createVst(ReservationBean vst){
-		ReservationDAO.createVst(vst);
+	@Override
+	public Map<String, String> reservationView(Map<String, String> reservationParam) {
+		return reservationDAO.reservationView(reservationParam);
 	}
-
-	public void updateVst(ReservationBean vst){
-		ReservationDAO.updateVst(vst);
+	@Override
+	public String maxReservationNo() {
+		return reservationDAO.maxReservationNo();
 	}
-
-	public void updateVstHits(Map<String, String> vstParam){
-		ReservationDAO.updateVstHits(vstParam);
-	}
-
-	
-
-	public void deleteVst(Map<String, String> vstParam) {
-		ReservationDAO.deleteVst(vstParam);
+	@Override
+	public void reservationWrite(ReservationBean reservation) {
+		reservationDAO.reservationWrite(reservation);	
+		
 		
 	}
-
-	public void deleteVst2(Map<String, String> vstParam) {
-		ReservationDAO.deleteVst2(vstParam);
+	@Override
+	public void reservationModify(ReservationBean reservation) {
+		reservationDAO.reservationModify(reservation);
 		
 	}
-
+	@Override
+	public void updateReservationHit(Map<String, String> reservationParam) {
+		reservationDAO.updateReservationHit(reservationParam);
+		
+	}
+	@Override
+	public void deleteReservation(Map<String, String> reservationParam) {
+		reservationDAO.deleteReservation(reservationParam);
+		
+	}
+	@Override
+	public void deleteReservation2(Map<String, String> reservationParam) {
+		reservationDAO.deleteReservation2(reservationParam);
+		
+	}
 	
-
 	
 
 }

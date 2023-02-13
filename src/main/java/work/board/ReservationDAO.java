@@ -1,61 +1,50 @@
 package work.board;
 
-
-
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ReservationDAO {
-	
+
 	@Autowired
-	private static SqlSessionTemplate sqlSession;
-//	public static ReservationDAO dao = new ReservationDAO();
+	private SqlSessionTemplate sqlSession;
+
+	public List<Map<String, String>> reservationList(Map<String, String> reservationParam){
+		return sqlSession.selectList("reservation.reservationList", reservationParam);
+	}
+
+	public Map<String, String> reservationView(Map<String, String> reservationParam){
+		return sqlSession.selectOne("reservation.reservationView", reservationParam);
+	}
+
+	public String maxReservationNo(){
+		return sqlSession.selectOne("reservation.maxReservationNo");
+	}
+
+	public void reservationWrite(ReservationBean reservation){
+		sqlSession.insert("reservation.reservationWrite", reservation);
+	}
+	
+	public void reservationModify(ReservationBean reservation){
+		sqlSession.update("reservation.reservationModify", reservation);
+	}
+
+	public void updateReservationHit(Map<String, String> reservationParam){
+		sqlSession.update("reservation.updateReservationHit", reservationParam);
+	}
 	
 
-	public static List<Map<String, String>> retrieveVstList(Map<String, String> vstParam) {
-		return sqlSession.selectList("vst.retrieveVstList", vstParam);
+
+	public void deleteReservation(Map<String, String> reservationParam){
+		sqlSession.delete("reservation.deleteReservation", reservationParam);
 	}
 
-
-	public static Map<String, String> retrieveVst(Map<String, String> vstParam) {
-		return sqlSession.selectOne("vst.retrieveVst", vstParam);
-	}
-
-
-	public static String retrieveMaxVstNo() {
-		return sqlSession.selectOne("vst.retrieveMaxVstNo");
-	}
-
-
-	public static void createVst(ReservationBean vst) {
-		sqlSession.insert("vst.createVst", vst);
-		
-	}
-
-
-	public static void updateVst(ReservationBean vst) {
-		sqlSession.update("vst.updateVst", vst);
-		
-	}
-
-
-	public static void updateVstHits(Map<String, String> vstParam) {
-		sqlSession.update("vst.updateVstHits", vstParam);
-		
-	}
-
-
-	public static void deleteVst(Map<String, String> vstParam) {
-		sqlSession.delete("vst.deleteVst", vstParam);
-		
-	}
-	public static void deleteVst2(Map<String, String> vstParam) {
-		sqlSession.delete("vst.deleteVst2", vstParam);
-		
+	public void deleteReservation2(Map<String, String> reservationParam){
+		sqlSession.delete("reservation.deleteReservation2", reservationParam);
 	}
 }

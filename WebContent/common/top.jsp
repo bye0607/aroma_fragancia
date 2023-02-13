@@ -72,7 +72,7 @@
 	        </li>
 	        
 	        <!-- 비회원 가능 -->
-	        <li><a class="ddt" href="#">RESERVATION</a></li>
+	        <li><a class="ddt" href="${context}/work/board/reservationList.do">RESERVATION</a></li>
 	        
 	        <!-- 회원, 관리자만 가능 -->
 	        <li class="dropdown">

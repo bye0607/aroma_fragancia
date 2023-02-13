@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="rstView.jsp">
+<meta name="description" content="reservationWrite.jsp">
 <title>예약 상세 페이지</title>
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
@@ -19,16 +19,16 @@
 		});
 	
 		function fn_save(){
-			if(!fn_validation()){
+			if(!fn_validation()){ 
 				return;
 			}else{
-				var boardContent = String($("#boardContent").val());
+				var boardContent = String($("#vstContent").val());
 	
 				boardContent = boardContent.replace(/\n/gi, "<br/>");
 	
-				$("#boardContent").val(boardContent);
+				$("#vstContent").val(boardContent);
 	
-		 		$("#boardWrite").submit();
+		 		$("#reservationWrite").submit();
 			}
 		}
 	
@@ -59,36 +59,38 @@
 <!-- Detail -->
 	<div class="container">
 	<h4 class="Title">상담신청하기</h4>
-		<form class="form-horizontal" method="post" action="${context}/work/reservation/rstWrite.do" role="form">
+		<form id="reservationWrite" class="form-horizontal" method="post" action="${context}/work/board/reservationWrite.do" role="form">
 		
+		<!--
 		  <div class="form-group">
 		    <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
 		    <div class="col-sm-12">
-		      <input type="text" class="form-control" id="inputName3">
+		      <input type="text" class="form-control" id="vstRegId" name="vstRegId" placeholder="이름을 입력해주세요">
+		    </div>
+		  </div>
+		  -->
+		  <div class="form-group">
+		    <label for="vstPhone" class="col-sm-2 control-label">전화번호</label>
+		    <div class="col-sm-12">
+		      <input type="tel" class="form-control" id="vstPhone" name="vstPhone" placeholder="전화번호을 입력해주세요">
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputTel3" class="col-sm-2 control-label">전화번호</label>
+		    <label for="vstEmail" class="col-sm-2 control-label">이메일</label>
 		    <div class="col-sm-12">
-		      <input type="tel" class="form-control" id="inputTel3">
+		      <input type="email" class="form-control" id="vstEmail" name="vstEmail" placeholder="이메일을 입력해주세요">
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputPassword3" class="col-sm-2 control-label">이메일</label>
+		    <label for="vstTitle" class="col-sm-2 control-label">제목</label>
 		    <div class="col-sm-12">
-		      <input type="email" class="form-control" id="inputEmail3">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputTitle3" class="col-sm-1 control-label">제목</label>
-		    <div class="col-sm-12">
-		      <input type="text" class="form-control" id="inputTitle3">
+		      <input type="text" class="form-control" id="vstTitle" name="vstTitle" placeholder="제목을 입력해주세요">
 		    </div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputtextarea3" class="col-sm-2 control-label">내용</label>
+		    <label for="vstContent" class="col-sm-2 control-label">내용</label>
 		    <div class="col-sm-12">
-		     <textarea class="form-control" rows="4" style="width: 100%; height: 272px !important;"></textarea>
+		     <textarea class="form-control" rows="4" style="width: 100%; height: 272px !important;" id="vstContent" name="vstContent" placeholder="내용을 입력해주세요"></textarea>
 		    </div>
 		  </div>
 		  
@@ -133,6 +135,7 @@ font-size: 40px;
 margin-top: 90px;
 margin-bottom: 100px;
 }
+
 
 @media (max-width: 992px) {
 	.Title {font-size: 28px;}

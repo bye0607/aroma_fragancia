@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="rstWriter.jsp">
+<meta name="description" content="reservationView.jsp">
 <title>예약 문의 글쓰기</title>
 <link href="${context}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
@@ -14,38 +14,24 @@
 <script src="${context}/js/jquery-1.9.1.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			fn_init();
-	
-			//글수정 기존 내용 셋팅
-			fn_setDetailInfo();
-		});
-	
-		function fn_setDetailInfo(){
-			$("#boardTitle").val('${dsBoard.BOARD_TITLE}');
-			$("#boardNo").val('${dsBoard.BOARD_NO}');
-	
-			var boardContent = '${boardContent.BOARD_CONTENT}';
-	
-			boardContent = boardContent.replace(/<br ?\/?>/gi, "\n");
-	
-			$("#boardContent").val(boardContent);
+		function fn_reservationList(){
+			location.href = "${context}/work/board/reservation.do";
 		}
+		//글 삭제
+		function fn_delete(){
+			var VstNo = '${dsReservation.VST_NO}';
 	
-		function fn_save(){
-			if(!fn_validation()){
-				return;
-			}else{
-				var boardContent = String($("#boardContent").val());
-	
-				boardContent = boardContent.replace(/\n/gi, "<br/>");
-	
-				$("#boardContent").val(boardContent);
-	
-		 		$("#modifyBoard").submit();
+			if(confirm("정말 글을 삭제하시겠습니까?")){
+				location.href = "${context}/work/board/deleteReservation.do?vstNo=" + VstNo;
 			}
 		}
+		
+		//글 수정
+		function fn_update(){
+			var VstNo = '${dsReservation.VST_NO}';
 	
+			location.href = "${context}/work/board/reservationModify.do?vstNo=" + VstNo;
+		}
 	</script>
 </head>
 <body>
@@ -70,53 +56,81 @@
 	</div>
 </div>
 
-<!-- ReservationWriter -->
+<!-- ReservationWrite -->
 	<div class="container">
-	<h4 class="Title">상담 신청 게시판</h4>
-	<form class="form-horizontal" method="post" action="${context}/work/reservation/rstWrite.do" role="form">
+	<div class="page-header">
+	<div class="row">
+				<div class="col-xs-8">
+					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
+					<h2 class="title">상담 예약 게시판</h2>
+				</div>
+				<div class="col-xs-4 text-right">
+					<button type="button" class="btn btn-lg boardbtn notice" onclick="fn_reservationList()">목록</button>
+				</div>
+	</div>
+	<form class="form-horizontal" method="post" role="form">
 		
 		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+		    <label for="vstEmail" class="col-sm-2 control-label">이름</label>
 		    <div class="col-sm-12">
-		      <input type="text" class="form-control" id="inputName3">
+		      ${dsReservation.USER_NAME}
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputTel3" class="col-sm-2 control-label">전화번호</label>
+		    <label for="vstPhone" class="col-sm-2 control-label">전화번호</label>
 		    <div class="col-sm-12">
-		      <input type="tel" class="form-control" id="inputTel3">
+		      ${dsReservation.VST_PHONE}
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputPassword3" class="col-sm-2 control-label">이메일</label>
+		    <label for="vstEmail" class="col-sm-2 control-label">이메일</label>
 		    <div class="col-sm-12">
-		      <input type="email" class="form-control" id="inputEmail3">
+		      ${dsReservation.VST_EMAIL}
 		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="inputTitle3" class="col-sm-1 control-label">제목</label>
+		    <label for="vstTitle" class="col-sm-2 control-label">제목</label>
 		    <div class="col-sm-12">
-		      <input type="text" class="form-control" id="inputTitle3">
+		      ${dsReservation.VST_TITLE}
 		    </div>
 		  </div>
 		   <div class="form-group">
-		    <label for="inputtextarea3" class="col-sm-2 control-label">내용</label>
+		    <label for="vstContent" class="col-sm-2 control-label">내용</label>
 		    <div class="col-sm-12">
-		     <textarea class="form-control" rows="4" style="width: 100%; height: 272px !important;"></textarea>
+		     ${dsReservation.VST_CONTENT}
 		    </div>
 		  </div>
-	 <div style=" text-align: right;">
-		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="fn_save()">글 등록하기</button>
-		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;" onclick="fn_back()">취소</button>
-	</div>
+		<!--  <c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsVst.VST_REG_ID}"> -->
+		 
+
+	<!--  </c:if>  --> 
 	</form>
 	</div>
+	</div>
+	</div>
+	<div class="container">
+	 <div style=" text-align: right;">
+		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="fn_update()">글 수정하기</button>
+		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;" onclick="fn_delete()">글 삭제하기</button>
+	  </div>	
 	</div>
 	<jsp:include page="/common/foot.jsp"></jsp:include>
 </body>
 <style type="text/css">
 .wrap{
 background-color: #fff;
+}
+/*form 제목*/
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 8px;
+    text-align: inherit !important;
+}
+.Title{
+font-family: Noto Sans KR;
+font-size: 40px;
+margin-top: 87px;
+margin-bottom: 80px;
 }
 /*form 제목*/
 .form-control {
