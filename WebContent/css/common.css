@@ -30,16 +30,6 @@ a:hover {color:#CC947C;text-decoration: none;}
 .footer .footer-right h2 {font-weight: 600; font-size: 17px;font-family: 'Crimson Pro';margin-top:10px}
 .footer .footer-right .info li {line-height: 2em;color: #999;font-family: 'Crimson Pro';}
 .footer .footer-right .info a {color: #999;}
-/* .footer-left{ margin-right: 1.25em; margin-bottom: 2em;}
-.footer-bottom{ text-align: center;   color: #999; padding-top: 50px;}
-.footer-left p{   padding-right: 20%;   color: #999; }
-.footer-left > a{ color: #999;}
-
-@media screen and (min-width: 760px) {
-   .footer-right > *{flex: 1;}
-   .footer-left{ flex: 1 0px;}
-   .footer-right{ flex: 2 0px;}
-} */
 @media (mim-width:768px){
    .footer .footer-right:last-child h2, .footer .footer-right:last-child ul {padding-left:80px;}
 }
@@ -128,19 +118,10 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 #plusCert { cursor: pointer;}
 #minusCert { cursor: pointer;}
 
-/*네비바 기본 색상 주석 처리*/
-/* .navbar-nav{
-   background-color:rgb(225, 225, 227);
-}
-.navbar-brand{
-   background-color: rgb(225, 225, 227);
-} */
 .navbar-right{
    margin-right : 5px;
 }
 .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { background-image:none !important; } .navbar-nav > li > a:hover, .navbar-nav > li > a:focus { color:#808080; }
-
-
 
 .user-row {
     margin-bottom: 14px;
@@ -167,7 +148,6 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
 .table-user-information > tbody > tr:first-child {
     border-top: 0;
 }
-
 
 .table-user-information > tbody > tr > td {
     border-top: 0;
@@ -235,8 +215,6 @@ margin-top: 30px; margin-bottom : 30px; border-radius: 12px; border: none;}
     font-size: 24px;
     color: #d17581;
 }
-
-
 
 /* 寃곗젣 셿猷   럹 씠吏  CSS*/
 
@@ -572,28 +550,26 @@ transition: all 0.4s ease-in-out;
 }
 .loginbox #name::-webkit-input-placeholder, 
 .loginbox #id::-webkit-input-placeholder{
-	background-image: url('/userImg/user.svg');
+	background-image: url('/img/icon_user.svg');
 }
 .loginbox #pw::-webkit-input-placeholder{
-  background-image: url('/userImg/key.svg') ;
+  background-image: url('/img/icon_key.svg') ;
 }
 .loginbox #email::-webkit-input-placeholder{
-  background-image: url('/userImg/mail.svg') ;
+  background-image: url('/img/icon_mail.svg') ;
 }
 .loginbox #birth::-webkit-input-placeholder{
-  background-image: url('/userImg/calendar.svg') ;
+  background-image: url('/img/icon_calendar.svg') ;
 }
 .loginbox #phone1::-webkit-input-placeholder,
 .loginbox #phone2::-webkit-input-placeholder{
-  background-image: url('/userImg/phone.svg') ;
+  background-image: url('/img/icon_phone.svg') ;
 }
 .loginbox #postNum1::-webkit-input-placeholder,
-.loginbox #postNum2::-webkit-input-placeholder {
-  background-image: url('/userImg/map-pin.svg') ;
-}
+.loginbox #postNum2::-webkit-input-placeholder,
 .loginbox #address1::-webkit-input-placeholder,
-.loginbox #address2::-webkit-input-placeholder {
-  background-image: url('/userImg/map-pin.svg') ;
+.loginbox #address2::-webkit-input-placeholder  {
+  background-image: url('/img/icon_map.svg') ;
 }
 .loginbox input[type="checkbox"]{width: 16px;height: 16px;}
 .loginbox .checkbox label {color: #818483;}
