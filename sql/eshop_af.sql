@@ -55,7 +55,6 @@ CREATE TABLE TB_COM_USER(
   ID VARCHAR2(20),                    -- 아이디
   PW VARCHAR2(20),                    -- 패스워드
   EMAIL VARCHAR2(50),                 -- 이메일
-  USER_IMAGE VARCHAR2(100),           -- 유저이미지
   NAME VARCHAR2(20),                  -- 이름
   BIRTH VARCHAR2(20),                 -- 생일
   POST_NUM VARCHAR2(20),              -- 우편번호
@@ -67,14 +66,14 @@ CREATE TABLE TB_COM_USER(
   CONSTRAINT TB_COM_USER_PK PRIMARY KEY(USER_CODE)
 );
 
-INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE, GRADE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'admin', 'admin', 'admin@aroma_fragansia.com', 'admin.png', 'AROMA', '1980-02-12', '135-080',
+INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE, GRADE) 
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'admin', 'admin', 'admin@aroma_fragansia.com', 'AROMA', '1980-02-12', '135-080',
           '01', '1234-5678', '서울특별시 강남구 강남대로 382 (역삼동) 메리츠타워', '2022-10-13', 'A');
-INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'ksy', 'ksy', 'ksy@naver.com', 'ksy.png', '기성용', '1989-01-12', '135-887',
+INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'ksy', 'ksy', 'ksy@naver.com', '기성용', '1989-01-12', '135-887',
           '01', '1111-2222', '서울특별시 강남구 도산대로45길 10-6', '2023-01-18');
-INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, USER_IMAGE, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
-VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'shm', 'shm', 'shm@naver.com', 'shm.png', '손흥민', '1992-05-07', '135-888',
+INSERT INTO TB_COM_USER(USER_CODE, ID, PW, EMAIL, NAME, BIRTH, POST_NUM, PHONE_CD, PHONE_NUM, ADDRESS, ENT_DATE) 
+VALUES ('USER0000' || USER_SEQ.NEXTVAL, 'shm', 'shm', 'shm@naver.com', '손흥민', '1992-05-07', '135-888',
           '01', '3333-4444', '서울특별시 강남구 도산대로45길 7', '2023-01-18');
 
 commit;

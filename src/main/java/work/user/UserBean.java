@@ -7,7 +7,6 @@ public class UserBean implements Serializable{
 	private String id;               //아이디
 	private String pw;               //패스워드
 	private String email;            //이메일
-	private String userImage;        //유저이미지
 	private String name;             //이름
 	private String birth;            //생년월일
 	private String postNum;          //우편번호
@@ -21,16 +20,14 @@ public class UserBean implements Serializable{
 		super();
 	}
 
-	public UserBean(String userCode, String id, String pw, String email,
-			String userImage, String name, String birth, String postNum,
-			String phoneCd, String phoneNum, String address, String entDate,
-			String grade) {
+	public UserBean(String userCode, String id, String pw, String email, 
+			String name, String birth, String postNum, String phoneCd, 
+			String phoneNum, String address, String entDate, String grade) {
 		super();
 		this.userCode = userCode;
 		this.id = id;
 		this.pw = pw;
 		this.email = email;
-		this.userImage = userImage;
 		this.name = name;
 		this.birth = birth;
 		this.postNum = postNum;
@@ -71,14 +68,6 @@ public class UserBean implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getUserImage() {
-		return userImage;
-	}
-
-	public void setUserImage(String userImage) {
-		this.userImage = userImage;
 	}
 
 	public String getName() {
@@ -156,8 +145,6 @@ public class UserBean implements Serializable{
 		builder.append(pw);
 		builder.append(", email=");
 		builder.append(email);
-		builder.append(", userImage=");
-		builder.append(userImage);
 		builder.append(", name=");
 		builder.append(name);
 		builder.append(", birth=");
