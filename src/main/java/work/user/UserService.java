@@ -13,7 +13,6 @@ public interface UserService {
 	public UserBean retrieveSessionInfo(String id);
 	public void updateUser(UserBean bean);
 	public void createUser(UserBean bean);
-	public List<Map<String, String>> retrievePostByDong(Map<String, String> userParam);
 
 	public Map<String,String> retrieveRentBookCnt(Map<String, String> userParam);
 	public Map<String,String> retrieveReserveBookCnt(Map<String, String> userParam);

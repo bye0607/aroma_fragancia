@@ -54,10 +54,6 @@ public class UserServiceImpl implements UserService{
 		UserDAO.updateUser(bean);
 	}
 
-	public List<Map<String, String>> retrievePostByDong(Map<String, String> userParam){
-		return UserDAO.retrievePostByDong(userParam);
-	}
-
 	public void updatePlusRentBookCnt(Map<String, String> userParam){
 		UserDAO.updatePlusRentBookCnt(userParam);
 	}

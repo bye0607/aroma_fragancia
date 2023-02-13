@@ -64,10 +64,6 @@ public class UserDAO {
 		sqlSession.update("user.updateUser", bean);
 	}
 
-	public List<Map<String, String>> retrievePostByDong(Map<String, String> userParam){
-		return sqlSession.selectList("user.retrievePostByDong", userParam);
-	}
-
 	public void updatePlusRentBookCnt(Map<String, String> userParam){
 		sqlSession.update("user.updatePlusRentBookCnt", userParam);
 	}
