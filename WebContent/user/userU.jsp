@@ -228,9 +228,10 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 					<div class="panel-body">
-						<div class="panel-title login">User Information</div>
+						<div class="panel-title login">Edit user information</div>
 							<!-- 아이디 -->
 							<div class="form-group">
+							<label for="id" class="control-label col-md-2 idUser" hidden="hidden;"><b>아이디</b></label>
 								<div class="col-sm-12">
 									<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" onkeyup="idCheck();" placeholder="아이디"/>
 									<p id="message"></p>
@@ -238,24 +239,28 @@
 							</div>
 							<!-- 비밀번호 -->
 							<div class="form-group">
+							<label for="pw" class="control-label col-md-2 pwUser" hidden="hidden;"><b>비밀번호</b></label>
 								<div class="col-sm-12">
 									<input class="form-control" placeholder="비밀번호" id="pw" name="pw" type="password">
 								</div>
 							</div>
 							<!-- 이메일 -->
 							<div class="form-group">
+							<label for="email" class="control-label col-md-2 emailUser" hidden="hidden;"><b>이메일</b></label>
 								<div class="col-sm-12">
 									<input class="form-control" type="email" name="email" id="email" required="required" placeholder="이메일"/>
 								</div>
 							</div>
 							<!-- 이름 -->
 							<div class="form-group" >
+							<label for="name" class="control-label col-md-2 nameUser" hidden="hidden;"><b>성명</b></label>
 								<div class="col-sm-12">
 									<input class="form-control" type="text" id="name" name="name" autofocus="autofocus" required="required" placeholder="성명"/>
 								</div>
 							</div>
 							<!-- 생년월일 -->
 							<div class="form-group">
+							<label for="birth" class="control-label col-md-2 birthUser" hidden="hidden;"><b>생년월일</b></label>
 								<div class="col-sm-12">
 									<input class="form-control" type="text" id="birth" name="birth" required="required" maxlength="10" placeholder="생년월일"/>
 								</div>
@@ -263,6 +268,7 @@
 							<!-- 전화번호 -->
 							<div class="col-sm-12 col-md-6 col-lg-4 phoneGroup">
 								<div class="form-group">
+								<label for="phoneCd" class="control-label col-md-2 phoneUser" hidden="hidden;"><b>연락처</b></label>
 									<select class="form-control form-phone" id="phoneCd" name="phoneCd" required="required" style="font-size: 15px !important;">
 										<c:forEach items="${dsCode1}" var="code1">
 											<option value="${code1.commCd}">${code1.commCdNm}</option>
@@ -279,6 +285,7 @@
 							</div>
 							<!-- 주소 -->
 							<div class="form-group">
+							<label for="postnum1" class="control-label col-md-2 addressUser" hidden="hidden;"><b>주소</b></label>
 								<div class="col-sm-12" id="formIcon"">
 									<input type="button" id="sample6_execDaumPostcode()" onclick="sample6_execDaumPostcode()" name="name" value="Search">
 									<input class="form-control address1" placeholder="우편번호" type="text" id="postNum1" disabled="disabled" required="required"/>
@@ -349,6 +356,8 @@
 <!-- footer 끝 -->
 </body>
 <style type="text/css">
+
+
 .form-group {
    float: none; 
    margin 0 auto;
@@ -392,11 +401,10 @@ input[value="Search"]:hover{
     
 .backgroundImg {
    width: 100%;
-   height: 2000px;
+   height: 1500px;
    box-sizing: border-box;
    background-position: center;
    background-size: cover;
-   display:flex !important; 
    justify-content:center !important; 
    align-items:center!important;
 }
@@ -406,16 +414,16 @@ input[value="Search"]:hover{
 }
 .panel-title{
    padding-left: 15px;
-   padding-top: 10px;
+   padding-top: 1em;
 }
 .panel-body{
    clear:both;
-   width: 566px;
+   width: 550px;
    height: 1150px;
    background-color: #fff;
    border-radius: 30px !important; 
-   position:absolute !important; 
-   transform:translate(-10%,-30%) !important;
+   position: absolute !important; 
+   top: 35px;
 }
 .fieldset {
    background-position: center;
