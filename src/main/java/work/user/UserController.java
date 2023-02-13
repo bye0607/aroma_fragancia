@@ -127,13 +127,13 @@ public class UserController implements HttpSessionListener{
 		Map<String, String> idMap = new HashMap<String, String>();
 
 		if(pw == null){
-			checkMsg = "<div class='col-md-5 col-md-offset-2'>"
+			checkMsg = "<div class='col-sm-12'>"
 					+ "<p>해당하는 ID가 존재하지 않습니다</p>"
 					+ "</div>";
 		}else{
-			checkMsg = "<div class='col-md-4 col-md-offset-2'>"
-					+ "<p>회원님의 PW는 <font color='blue'><strong>" + pw + "</strong></font>입니다."
-					+ " <a href='login.jsp'>로그인 페이지로 이동</a></p>"
+			checkMsg = "<div class='col-sm-12'>"
+					+ "<p>회원님의 비밀번호는 <font color='#CC947C'><strong>" + pw + "</strong></font>입니다."
+					+ "<br><a href='login.jsp'>[로그인하기]</a></p>"
 					+ "</div>";
 		}
 

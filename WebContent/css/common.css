@@ -560,55 +560,77 @@ transition: all 0.4s ease-in-out;
 .logintab .tabbtn a:hover {color:#fff;transition:0.3s}
 .logintab .tabbtn.on {background:#fff;pointer-events : none;}
 .loginbox form {padding:35px 35px 21px;font-family: Crimson Pro;font-size:16px;}
-.loginbox form .form-control {height: 46px;border-radius: 15px; margin-bottom:11px;}
-.loginbox form ::-webkit-input-placeholder {font-family: Crimson Pro;font-size:16px;}
-.loginbox form #id::-webkit-input-placeholder{
-  background-image: url('/userImg/user.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  padding-left:40px;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
+.loginbox .form-control {height: 46px;border-radius: 15px; margin-bottom:11px;}
+.loginbox ::-webkit-input-placeholder {
+	font-family: Crimson Pro;font-size:16px;
+	background-size: contain;
+	background-position:  1px center;
+	background-repeat: no-repeat;
+	padding: 0 15px 0 0;
+	padding-left:28px;
+	filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-.loginbox form #pw::-webkit-input-placeholder{
+.loginbox #name::-webkit-input-placeholder, 
+.loginbox #id::-webkit-input-placeholder{
+	background-image: url('/userImg/user.svg');
+}
+.loginbox #pw::-webkit-input-placeholder{
   background-image: url('/userImg/key.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-.loginbox form #email::-webkit-input-placeholder{
+.loginbox #email::-webkit-input-placeholder{
   background-image: url('/userImg/mail.svg') ;
-  background-size: contain;
-  background-position:  1px center;
-  background-repeat: no-repeat;
-  padding: 0 15px 0 0;
-  text-indent: 0;
-  text-align:left;
-  padding-left:40px;
-  filter: invert(98%) sepia(0%) saturate(15%) hue-rotate(142deg) brightness(87%) contrast(85%);
 }
-.loginbox form input[type="checkbox"]{width: 16px;height: 16px;}
-.loginbox form .checkbox label {color: #818483;}
+.loginbox #birth::-webkit-input-placeholder{
+  background-image: url('/userImg/calendar.svg') ;
+}
+.loginbox #phone1::-webkit-input-placeholder,
+.loginbox #phone2::-webkit-input-placeholder{
+  background-image: url('/userImg/phone.svg') ;
+}
+.loginbox #postNum1::-webkit-input-placeholder,
+.loginbox #postNum2::-webkit-input-placeholder {
+  background-image: url('/userImg/map-pin.svg') ;
+}
+.loginbox #address1::-webkit-input-placeholder,
+.loginbox #address2::-webkit-input-placeholder {
+  background-image: url('/userImg/map-pin.svg') ;
+}
+.loginbox input[type="checkbox"]{width: 16px;height: 16px;}
+.loginbox .checkbox label {color: #818483;}
 .loginbox .checkboxText {margin-left: 11px;}
-.loginbox .Loginbtn{
+.loginbox .Loginbtn {
 	font-size: 17.5px;
 	font-weight: bold;
 	color: #fff;
 	background-color: #9CA09F;
 }
+.loginbox .Loginbtn:hover{background:#292F36;transition:0.3s}
+.loginbox .postcode {border-radius: 15px 0 0 15px !important;}
+.loginbox .postsearch {
+      height: 46px;
+      background: #fff;
+      font-size: 16px;
+      font-family: Crimson Pro;
+      outline:none;
+      display:inline-block;
+      margin-left: -1px;
+      margin-bottom:11px;
+      border: 1px solid #ccc; 
+      border-radius: 0 15px 15px 0;
+}
+.loginbox .postsearch:hover{
+     background:#9CA09F;
+     border:0;
+     color:#fff
+}
 @media (min-width: 992px) {
 	.logintab .title {height:62px;font-size:28px;padding-top:30px;padding-left:70px}
 	.logintab .tabbtn a {height:62px;font-size:28px;padding-top:10px}
 	.loginbox form {padding:50px 50px 30px;font-size:20px;}
-	.loginbox form .form-control {height: 66px;margin-bottom:15px;}
-	.loginbox form ::-webkit-input-placeholder {font-size:20px;}
-	.loginbox form input[type="checkbox"]{width: 20px;height: 20px;}
+	.loginbox form .form-control {height: 66px;font-size:20px;margin-bottom:15px;}
+	.loginbox ::-webkit-input-placeholder {font-size:20px;padding-left:40px;}
+	.loginbox input[type="checkbox"]{width: 20px;height: 20px;}
 	.loginbox .checkboxText {margin-left: 16px;}
 	.loginbox .Loginbtn{font-size: 25px;}
+	.loginbox .postsearch {height: 66px;font-size: 20px;margin-bottom:15px;}
 }

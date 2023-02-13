@@ -7,9 +7,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>LOGIN</title>
-    <link href="${context}/css/common.css" rel="stylesheet">
     <script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -17,7 +15,6 @@
 				if(key.keyCode == 13){
 					ajaxLoginCheck();
 				}
-
 			});
 		});
 
@@ -59,7 +56,7 @@
 	        	<!-- login tab button start -->
 	        	<div class="logintab">
 			        <div class="col-xs-6 tabbtn on"><a href="${context}/user/login.jsp">Login</a></div>
-					<div class="col-xs-6 tabbtn"><a href="${context}/user/userC.jsp">Register</a></div>
+					<div class="col-xs-6 tabbtn"><a href="${context}/work/user/createUser.do">Register</a></div>
 				</div>
 				<!-- login tab button end -->
 				<form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">

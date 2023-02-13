@@ -7,7 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Password Find</title>
-    <link href="${context}/css/common.css" rel="stylesheet">
     <script src="${context}/js/jquery-1.9.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -60,7 +59,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                        	<div class="col-sm-12" style="float: none; margin 0 auto;">
+                        	<div class="col-sm-12">
                         		<input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
                             </div>
 						</div>
@@ -69,7 +68,7 @@
 								<input class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserPw()"/>
 							</div>
 						</div>
-						<div class="form-group" style="margin-left: 10%; margin-top: 5%" id="message"></div>
+						<div class="form-group" id="message"></div>
 					</fieldset>
                 </form>
 			</div>
