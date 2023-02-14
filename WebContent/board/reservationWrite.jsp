@@ -43,7 +43,7 @@
 <!-- Detail -->
 	<div class="container">
 	<h4 class="Title">상담신청하기</h4>
-		<form id="reservationWrite" class="form-horizontal" method="post" action="${context}/work/board/reservationWrite.do" role="form">
+		<form id="reservationWrite" class="form-horizontal boardwrite" method="post" action="${context}/work/board/reservationWrite.do" role="form">
 		
 		<!--
 		  <div class="form-group">
