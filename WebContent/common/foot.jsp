@@ -36,7 +36,7 @@
 			<ul class="info">
 				<li><a href="${context}/board/notice.do">공지사항</a>
 				<li><a href="${context}/board/community.do">커뮤니티</a>
-				<li><a href="${context}/work/FAQ/FAQ.jsp">자주묻는질문</a>
+				<li><a href="${context}/FAQ/FAQ.jsp">자주묻는질문</a>
 				<li><a href="${context}/work/board/reservation.do">상담예약문의</a>
 			</ul>
 		</div>
