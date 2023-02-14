@@ -20,6 +20,7 @@
 <c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
 <c:set var="loginUrl">${context}/user/login.jsp</c:set>
 
+<c:set var="visitUrl">${context}/work/board/reservation.do</c:set>
 <c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
 <c:set var="cmmuUrl">${context}/work/board/community.do</c:set>
 <c:set var="boardUrl">${context}/work/board/board.do</c:set>
@@ -71,10 +72,9 @@
 	          </ul>
 	        </li>
 	        
-	        <!-- 비회원 가능 -->
-	        <li><a class="ddt" href="${context}/work/board/reservationList.do">RESERVATION</a></li>
-	        
 	        <!-- 회원, 관리자만 가능 -->
+	        <li><a href="#" onclick="javascript:fn_isLogin('${sessionScope.userCode}','${loginUrl}','${visitUrl}')">RESERVATION</a></li>
+	        
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICE <span class="caret"></span></a>
 	          <ul class="dropdown-menu">

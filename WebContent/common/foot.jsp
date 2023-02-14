@@ -14,37 +14,6 @@
     "pluginKey": "84091ac2-0c80-450c-a7c1-2b8955b6f6af"
   });
 </script>
-<style type="text/css">
-
-
-/* body{font-family: "Crimson Pro"; margin: 0;	display: grid; font-size: 14px;}
-footer{ display: -webkit-flex; display: -ms-flex; display: -o-flex;	display: flex; flex-flow: row wrap;	padding: 50px; color: fff;
-	cursor: default; font-family: "Crimson Pro";}
-.footer > *{ flex: 1 100%;}
-.footer-left{ margin-right: 1.25em; margin-bottom: 2em;}
-.footer-right > li > h2{ font-weight: 600; font-size: 17px; }
-.footer ul{ list-style: none; padding-left: 0;}
-.footer li{line-height: 2em;}
-.footer a{text-decoration: none;}
-.footer-right{	display: -webkit-flex; display: -ms-flex; display: -o-flex;	display: flex; flex-flow: row wrap;}
-.footer-right > *{ flex: 1 50%; margin-right: 1.25em; }
-.info a{ color: #999;}
-.info2 a{ cursor: default;}
-.footer-bottom{ text-align: center;	color: #999; padding-top: 50px;}
-.footer-left p{	padding-right: 20%;	color: #999; }
-.footer-left > a{ color: #999;}
-.sns a{	width: 40px; height: 40px; display: inline-block; margin-right: 10px;}
-
-@media screen and (min-width: 760px) {
-	.footer-right > *{flex: 1;}
-	.footer-left{ flex: 1 0px;}
-	.footer-right{ flex: 2 0px;}
-}
-@media (max-width:992px){
-	.footer{ padding: 15px;	}
-} */
-
-</style>
 </head>
 <c:set var="homeUrl">${context}/work/product/goMain.do</c:set>
 <body>
@@ -68,7 +37,7 @@ footer{ display: -webkit-flex; display: -ms-flex; display: -o-flex;	display: fle
 				<li><a href="${context}/board/notice.do">공지사항</a>
 				<li><a href="${context}/board/community.do">커뮤니티</a>
 				<li><a href="${context}/work/FAQ/FAQ.jsp">자주묻는질문</a>
-				<li><a href="#">상담예약문의</a>
+				<li><a href="${context}/work/board/reservation.do">상담예약문의</a>
 			</ul>
 		</div>
 		<div class="col-sm-4 col-md-3 footer-right">
