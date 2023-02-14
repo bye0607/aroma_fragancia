@@ -20,7 +20,6 @@
     <script>
 	var sort;
 	var url;
-
     $(document).ready(function(){
     	var objDonut = JSON.parse('${objDonut}');
     	var objBar = JSON.parse('${objBar}');
@@ -58,9 +57,11 @@
             hideHover: 'auto',
             resize: true
         });
-
+        if(objDonut.length == 0 || objBar.length == 0){
+        	//console.log("팬매없음");
+            $("#donutChart").append("<h2 class='text-center' style='margin-top:200px'>판매된 상품이 없습니다.</h2>");
+        }
     });
-
     </script>
 </head>
 <body>
