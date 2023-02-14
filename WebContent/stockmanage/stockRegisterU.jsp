@@ -137,7 +137,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label col-md-2"><b>상품이미지</b></label>
-				<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/backgroundImage/defaultpic.png"><br/>
+				<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="${context}/admin/product_default.png"><br/>
 				<div class="col-md-6">
 					<input type="hidden" id="productImage" name="productImage" required="required">
 				</div>
