@@ -99,21 +99,22 @@
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
 <!-- 쿠키 팝업 start -->
-        <!-- 쿠키 -->
-        <div id="notice_wrap">
-          <p>AROMA,FRAGANCIA<br> Better but different</p>
-          <ul class="bxslider">
-            <li><img src="${context}/img/main/popup_cookie01.jpg" alt="WHITE SHIRTS"></li>
-            <li><img src="${context}/img/main/popup_cookie02.jpg" alt="HARSH GREEN"></li>
-            <li><img src="${context}/img/main/popup_cookie03.jpg" alt="LILAC SKY"></li>
-          </ul>
-           <div class="closewrap">
-            <br>
-            <input type="checkbox" name="expiresChk" id="expiresChk" />
-            <label for="expiresChk">오늘 그만보기</label>
-            <button class="closeBtn">닫기</button>
-          </div>
-        </div>
+	<c:if test="${sessionScope.grade != 'A'}">
+   <div id="notice_wrap">
+     <p>AROMA,FRAGANCIA<br> Better but different</p>
+     <ul class="bxslider">
+       <li><img src="${context}/img/main/popup_cookie01.jpg" alt="WHITE SHIRTS"></li>
+       <li><img src="${context}/img/main/popup_cookie02.jpg" alt="HARSH GREEN"></li>
+       <li><img src="${context}/img/main/popup_cookie03.jpg" alt="LILAC SKY"></li>
+     </ul>
+      <div class="closewrap">
+       <br>
+       <input type="checkbox" name="expiresChk" id="expiresChk" />
+       <label for="expiresChk">오늘 그만보기</label>
+       <button class="closeBtn">닫기</button>
+     </div>
+   </div>
+   </c:if>
 <!-- 쿠키 팝업 end-->
 <c:if test="${sessionScope.grade != 'A'}">
    <!-- main visual - vegas plugin -->
