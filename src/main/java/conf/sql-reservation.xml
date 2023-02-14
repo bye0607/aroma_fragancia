@@ -72,7 +72,7 @@
 				, VST_REG_DATE				
 				, VST_MOD_DATE				
 			) VALUES 
-				('A' || LPAD(VST_SEQ.NEXTVAL, 5, 0) /* N*/
+				('A' || LPAD(VISIT_SEQ.NEXTVAL, 5, 0) /* N*/
 				, #{vstTitle}
 				, #{vstContent}
 				, #{vstPhone}
