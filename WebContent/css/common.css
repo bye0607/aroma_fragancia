@@ -510,6 +510,7 @@ transition: all 0.4s ease-in-out;
 .logintab .tabbtn.on {background:#fff;pointer-events : none;}
 .loginbox form {padding:35px 35px 21px;font-family: Crimson Pro;font-size:16px;}
 .loginbox .form-control {height: 46px;border-radius: 15px; margin-bottom:11px;}
+.loginbox .input-group .form-control {z-index:0}
 .loginbox ::-webkit-input-placeholder {
 	font-family: Crimson Pro;font-size:16px;
 	background-size: contain;
