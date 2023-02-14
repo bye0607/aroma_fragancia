@@ -8319,7 +8319,7 @@ var dialog = $.widget( "ui.dialog", {
 			zIndexMax = Math.max.apply( null, zIndicies );
 
 		if ( zIndexMax >= +this.uiDialog.css( "z-index" ) ) {
-			this.uiDialog.css( "z-index", zIndexMax + 1 );
+			this.uiDialog.css( "z-index", zIndexMax + 10 );
 			moved = true;
 		}
 
