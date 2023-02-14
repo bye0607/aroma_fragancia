@@ -5,10 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Password Find</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FIND PASSWORD</title>
     <script src="${context}/js/jquery-1.9.1.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#email").keydown(function (key){
 			if(key.keyCode == 13){
@@ -39,7 +40,7 @@
 			}
 		});
 	}
-</script>
+	</script>
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
@@ -49,7 +50,8 @@
 	        <div class="loginbox">
 	        	<!-- login tab button start -->
 	        	<div class="logintab">
-			        <div class="col-xs-12 title">Password Find</div>
+			        <div class="col-xs-6 tabbtn"><a href="${context}/user/idFind.jsp">Find Id</a></div>
+			        <div class="col-xs-6 tabbtn on"><a href="${context}/user/pwFind.jsp">Find Password</a></div>
 				</div>
 	        	<!-- login tab button end -->
                 <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
@@ -58,8 +60,6 @@
                         	<div class="col-sm-12">
                             	<input class="form-control" type="text" name="id" id="id" required="required" autofocus="autofocus" placeholder="ID"/>
                             </div>
-                        </div>
-                        <div class="form-group">
                         	<div class="col-sm-12">
                         		<input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
                             </div>

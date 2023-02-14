@@ -46,7 +46,6 @@
 		}
 	</script>
 </head>
-
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
 <div class="container-fluid backgroundImg">
@@ -72,22 +71,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-						    <div class="col-sm-12">
-						    	<div class="checkbox">
-							        <label>
-							        	<input type="checkbox"><span class="checkboxText">Remember me</span>
-							        </label>
-						    	</div>
-						    </div>
-						</div>
-                        <!-- Change this to a button or input when using this as a form -->
-                        <div class="form-group">
 	                        <div class="col-sm-12">
 	                         	<button type="button" class="form-control btn Loginbtn" onclick="ajaxLoginCheck();">LOGIN</button>
                          	</div>
                        	</div>
                         <div class="form-group">
 	                        <div class="col-sm-12">
+	                        	<p class="forgotText"><a href="${context}/user/idFind.jsp">Forgot your id?</a></p>
 	                        	<p class="forgotText"><a href="${context}/user/pwFind.jsp">Forgot your password?</a></p>
                         	</div>
                         </div>

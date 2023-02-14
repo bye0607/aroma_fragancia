@@ -5,22 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="idFind.jsp">
-
-<title>Insert title here</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<link href="../css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-<link href="../css/plugins/social-buttons.css" rel="stylesheet">
-<link href="../font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-<script src="../js/jquery-1.9.1.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/plugins/metisMenu/metisMenu.min.js"></script>
-
-<script src="../js/sb-admin-2.js"></script>
-<script type="text/javascript">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FIND ID</title>
+    <script src="${context}/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#email").keydown(function (key){
 			if(key.keyCode == 13){
@@ -48,33 +37,39 @@
 			}
 		});
 	}
-</script>
+	</script>
 </head>
 <body>
-	<jsp:include page="../common/top.jsp"></jsp:include>
-	<div class="container">
-		<div class="jumbotron jumbotron-info" style="background-color: lightgray;">
-			<h1><font color="black"><strong>ID찾기</strong>&nbsp;<span class="glyphicon glyphicon glyphicon-pencil"></span></font></h1>
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<div class="container-fluid backgroundImg">
+	<div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+	        <div class="loginbox">
+	        	<!-- login tab button start -->
+	        	<div class="logintab">
+			        <div class="col-xs-6 tabbtn on"><a href="${context}/user/idFind.jsp">Find Id</a></div>
+			        <div class="col-xs-6 tabbtn"><a href="${context}/user/pwFind.jsp">Find Password</a></div>
+				</div>
+	        	<!-- login tab button end -->
+                <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
+                    <fieldset>
+                        <div class="form-group">
+                        	<div class="col-sm-12">
+	                       		<input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
+                            </div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input class="Loginbtn form-control" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserId()"/>
+							</div>
+						</div>
+						<div class="form-group" id="message"></div>
+					</fieldset>
+                </form>
+			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div class="form-horizontal" style="margin-bottom: 30%;">
-			<hr/>
-
-			<div class="form-group" style="margin-top: 5%;">
-				<label for="email" class="control-label col-md-2">이메일</label>
-				<div class="col-md-4">
-					<input class="form-control" type="email" name="email" id="email" autofocus="autofocus"/>
-				</div>
-				<div class="col-md-2">
-					<input class="btn btn-default" type="button" name="btnSubmit" id="btnSubmit" value="확인" onclick="retrieveUserId()"/>
-				</div>
-			</div>
-			<div class="form-group" id="message">
-
-			</div>
-		</div>
-	</div>
-	<jsp:include page="../common/foot.jsp"></jsp:include>
+</div>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
 </body>
 </html>
