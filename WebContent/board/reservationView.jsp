@@ -96,20 +96,16 @@
 		     ${dsReservation.VST_CONTENT}
 		    </div>
 		  </div>
-		<!--  <c:if test="${sessionScope.grade == 'A' || sessionScope.userCode == dsVst.VST_REG_ID}"> -->
-		 
-
-	<!--  </c:if>  --> 
+		<!-- board button area start -->
+		<div class="row btnarea">
+			<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
+			<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
+		</div>
+		<!-- board button area end -->
 	</form>
 	</div>
 	</div>
 	</div>
-	<!-- board button area start -->
-	<div class="row btnarea">
-		<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
-		<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
-	</div>
-	<!-- board button area end -->
 	<jsp:include page="/common/foot.jsp"></jsp:include>
 </body>
 <style type="text/css">
