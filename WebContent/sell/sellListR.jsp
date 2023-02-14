@@ -41,8 +41,8 @@
 			        pay_method : 'card',
 			        merchant_uid : 'order_' + new Date().getTime(),
 			        name : '${dsSellList[0].PRODUCT_NAME}',
-			        //amount : '${dsSellList[0].SELL_PRICE}',
-			        amount : 10,
+			        amount : '${dsSellList[0].SELL_PRICE}',
+			        //amount : 10,
 			        //buyer_email : '${dsSellList[0].EMAIL}',
 			        //////////////////////////////////////////// 결제테스트시 메일주소 변경요망 //////////////////////////////////////////////////////
 			        buyer_email : 'bye0607@gmail.com',
