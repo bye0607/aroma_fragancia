@@ -56,17 +56,17 @@
 		<div class="boardview">
 		  <div class="form-group">
 		    <label for="vstEmail" class="col-sm-2 control-label">이름</label>
-		    <div class="col-sm-12 title">
+		    <div class="col-sm-12 content">
 		      ${dsReservation.USER_NAME}
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="vstPhone" class="col-sm-2 control-label">전화번호</label>
-		    <div class="col-sm-12 title">
+		    <div class="col-sm-12 content">
 		      ${dsReservation.VST_PHONE}
 		    </div>
 		  </div>
-		  <div class="form-group title">
+		  <div class="form-group content">
 		    <label for="vstEmail" class="col-sm-2 control-label">이메일</label>
 		    <div class="col-sm-12">
 		      ${dsReservation.VST_EMAIL}
