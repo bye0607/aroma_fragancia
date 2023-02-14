@@ -53,32 +53,32 @@
 				</div>
 	</div>
 	<form class="form-horizontal" method="post" role="form">
-		
+		<div class="boardview">
 		  <div class="form-group">
 		    <label for="vstEmail" class="col-sm-2 control-label">이름</label>
-		    <div class="col-sm-12">
+		    <div class="col-sm-12 title">
 		      ${dsReservation.USER_NAME}
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="vstPhone" class="col-sm-2 control-label">전화번호</label>
-		    <div class="col-sm-12">
+		    <div class="col-sm-12 title">
 		      ${dsReservation.VST_PHONE}
 		    </div>
 		  </div>
-		  <div class="form-group">
+		  <div class="form-group title">
 		    <label for="vstEmail" class="col-sm-2 control-label">이메일</label>
 		    <div class="col-sm-12">
 		      ${dsReservation.VST_EMAIL}
 		    </div>
 		  </div>
-		  <div class="form-group">
+		  <div class="form-group title">
 		    <label for="vstTitle" class="col-sm-2 control-label">제목</label>
 		    <div class="col-sm-12">
 		      ${dsReservation.VST_TITLE}
 		    </div>
 		  </div>
-		   <div class="form-group">
+		   <div class="form-group content">
 		    <label for="vstContent" class="col-sm-2 control-label">내용</label>
 		    <div class="col-sm-12">
 		     ${dsReservation.VST_CONTENT}
@@ -90,6 +90,7 @@
 			<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
 		</div>
 		<!-- board button area end -->
+		</div>
 	</form>
 	</div>
 	</div>
@@ -130,7 +131,9 @@ font-size: 40px;
 margin-top: 90px;
 margin-bottom: 100px;
 }
-
+.title {
+border-bottom:none !important;
+}
 @media (max-width: 992px) {
 	.Title {font-size: 28px;}
 	.control-label{font-size: 18px;}
