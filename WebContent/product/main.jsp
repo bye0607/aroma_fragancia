@@ -95,7 +95,7 @@
 <c:set var="productManageUrl">${context}/work/product/retrieveProductListForManage.do</c:set>
 <c:set var="statisticsForProductUrl">${context}/work/sell/retrieveStatisticsForProduct.do</c:set>
 <c:set var="statisticsForStockUrl">${context}/work/product/retrieveStatisticsForStock.do?productCategoryCd=P</c:set>
-
+<c:set var="perfumeUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
 <!-- 쿠키 팝업 start -->
