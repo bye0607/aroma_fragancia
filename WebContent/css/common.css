@@ -497,7 +497,7 @@ transition: all 0.4s ease-in-out;
 
 /* by, 김은주, 정은진 - 로그인, 비밀번호찾기, 회원가입, 정보수정 */
 .backgroundImg {
-	background-image: url('img/subbg_login.png');
+	background-image: url('/img/subbg_login.png');
 	background-size: cover;
 	margin-bottom:-100px;
 	padding:100px 15px;
