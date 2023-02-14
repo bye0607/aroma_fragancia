@@ -66,7 +66,7 @@
         });
         if(objDonut.length == 0 || objBar.length == 0){
             //console.log("팬매없음");
-            $("#donutChart").append("<h2 class='text-center' style='margin-top:200px'>판매된 상품이 없습니다.</h2>");
+            $("#chartarea").html("<h2 class='text-center' style='margin:100px'>판매된 상품이 없습니다.</h2>");
         }
     });
 
@@ -97,16 +97,18 @@
 			</select>
 		</div>
 	</div>
-    <div class="row">
-		<div class="col-xs-12">
-			<div id="donutChart" style="width:100%;height:400px;margin-top:20px"></div>
-		</div>
-    </div>
-
-	<div class="row">
-		<div class="col-xs-12">
-			<div id="barChart" style="width:100%;margin-top:30px"></div>
-		</div>
+	<div id="chartarea">
+	    <div class="row">
+			<div class="col-xs-12">
+				<div id="donutChart" style="width:100%;height:400px;margin-top:20px"></div>
+			</div>
+	    </div>
+	
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="barChart" style="width:100%;margin-top:30px"></div>
+			</div>
+	    </div>
     </div>
 	<div id="printArea" style="display: none;">
 	</div>
