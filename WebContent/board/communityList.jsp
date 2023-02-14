@@ -60,7 +60,7 @@
                          <tr>
                          	<td>
                          		<div class="col-md-10"><a href ="${context}/work/board/communityView.do?comuNo=${dsCommunityList.COMU_NO}">${dsCommunityList.COMU_TITLE}</a></div>
-								<div class="col-md-2">${dsCommunityList.USER_NAME}</div>
+								<div class="col-md-2 text-right">${dsCommunityList.USER_NAME}</div>
                          	</td>
                          </tr>
                     	</c:forEach>

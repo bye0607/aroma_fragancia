@@ -62,7 +62,7 @@
                          <tr>
                          	<td>
                          		<div class="col-md-10"><a href ="${context}/work/board/boardView.do?boNo=${dsBoardList.BO_NO}">${dsBoardList.BO_TITLE}</a></div>
-								<div class="col-md-2">${dsBoardList.USER_NAME}</div>
+								<div class="col-md-2 text-right">${dsBoardList.USER_NAME}</div>
                          	</td>
                          </tr>
                     	</c:forEach>

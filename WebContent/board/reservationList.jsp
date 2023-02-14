@@ -60,7 +60,7 @@
                          <tr>
                          	<td>
                          		<div class="col-md-10"><a href ="${context}/work/board/reservationView.do?vstNo=${dsreservationList.VST_NO}">${dsreservationList.VST_TITLE}</a></div>
-								<div class="col-md-2">${dsreservationList.USER_NAME}</div>
+								<div class="col-md-2 text-right">${dsreservationList.USER_NAME}</div>
 								                      
                          	</td>
                          </tr>
