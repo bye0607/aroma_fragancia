@@ -8,11 +8,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="reservationView.jsp">
 <title>예약 문의 글쓰기</title>
-<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-<link href="${context}/css/common.css" rel="stylesheet">
 <script src="${context}/js/jquery-1.9.1.js"></script>
-<script src="${context}/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		function fn_reservationList(){
 			location.href = "${context}/work/board/reservation.do";
@@ -108,12 +104,12 @@
 	</div>
 	</div>
 	</div>
-	<div class="container">
-	 <div style=" text-align: right;">
-		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="fn_update()">글 수정하기</button>
-		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;" onclick="fn_delete()">글 삭제하기</button>
-	  </div>	
+	<!-- board button area start -->
+	<div class="row btnarea">
+		<button class="btn btn-lg boardbtn" type="button" onclick="fn_update()">글 수정하기</button>
+		<button class="btn btn-lg boardbtn" type="button" onclick="fn_delete()">글 삭제하기</button>
 	</div>
+	<!-- board button area end -->
 	<jsp:include page="/common/foot.jsp"></jsp:include>
 </body>
 <style type="text/css">

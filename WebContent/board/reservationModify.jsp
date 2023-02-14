@@ -8,11 +8,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="reservationModify.jsp">
 <title>예약 문의 글쓰기</title>
-<link href="${context}/css/bootstrap.min.css" rel="stylesheet">
-<link href="${context}/css/bootstrap-theme.css" rel="stylesheet">
-<link href="${context}/css/common.css" rel="stylesheet">
 <script src="${context}/js/jquery-1.9.1.js"></script>
-<script src="${context}/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			fn_init();
@@ -112,10 +108,12 @@
 		     <textarea id="vstContent" name="vstContent" class="form-control" rows="4" style="width: 100%; height: 272px !important;"></textarea>
 		    </div>
 		  </div>
-	 <div style=" text-align: right;">
-		<button type="button" class="btn btn-default boardbtn"  style=" display: inline-block; margin: 80px 42px 60px 0;" onclick="fn_save()">저장 하기</button>
-		<button type="button" class="btn btn-default boardbtn" style=" display: inline-block; margin: 80px 0 60px 0;" onclick="fn_back()">취소</button>
-	</div>
+		<!-- board button area start -->
+		<div class="row btnarea">
+			<button class="btn btn-lg boardbtn" type="button" onclick="fn_save()">글 등록하기</button>
+			<button type="button" class="btn btn-lg boardbtn" onclick="fn_back()">취소</button>
+		</div>
+		<!-- board button area end -->
 	</form>
 	</div>
 	</div>
