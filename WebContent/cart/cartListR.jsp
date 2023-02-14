@@ -44,7 +44,7 @@
 			        pay_method : 'card',
 			        merchant_uid : 'order_' + new Date().getTime(),
 			        name : '${dsCartList[0].PRODUCT_NAME}',
-			        amount : '${dsCartList[0].SELL_PRICE}',
+			        amount : '${dsCartList[0].CART_PRICE}',
 			        //amount : 10,
 			        //buyer_email : '${dsCartList[0].EMAIL}',
 			        //////////////////////////////////////////// 결제테스트시 메일주소 변경요망 //////////////////////////////////////////////////////
