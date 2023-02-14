@@ -24,7 +24,7 @@
 <c:set var="noitceUrl">${context}/work/board/notice.do</c:set>
 <c:set var="cmmuUrl">${context}/work/board/community.do</c:set>
 <c:set var="boardUrl">${context}/work/board/board.do</c:set>
-<c:set var="FAQUrl">${context}/work/FAQ/FAQ.jsp</c:set>
+<c:set var="FAQUrl">${context}/FAQ/FAQ.jsp</c:set>
 
 <c:set var="perfumeUrl">${context}/work/product/retrieveProductList.do?category=P</c:set>
 <c:set var="diffuserUrl">${context}/work/product/retrieveProductList.do?category=D</c:set>
