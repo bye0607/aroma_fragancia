@@ -96,12 +96,12 @@ public class UserController implements HttpSessionListener{
 		Map<String, String> idMap = new HashMap<String, String>();
 
 		if(id == null){
-			checkMsg = "<div class='col-sm-12'>"
-					+ "<p>해당하는 ID가 존재하지 않습니다</p>"
+			checkMsg = "<div class='col-sm-12 chkMsg'>"
+					+ "<p class='notFoundMsg'>해당하는 ID가 존재하지 않습니다</p>"
 					+ "</div>";
 		}else{
-			checkMsg = "<div class='col-md-5 col-md-offset-2'>"
-					+ "<p>회원님의 ID는 <font color='#CC947C'><strong>" + id + "</strong></font>입니다."
+			checkMsg = "<div class='col-sm-12 chkMsg'>"
+					+ "<p class='foundMsg'>회원님의 ID는 <font color='#CC947C'><strong>" + id + "</strong></font>입니다."
 					+ "<br><a href='login.jsp'>[로그인]</a> | <a href='pwFind.jsp'>[PW찾기]</a></p>"
 					+ "</div>";
 		}
@@ -125,12 +125,12 @@ public class UserController implements HttpSessionListener{
 		Map<String, String> idMap = new HashMap<String, String>();
 
 		if(pw == null){
-			checkMsg = "<div class='col-sm-12'>"
-					+ "<p>해당하는 ID가 존재하지 않습니다</p>"
+			checkMsg = "<div class='col-sm-12 chkMsg'>"
+					+ "<p class='notFoundMsg'>해당하는 ID가 존재하지 않습니다</p>"
 					+ "</div>";
 		}else{
-			checkMsg = "<div class='col-sm-12'>"
-					+ "<p>회원님의 비밀번호는 <font color='#CC947C'><strong>" + pw + "</strong></font>입니다."
+			checkMsg = "<div class='col-sm-12 chkMsg'>"
+					+ "<p class='foundMsg'>회원님의 비밀번호는 <font color='#CC947C'><strong>" + pw + "</strong></font>입니다."
 					+ "<br><a href='login.jsp'>[로그인]</a></p>"
 					+ "</div>";
 		}
