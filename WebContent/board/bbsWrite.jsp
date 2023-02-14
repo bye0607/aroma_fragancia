@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="boardWrite.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>자유 게시판 - 글 쓰기</title>
 	<script src="${context}/js/jquery-1.9.1.js"></script>
@@ -32,25 +31,14 @@
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">Board</h3>
-			<p class="boardSub1">자유 게시판</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_service.png");'>
+	<div class="boardText">
+		<h3 class="boardTitle">BOARD</h3>
+		<p class="boardSub">자유 게시판</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">Board</h3>
-			<p class="boardSub2">자유 게시판</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 <!-- Detail -->
 	<div class="container">
 		<!-- board title, buttons start -->

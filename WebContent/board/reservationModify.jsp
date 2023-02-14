@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="reservationModify.jsp">
 <title>예약 문의 글쓰기</title>
 <script src="${context}/js/jquery-1.9.1.js"></script>
 	<script type="text/javascript">
@@ -53,28 +52,17 @@
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
 <div class="wrap">
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">RESERVATION</h3>
-			<p class="boardSub1">상담 예약 문의</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_reservation.jpg");'>
+	<div class="boardText">
+		<h3 class="boardTitle">RESERVATION</h3>
+		<p class="boardSub">상담 예약 문의</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">RESERVATION</h3>
-			<p class="boardSub2">상담 예약 문의</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 <!-- ReservationWrite -->
 	<div class="container">
-	<h4 class="Title">상담 신청 게시판</h4>
+	<h4 class="Title">상담 신청 문의</h4>
 		<form id="reservationModify" class="form-horizontal" method="post" action="${context}/work/board/reservationModify.do?vstNo=${dsReservation.VST_NO}" role="form">
 		  <!-- 
 		  <div class="form-group">

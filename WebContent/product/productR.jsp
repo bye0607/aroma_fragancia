@@ -7,7 +7,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="productR.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>PRODUCT - ${dsProduct.PRODUCT_NAME}</title>
 	<script src="${context}/js/jquery-1.9.1.js"></script>
@@ -139,25 +138,14 @@
 </head>
 <body class="productview">
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
-		<div class="boardText1">
-			<h3 class="boardTitle1">PRODUCT</h3>
-			<p class="boardSub1">${dsProduct.PRODUCT_CATEGORY_CD_NM}</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_product.png");'>
+	<div class="boardText">
+		<h3 class="boardTitle">PRODUCT</h3>
+		<p class="boardSub">${dsProduct.PRODUCT_CATEGORY_CD_NM}</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
-		<div class="boardText2">
-			<h3 class="boardTitle2">PRODUCT</h3>
-			<p class="boardSub2">${dsProduct.PRODUCT_CATEGORY_CD_NM}</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 <div class="container">
 	<!-- board title, buttons start -->
 	<div class="page-header">
@@ -268,7 +256,7 @@
 			</div>
 		</div>
 		<div class="scent-info-img">
-			<img class="img-responsive scent-info-img" src="${context}/backgroundImage/scent_img.png" alt="맞는향">
+			<img class="img-responsive scent-info-img" src="${context}/img/product_scent.png" alt="맞는향">
 			<img class="img-responsive scent-info-video" src="https://media.11corporation.com/cdn/addict/godo/detail/1000000045/20221025/detail_11.jpg?tr=w-1170,h-auto&amp;_=22010251810">
 		</div>	
 		<div class="scent-info-img">

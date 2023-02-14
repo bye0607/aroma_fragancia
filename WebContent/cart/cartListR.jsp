@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="cartListR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>장바구니</title>
@@ -82,24 +81,14 @@
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">CART</h3>
-			<p class="boardSub1">장바구니</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_cart.jpg");'>
+	<div class="boardText">
+		<h3 class="boardTitle">CART</h3>
+		<p class="boardSub">장바구니</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">CART</h3>
-			<p class="boardSub2">장바구니</p>
-		</div>
-	</div>
-</div>
+<!-- title, visual end -->
 <div class="container">
 	<!-- board title, buttons start -->
 	<div class="page-header">

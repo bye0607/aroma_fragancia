@@ -7,7 +7,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="productListR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PRODUCT - ${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</title>
@@ -15,24 +14,14 @@
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
-		<div class="boardText1">
-			<h3 class="boardTitle1">PRODUCT</h3>
-			<p class="boardSub1">${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_product.png");'>
+	<div class="boardText">
+		<h3 class="boardTitle">PRODUCT</h3>
+		<p class="boardSub">${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/PRODUCT.png");'>
-		<div class="boardText2">
-			<h3 class="boardTitle2">PRODUCT</h3>
-			<p class="boardSub2">${dsProductList[0].PRODUCT_CATEGORY_CD_NM}</p>
-		</div>
-	</div>
-</div>
+<!-- title, visual end -->
 <!-- 상품 영역 -->		
 	<div class="container productlist">
 		<!-- 베스트 셀러 -->

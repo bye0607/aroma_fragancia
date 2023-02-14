@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="description" content="reservationList.jsp">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>글 목록</title>
 	<script src="${context}/js/jquery-1.9.1.js"></script>
@@ -17,25 +16,14 @@
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">RESERVATION</h3>
-			<p class="boardSub1">상담 예약 문의</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_reservation.jpg");'>
+	<div class="boardText">
+		<h3 class="boardTitle">RESERVATION</h3>
+		<p class="boardSub">상담 예약 문의</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">RESERVATION</h3>
-			<p class="boardSub2">상담 예약 문의</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 <!-- Detail -->
 	<div class="container">
 		<!-- board title, buttons start -->
@@ -43,7 +31,7 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<!-- 한글일 경우 title 클래스만 사용. 영문일 경우 eng 클래스 추가하세요 -->
-					<h2 class="title">상담 예약 게시판</h2>
+					<h2 class="title">상담 예약 문의</h2>
 				</div>
 				<div class="col-xs-4 text-right">
 					<button type="button" class="btn btn-lg boardbtn"  onclick="fn_reservationWrite()">새 글 쓰기</button>

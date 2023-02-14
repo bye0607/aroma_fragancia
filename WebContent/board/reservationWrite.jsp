@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="reservationWrite.jsp">
 <title>예약 상세 페이지</title>
 <script src="${context}/js/jquery-1.9.1.js"></script>
 <script type="text/javascript">
@@ -33,25 +32,14 @@
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
 <div class="wrap">
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">RESERVATION</h3>
-			<p class="boardSub1">상담 예약 문의</p>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_reservation.jpg");'>
+	<div class="boardText">
+		<h3 class="boardTitle">RESERVATION</h3>
+		<p class="boardSub">상담 예약 문의</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">RESERVATION</h3>
-			<p class="boardSub2">상담 예약 문의</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 <!-- Detail -->
 	<div class="container">
 	<h4 class="Title">상담신청하기</h4>

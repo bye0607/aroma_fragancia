@@ -6,7 +6,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="sellConfirmR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>구매완료</title>
@@ -101,7 +100,7 @@
 </head>
 <body>
 <jsp:include page="/common/top.jsp"></jsp:include>
-<div class="backgroundImg" style="background-image: url('${context}/backgroundImage/sellconfirmImg.jpg');">
+<div class="backgroundImg" style="background-image: url('${context}/img/subbg_sellconfirm.jpg');">
 
 		<div class="sellfirm container" style="margin-bottom: 10%; padding-top: 10%">
 			
@@ -109,7 +108,7 @@
 					
 					<div class="offer-content">
 					<br><br><br>
-					<img alt="구매완료" class="checkicon" src="../../sellimg/check.svg" style="width: 50px; height: 50px;">
+					<img alt="구매완료" class="checkicon" src="${context}/img/icon_check.svg" style="width: 50px; height: 50px;">
 						<h1 align="center" style="font-family: Crimson Pro; font-size: 25px">
 							<strong>AROMA, FRAGANCIA</strong>를 이용해 주셔서 감사합니다. <br>
 							<br>

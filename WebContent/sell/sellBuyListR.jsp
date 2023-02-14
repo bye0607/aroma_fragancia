@@ -6,7 +6,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="sellBuyListR.jsp">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>구매내역</title>
@@ -39,24 +38,14 @@
 </head>
 <body>
 <jsp:include page="${context}/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">Purchase<br>History</h3>
-			<h3 class="boardSub1"></h3>
-		</div>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_cart.jpg");'>
+	<div class="boardText">
+		<h3 class="boardTitle">Purchase<br>History</h3>
+		<p class="boardSub"></p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/CART_BACKIMG.jpg");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">Purchase<br>History</h3>
-			<h3 class="boardSub2"></h3>
-		</div>
-	</div>
-</div>
+<!-- title, visual end -->
 <div class="container">
 	<!-- board title, buttons start -->
 	<div class="page-header">

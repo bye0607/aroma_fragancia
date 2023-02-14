@@ -15,26 +15,15 @@
 
 <script type="text/javascript"></script>
 <body>
-<jsp:include page="/common/top.jsp"></jsp:include>
-<!-- desktop버전  -->
-<div class="desktop">
-	<div class="img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText1" >
-			<h3 class="boardTitle1">FAQ</h3>
-			<p class="boardSub1">자주 묻는 질문</p>
-		</div>
+<jsp:include page="${context}/common/top.jsp"></jsp:include>
+<!-- title, visual start -->
+<div class="titarea" style='background-image: url("${context}/img/subbg_service.png");'>
+	<div class="boardText">
+		<h3 class="boardTitle">FAQ</h3>
+		<p class="boardSub">자주 묻는 질문</p>
 	</div>
 </div>
-<!-- mobile버전  -->
-<div class="mobile">
-	<div class="mobileImg img-responsive center-block" style='background-image: url("${context}/backgroundImage/subbg_service.png");'>
-		<div class="boardText2" >
-			<h3 class="boardTitle2">FAQ</h3>
-			<p class="boardSub2">자주 묻는 질문</p>
-		</div>
-	</div>
-</div>
-
+<!-- title, visual end -->
 	<!-- FAQ start -->
 	<div class=FAQ_wrap>
 	<h1 class="FAQ_Text"><strong>FAQ</strong></h1>
@@ -201,4 +190,4 @@ text-align: right;
 
 </style>
 
-<jsp:include page="/common/foot.jsp"></jsp:include>
+<jsp:include page="${context}/common/foot.jsp"></jsp:include>
