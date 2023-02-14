@@ -43,8 +43,7 @@ a:hover {color:#CC947C;text-decoration: none;}
 #notice_wrap .closewrap #expiresChk {margin-left:10px;width:16px;height:16px;}
 #notice_wrap .closewrap label {padding-left:5px;font-size: 18px; font-weight: bold;} 
 #notice_wrap .closewrap .closeBtn{position:absolute;right:15px;background: none; border: none; font-size: 18px; font-weight: bold;}
-#notice_wrap .bx-prev, .popup_image .bx-next{display: none;}
-
+#notice_wrap .bx-prev, .bx-next{display: none;}
 /* main */
 /* main visual - vegas plugin */
 .mainveg {height:700px}
