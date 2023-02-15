@@ -51,11 +51,11 @@
 			        <div class="col-xs-6 tabbtn"><a href="${context}/user/pwFind.jsp">Find Password</a></div>
 				</div>
 	        	<!-- login tab button end -->
-                <form action="${context}/work/user/login.do" method="post" role="form" id="loginFrm">
+	        	<form>
                     <fieldset>
                         <div class="form-group">
                         	<div class="col-sm-12">
-	                       		<input class="form-control" type="email" name="email" id="email" required="required" placeholder="Email"/>
+	                       		<input class="form-control" type="email" name="email" id="email" required="required" autofocus="autofocus" autocomplete="off" placeholder="Email"/>
                             </div>
 						</div>
 						<div class="form-group">
@@ -65,7 +65,7 @@
 						</div>
 						<div class="form-group" id="message"></div>
 					</fieldset>
-                </form>
+				</form>
 			</div>
 		</div>
 	</div>
